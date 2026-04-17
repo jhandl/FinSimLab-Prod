@@ -1,0 +1,112 @@
+{
+  "country": "AR",
+  "countryName": "Argentina",
+  "version": "2025.12",
+  "taxBasis": "domestic",
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "updateMessage": "",
+
+  "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
+
+  "economicData": {
+    "typicalRentalYield": 5.0,
+    "inflation": 34.6223,
+    "purchasingPowerParity": { "value": 419.90104, "year": 2024 },
+    "exchangeRate": { "perEur": 1684.07 },
+    "asOf": "2026-03-24"
+  },
+
+  "incomeTax": {
+    "name": "Ganancias",
+    "taxCredits": {  },
+    "dependentChildMaxAge": 18,
+    "bracketsByStatus": {
+      "single": { "0": 0.05, "500000": 0.09, "1000000": 0.12, "1500000": 0.15, "2000000": 0.19, "2500000": 0.23, "3000000": 0.27, "3500000": 0.31, "4000000": 0.35 },
+      "married": { "0": 0.05, "750000": 0.09, "1500000": 0.12, "2250000": 0.15, "3000000": 0.19, "3750000": 0.23, "4500000": 0.27, "5250000": 0.31, "6000000": 0.35 }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "ANSES",
+      "rate": 0.11,
+      "incomeCap": null,
+      "applicableIncomeTypes": [ "employment" ]
+    },
+    {
+      "name": "Obra Social",
+      "rate": 0.03,
+      "incomeCap": null,
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "capitalGainsTax": { "rate": 0.15, "annualExemption": 0, "allowLossOffset": true },
+
+  "pensionRules": {
+    "minRetirementAgeState": 65,
+    "statePensionAge": 65,
+    "statePensionPeriod": "monthly",
+    "pensionSystem": { "type": "state_only" },
+    "taxAdvantaged": true,
+    "helpText": {
+      "label": "State Pension",
+      "contributionDescriptionP1": "<p>Private pension contributions are not used in this ruleset.</p>",
+      "contributionDescriptionP2": "<p>Private pension contributions are not used in this ruleset.</p>",
+      "statePensionDescriptionP1": "<p>Enter your expected monthly state pension amount.</p><p>Refer to [this page](https://calcularsueldo.com.ar/jubilaciones/calcular-jubilacion){Calculadora de Jubilación} to find how to calculate yours.</p>",
+      "statePensionDescriptionP2": "<p>Enter your partner's expected monthly state pension amount.</p><p>Refer to [this page](https://calcularsueldo.com.ar/jubilaciones/calcular-jubilacion){Calculadora de Jubilación} to find how to calculate theirs</p>"
+    },
+    "contributionLimits": {  },
+    "lumpSumTaxBands": {  },
+    "minDrawdownRates": {  }
+  },
+
+  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
+
+  "investmentTypes": [
+    {
+      "key": "merval_ar",
+      "label": "MERVAL",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "MERVAL index shares are subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage} on gains. Securities traded on the Argentine stock exchange may have exemptions under certain conditions. Losses can be offset against gains.",
+      "helpUrl": "https://www.afip.gob.ar/"
+    },
+    {
+      "key": "cedear_ar",
+      "label": "CEDEARs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "CEDEARs (Argentine Depositary Receipts) are subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage} on gains. These represent shares of foreign companies traded on the Argentine exchange. Losses can be offset against gains.",
+      "helpUrl": "https://www.afip.gob.ar/"
+    },
+    {
+      "key": "rsu_ar",
+      "label": "RSUs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "sellWhenReceived": true,
+      "excludeFromAllocations": true,
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "Restricted Stock Units are taxed as ordinary income at delivery (up to 35% withholding). Subsequent sale of vested shares is subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage}.",
+      "helpUrl": "https://www.afip.gob.ar/"
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}

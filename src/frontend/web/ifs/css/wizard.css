@@ -1,0 +1,250 @@
+.driver-popover {
+  padding-top: 30px !important;
+  min-width: 456px !important;
+  /* Linear scaling: 456 px at 480 px viewport → 524 px at 1200 px viewport. */
+  max-width: clamp(456px, calc(9.445vw + 411px), 524px) !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+.driver-popover.welcome-popover {
+  min-width: 300px !important;
+  max-width: clamp(300px, 80vw, 900px) !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+} 
+
+.driver-popover.howto-popover {
+  min-width: 300px !important;
+  max-width: clamp(300px, 80vw, 1500px) !important;
+  max-height: 80vh !important;
+  overflow-y: scroll;
+}
+
+.driver-popover .driver-popover-title {
+  font-size: 1.26rem;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.driver-popover .driver-popover-description {
+  font-size: 1.08rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.driver-popover p {
+  margin-bottom: 0.5em;
+}
+
+.driver-popover ol, .driver-popover ul {
+  margin-left: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.driver-popover li {
+  margin-bottom: 10px;
+}
+
+/* Mobile optimizations for small screens */
+@media (max-width: 480px) {
+  .driver-popover {
+    max-height: 85vh !important;
+    max-width: 95vw !important;
+    min-width: 280px !important;
+    padding-top: 20px !important;
+  }
+
+  .driver-popover.welcome-popover {
+    max-height: 85vh !important;
+    max-width: 95vw !important;
+    min-width: 280px !important;
+  }
+
+  .driver-popover.howto-popover {
+    max-height: 85vh !important;
+    max-width: 95vw !important;
+    min-width: 280px !important;
+  }
+
+  .driver-popover .driver-popover-title {
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .driver-popover .driver-popover-description {
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .driver-popover ol, .driver-popover ul {
+    margin-left: 15px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+  }
+
+  .driver-popover li {
+    margin-bottom: 8px;
+  }
+}
+
+/* Extra small screens like iPhone SE */
+@media (max-width: 375px) {
+  .driver-popover {
+    max-height: 80vh !important;
+    max-width: 98vw !important;
+    min-width: 260px !important;
+    padding-top: 15px !important;
+  }
+
+  .driver-popover.welcome-popover {
+    max-height: 80vh !important;
+    max-width: 98vw !important;
+    min-width: 260px !important;
+  }
+
+  .driver-popover.howto-popover {
+    max-height: 80vh !important;
+    max-width: 98vw !important;
+    min-width: 260px !important;
+  }
+
+  .driver-popover .driver-popover-title {
+    font-size: 1rem;
+    padding-bottom: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .driver-popover .driver-popover-description {
+    font-size: 0.9rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}
+
+/* Mobile landscape mode - account for browser UI to prevent overlap */
+@media (max-width: 915px) and (orientation: landscape) {
+  .driver-popover {
+    /* Fallback for older browsers */
+    max-height: 75vh !important;
+    /* Use small viewport height for consistent behavior across browsers */
+    max-height: 75svh !important;
+    /* Additional fallback with safe-area-inset for supported browsers */
+    max-height: calc(75vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.welcome-popover {
+    max-height: 75vh !important;
+    max-height: 75svh !important;
+    max-height: calc(75vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.howto-popover {
+    max-height: 70vh !important;
+    max-height: 70svh !important;
+    max-height: calc(70vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* Mobile landscape mode for smaller devices - more aggressive height reduction */
+@media (max-width: 480px) and (orientation: landscape) {
+  .driver-popover {
+    max-height: 70vh !important;
+    max-height: 70svh !important;
+    max-height: calc(70vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.welcome-popover {
+    max-height: 70vh !important;
+    max-height: 70svh !important;
+    max-height: calc(70vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.howto-popover {
+    max-height: 65vh !important;
+    max-height: 65svh !important;
+    max-height: calc(65vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* Very short landscape screens (like iPhone in landscape) */
+@media (max-width: 915px) and (orientation: landscape) and (max-height: 450px) {
+  .driver-popover {
+    max-height: 65vh !important;
+    max-height: 65svh !important;
+    max-height: calc(65vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.welcome-popover {
+    max-height: 65vh !important;
+    max-height: 65svh !important;
+    max-height: calc(65vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .driver-popover.howto-popover {
+    max-height: 60vh !important;
+    max-height: 60svh !important;
+    max-height: calc(60vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* Make Driver.js highlighting subtle and non-distracting */
+.driver-active-element {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Mobile-specific styles for wizard mode */
+@media (max-width: 768px), (hover: none) {
+  /* Subtle visual indication that inputs are temporarily disabled during wizard */
+  body[data-wizard-active] input[readonly] {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    cursor: default !important;
+  }
+  
+  body[data-wizard-active] select[style*="pointer-events: none"] {
+    opacity: 0.8 !important;
+    cursor: default !important;
+  }
+}
+
+.driver-highlighted-element {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* The stage element is what creates the highlighting border - make it transparent */
+#driver-highlighted-element-stage {
+  border: 2px solid transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure driver overlays don't add visual noise */
+.driver-overlay {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Icon buttons should never have borders - prevent Driver.js from adding them */
+#exportDataCSV,
+#visualizationToggle {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Add directional arrows to tour navigation buttons */
+.driver-popover-prev-btn::before {
+  content: "← ";
+}
+
+.driver-popover-next-btn:not(.done)::after {
+  content: " →";
+}

@@ -1,0 +1,168 @@
+{
+  "country": "IE",
+  "countryName": "Ireland",
+  "version": "2025.12",
+  "taxBasis": "worldwide",
+  "jointFilingAllowed": true,
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "updateMessage": "Incorporates Budget 2026 changes and PRSI increased to 4.2%",
+
+  "locale": { "numberLocale": "en-IE", "currencyCode": "EUR", "currencySymbol": "€" },
+
+  "economicData": {
+    "typicalRentalYield": 7.8,
+    "inflation": 1.653,
+    "purchasingPowerParity": { "value": 0.740894, "year": 2024 },
+    "exchangeRate": { "perEur": 1.0 },
+    "asOf": "2026-03-24"
+  },
+
+  "incomeTax": {
+    "name": "IT",
+    "familyId": "incomeTax",
+    "tooltip": "Income Tax paid on taxable income",
+    "taxCredits": {
+      "personal": {
+        "amount": 1875,
+        "uiInput": { "required": false, "section": "personalCircumstances", "label": "Personal Tax Credit" }
+      },
+      "employee": {
+        "min": { "amount": 2000, "rate": 0.2 }
+      },
+      "age": { "0": 0, "65": 245 }
+    },
+    "ageExemptionAge": 65,
+    "ageExemptionLimit": 18000,
+    "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 35000,
+    "bracketsByStatus": {
+      "single": { "0": 0.2, "44000": 0.4 },
+      "singleWithDependents": { "0": 0.2, "48000": 0.4 },
+      "married": { "0": 0.2, "53000": 0.4 }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "PRSI",
+      "familyId": "PRSI",
+      "tooltip": "Pay Related Social Insurance contributions",
+      "rate": 0.042,
+      "incomeCap": null,
+      "ageAdjustments": { "70": 0 },
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [
+    {
+      "name": "USC",
+      "familyId": "USC",
+      "tooltip": "Universal Social Charge paid",
+      "brackets": { "0": 0.005, "12012": 0.02, "28700": 0.03, "70044": 0.08, "100000": 0.11 },
+      "incomeExemptionThreshold": 13000,
+      "reducedRateAge": 70,
+      "reducedRateMaxIncome": 60000,
+      "ageBasedBrackets": {
+        "70": { "0": 0.005, "12012": 0.02 }
+      },
+      "base": "income"
+    }
+  ],
+
+  "capitalGainsTax": { "name": "CGT", "familyId": "capitalGainsTax", "tooltip": "Capital Gains Tax (and Exit Tax) paid on investment gains.", "rate": 0.33, "annualExemption": 1270, "allowLossOffset": true, "deemedDisposalYears": 8 },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": { "enabled": true, "proportional": true },
+    "holdingPeriodExemptionYears": null,
+    "residentsOnly": false,
+    "capitalGainsOptions": { "rateRef": "capitalGainsTax.rate", "eligibleForAnnualExemption": true, "allowLossOffset": true }
+  },
+
+  "realEstate": {
+    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+  },
+
+  "dividendTax": { "rate": 0.33, "annualExemption": 0, "withholding": false },
+
+  "interestTax": { "rate": 0.33, "withholding": false },
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 60,
+    "minRetirementAgeOccupational": 60,
+    "minRetirementAgeState": 66,
+    "contributionLimits": {
+      "ageBandsPercent": { "0": 0.15, "30": 0.2, "40": 0.25, "50": 0.3, "55": 0.35, "60": 0.4 },
+      "annualCap": 115000
+    },
+    "lumpSumTaxBands": { "0": 0, "200000": 0.2, "500000": 0.4 },
+    "lumpSumLifetimeCap": {
+      "taxFreeAmount": 200000,
+      "excessBands": { "0": 0.2, "300000": 0.4 }
+    },
+    "lumpSumMaxPercent": 0.25,
+    "minDrawdownRates": { "61": 0.04, "71": 0.05 },
+    "statePensionAge": 66,
+    "statePensionPeriod": "weekly",
+    "statePensionIncreaseBands": { "80": 10 },
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": true,
+    "helpText": { "label": "Private Pension", 
+      "contributionDescriptionP1": "<p>How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.</p><p>If you enter 100% here, you will contribute the maximum allowed for your age as per the tax rules. Do not include employer matching contributions here; there's another place for that.</p>", 
+      "contributionDescriptionP2": "<p>How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.</p><p>If you enter 100% here, your partner will contribute the maximum allowed for their age. This field is only used in two-person simulation mode.</p>", 
+      "statePensionDescriptionP1": "<p>Enter your expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate yours.</p>", 
+      "statePensionDescriptionP2": "<p>Enter your partner's expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate theirs.</p>" 
+    },
+    "definedBenefit": { "treatment": "privatePension" }
+  },
+
+  "residencyRules": { "postEmigrationTaxYears": 3, "taxesForeignIncome": true, "minResidencyYearsBeforePostEmigrationTax": 3, "nonResidentCreditPolicy": "all", "trailingCreditPolicy": "all" },
+
+  "adapters": [],
+
+  "investmentTypes": [
+    {
+      "key": "indexFunds_ie",
+      "label": "Index Funds",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "ie",
+      "residenceScope": "local",
+      "taxation": {
+        "exitTax": { "rate": 0.38, "deemedDisposalYears": 8, "allowLossOffset": false, "eligibleForAnnualExemption": false }
+      },
+      "helpText": "Irish and EU/EEA-domiciled Index Funds (including ETFs) are subject to Exit Tax at ${investmentType.taxation.exitTax.rate,percentage} with a ${investmentType.taxation.exitTax.deemedDisposalYears}-year deemed disposal rule."
+    },
+    {
+      "key": "shares_ie",
+      "label": "Shares",
+      "baseCurrency": "EUR",
+      "assetCountry": "ie",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "annualExemptionRef": "capitalGainsTax.annualExemption" }
+      },
+      "helpText": "Individual shares and investment trusts are subject to Capital Gains Tax at ${taxRules.capitalGainsTax.rate,percentage} on disposal."
+    },
+    {
+      "key": "rsu_ie",
+      "label": "RSUs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "ie",
+      "residenceScope": "local",
+      "sellWhenReceived": true,
+      "excludeFromAllocations": true,
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "annualExemptionRef": "capitalGainsTax.annualExemption" }
+      },
+      "helpText": "Restricted Stock Units are taxed as employment income (IT/USC/PRSI) at vesting based on market value. Subsequent disposal of vested shares is subject to Capital Gains Tax at ${taxRules.capitalGainsTax.rate,percentage}."
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}

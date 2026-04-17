@@ -1,0 +1,128 @@
+:root {
+    /* Layout Breakpoints for Grid Layout */
+    --layout-breakpoint-wide: 2110px;      /* 3-column to 2-column layout */
+    --layout-breakpoint-medium: 1499px;    /* 2-column to single column layout */
+    --layout-breakpoint-narrow: 993px;     /* Parameters section 3-column to 2-column */
+    --layout-breakpoint-mobile: 663px;     /* Mobile parameter layout */
+}
+
+main {
+  width: 100%;
+  max-width: none;
+  margin: 1.8rem auto var(--data-section-viewport-gap, 1.8rem) auto;
+  padding: 0 0.9rem;
+  flex: 1;
+  display: grid;
+  /*grid-template-columns: minmax(auto, max-content) minmax(0, 900px) 1fr;*/
+  grid-template-columns: minmax(auto, max-content) minmax(0, 810px) minmax(0, 1fr);
+  grid-template-areas: 
+      "parameters events graphs"
+      "data-section data-section data-section";
+  gap: 1.8rem;
+  justify-content: start;
+  align-content: start;
+}
+
+footer {
+  background-color: var(--card-background);
+  padding: 0.9rem 1.8rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Parameters section layout */
+.parameters-section {
+  grid-area: parameters;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(306px, 306px)); /* The minmax should remain untouched: minmax(340px, 340px). */
+  gap: 1.35rem;
+  justify-content: start;
+}
+
+/* Events section */
+.events-section {
+  grid-area: events;
+  background-color: var(--card-background);
+  border-radius: 7.2px;
+  padding: 1.35rem;
+  box-shadow: var(--box-shadow);
+  width: 100%;  /* Change from 900px to 100% */
+  max-width: 810px;  /* Add this to maintain maximum width */
+  justify-self: start;  /* Add this to ensure left alignment */
+  flex-shrink: 0;
+}
+
+/* Graphs section */
+.graphs-section {
+  grid-area: graphs;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  flex-shrink: 1;
+}
+
+.graph-container {
+  background-color: var(--card-background);
+  padding: 1.35rem;
+  border-radius: 7.2px;
+  box-shadow: var(--box-shadow);
+  flex: 1;
+  min-height: 360px;
+  max-height: 540px;
+  width: 100%;
+  position: relative;
+  min-width: 0;
+}
+
+/* Make canvas responsive */
+.graph-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.35rem;
+}
+
+/* Adjust canvas for graph containers with HTML titles */
+.graph-container.has-html-title canvas {
+  top: 3.5rem !important;
+  height: calc(100% - 3.5rem) !important;
+  padding-top: 0 !important;
+  padding-bottom: 1.35rem !important;
+}
+
+
+/* Add these styles for the data table */
+.data-section {
+  grid-area: data-section;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: var(--card-background);
+  border-radius: 7.2px;
+  padding: 0;
+  box-shadow: var(--box-shadow);
+  max-width: 100%;
+}
+
+/* Remove card class constraints from data section */
+.data-section.card {
+  max-width: none;
+}
+
+/* New styles for mobile data table toggle */
+#mobile-data-message {
+  display: none;
+}
+
+/* Layout media queries will be generated dynamically by JavaScript */
+

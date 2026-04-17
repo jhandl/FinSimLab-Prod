@@ -1,0 +1,671 @@
+# Events Wizard Configuration
+# This file defines wizard flows for guided event creation
+# Similar to help.yml but focused on step-by-step event creation
+#
+# Label Positioning:
+# Each step can specify a 'labelPosition' attribute to control how labels are positioned relative to input fields:
+# - "top": Label appears above the input field (default)
+# - "left": Label appears to the left of the input field
+# - "right": Label appears to the right of the input field
+# - "bottom": Label appears below the input field
+
+EventWizards:
+
+  # Income Wizard (Comprehensive Flow)
+  - eventType: "SI"
+    name: "Income"
+    category: "income"
+    steps:
+      - stepId: "incomeType"
+        title: "Income Type"
+        contentType: "choice"
+        content:
+          text: "What type of income is this?"
+          choices:
+            - value: "salary"
+              title: "Salary"
+              description: "Regular employment income"
+            - value: "rsu"
+              title: "RSU"
+              description: "Restricted Stock Units"
+            - value: "rental"
+              title: "Rental"
+              description: "Rental property income"
+              condition: "hasPropertyEvent"
+            - value: "defined_benefit"
+              title: "Defined Benefit"
+              description: "Pension or defined benefit plan"
+            - value: "tax_free"
+              title: "Tax-free income"
+              description: "Income not subject to taxation"
+        showButtons: ["back", "next"]
+
+      - stepId: "person"
+        title: "For Whom?"
+        contentType: "choice"
+        content:
+          text: "Who will receive this salary income?"
+          choices:
+            - value: "person1"
+              title: "You"
+              description: "Your salary income"
+            - value: "person2"
+              title: "Your partner"
+              description: "Your partner's salary income"
+        showButtons: ["back", "next"]
+        condition: "incomeType === 'salary' && simulationMode === 'couple'"
+
+      - stepId: "name"
+        title: "Name Your Income"
+        contentType: "input"
+        field: "name"
+        labelPosition: "top"
+        content:
+          text: "Give this income a descriptive name:"
+          validation: "required"
+        showButtons: ["back", "next"]
+        condition: "incomeType !== 'rental'"
+
+      - stepId: "rental_property"
+        title: "Linked Property"
+        contentType: "input"
+        field: "name"
+        labelPosition: "left"
+        content:
+          text: "Select the property for this rental income:"
+          inputType: "propertyLink"
+          validation: "required"
+        showButtons: ["back", "next"]
+        condition: "incomeType === 'rental'"
+
+      - stepId: "amount"
+        title: "Annual Amount"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "Enter the annual amount for this income:"
+          inputType: "currency"
+          validation: "required|positive"
+          help: "Enter the gross annual amount before taxes and deductions."
+        showButtons: ["back", "next"]
+
+      - stepId: "period"
+        title: "Income Period"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "When will you receive this income?"
+          help: "Enter the age range during which you'll receive this income."
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "growth"
+        title: "Growth Rate"
+        contentType: "input"
+        field: "rate"
+        labelPosition: "left"
+        content:
+          text: "What annual growth rate do you expect?"
+          inputType: "percentage"
+          validation: "optional"
+          help: "Leave blank to use inflation rate."
+          defaultValue: "inflation"
+        showButtons: ["back", "next"]
+        condition: "fromAge !== toAge"
+
+      - stepId: "pensionContribution"
+        title: "Pension Contribution"
+        contentType: "choice"
+        content:
+          text: "Does this salary contribute to a pension?"
+          choices:
+            - value: "yes"
+              title: "Yes"
+              description: "This salary contributes to pension"
+            - value: "no"
+              title: "No"
+              description: "This salary does not contribute to pension"
+        showButtons: ["back", "next"]
+        condition: "incomeType === 'salary' && salaryHasPrivatePension === true"
+
+      - stepId: "match"
+        title: "Employer Pension Match"
+        contentType: "input"
+        field: "match"
+        content:
+          text: "Does your employer match pension contributions? If so, up to what percentage?"
+          inputType: "percentage"
+          validation: "optional"
+          help: "Leave blank if your employer does not match pension contributions."
+        showButtons: ["back", "next"]
+        condition: "incomeType === 'salary' && salaryHasPrivatePension === true && pensionContribution === 'yes'"
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - condition: "incomeType === 'salary' && pensionContribution === 'yes' && match"
+              template: "{name}: A gross salary of {amount} per year {periodPhrase}{growthPart}{matchPart}."
+            - condition: "incomeType === 'salary' && pensionContribution === 'yes'"
+              template: "{name}: A gross salary of {amount} per year {periodPhrase}{growthPart}."
+            - template: "{name}: A {incomeType} income of {amount} per year {periodPhrase}{growthPart}."
+        showButtons: ["back", "create"]
+
+  # Expense Wizard (Simple Flow)
+  - eventType: "E"
+    name: "Expense"
+    category: "expense"
+    description: "Add a regular or one-time expense"
+    difficulty: "simple"
+    steps:
+      - stepId: "frequency"
+        title: "Expense Frequency"
+        contentType: "choice"
+        content:
+          text: "How often does this expense occur?"
+          choices:
+            - value: "oneoff"
+              title: "One-off"
+              description: "A single expense that occurs once"
+            - value: "weekly"
+              title: "Weekly"
+              description: "Occurs every week"
+            - value: "monthly"
+              title: "Monthly"
+              description: "Occurs every month"
+            - value: "yearly"
+              title: "Yearly"
+              description: "Occurs once per year"
+        showButtons: ["back", "next"]
+        
+      - stepId: "name"
+        title: "Name Your Expense"
+        contentType: "input"
+        field: "name"
+        labelPosition: "top"
+        content:
+          text: "Give this expense a descriptive name:"
+          validation: "required"
+        showButtons: ["back", "next"]
+        
+      - stepId: "cost"
+        title: "Cost"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "What's the {frequency} cost of this expense?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+        
+      - stepId: "period"
+        title: "Expense Period"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "During what period will you have this expense?"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+        condition: "frequency !== 'oneoff'"
+
+      - stepId: "timing"
+        title: "When will this expense occur?"
+        contentType: "input"
+        field: "fromAge"
+        content:
+          text: "At what age will you have this one-time expense?"
+          inputType: "age"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+        condition: "frequency === 'oneoff'"
+
+      - stepId: "growth"
+        title: "Cost Growth"
+        contentType: "input"
+        field: "rate"
+        content:
+          text: "How much do you expect this expense to grow annually?"
+          inputType: "percentage"
+          validation: "optional"
+          help: "Leave blank to use inflation rate."
+          defaultValue: "inflation"
+        showButtons: ["back", "next"]
+        condition: "frequency !== 'oneoff' && fromAge !== toAge"
+        
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - condition: "frequency === 'oneoff'"
+              template: "{name}: A one-off expense of {amount} at age {fromAge}{growthPart}."
+            - template: "{name}: An expense of {amount} {frequencyText} (≈ {annualAmount} per year) {periodPhrase}{growthPart}."
+        showButtons: ["back", "create"]
+
+  # Property Purchase Wizard (Complex Flow)
+  - eventType: "R"
+    name: "Property Purchase"
+    category: "property"
+    steps:
+      - stepId: "financing"
+        title: "How will you finance this property?"
+        contentType: "choice"
+        content:
+          text: "Choose your financing method:"
+          choices:
+            - value: "cash"
+              title: "Cash Purchase"
+              description: "Buy the property outright without a mortgage"
+            - value: "mortgage"
+              title: "With Mortgage"
+              description: "Buy with a down payment and mortgage financing"
+        showButtons: ["back", "next"]
+
+      - stepId: "name"
+        title: "Property Name"
+        contentType: "input"
+        field: "name"
+        labelPosition: "top"
+        content:
+          text: "Give this property a name:"
+          validation: "required"
+        showButtons: ["back", "next"]
+           
+      - stepId: "cash_purchase_price"
+        title: "Property Purchase Price"
+        contentType: "input"
+        field: "amount"
+        content:
+          text: "What's the total purchase price of the property?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+        condition: "financing === 'cash'"
+
+      - stepId: "mortgage_property_price"
+        title: "Property Value"
+        contentType: "input"
+        field: "propertyValue"
+        content:
+          text: "What's the total purchase price of the property?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+        condition: "financing === 'mortgage'"
+
+      - stepId: "down_payment"
+        title: "Down Payment"
+        contentType: "input"
+        field: "amount"
+        content:
+          text: "How much will you pay as a down payment?"
+          inputType: "currency"
+          validation: "required|positive|lt:propertyValue"
+        showButtons: ["back", "next"]
+        condition: "financing === 'mortgage'"
+        
+      - stepId: "timing"
+        title: "Purchase & Sale Timing"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "When will you buy and sell this property?"
+          help: "If you don't plan to sell it, leave the second field blank."
+          validation: "fromAgeRequired|positive"
+        showButtons: ["back", "next"]
+        
+      - stepId: "appreciation"
+        title: "Property Appreciation"
+        contentType: "input"
+        field: "rate"
+        labelPosition: "left"
+        content:
+          text: "What annual appreciation rate do you expect?"
+          inputType: "percentage"
+          validation: "optional"
+        showButtons: ["back", "next"]
+        condition: "fromAge !== toAge"
+        
+      - stepId: "mortgage_setup"
+        title: "Mortgage Details"
+        contentType: "mortgage"
+        labelPosition: "left"
+        content:
+          text: ""
+        showButtons: ["back", "next"]
+        condition: "financing === 'mortgage'"
+        
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - condition: "financing === 'cash'"
+              template: "{name}: A cash property purchase for {amount} {periodPhrase}{growthPart}."
+            - template: "{name}: Purchase for {propertyValue} with a down payment of {amount} ({downPaymentPct}) {periodPhrase}{growthPart}. Loan term {mortgageTerm} years at {mortgageRate} (≈ {mortgageMonthlyPayment} per month, {mortgageAnnualPayment} per year)."
+        showButtons: ["back", "create"]
+
+  - eventType: "M"
+    name: "Mortgage"
+    category: "property"
+    steps:
+      - stepId: "name"
+        title: "Linked Property"
+        contentType: "input"
+        field: "name"
+        labelPosition: "left"
+        content:
+          text: "Select the property for this mortgage:"
+          inputType: "propertyLink"
+          validation: "required"
+        showButtons: ["back", "next"]
+
+      - stepId: "property_value"
+        title: "Property Value"
+        contentType: "input"
+        field: "propertyValue"
+        labelPosition: "left"
+        content:
+          text: "What is the total property value?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "down_payment"
+        title: "Down Payment"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "How much will you pay as a down payment?"
+          inputType: "currency"
+          validation: "required|positive|lt:propertyValue"
+        showButtons: ["back", "next"]
+
+      - stepId: "start_age"
+        title: "Mortgage Start Timing"
+        contentType: "input"
+        field: "fromAge"
+        labelPosition: "left"
+        content:
+          text: "At what age/year does this mortgage start?"
+          inputType: "age"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "mortgage_setup"
+        title: "Mortgage Details"
+        contentType: "mortgage"
+        labelPosition: "left"
+        content:
+          text: ""
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - template: "{name}: Mortgage on a property worth {propertyValue} with a down payment of {amount} ({downPaymentPct}), starting at age/year {fromAge}. Loan term {mortgageTerm} years at {mortgageRate} (≈ {mortgageMonthlyPayment} per month, {mortgageAnnualPayment} per year)."
+        showButtons: ["back", "create"]
+
+  - eventType: "MO"
+    name: "Mortgage Overpay"
+    category: "property"
+    steps:
+      - stepId: "name"
+        title: "Linked Mortgage"
+        contentType: "input"
+        field: "name"
+        labelPosition: "left"
+        content:
+          text: "Select the mortgage this applies to:"
+          inputType: "propertyLink"
+          validation: "required"
+        showButtons: ["back", "next"]
+
+      - stepId: "amount"
+        title: "Yearly Overpay Amount"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "How much extra will you pay each year?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "period"
+        title: "Overpay Period"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "When does this overpay start and end?"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - template: "{name}: Overpay {amount} per year {periodPhrase}."
+        showButtons: ["back", "create"]
+
+  - eventType: "MP"
+    name: "Mortgage Payoff"
+    category: "property"
+    steps:
+      - stepId: "name"
+        title: "Linked Mortgage"
+        contentType: "input"
+        field: "name"
+        labelPosition: "left"
+        content:
+          text: "Select the mortgage to pay off:"
+          inputType: "propertyLink"
+          validation: "required"
+        showButtons: ["back", "next"]
+      - stepId: "timing"
+        title: "Payoff Timing"
+        contentType: "input"
+        field: "fromAge"
+        labelPosition: "left"
+        content:
+          text: "At what age/year will you pay off the mortgage?"
+          inputType: "age"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - template: "{name}: One-off mortgage payoff at age/year {fromAge}."
+        showButtons: ["back", "create"]
+
+  - eventType: "MR"
+    name: "Reverse Mortgage"
+    category: "property"
+    steps:
+      - stepId: "name"
+        title: "Linked Property"
+        contentType: "input"
+        field: "name"
+        labelPosition: "left"
+        content:
+          text: "Select the property for this reverse mortgage:"
+          inputType: "propertyLink"
+          validation: "required"
+        showButtons: ["back", "next"]
+
+      - stepId: "amount"
+        title: "Yearly Payout"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "How much cash will this reverse mortgage pay out each year?"
+          inputType: "currency"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "period"
+        title: "Reverse Mortgage Period"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "When does this reverse mortgage run?"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "rate"
+        title: "Interest Rate"
+        contentType: "input"
+        field: "rate"
+        labelPosition: "left"
+        content:
+          text: "What interest rate applies to the reverse mortgage balance?"
+          inputType: "percentage"
+          validation: "required"
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - template: "{name}: Reverse mortgage payout of {amount} per year {periodPhrase} at {rate} interest."
+        showButtons: ["back", "create"]
+
+  # Market Event Wizard (Investment Category)
+  - eventType: "SM"
+    name: "Market"
+    category: "investment"
+    steps:
+      - stepId: "name"
+        title: "Name this Event"
+        contentType: "input"
+        field: "name"
+        labelPosition: "top"
+        content:
+          text: "Give this market scenario a descriptive name:"
+          validation: "required"
+        showButtons: ["back", "next"]
+
+      - stepId: "period"
+        title: "Scenario Period"
+        contentType: "period"
+        fields: ["fromAge", "toAge"]
+        labelPosition: "left"
+        content:
+          text: "During which ages/years does this market scenario apply?"
+          validation: "required|positive"
+        showButtons: ["back", "next"]
+
+      - stepId: "growth"
+        title: "Total Market Growth"
+        contentType: "input"
+        field: "rate"
+        labelPosition: "left"
+        content:
+          text: "Market gain/loss over that period?"
+          inputType: "percentage"
+          validation: "required"
+          help: "Use negative percentages for declines."
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - template: "{name}: A market {direction} of {rate} {periodPhrase}."
+        showButtons: ["back", "create"]
+
+  # Relocation Wizard (Minimal Flow)
+  - eventType: "MV"
+    name: "Relocation"
+    category: "relocation"
+    steps:
+      - stepId: "destination"
+        title: "Destination Country"
+        contentType: "input"
+        field: "destCountryCode"
+        labelPosition: "left"
+        content:
+          text: "Which country are you relocating to?"
+          inputType: "country"
+          validation: "required"
+          placeholder: "Select country"
+        showButtons: ["back", "next"]
+
+      - stepId: "cost"
+        title: "Relocation Cost"
+        contentType: "input"
+        field: "amount"
+        labelPosition: "left"
+        content:
+          text: "What is the one-time cost of relocating in {relocationCostCurrencyLabel}?"
+          inputType: "currency"
+          validation: "required"
+          help: "Include moving expenses, visa fees, travel costs, etc. Enter 0 if there is no relocation cost."
+        showButtons: ["back", "next"]
+
+      - stepId: "timing"
+        title: "Relocation Timing"
+        contentType: "input"
+        field: "fromAge"
+        labelPosition: "left"
+        content:
+          text: "At what age will you relocate?"
+          inputType: "age"
+          validation: "required|positive"
+          help: "This is the age at which you plan to move to the new country."
+        showButtons: ["back", "next"]
+
+      - stepId: "summary"
+        title: "Review & Create"
+        contentType: "summary"
+        content:
+          templates:
+            - condition: "amount == '0' || amount == 0 || amount == '0.0' || amount == '0.00'"
+              template: "Relocation to {destCountryName} at age {fromAge} with no relocation cost."
+            - template: "Relocation to {destCountryName} at age {fromAge} with a one-time relocation cost of {amount}."
+        showButtons: ["back", "create"]
+
+# Wizard UI Configuration
+WizardConfig:
+  modal:
+    width: "600px"
+    maxHeight: "80vh"
+    overlay: true
+    
+  animation:
+    duration: 300
+    easing: "ease-in-out"
+    
+  validation:
+    showErrors: true
+    validateOnBlur: true
+    
+  categories:
+    income:
+      color: "#28a745"
+    expense:
+      color: "#dc3545"
+    property:
+      color: "#6f42c1"
+    investment:
+      color: "#007bff"
+    relocation:
+      color: "#ff6b6b"

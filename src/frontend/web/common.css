@@ -1,0 +1,61 @@
+/* Shared Design Tokens — single source of truth for both landing and simulator pages.
+   Every token here is used by BOTH pages for the same purpose.
+   Edit these values to change the visual style across the entire application. */
+
+:root {
+  /* Button / interactive accent color */
+  --color-button: #4f81ca;
+  --color-button-dark: #3f6fbc;
+  --color-button-light: #72a2dd;
+  --color-button-pale: #98bbe7;
+  --color-button-hover-dark: #3668b3;
+
+  /* RGB channels for composing tints and shadows via rgba(var(--*-rgb), alpha) */
+  --color-button-rgb: 79, 129, 202;
+  --color-button-dark-rgb: 63, 111, 188;
+
+  /* Accent — warm amber */
+  --color-accent: #f4a261;
+  --color-accent-light: #f6b47a;
+  --color-accent-rgb: 244, 162, 97;
+
+  /* Page background - slightly deeper for card contrast */
+  --bg-page: #e2e8f0;
+
+  /* Card / panel background */
+  --bg-card: #ffffff;
+
+  /* Main text color */
+  --color-text: #2d3748;
+
+  /* Semantic indicators */
+  --color-success: #10b981;
+  --color-success-rgb: 16, 185, 129;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-error-rgb: 239, 68, 68;
+
+  /* Card / panel elevation - more visible shadow */
+  --shadow-card: 0 6px 20px rgba(30, 64, 175, 0.12),
+                  0 2px 6px rgba(0, 0, 0, 0.08);
+
+  /* Subtle card border for additional definition */
+  --border-card: 1px solid rgba(147, 197, 253, 0.25);
+
+  /* Brand-accent glow on action buttons and icons */
+  --shadow-cta: 0 4px 14px rgba(var(--color-button-rgb), 0.3),
+                0 2px 4px rgba(var(--color-button-rgb), 0.15);
+
+  /* Standard rounded corner */
+  --radius-sm: 8px;
+
+  /* Action-button gradient */
+  --gradient-cta: linear-gradient(135deg, var(--color-button-light) 0%, var(--color-button) 50%, var(--color-button-dark) 100%);
+
+  /* Button hover mid-tones — between --color-button and --color-button-dark */
+  --color-button-hover-mid: #658fcf;
+  --color-button-hover-deep: #4f80c8;
+
+  /* Button hover gradient (one step darker) */
+  --gradient-cta-hover: linear-gradient(135deg, var(--color-button-hover-mid) 0%, var(--color-button-hover-deep) 50%, var(--color-button-hover-dark) 100%);
+}

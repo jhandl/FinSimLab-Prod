@@ -1,0 +1,113 @@
+{
+  "country": "US",
+  "countryName": "United States",
+  "version": "2025.12",
+  "taxBasis": "worldwide",
+  "jointFilingAllowed": true,
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "updateMessage": "Adds experimental support for US-style federal taxes (income tax + FICA + CGT) within FinSim.",
+
+  "locale": { "numberLocale": "en-US", "currencyCode": "USD", "currencySymbol": "$" },
+
+  "economicData": {
+    "typicalRentalYield": 6.56,
+    "inflation": 2.2499,
+    "purchasingPowerParity": { "value": 1.0, "year": 2024 },
+    "exchangeRate": { "perEur": 1.19 },
+    "asOf": "2026-02-16"
+  },
+
+  "incomeTax": {
+    "name": "Federal Income Tax",
+    "tooltip": "US federal income tax on ordinary income (approximation with standard deduction embedded in brackets).",
+    "taxCredits": {  },
+    "ageExemptionAge": 65,
+    "ageExemptionLimit": 0,
+    "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 0,
+    "bracketsByStatus": {
+      "single": { "0": 0.0, "14600": 0.1, "26200": 0.12, "61750": 0.22, "115125": 0.24, "206550": 0.32, "258325": 0.35, "623950": 0.37 },
+      "singleWithDependents": { "0": 0.0, "21900": 0.1, "38450": 0.12, "85000": 0.22, "122400": 0.24, "213850": 0.32, "265600": 0.35, "631250": 0.37 },
+      "married": { "0": 0.0, "29200": 0.1, "52400": 0.12, "123500": 0.22, "230250": 0.24, "413100": 0.32, "516650": 0.35, "760400": 0.37 }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "FICA",
+      "tooltip": "Combined Social Security + Medicare employee payroll tax (approximate flat 7.65% with no wage cap).",
+      "rate": 0.0765,
+      "incomeCap": null,
+      "ageAdjustments": {  },
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [],
+
+  "capitalGainsTax": { "name": "CGT", "tooltip": "Approximate long-term capital gains tax on investments (single blended rate).", "rate": 0.15, "annualExemption": 0, "allowLossOffset": true },
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 59,
+    "minRetirementAgeOccupational": 59,
+    "minRetirementAgeState": 62,
+    "contributionLimits": {
+      "ageBandsPercent": { "0": 1.0 },
+      "annualCap": 345000
+    },
+    "lumpSumTaxBands": {  },
+    "lumpSumMaxPercent": 0,
+    "minDrawdownRates": { "59": 0.04, "72": 0.05 },
+    "statePensionAge": 67,
+    "statePensionIncreaseBands": {  },
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": true,
+    "helpText": { "label": "Retirement Accounts", "contributionDescriptionP1": "<p>How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.</p><p>If you enter 100% here, you will contribute the maximum allowed for your age as per the tax rules. Do not include employer matching contributions here; there's another place for that.</p>", "contributionDescriptionP2": "<p>How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.</p><p>If you enter 100% here, your partner will contribute the maximum allowed for their age. This field is only used in two-person simulation mode.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly Social Security amount.</p><p>Use your latest SSA estimate (for example your Social Security statement or online calculator projection) and enter the monthly benefit expected at your claiming age.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly Social Security amount.</p><p>Use your partner's SSA estimate (for example their Social Security statement or online calculator projection) and enter the monthly benefit expected at their claiming age.</p>" },
+    "definedBenefit": { "treatment": "privatePension" }
+  },
+
+  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
+
+  "investmentTypes": [
+    {
+      "key": "usIndexFunds",
+      "label": "US Index Funds",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "US Index Funds are subject to Capital Gains Tax upon sale. Long-term gains are typically taxed at a preferential rate compared to ordinary income."
+    },
+    {
+      "key": "usShares",
+      "label": "US Shares",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "Individual shares are subject to Capital Gains Tax upon sale. Long-term gains are typically taxed at a preferential rate."
+    },
+    {
+      "key": "rsu_us",
+      "label": "RSUs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "sellWhenReceived": true,
+      "excludeFromAllocations": true,
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+      },
+      "helpText": "RSUs are taxed as ordinary income at vesting. Subsequent gains on the sale of shares are subject to Capital Gains Tax."
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}

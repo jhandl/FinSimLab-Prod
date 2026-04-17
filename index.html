@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head>
+    <title>Ireland Financial Simulator</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <base href="/">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #app-container {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for SPA content -->
+    <div id="app-container"></div>
+    
+    <!-- Error handling -->
+    <script>
+        window.addEventListener('error', function(event) {
+            console.error('Global error caught:', event.error);
+            
+            // Only show the error UI if it's a script loading error and container is empty
+            if (event.error && event.error.message && event.error.message.includes('script') && 
+                document.getElementById('app-container').children.length === 0) {
+                
+                document.getElementById('app-container').innerHTML = `
+                    <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
+                        <h1 style="color: #d32f2f;">Error Loading Application</h1>
+                        <p style="margin: 20px 0;">${event.error.message}</p>
+                        <button style="background-color: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;" onclick="window.location.reload()">Reload Page</button>
+                    </div>
+                `;
+            }
+        });
+
+        // Fix iOS Safari zoom on orientation change
+        function preventZoomOnOrientationChange() {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                // Force viewport reset on orientation change
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+                
+                // Additional fix: force a slight zoom reset
+                setTimeout(() => {
+                    if (window.visualViewport) {
+                        window.scrollTo(0, 0);
+                    }
+                }, 100);
+            }
+        }
+
+        // Listen for orientation changes
+        window.addEventListener('orientationchange', preventZoomOnOrientationChange);
+        
+        // Also listen for resize events as a fallback
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(preventZoomOnOrientationChange, 100);
+        });
+    </script>
+    
+    <!-- SPA router script -->
+    <script src="/bundle.1776426014001.js" onerror="handleScriptError(event)"></script>
+    
+    <script>
+        function handleScriptError(event) {
+            console.error('Failed to load script:', event.target.src);
+            document.getElementById('app-container').innerHTML = `
+                <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
+                    <h1 style="color: #d32f2f;">Error Loading Application</h1>
+                    <p style="margin: 20px 0;">The application could not be loaded because a required script failed to load:</p>
+                    <p style="margin: 20px 0;">${event.target.src}</p>
+                    <button style="background-color: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;" onclick="window.location.reload()">Reload Page</button>
+                </div>
+            `;
+        }
+    </script>
+
+
+</body></html>
