@@ -18,5 +18,5 @@
     "monteCarloTargetSeconds": 5,
     "monteCarloMinRuns": 500,
     "economicRegimesEnabled": true,
-    "applicationName": "Financial Simulator"
+    "applicationName": "FinSimLab"
 }

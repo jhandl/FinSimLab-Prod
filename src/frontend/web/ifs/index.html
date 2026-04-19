@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=2025-08-23-usc">
-  <script src="/src/frontend/web/ifs/bundle.1776619868994.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1776632242443.js"></script>
   
   
   
@@ -526,7 +526,7 @@
             }
           }
 
-          if (!appName) appName = 'Financial Simulatoin Lab';
+          if (!appName) return; // Wait for Config to load
 
           // Set document title
           try { document.title = appName; } catch (_) { }
@@ -1151,8 +1151,9 @@
         /* Desktop Mode: Show all buttons with grouping */
         @media (min-width: ${bp.tablet + 1}px) {
           header { display: flex !important; flex-wrap: nowrap !important; gap: 0.5rem !important; padding: 0.75rem 1.2rem !important; height: 60px !important; justify-content: space-between !important; align-items: center !important; }
-          .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; }
-          .header-left .app-name { display: none !important; }
+          .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; display: flex !important; align-items: center !important; gap: 0.75rem !important; }
+          .header-left .app-name { display: block !important; margin: 0 !important; font-size: 1.25rem !important; font-weight: 700 !important; }
+          .header-left .app-name a { color: var(--color-button-dark) !important; text-decoration: none !important; white-space: nowrap !important; }
           .header-left .app-icon-link { display: flex !important; }
           .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
           .header-center-right { flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; display: flex !important; }

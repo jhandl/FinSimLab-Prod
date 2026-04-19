@@ -11,5 +11,5 @@
     "monteCarloTargetSeconds": 5,
     "monteCarloMinRuns": 500,
     "economicRegimesEnabled": true,
-    "applicationName": "FinSim - Your Personal Finance Lab"
+    "applicationName": "FinSimLab"
 }
