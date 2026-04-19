@@ -1,110 +1,193 @@
 {
   "country": "AR",
   "countryName": "Argentina",
-  "version": "2025.12",
-  "taxBasis": "domestic",
+  "jointFilingAllowed": false,
+  "version": "2026.01",
+  "taxBasis": "worldwide",
 
   "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
 
-  "updateMessage": "",
+  "drawdownPriorities": [],
+
+  "updateMessage": "Adds experimental Argentina 2026 resident tax rules, grouped employee social contributions, and Argentina-specific investment wrappers.",
 
   "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
 
   "economicData": {
     "typicalRentalYield": 5.0,
-    "inflation": 34.6223,
+    "inflation": 36.5161,
     "purchasingPowerParity": { "value": 419.90104, "year": 2024 },
-    "exchangeRate": { "perEur": 1684.07 },
-    "asOf": "2026-03-24"
+    "exchangeRate": { "perEur": 1593.6 },
+    "asOf": "2026-04-17"
   },
 
   "incomeTax": {
-    "name": "Ganancias",
-    "taxCredits": {  },
+    "name": "Impuesto a las Ganancias",
+    "familyId": "incomeTax",
+    "tooltip": "Resident Argentine ordinary-income tax for tax year 2026 using the published Article 94 annual scale. The non-taxable minimum is modeled as a pre-bracket deduction, while the Article 30 special employee deduction plus deductible employee social-security contributions are encoded as an employment-only piecewise credit. Spouse, child-count, and pensioner-specific deduction paths remain in the gap report.",
+    "taxCredits": {
+      "employee": {
+        "scope": "earner",
+        "formula": {
+          "type": "piecewiseLinear",
+          "segments": [
+            { "upTo": 5151802.5, "rate": 0 },
+            { "upTo": 7151832.59, "rate": 0.05 },
+            { "upTo": 9151862.67, "rate": 0.09 },
+            { "upTo": 11151892.76, "rate": 0.12 },
+            { "upTo": 14151937.9, "rate": 0.15 },
+            { "upTo": 23152073.3, "rate": 0.19 },
+            { "upTo": 32152208.7, "rate": 0.23 },
+            { "upTo": 36000547.61445783, "rate": 0.27 },
+            { "upTo": 38410222.421686746, "rate": 0.2285 },
+            { "upTo": 40819897.21686747, "rate": 0.1953 },
+            { "upTo": 43229572.02409639, "rate": 0.1704 },
+            { "upTo": 45652411.8, "rate": 0.1455 },
+            { "upTo": 46844084.24096386, "rate": 0.1855 },
+            { "upTo": 54117863.41, "rate": 0.1523 },
+            { "upTo": 57080762.099700004, "rate": 0.12 },
+            { "upTo": 65902716.46, "rate": 0.08 },
+            { "upTo": 66080897.499699995, "rate": 0.12 },
+            { "upTo": 79581100.59969999, "rate": 0.08 },
+            { "upTo": 99831405.2597, "rate": 0.04 }
+          ]
+        }
+      }
+    },
     "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "incomeAdjustments": [
+      { "id": "gananciaMinimaNoImponible", "amount": 5151802.5 }
+    ],
+    "baseAdjustments": [
+      {
+        "id": "specialEmployeeDeductionProxy",
+        "amount": 1500000,
+        "scope": "employment",
+        "phaseOut": { "startIncome": 45000000, "withdrawalRate": 0.05 }
+      }
+    ],
     "bracketsByStatus": {
-      "single": { "0": 0.05, "500000": 0.09, "1000000": 0.12, "1500000": 0.15, "2000000": 0.19, "2500000": 0.23, "3000000": 0.27, "3500000": 0.31, "4000000": 0.35 },
-      "married": { "0": 0.05, "750000": 0.09, "1500000": 0.12, "2250000": 0.15, "3000000": 0.19, "3750000": 0.23, "4500000": 0.27, "5250000": 0.31, "6000000": 0.35 }
+      "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+      "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+      "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
     }
   },
 
   "socialContributions": [
     {
-      "name": "ANSES",
-      "rate": 0.11,
-      "incomeCap": null,
-      "applicableIncomeTypes": [ "employment" ]
-    },
-    {
-      "name": "Obra Social",
-      "rate": 0.03,
-      "incomeCap": null,
+      "name": "Aportes personales a la seguridad social",
+      "familyId": "aportesSeguridadSocial",
+      "tooltip": "Grouped employee contribution proxy for Argentine dependent workers: 11% SIPA pension + 3% obra social + 3% INSSJP/PAMI, capped at the April 2026 monthly maximum contribution base annualized with a 13th-salary factor. Special regimes, month-by-month cap movements, and payroll-detail differences are documented in the gap report.",
+      "rate": 0.17,
+      "incomeCap": 54117863.41,
       "applicableIncomeTypes": [ "employment" ]
     }
   ],
 
-  "capitalGainsTax": { "rate": 0.15, "annualExemption": 0, "allowLossOffset": true },
+  "additionalTaxes": [],
+
+  "capitalGainsTax": {
+    "name": "Impuesto cedular",
+    "familyId": "capitalGainsTax",
+    "tooltip": "Simplified Argentine cedular capital-gains proxy using a 15% rate for taxable gains on non-exempt shares and similar financial assets. Public-offer listed local wrappers that the ruleset treats as exempt are modeled through zero-rate investment wrappers instead. Debt-instrument 5% cases, Article 100 special deductions, dividends, and detailed basket rules remain in the gap report.",
+    "rate": 0.15,
+    "annualExemption": 0,
+    "allowLossOffset": true,
+    "baskets": [
+      { "id": "exemptDomestic", "rateOverride": 0, "lossCarryForward": false },
+      { "id": "taxableForeign", "lossCarryForward": true }
+    ]
+  },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": { "enabled": false, "proportional": false },
+    "holdingPeriodExemptionYears": null,
+    "residentsOnly": true,
+    "capitalGainsOptions": { "rate": 0.15, "eligibleForAnnualExemption": false, "allowLossOffset": false }
+  },
+
+  "realEstate": {
+    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+  },
 
   "pensionRules": {
-    "minRetirementAgeState": 65,
+    "minRetirementAgePrivate": 0,
+    "minRetirementAgeOccupational": 0,
     "statePensionAge": 65,
     "statePensionPeriod": "monthly",
-    "pensionSystem": { "type": "state_only" },
-    "taxAdvantaged": true,
-    "helpText": {
-      "label": "State Pension",
-      "contributionDescriptionP1": "<p>Private pension contributions are not used in this ruleset.</p>",
-      "contributionDescriptionP2": "<p>Private pension contributions are not used in this ruleset.</p>",
-      "statePensionDescriptionP1": "<p>Enter your expected monthly state pension amount.</p><p>Refer to [this page](https://calcularsueldo.com.ar/jubilaciones/calcular-jubilacion){Calculadora de Jubilación} to find how to calculate yours.</p>",
-      "statePensionDescriptionP2": "<p>Enter your partner's expected monthly state pension amount.</p><p>Refer to [this page](https://calcularsueldo.com.ar/jubilaciones/calcular-jubilacion){Calculadora de Jubilación} to find how to calculate theirs</p>"
+    "contributionLimits": {
+      "ageBandsPercent": { "0": 0 },
+      "annualCap": 0
     },
-    "contributionLimits": {  },
+    "contributionLanes": [],
+    "pensionIncomeShares": {  },
     "lumpSumTaxBands": {  },
-    "minDrawdownRates": {  }
+    "lumpSumMaxPercent": 0,
+    "minDrawdownRates": {  },
+    "statePensionIncreaseBands": {  },
+    "pensionSystem": { "type": "state_only" },
+    "taxAdvantaged": false,
+    "helpText": { "label": "Jubilación", "contributionDescriptionP1": "<p>Argentina does not expose a broad modeled tax-advantaged private pension lane in FinSim.</p><p>The ruleset therefore keeps the annual private-pension contribution cap at zero unless the engine is extended for narrower retirement-insurance deductions and product-specific rules.</p>", "contributionDescriptionP2": "<p>Argentina does not expose a broad modeled tax-advantaged private pension lane in FinSim.</p><p>The same zero-cap limitation applies to both people in couple mode.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly ANSES retirement benefit.</p><p>FinSim uses a single state-pension age of 65 as a conservative proxy and does not model the real sex- and contribution-history-based eligibility split.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly ANSES retirement benefit.</p><p>FinSim uses the same simplified public-pension proxy for both people.</p>" },
+    "definedBenefit": { "treatment": "privatePension" }
   },
 
   "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
 
+  "adapters": [],
+
   "investmentTypes": [
-    {
-      "key": "merval_ar",
-      "label": "MERVAL",
-      "baseCurrency": "ARS",
-      "assetCountry": "ar",
-      "residenceScope": "local",
-      "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
-      },
-      "helpText": "MERVAL index shares are subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage} on gains. Securities traded on the Argentine stock exchange may have exemptions under certain conditions. Losses can be offset against gains.",
-      "helpUrl": "https://www.afip.gob.ar/"
-    },
     {
       "key": "cedear_ar",
       "label": "CEDEARs",
       "baseRef": "globalEquity",
       "baseCurrency": "USD",
+      "assetCountry": "ar",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false, "basketId": "exemptDomestic" }
+      },
+      "helpText": "Approximation of publicly offered CEDEARs traded on CNV-authorized Argentine markets. The ruleset treats sale gains as exempt. Cases that fail the public-offer exemption, dividend withholding detail, and product-specific edge cases remain outside the modeled scope."
+    },
+    {
+      "key": "merval_ar",
+      "label": "Merval",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false, "basketId": "exemptDomestic" }
+      },
+      "helpText": "Approximation of Argentine listed equities traded on authorized local markets and treated as exempt public-offer securities. Non-listed shares and transactions that fall outside the exemption are not modeled by this wrapper."
+    },
+    {
+      "key": "foreignShares_ar",
+      "label": "Foreign Shares",
+      "baseRef": "globalEquity",
+      "baseCurrency": "USD",
       "assetCountry": "us",
       "residenceScope": "global",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "taxableForeign" }
       },
-      "helpText": "CEDEARs (Argentine Depositary Receipts) are subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage} on gains. These represent shares of foreign companies traded on the Argentine exchange. Losses can be offset against gains.",
-      "helpUrl": "https://www.afip.gob.ar/"
+      "helpText": "Approximation of non-exempt foreign listed shares held outside Argentina's exempt local public-offer wrappers. Gains use the modeled 15% cedular rate. Debt-instrument 5% cases, crypto-specific nuances, and exact foreign-broker reporting rules are documented in the gap report."
     },
     {
       "key": "rsu_ar",
       "label": "RSUs",
       "baseRef": "globalEquity",
-      "baseCurrency": "ARS",
-      "assetCountry": "ar",
-      "residenceScope": "local",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
       "sellWhenReceived": true,
       "excludeFromAllocations": true,
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "taxableForeign" }
       },
-      "helpText": "Restricted Stock Units are taxed as ordinary income at delivery (up to 35% withholding). Subsequent sale of vested shares is subject to capital gains tax at ${taxRules.capitalGainsTax.rate,percentage}.",
-      "helpUrl": "https://www.afip.gob.ar/"
+      "helpText": "Restricted stock awards are modeled as employment income when they vest or are received, then any later gain uses the modeled 15% cedular rate. Payroll withholding, exact basis mechanics, and cross-border sourcing details remain outside the current engine."
     }
   ],
 

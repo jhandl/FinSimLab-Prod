@@ -1,0 +1,331 @@
+{
+  "country": "SE",
+  "countryName": "Sweden",
+  "jointFilingAllowed": false,
+  "version": "2026.01",
+  "taxBasis": "worldwide",
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "drawdownPriorities": [],
+
+  "updateMessage": "Adds experimental Sweden 2026 resident tax rules, including statutory grundavdrag and jobbskatteavdrag approximations, public service fee, capital-income taxation, and ISK / fund wrappers.",
+
+  "locale": { "numberLocale": "sv-SE", "currencyCode": "SEK", "currencySymbol": "kr" },
+
+  "economicData": {
+    "typicalRentalYield": 4.2,
+    "inflation": 2.2359,
+    "purchasingPowerParity": { "value": 8.492078, "year": 2025 },
+    "exchangeRate": { "perEur": 10.82 },
+    "asOf": "2026-04-17"
+  },
+
+  "incomeTax": {
+    "name": "Kommunal och statlig inkomstskatt",
+    "familyId": "incomeTax",
+    "tooltip": "Swedish resident earned-income tax approximation using the 2026 average municipal income-tax rate of 32.38%, the statutory grundavdrag for persons under 66 at the start of the income year, and the 20% state-income-tax threshold. Municipality-specific rates, church/burial fees, and the enhanced 66+ schedules are documented in the gap report.",
+    "taxCredits": {
+      "employee": {
+        "scope": "earner",
+        "formula": {
+          "type": "piecewiseLinear",
+          "segments": [
+            { "upTo": 25041.6, "rate": 0 },
+            { "upTo": 53872, "rate": 0.3238 },
+            { "upTo": 58608, "rate": 0.12544012 },
+            { "upTo": 161024, "rate": 0.06068012 },
+            { "upTo": 184112, "rate": 0.12544012 },
+            { "upTo": 191808, "rate": 0.15782012 },
+            { "upTo": 466496, "rate": 0.1136538 },
+            { "upTo": 478336, "rate": 0.0812738 }
+          ],
+          "cap": 52407.94
+        }
+      }
+    },
+    "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "otherIncome" ],
+    "computeType": "piecewiseLinear",
+    "segments": [
+      { "upTo": 25041.6, "rate": 0 },
+      { "upTo": 58608, "rate": 0.3238 },
+      { "upTo": 161024, "rate": 0.25904 },
+      { "upTo": 184112, "rate": 0.3238 },
+      { "upTo": 466496, "rate": 0.35618 },
+      { "upTo": 660345.6, "rate": 0.3238 },
+      { "upTo": null, "rate": 0.5238 }
+    ],
+    "postTaxAdjustments": [
+      {
+        "id": "jobbskatteavdragBase",
+        "formula": {
+          "type": "piecewiseLinear",
+          "segments": [
+            { "upTo": 3000, "rate": -0.08 }
+          ]
+        }
+      }
+    ],
+    "profiles": {
+      "age66plus": {
+        "taxCredits": {
+          "employee": {
+            "scope": "earner",
+            "formula": {
+              "type": "piecewiseLinear",
+              "segments": [
+                { "upTo": 25041.6, "rate": 0 },
+                { "upTo": 53872, "rate": 0.3538 },
+                { "upTo": 58608, "rate": 0.16544012 },
+                { "upTo": 161024, "rate": 0.09068012 },
+                { "upTo": 466496, "rate": 0.1336538 },
+                { "upTo": 478336, "rate": 0.1012738 }
+              ],
+              "cap": 68000
+            }
+          }
+        },
+        "computeType": "piecewiseLinear",
+        "segments": [
+          { "upTo": 32000, "rate": 0.0 },
+          { "upTo": 62000, "rate": 0.2938 },
+          { "upTo": 170000, "rate": 0.23904 },
+          { "upTo": 190000, "rate": 0.2938 },
+          { "upTo": 500000, "rate": 0.32618 },
+          { "upTo": 700000, "rate": 0.2938 },
+          { "upTo": null, "rate": 0.4938 }
+        ],
+        "postTaxAdjustments": [
+          {
+            "id": "jobbskatteavdragAge66",
+            "formula": {
+              "type": "piecewiseLinear",
+              "segments": [
+                { "upTo": 3000, "rate": -0.12 }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+
+  "regionalIncomeTax": {
+    "name": "Kommunal inkomstskatt",
+    "displayName": "Kommunal inkomstskatt",
+    "familyId": "regionalIncomeTax",
+    "tooltip": "Optional municipality-level tax selector for representative Swedish municipal tax rates.",
+    "taxCredits": {  },
+    "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "otherIncome" ],
+    "bracketsByStatus": {
+      "single": { "0": 0.0 },
+      "singleWithDependents": { "0": 0.0 },
+      "married": { "0": 0.0 }
+    },
+    "profiles": {
+      "stockholm": {
+        "bracketsByStatus": {
+          "single": { "0": 0.295 },
+          "singleWithDependents": { "0": 0.295 },
+          "married": { "0": 0.295 }
+        }
+      },
+      "goteborg": {
+        "bracketsByStatus": {
+          "single": { "0": 0.318 },
+          "singleWithDependents": { "0": 0.318 },
+          "married": { "0": 0.318 }
+        }
+      },
+      "malmo": {
+        "bracketsByStatus": {
+          "single": { "0": 0.333 },
+          "singleWithDependents": { "0": 0.333 },
+          "married": { "0": 0.333 }
+        }
+      }
+    }
+  },
+
+  "countryInputRegistry": [
+    {
+      "id": "regionalProfile",
+      "type": "selector",
+      "label": "Municipality profile",
+      "required": false,
+      "section": "personalCircumstances",
+      "options": [
+        { "value": "stockholm", "label": "Stockholm" },
+        { "value": "goteborg", "label": "Göteborg" },
+        { "value": "malmo", "label": "Malmö" }
+      ],
+      "binding": "regionalIncomeTax"
+    },
+    {
+      "id": "incomeProfile",
+      "type": "selector",
+      "label": "Income-tax age profile",
+      "required": false,
+      "section": "personalCircumstances",
+      "options": [
+        { "value": "age66plus", "label": "Age 66+ profile" }
+      ],
+      "binding": "incomeTax"
+    }
+  ],
+
+  "socialContributions": [
+    {
+      "name": "Allmän pensionsavgift",
+      "familyId": "allmanPensionsavgift",
+      "tooltip": "The employee-side public pension contribution is modeled at 7% of employment income with a 2026 annual cap of SEK 47,100. A matching adapter applies the statutory 100% tax reduction. Self-employment mechanics and the low-tax ceiling for the reduction are documented in the gap report.",
+      "computeType": "piecewiseLinear",
+      "segments": [
+        { "upTo": null, "rate": 0.07 }
+      ],
+      "cap": 47100,
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [
+    {
+      "name": "Public service-avgift",
+      "familyId": "publicService",
+      "tooltip": "Public service fee approximation for residents under 66 using the 2026 SEK 1,184 annual cap and the under-66 grundavdrag shape. The real fee depends on taxable earned income after deductions and the 66+ enhanced basic deduction is not modeled separately.",
+      "computeType": "piecewiseLinear",
+      "segments": [
+        { "upTo": 25041.6, "rate": 0 },
+        { "upTo": 58608, "rate": 0.01 },
+        { "upTo": 161024, "rate": 0.008 },
+        { "upTo": 184112, "rate": 0.01 }
+      ],
+      "cap": 1184,
+      "base": "income",
+      "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "otherIncome" ]
+    },
+    {
+      "name": "Kapitalinkomstskatt på hyra",
+      "familyId": "rentalCapitalIncomeTax",
+      "tooltip": "Private-property rental income is approximated as flat 30% capital-income tax. The standard allowance, owner-occupation deductions, and category-specific rental distinctions are documented in the gap report.",
+      "brackets": { "0": 0.3 },
+      "base": "income",
+      "applicableIncomeTypes": [ "rental" ]
+    }
+  ],
+
+  "capitalGainsTax": {
+    "name": "Statlig inkomstskatt på kapital",
+    "familyId": "capitalGainsTax",
+    "tooltip": "Sweden taxes modeled securities gains at a flat 30% capital-income rate with no annual exemption. Real dividend, interest, and loss-netting rules are more granular and are documented in the gap report.",
+    "rate": 0.3,
+    "annualExemption": 0,
+    "allowLossOffset": true,
+    "baskets": [
+      { "id": "listedSecurities", "lossCarryForward": true },
+      { "id": "otherCapital", "lossCarryForward": true }
+    ]
+  },
+
+  "allowancePools": {
+    "iskAllowance": { "annualLimit": 300000, "carryForward": false }
+  },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": { "enabled": false, "proportional": false },
+    "holdingPeriodExemptionYears": null,
+    "residentsOnly": false,
+    "capitalGainsOptions": { "rate": 0.22, "eligibleForAnnualExemption": false, "allowLossOffset": true }
+  },
+
+  "realEstate": {
+    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+  },
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 55,
+    "minRetirementAgeOccupational": 55,
+    "statePensionAge": 61,
+    "statePensionAgeSchedule": { "1959": 62, "1961": 63, "1963": 64, "1970": 65, "1985": 66, "2001": 67 },
+    "statePensionPeriod": "monthly",
+    "contributionLimits": {
+      "ageBandsPercent": { "0": 0 },
+      "annualCap": 0
+    },
+    "contributionLanes": [],
+    "pensionIncomeShares": {  },
+    "lumpSumTaxBands": {  },
+    "lumpSumMaxPercent": 0,
+    "minDrawdownRates": {  },
+    "statePensionIncreaseBands": {  },
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": false,
+    "helpText": { "label": "Pensioner", "contributionDescriptionP1": "<p>Sweden generally does not allow a broad tax deduction for personal pension saving by employees.</p><p>FinSim therefore keeps the modeled annual tax-advantaged contribution cap at zero unless the engine is extended for the narrow statutory exceptions.</p>", "contributionDescriptionP2": "<p>Sweden generally does not allow a broad tax deduction for personal pension saving by employees.</p><p>FinSim therefore keeps the modeled annual tax-advantaged contribution cap at zero unless the engine is extended for the narrow statutory exceptions.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly allmän pension amount.</p><p>FinSim uses Sweden's cohort-based earliest general-pension ages. Guarantee-pension eligibility ages and occupational-plan-specific retirement ages are documented in the gap report.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly allmän pension amount.</p><p>FinSim uses Sweden's cohort-based earliest general-pension ages. Guarantee-pension eligibility ages and occupational-plan-specific retirement ages are documented in the gap report.</p>" },
+    "definedBenefit": { "treatment": "privatePension" }
+  },
+
+  "residencyRules": {
+    "postEmigrationTaxYears": 0,
+    "taxesForeignIncome": false,
+    "trailingGainRules": [
+      {
+        "investmentTypes": [ "directShares_se" ],
+        "years": 10
+      }
+    ]
+  },
+
+  "adapters": [
+    { "id": "skattereduktion for allman pensionsavgift", "type": "linkedContributionCredit", "ref": "allmän pensionsavgift", "rate": 1.0, "order": 10 }
+  ],
+
+  "investmentTypes": [
+    {
+      "key": "directShares_se",
+      "label": "Aktier i depå",
+      "baseRef": "globalEquity",
+      "baseCurrency": "SEK",
+      "assetCountry": "se",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "listedSecurities" }
+      },
+      "helpText": "Directly held shares in a regular securities account are modeled under Sweden's flat 30% capital-income tax on gains. Dividend taxation, detailed loss-netting baskets, and the post-emigration ten-year rule treaty interactions are documented in the gap report."
+    },
+    {
+      "key": "fundAccount_se",
+      "label": "Fonder i depå",
+      "baseRef": "globalEquity",
+      "baseCurrency": "SEK",
+      "assetCountry": "se",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "listedSecurities" },
+        "yearlyTaxOnValue": { "rate": 0.0012, "base": "startOfYearValue", "taxFamilyRef": "capitalGainsTax" }
+      },
+      "helpText": "Fund units in a regular account are modeled with 30% capital-income tax on realized gains plus the statutory 0.12% annual tax proxy derived from the 0.4% schablonintäkt on 1 January value. The real declaration also covers dividends and detailed fund-loss interactions."
+    },
+    {
+      "key": "isk_se",
+      "label": "Investeringssparkonto (ISK)",
+      "baseRef": "globalEquity",
+      "baseCurrency": "SEK",
+      "assetCountry": "se",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false },
+        "yearlyTaxOnValue": { "rate": 0.01065, "base": "startOfYearValue", "taxFamilyRef": "capitalGainsTax" }
+      },
+      "lifecycle": { "annualContributionLimit": 300000, "residenceCountryOnly": true, "allowancePoolRef": "iskAllowance" },
+      "helpText": "ISK holdings are modeled as tax-free on disposals with an annual wrapper tax equal to the 2026 schablonskatt rate implied by the 30 November 2025 statslåneränta plus one percentage point. The real capital base uses quarterly balances and contributions, and the 2026 SEK 300,000 tax-free allowance is not modeled."
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}

@@ -1,97 +1,208 @@
 {
   "country": "US",
   "countryName": "United States",
-  "version": "2025.12",
-  "taxBasis": "worldwide",
   "jointFilingAllowed": true,
+  "version": "2026.01",
+  "taxBasis": "worldwide",
 
   "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
 
-  "updateMessage": "Adds experimental support for US-style federal taxes (income tax + FICA + CGT) within FinSim.",
+  "drawdownPriorities": [],
+
+  "updateMessage": "Adds experimental United States 2026 federal tax rules, employee FICA, and U.S. brokerage, Roth, and RSU wrappers.",
 
   "locale": { "numberLocale": "en-US", "currencyCode": "USD", "currencySymbol": "$" },
 
   "economicData": {
-    "typicalRentalYield": 6.56,
-    "inflation": 2.2499,
-    "purchasingPowerParity": { "value": 1.0, "year": 2024 },
-    "exchangeRate": { "perEur": 1.19 },
-    "asOf": "2026-02-16"
+    "typicalRentalYield": 11.1,
+    "inflation": 2.6749,
+    "purchasingPowerParity": { "value": 1.0, "year": 2025 },
+    "exchangeRate": { "perEur": 1.18 },
+    "asOf": "2026-04-17"
   },
 
   "incomeTax": {
     "name": "Federal Income Tax",
-    "tooltip": "US federal income tax on ordinary income (approximation with standard deduction embedded in brackets).",
+    "familyId": "incomeTax",
+    "tooltip": "U.S. federal ordinary-income tax for 2026, with the filing-status standard deduction embedded as a 0% bracket. Itemized deductions, most credits, Social Security benefit taxation, and other targeted deductions are documented in the gap report.",
     "taxCredits": {  },
-    "ageExemptionAge": 65,
-    "ageExemptionLimit": 0,
-    "dependentChildMaxAge": 18,
+    "dependentChildMaxAge": 24,
     "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
     "bracketsByStatus": {
-      "single": { "0": 0.0, "14600": 0.1, "26200": 0.12, "61750": 0.22, "115125": 0.24, "206550": 0.32, "258325": 0.35, "623950": 0.37 },
-      "singleWithDependents": { "0": 0.0, "21900": 0.1, "38450": 0.12, "85000": 0.22, "122400": 0.24, "213850": 0.32, "265600": 0.35, "631250": 0.37 },
-      "married": { "0": 0.0, "29200": 0.1, "52400": 0.12, "123500": 0.22, "230250": 0.24, "413100": 0.32, "516650": 0.35, "760400": 0.37 }
+      "single": { "0": 0, "16100": 0.1, "28500": 0.12, "66500": 0.22, "121800": 0.24, "217875": 0.32, "272325": 0.35, "656700": 0.37 },
+      "singleWithDependents": { "0": 0, "24150": 0.1, "41850": 0.12, "91600": 0.22, "129850": 0.24, "225900": 0.32, "280350": 0.35, "664750": 0.37 },
+      "married": { "0": 0, "32200": 0.1, "57000": 0.12, "133000": 0.22, "243600": 0.24, "435750": 0.32, "544650": 0.35, "800900": 0.37 }
     }
   },
 
+  "regionalIncomeTax": {
+    "name": "State Income Tax",
+    "displayName": "State Income Tax",
+    "familyId": "regionalIncomeTax",
+    "tooltip": "Optional state-level income tax profile for representative jurisdictions. Select a state profile through country inputs to apply state tax on top of federal tax.",
+    "taxCredits": {  },
+    "dependentChildMaxAge": 24,
+    "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "bracketsByStatus": {
+      "single": { "0": 0.0 },
+      "singleWithDependents": { "0": 0.0 },
+      "married": { "0": 0.0 }
+    },
+    "profiles": {
+      "california": {
+        "bracketsByStatus": {
+          "single": { "0": 0.01, "10412": 0.02, "24684": 0.04, "38959": 0.06, "54081": 0.08, "68350": 0.093 },
+          "singleWithDependents": { "0": 0.01, "20824": 0.02, "49368": 0.04, "77918": 0.06, "108162": 0.08, "136700": 0.093 },
+          "married": { "0": 0.01, "20824": 0.02, "49368": 0.04, "77918": 0.06, "108162": 0.08, "136700": 0.093 }
+        }
+      },
+      "newYork": {
+        "bracketsByStatus": {
+          "single": { "0": 0.04, "8500": 0.045, "11700": 0.0525, "13900": 0.055, "21400": 0.06, "80650": 0.0685 },
+          "singleWithDependents": { "0": 0.04, "8500": 0.045, "11700": 0.0525, "13900": 0.055, "21400": 0.06, "80650": 0.0685 },
+          "married": { "0": 0.04, "17150": 0.045, "23600": 0.0525, "27900": 0.055, "43000": 0.06, "161550": 0.0685 }
+        }
+      },
+      "texas": {
+        "bracketsByStatus": {
+          "single": { "0": 0.0 },
+          "singleWithDependents": { "0": 0.0 },
+          "married": { "0": 0.0 }
+        }
+      }
+    }
+  },
+
+  "countryInputRegistry": [
+    {
+      "id": "regionalProfile",
+      "type": "selector",
+      "label": "State profile",
+      "required": false,
+      "section": "personalCircumstances",
+      "options": [
+        { "value": "california", "label": "California" },
+        { "value": "newYork", "label": "New York" },
+        { "value": "texas", "label": "Texas" }
+      ],
+      "binding": "regionalIncomeTax"
+    }
+  ],
+
   "socialContributions": [
     {
-      "name": "FICA",
-      "tooltip": "Combined Social Security + Medicare employee payroll tax (approximate flat 7.65% with no wage cap).",
-      "rate": 0.0765,
+      "name": "Social Security Tax",
+      "familyId": "socialSecurityTax",
+      "tooltip": "Employee OASDI payroll tax at 6.2% up to the 2026 wage base of USD 184,500. Self-employment tax, railroad taxes, and employer-side payroll costs are not modeled.",
+      "rate": 0.062,
+      "incomeCap": 184500,
+      "applicableIncomeTypes": [ "employment" ]
+    },
+    {
+      "name": "Medicare Tax",
+      "familyId": "medicareTax",
+      "tooltip": "Employee Medicare payroll tax at 1.45% with no wage cap. The separate 0.9% Additional Medicare Tax is modeled below as a distinct levy using a simplified threshold approximation.",
+      "rate": 0.0145,
       "incomeCap": null,
-      "ageAdjustments": {  },
       "applicableIncomeTypes": [ "employment" ]
     }
   ],
 
-  "additionalTaxes": [],
+  "additionalTaxes": [
+    {
+      "name": "Additional Medicare Tax",
+      "familyId": "additionalMedicareTax",
+      "tooltip": "0.9% federal Additional Medicare Tax on high employment income. FinSim uses the USD 200,000 threshold as a simple proxy; real thresholds vary by filing status and are documented in the gap report.",
+      "brackets": { "0": 0, "200000": 0.009 },
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
 
-  "capitalGainsTax": { "name": "CGT", "tooltip": "Approximate long-term capital gains tax on investments (single blended rate).", "rate": 0.15, "annualExemption": 0, "allowLossOffset": true },
+  "capitalGainsTax": { "name": "Capital Gains Tax", "familyId": "capitalGainsTax", "tooltip": "Simplified federal long-term capital-gains proxy using a flat 15% rate and no annual exemption. The real U.S. system depends on filing status, taxable-income thresholds, holding period, and NIIT, all of which are documented in the gap report.", "rate": 0.15, "annualExemption": 0, "allowLossOffset": true },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": {
+      "enabled": true,
+      "type": "cappedExclusion",
+      "amountByStatus": { "single": 250000, "married": 500000 },
+      "lookbackYears": 5
+    },
+    "holdingPeriodExemptionYears": 2,
+    "baskets": [
+      { "id": "residential", "lossCarryForward": false }
+    ],
+    "residentsOnly": false,
+    "capitalGainsOptions": { "rateRef": "capitalGainsTax.rate", "eligibleForAnnualExemption": false, "allowLossOffset": true, "basketId": "residential" }
+  },
+
+  "realEstate": {
+    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+  },
 
   "pensionRules": {
-    "minRetirementAgePrivate": 59,
-    "minRetirementAgeOccupational": 59,
-    "minRetirementAgeState": 62,
+    "minRetirementAgePrivate": 59.5,
+    "minRetirementAgeOccupational": 59.5,
+    "statePensionAge": 66,
+    "statePensionAgeSchedule": { "1955": 66.17, "1956": 66.33, "1957": 66.5, "1958": 66.67, "1959": 66.83, "1960": 67 },
+    "statePensionPeriod": "monthly",
     "contributionLimits": {
       "ageBandsPercent": { "0": 1.0 },
-      "annualCap": 345000
+      "annualCap": 24500
     },
+    "contributionLanes": [
+      {
+        "id": "employeeDeferral401k",
+        "annualCap": 24500,
+        "ageBandsPercent": { "0": 1.0 },
+        "catchUp": [
+          { "minAge": 50, "extraCap": 8000 },
+          { "minAge": 60, "maxAge": 63, "extraCap": 11250 }
+        ]
+      }
+    ],
+    "pensionIncomeShares": {  },
     "lumpSumTaxBands": {  },
     "lumpSumMaxPercent": 0,
-    "minDrawdownRates": { "59": 0.04, "72": 0.05 },
-    "statePensionAge": 67,
+    "minDrawdownRates": {  },
     "statePensionIncreaseBands": {  },
     "pensionSystem": { "type": "mixed" },
     "taxAdvantaged": true,
-    "helpText": { "label": "Retirement Accounts", "contributionDescriptionP1": "<p>How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.</p><p>If you enter 100% here, you will contribute the maximum allowed for your age as per the tax rules. Do not include employer matching contributions here; there's another place for that.</p>", "contributionDescriptionP2": "<p>How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.</p><p>If you enter 100% here, your partner will contribute the maximum allowed for their age. This field is only used in two-person simulation mode.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly Social Security amount.</p><p>Use your latest SSA estimate (for example your Social Security statement or online calculator projection) and enter the monthly benefit expected at your claiming age.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly Social Security amount.</p><p>Use your partner's SSA estimate (for example their Social Security statement or online calculator projection) and enter the monthly benefit expected at their claiming age.</p>" },
+    "helpText": { "label": "Tax-Deferred Retirement", "contributionDescriptionP1": "<p>Enter how much of the modeled 2026 employee elective-deferral limit you want to contribute from salary into a tax-deferred retirement account.</p><p>FinSim includes age-based catch-up cap adders (50+ and ages 60-63) and keeps employer-match formulas and plan-specific eligibility out of scope.</p>", "contributionDescriptionP2": "<p>Enter how much of your partner's modeled 2026 employee elective-deferral limit they want to contribute from salary into a tax-deferred retirement account.</p><p>FinSim applies the same U.S. retirement-account cap and age-based catch-up logic for both people.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly Social Security retirement benefit.</p><p>Use your latest SSA statement or retirement estimate. The simulator does not model the real provisional-income formula that can make part of Social Security taxable.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly Social Security retirement benefit.</p><p>Use their latest SSA statement or retirement estimate. The simulator does not model the real provisional-income formula that can make part of Social Security taxable.</p>" },
     "definedBenefit": { "treatment": "privatePension" }
   },
 
   "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
 
+  "adapters": [],
+
   "investmentTypes": [
     {
-      "key": "usIndexFunds",
-      "label": "US Index Funds",
+      "key": "taxableBrokerage_us",
+      "label": "Taxable Brokerage",
+      "baseRef": "globalEquity",
       "baseCurrency": "USD",
       "assetCountry": "us",
-      "residenceScope": "global",
+      "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
       },
-      "helpText": "US Index Funds are subject to Capital Gains Tax upon sale. Long-term gains are typically taxed at a preferential rate compared to ordinary income."
+      "helpText": "Approximation of U.S. taxable brokerage holdings such as listed shares, mutual funds, and ETFs. Sale gains use the simplified federal long-term capital-gains rate of ${taxRules.capitalGainsTax.rate,percentage}; dividends, NIIT, and short-term ordinary-income treatment are not modeled."
     },
     {
-      "key": "usShares",
-      "label": "US Shares",
+      "key": "rothIra_us",
+      "label": "Roth IRA",
+      "baseRef": "globalEquity",
       "baseCurrency": "USD",
       "assetCountry": "us",
-      "residenceScope": "global",
+      "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false }
       },
-      "helpText": "Individual shares are subject to Capital Gains Tax upon sale. Long-term gains are typically taxed at a preferential rate."
+      "helpText": "Roth IRA growth and qualified withdrawals are modeled as tax-free. FinSim does not enforce contribution limits, income-based eligibility, ordering rules, or the five-year / age tests for qualified distributions."
     },
     {
       "key": "rsu_us",
@@ -99,13 +210,13 @@
       "baseRef": "globalEquity",
       "baseCurrency": "USD",
       "assetCountry": "us",
-      "residenceScope": "global",
+      "residenceScope": "local",
       "sellWhenReceived": true,
       "excludeFromAllocations": true,
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate" }
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
       },
-      "helpText": "RSUs are taxed as ordinary income at vesting. Subsequent gains on the sale of shares are subject to Capital Gains Tax."
+      "helpText": "Restricted Stock Units are modeled as ordinary income when they vest and are automatically sold. Later sale gains are approximated at ${taxRules.capitalGainsTax.rate,percentage}; payroll-tax withholding and exact RSU basis mechanics are documented in the gap report."
     }
   ],
 

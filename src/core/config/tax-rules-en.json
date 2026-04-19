@@ -1,0 +1,193 @@
+{
+  "country": "EN",
+  "countryName": "England",
+  "jointFilingAllowed": false,
+  "version": "2026.01",
+  "taxBasis": "worldwide",
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "drawdownPriorities": [],
+
+  "updateMessage": "Adds experimental England 2026/27 personal tax rules, including the Personal Allowance taper, Class 1 National Insurance, CGT, and ISA wrappers.",
+
+  "locale": { "numberLocale": "en-GB", "currencyCode": "GBP", "currencySymbol": "£" },
+
+  "economicData": {
+    "typicalRentalYield": 3.6,
+    "inflation": 2.0,
+    "purchasingPowerParity": { "value": 0.66, "year": 2024 },
+    "exchangeRate": { "perEur": 0.871 },
+    "asOf": "2026-04-17"
+  },
+
+  "incomeTax": {
+    "name": "Income Tax",
+    "familyId": "incomeTax",
+    "tooltip": "England and Northern Ireland income tax bands, with the Personal Allowance modeled as a tapered pre-bracket deduction.",
+    "taxCredits": {  },
+    "dependentChildMaxAge": 18,
+    "jointBandIncreaseMax": 0,
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "incomeAdjustments": [
+      {
+        "id": "personalAllowance",
+        "amount": 12570,
+        "phaseOut": { "startIncome": 100000, "withdrawalRate": 0.5, "zeroAtIncome": 125140 }
+      }
+    ],
+    "bracketsByStatus": {
+      "single": { "0": 0.2, "37700": 0.4, "125140": 0.45 },
+      "singleWithDependents": { "0": 0.2, "37700": 0.4, "125140": 0.45 },
+      "married": { "0": 0.2, "37700": 0.4, "125140": 0.45 }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "National Insurance",
+      "familyId": "nationalInsurance",
+      "tooltip": "Class 1 employee National Insurance using the standard annual category A thresholds. Category letters, exact payroll-period mechanics, and exact cohort/date-based state pension cutoffs are not modeled.",
+      "brackets": { "0": 0.0, "12570": 0.08, "50270": 0.02 },
+      "selectionRules": [
+        {
+          "minAge": 66,
+          "brackets": { "0": 0.0 }
+        }
+      ],
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [],
+
+  "capitalGainsTax": {
+    "name": "CGT",
+    "familyId": "capitalGainsTax",
+    "tooltip": "Approximate UK Capital Gains Tax using the higher main rate and annual exemption. Real UK CGT depends on remaining basic-rate band headroom and asset type.",
+    "rate": 0.24,
+    "annualExemption": 3000,
+    "annualExemptionByStatus": { "single": 3000, "singleWithDependents": 3000, "married": 6000 },
+    "allowLossOffset": true,
+    "baskets": [
+      { "id": "generalGains", "lossCarryForward": true },
+      { "id": "restrictedEquity", "lossCarryForward": true }
+    ]
+  },
+
+  "allowancePools": {
+    "isaSubscription": { "annualLimit": 20000, "carryForward": false }
+  },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": { "enabled": true, "proportional": true },
+    "holdingPeriodExemptionYears": null,
+    "residentsOnly": false,
+    "capitalGainsOptions": { "rateRef": "capitalGainsTax.rate", "eligibleForAnnualExemption": true, "allowLossOffset": true }
+  },
+
+  "realEstate": {
+    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+  },
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 55,
+    "minRetirementAgeOccupational": 55,
+    "minRetirementAgeState": 66,
+    "contributionLimits": {
+      "ageBandsPercent": { "0": 1.0 },
+      "annualCap": 60000
+    },
+    "contributionLanes": [
+      {
+        "id": "standard",
+        "annualCap": 60000,
+        "ageBandsPercent": { "0": 1.0 }
+      },
+      {
+        "id": "tapered",
+        "annualCap": 60000,
+        "ageBandsPercent": { "0": 1.0 },
+        "trigger": { "adjustedIncomeAbove": 260000, "reductionRate": 0.5, "minCap": 10000 }
+      }
+    ],
+    "lumpSumTaxBands": {  },
+    "lumpSumMaxPercent": 0.25,
+    "minDrawdownRates": {  },
+    "statePensionAge": 66,
+    "statePensionAgeSchedule": { "1961": 67 },
+    "statePensionPeriod": "weekly",
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": true,
+    "helpText": { "label": "Pensions", "contributionDescriptionP1": "<p>Enter how much of the annual allowance you want to contribute from salary into a private pension.</p><p>Use the GOV.UK annual allowance guidance if you need to check high-income tapering.</p>", "contributionDescriptionP2": "<p>Enter how much of your partner's annual allowance you want to contribute from salary into a private pension.</p><p>Use the GOV.UK annual allowance guidance if you need to check high-income tapering.</p>", "statePensionDescriptionP1": "<p>Enter your expected weekly State Pension amount.</p><p>Use your latest GOV.UK State Pension forecast or provider estimate.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected weekly State Pension amount.</p><p>Use their latest GOV.UK State Pension forecast or provider estimate.</p>" },
+    "definedBenefit": { "treatment": "privatePension" }
+  },
+
+  "residencyRules": {
+    "postEmigrationTaxYears": 0,
+    "taxesForeignIncome": false,
+    "returnClawback": {
+      "maxAbsenceYears": 5,
+      "categories": [ "capitalGains" ]
+    }
+  },
+
+  "adapters": [],
+
+  "investmentTypes": [
+    {
+      "key": "reportingFunds_en",
+      "label": "Reporting Funds",
+      "baseRef": "globalEquity",
+      "baseCurrency": "GBP",
+      "assetCountry": "en",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "annualExemptionRef": "capitalGainsTax.annualExemption", "allowLossOffset": true, "basketId": "generalGains" }
+      },
+      "helpText": "Approximation of UK reporting funds and reporting ETFs. Gains are taxed under Capital Gains Tax at ${taxRules.capitalGainsTax.rate,percentage}; non-reporting offshore funds are not modeled separately."
+    },
+    {
+      "key": "shares_en",
+      "label": "Shares",
+      "baseCurrency": "GBP",
+      "assetCountry": "en",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "annualExemptionRef": "capitalGainsTax.annualExemption", "allowLossOffset": true, "basketId": "generalGains" }
+      },
+      "helpText": "Direct shareholdings are taxed under Capital Gains Tax at ${taxRules.capitalGainsTax.rate,percentage}. The real UK rate can be lower when unused basic-rate band remains."
+    },
+    {
+      "key": "stocksIsa_en",
+      "label": "Stocks and Shares ISA",
+      "baseRef": "globalEquity",
+      "baseCurrency": "GBP",
+      "assetCountry": "en",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false }
+      },
+      "lifecycle": { "annualContributionLimit": 20000, "residenceCountryOnly": true, "allowancePoolRef": "isaSubscription" },
+      "helpText": "Stocks and Shares ISAs are modeled as tax-free for capital gains with a modeled annual subscription limit and UK-residency contribution eligibility."
+    },
+    {
+      "key": "rsu_en",
+      "label": "RSUs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "GBP",
+      "assetCountry": "en",
+      "residenceScope": "local",
+      "sellWhenReceived": true,
+      "excludeFromAllocations": true,
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "annualExemptionRef": "capitalGainsTax.annualExemption", "allowLossOffset": true, "basketId": "restrictedEquity" }
+      },
+      "helpText": "Restricted Stock Units are taxed as employment income at vesting. Later sale gains are taxed under Capital Gains Tax at ${taxRules.capitalGainsTax.rate,percentage}."
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}

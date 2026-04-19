@@ -1,0 +1,22 @@
+{
+    "latestVersion": "3.0",
+    "codeUpdateMessage": "Multiple countries supported.\n\n• New relocation event.\n\n• New mortgage events.",
+    "relocationEnabled": true,
+    "autoShiftOnRelocationAgeChange": true,
+    "availableCountries": [
+      {"code": "ie", "name": "Ireland"},
+      {"code": "ar", "name": "Argentina"},
+      {"code": "at", "name": "Austria"},
+      {"code": "en", "name": "England"},
+      {"code": "de", "name": "Germany"},
+      {"code": "es", "name": "Spain"},
+      {"code": "se", "name": "Sweden"},
+      {"code": "fr", "name": "France"},
+      {"code": "us", "name": "United States"}
+    ],
+    "defaultCountry": "ie",
+    "monteCarloTargetSeconds": 5,
+    "monteCarloMinRuns": 500,
+    "economicRegimesEnabled": true,
+    "applicationName": "Financial Simulator"
+}
