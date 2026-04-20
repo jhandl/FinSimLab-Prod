@@ -1560,7 +1560,7 @@ th {
 }
 
 /* ------------------------------------------------------------------
-   Allocations (compact, label + holds + % aligned on one row)
+   Allocations (compact, label + % + holds aligned on one row)
    Scoped to data-allocations-row="true" to avoid impacting other cards.
 -------------------------------------------------------------------*/
 #Allocations .input-wrapper[data-allocations-row="true"] {
@@ -1606,6 +1606,7 @@ th {
 #Allocations .input-wrapper[data-allocations-row="true"] .percentage-container {
   width: 60px;
   flex: 0 0 60px;
+  order: 1;
 }
 
 #Allocations .input-wrapper[data-allocations-row="true"] input.percentage {
@@ -1617,6 +1618,14 @@ th {
 #Allocations .input-wrapper[data-allocations-row="true"] .alloc-holds-control {
   flex: 0 0 auto;
   flex-shrink: 0;
+  order: 2;
+}
+
+#Allocations .input-wrapper[data-allocations-row="true"] .alloc-holds-spacer {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  order: 2;
+  pointer-events: none;
 }
 
 #Allocations .percentage-container::after {
