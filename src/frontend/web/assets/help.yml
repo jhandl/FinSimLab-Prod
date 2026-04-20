@@ -1772,7 +1772,7 @@ WizardSteps:
       popoverClass: "tour-complete-popover"
       title: "Tour Complete!"
       description: >
-        <p><b>Congratulations!</b> You've completed the tour of the Financial Simulation Lab.</p>
+        <p><b>Congratulations!</b> You've completed the tour of the Finance Simulation Lab.</p>
         <p>You can always return to this tour by clicking Help or pressing the ? key on any field.</p>
         <p><b>Happy planning!</b> 🎯</p>
       showButtons: ["prev", "next"]
