@@ -4195,11 +4195,23 @@ footer {
   background-color: var(--warning-color);
 }
 
-/* Mobile styles for editable fields */
-@media (max-width: 768px) {
-  .editable-field {
-    max-width: 100%;
-  }
+/* Apply only when JS marks a card as needing shrink to preserve label room */
+.events-accordion-item.accordion-field-shrink .editable-field {
+  flex: 0 0 var(--accordion-card-field-width, 180px);
+  width: var(--accordion-card-field-width, 180px);
+  max-width: 100%;
+}
+
+.events-accordion-item.accordion-field-shrink .accordion-item-content .editable-field .dropdown-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.events-accordion-item.accordion-field-shrink .accordion-item-content .editable-field .pseudo-select {
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
 }
 
 /* Accordion Action Buttons */
