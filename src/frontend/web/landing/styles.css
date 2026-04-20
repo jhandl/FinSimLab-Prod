@@ -151,6 +151,18 @@ a {
   color: inherit;
 }
 
+.about-text a {
+  color: var(--primary-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.about-text a:hover {
+  color: var(--primary-500);
+  text-decoration-thickness: 2px;
+}
+
 ul {
   list-style: none;
 }
