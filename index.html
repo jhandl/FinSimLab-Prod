@@ -75,7 +75,28 @@
     </script>
     
     <!-- SPA router script -->
-    <script src="/bundle.1776680291078.js" onerror="handleScriptError(event)"></script>
+    <script src="/bundle.1776686647757.js" onerror="handleScriptError(event)"></script>
+    <script>
+        (function() {
+            const routerScript = document.querySelector('script[src*="spa-router.js"], script[src*="bundle."]');
+            if (!routerScript) return;
+            const src = routerScript.getAttribute('src') || '';
+            const bundleMatch = src.match(/bundle\.(\d+)\.js/);
+            const queryMatch = src.match(/[?&]v=([^&]+)/);
+            const buildId = bundleMatch ? bundleMatch[1] : (queryMatch ? queryMatch[1] : '');
+            if (!buildId) return;
+            const storageKey = 'last-seen-build';
+            const reloadKey = 'last-reloaded-build';
+            const lastSeenBuild = localStorage.getItem(storageKey);
+            if (lastSeenBuild && lastSeenBuild !== buildId && sessionStorage.getItem(reloadKey) !== buildId) {
+                localStorage.setItem(storageKey, buildId);
+                sessionStorage.setItem(reloadKey, buildId);
+                window.location.reload(true);
+                return;
+            }
+            localStorage.setItem(storageKey, buildId);
+        })();
+    </script>
     
     <script>
         function handleScriptError(event) {
