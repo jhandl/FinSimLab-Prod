@@ -22,7 +22,7 @@
   },
 
   "incomeTax": {
-    "name": "Impuesto a las Ganancias",
+    "name": "Ganancias",
     "familyId": "incomeTax",
     "tooltip": "Resident Argentine ordinary-income tax for tax year 2026 using the published Article 94 annual scale. The non-taxable minimum is modeled as a pre-bracket deduction, while the Article 30 special employee deduction plus deductible employee social-security contributions are encoded as an employment-only piecewise credit. Spouse, child-count, and pensioner-specific deduction paths remain in the gap report.",
     "taxCredits": {
@@ -77,7 +77,7 @@
 
   "socialContributions": [
     {
-      "name": "Aportes personales a la seguridad social",
+      "name": "Cargas sociales",
       "familyId": "aportesSeguridadSocial",
       "tooltip": "Grouped employee contribution proxy for Argentine dependent workers: 11% SIPA pension + 3% obra social + 3% INSSJP/PAMI, capped at the April 2026 monthly maximum contribution base annualized with a 13th-salary factor. Special regimes, month-by-month cap movements, and payroll-detail differences are documented in the gap report.",
       "rate": 0.17,
@@ -89,7 +89,7 @@
   "additionalTaxes": [],
 
   "capitalGainsTax": {
-    "name": "Impuesto cedular",
+    "name": "Rentas",
     "familyId": "capitalGainsTax",
     "tooltip": "Simplified Argentine cedular capital-gains proxy using a 15% rate for taxable gains on non-exempt shares and similar financial assets. Public-offer listed local wrappers that the ruleset treats as exempt are modeled through zero-rate investment wrappers instead. Debt-instrument 5% cases, Article 100 special deductions, dividends, and detailed basket rules remain in the gap report.",
     "rate": 0.15,

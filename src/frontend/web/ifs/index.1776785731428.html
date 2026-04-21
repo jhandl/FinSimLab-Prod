@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=2025-08-23-usc">
-  <script src="/src/frontend/web/ifs/bundle.1776718440188.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1776785754619.js"></script>
   
   
   
@@ -1606,7 +1606,7 @@
 
       const groupHeaderRow = dataTable.querySelector('thead tr.header-groups');
       if (groupHeaderRow) {
-        const rowHeight = Math.ceil(groupHeaderRow.getBoundingClientRect().height || groupHeaderRow.offsetHeight || 0);
+        const rowHeight = (groupHeaderRow.getBoundingClientRect().height || groupHeaderRow.offsetHeight || 0);
         if (rowHeight > 0) {
           dataTable.style.setProperty('--data-header-group-height', `${rowHeight}px`);
         } else {
