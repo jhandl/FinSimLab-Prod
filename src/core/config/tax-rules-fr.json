@@ -18,7 +18,8 @@
     "inflation": 1.9289,
     "purchasingPowerParity": { "value": 0.672634, "year": 2025 },
     "exchangeRate": { "perEur": 1.0 },
-    "asOf": "2026-04-17"
+    "asOf": "2026-04-22",
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 4147.14 }
   },
 
   "incomeTax": {

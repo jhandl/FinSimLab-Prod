@@ -14,11 +14,12 @@
   "locale": { "numberLocale": "en-GB", "currencyCode": "GBP", "currencySymbol": "£" },
 
   "economicData": {
-    "typicalRentalYield": 3.6,
-    "inflation": 2.0,
-    "purchasingPowerParity": { "value": 0.66, "year": 2024 },
-    "exchangeRate": { "perEur": 0.871 },
-    "asOf": "2026-04-17"
+    "typicalRentalYield": 5.0,
+    "inflation": 2.9768,
+    "purchasingPowerParity": { "value": 0.669798, "year": 2025 },
+    "exchangeRate": { "perEur": 0.87 },
+    "asOf": "2026-04-22",
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 4435.52 }
   },
 
   "incomeTax": {

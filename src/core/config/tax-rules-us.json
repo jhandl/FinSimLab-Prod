@@ -17,8 +17,9 @@
     "typicalRentalYield": 11.1,
     "inflation": 2.6749,
     "purchasingPowerParity": { "value": 1.0, "year": 2025 },
-    "exchangeRate": { "perEur": 1.18 },
-    "asOf": "2026-04-17"
+    "exchangeRate": { "perEur": 1.17 },
+    "asOf": "2026-04-22",
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 2585.17 }
   },
 
   "incomeTax": {

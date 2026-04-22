@@ -13,10 +13,11 @@
 
   "economicData": {
     "typicalRentalYield": 7.8,
-    "inflation": 1.653,
-    "purchasingPowerParity": { "value": 0.740894, "year": 2024 },
+    "inflation": 1.8201,
+    "purchasingPowerParity": { "value": 0.746593, "year": 2025 },
     "exchangeRate": { "perEur": 1.0 },
-    "asOf": "2026-03-24"
+    "asOf": "2026-04-22",
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 4042.76 }
   },
 
   "incomeTax": {
@@ -111,12 +112,7 @@
     "statePensionIncreaseBands": { "80": 10 },
     "pensionSystem": { "type": "mixed" },
     "taxAdvantaged": true,
-    "helpText": { "label": "Private Pension", 
-      "contributionDescriptionP1": "<p>How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.</p><p>If you enter 100% here, you will contribute the maximum allowed for your age as per the tax rules. Do not include employer matching contributions here; there's another place for that.</p>", 
-      "contributionDescriptionP2": "<p>How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.</p><p>If you enter 100% here, your partner will contribute the maximum allowed for their age. This field is only used in two-person simulation mode.</p>", 
-      "statePensionDescriptionP1": "<p>Enter your expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate yours.</p>", 
-      "statePensionDescriptionP2": "<p>Enter your partner's expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate theirs.</p>" 
-    },
+    "helpText": { "label": "Private Pension", "contributionDescriptionP1": "<p>How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.</p><p>If you enter 100% here, you will contribute the maximum allowed for your age as per the tax rules. Do not include employer matching contributions here; there's another place for that.</p>", "contributionDescriptionP2": "<p>How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.</p><p>If you enter 100% here, your partner will contribute the maximum allowed for their age. This field is only used in two-person simulation mode.</p>", "statePensionDescriptionP1": "<p>Enter your expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate yours.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected weekly state pension amount.</p><p>Refer to [this page](https://www.gov.ie/en/publication/b6193-how-to-calculate-your-state-pension-contributory-rate/){state pension,contributory,calculate,contribution} to find how to calculate theirs.</p>" },
     "definedBenefit": { "treatment": "privatePension" }
   },
 
