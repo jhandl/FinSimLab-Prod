@@ -98,4 +98,63 @@
 }
 .driver-popover-next-btn.arrow-next::after {
   content: " →";
-} 
+}
+
+/* Mobile-specific overrides for narrow screens */
+@media (max-width: 500px) {
+  .driver-popover {
+    /* These styles are also enforced via JS in fixPopoverPositioning for immediate override */
+    position: fixed !important;
+    left: 10px !important;
+    right: 10px !important;
+    top: auto !important;
+    bottom: calc(25px + env(safe-area-inset-bottom, 0px)) !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 160px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .driver-popover-description {
+    flex: 1 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+  }
+
+  .driver-popover-footer {
+    margin-top: 10px !important;
+    padding-top: 5px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    /* Ensure footer buttons stay in the same spot by giving it a fixed height */
+    height: 35px !important;
+    align-items: center !important;
+  }
+
+  /* Hide the pointer arrow on mobile bottom-docked mode */
+  .driver-popover-arrow {
+    display: none !important;
+  }
+
+  /* Ensure buttons have consistent widths on mobile to avoid layout shifts */
+  .driver-popover-footer .driver-btn {
+    min-width: 70px !important;
+    text-align: center !important;
+  }
+  }
+
+  /* Adjust data section height when wizard is active on mobile to prevent overlap with docked bubble */
+  @media (max-width: 500px) {
+  body[data-wizard-active="true"] .data-section:not(#mobile-data-message) {
+    max-height: calc(100vh - var(--header-height, 60px) - 220px) !important;
+  }
+
+  body[data-wizard-active="true"] .data-section:not(#mobile-data-message) .table-container {
+    max-height: calc(100vh - var(--header-height, 60px) - 220px - var(--data-section-card-header-height, 3rem)) !important;
+  }
+  } 
+ 
