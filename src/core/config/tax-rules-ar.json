@@ -9,7 +9,7 @@
 
   "drawdownPriorities": [],
 
-  "updateMessage": "Adds experimental Argentina 2026 resident tax rules, grouped employee social contributions, and Argentina-specific investment wrappers.",
+  "updateMessage": "Adds experimental Argentina 2026 resident tax rules, household deduction handling, grouped employee social contributions, and Argentina-specific investment wrappers.",
 
   "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
 
@@ -25,7 +25,7 @@
   "incomeTax": {
     "name": "Ganancias",
     "familyId": "incomeTax",
-    "tooltip": "Resident Argentine ordinary-income tax for tax year 2026 using the published Article 94 annual scale. The non-taxable minimum is modeled as a pre-bracket deduction, while the Article 30 special employee deduction plus deductible employee social-security contributions are encoded as an employment-only piecewise credit. Spouse, child-count, and pensioner-specific deduction paths remain in the gap report.",
+    "tooltip": "Resident Argentine ordinary-income tax for tax year 2026 using the published Article 94 annual scale. The non-taxable minimum, spouse deduction, and dependent-child deduction run through pre-bracket income adjustments. The Article 30 employee special deduction plus deductible employee social-security contributions are still encoded as an employment-only piecewise credit because the current engine does not yet support income-type-scoped income adjustments in the resident income-tax path.",
     "taxCredits": {
       "employee": {
         "scope": "earner",
@@ -59,14 +59,20 @@
     "jointBandIncreaseMax": 0,
     "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
     "incomeAdjustments": [
-      { "id": "gananciaMinimaNoImponible", "amount": 5151802.5 }
-    ],
-    "baseAdjustments": [
+      { "id": "gananciaMinimaNoImponible", "amount": 5151802.5 },
       {
-        "id": "specialEmployeeDeductionProxy",
-        "amount": 1500000,
-        "scope": "employment",
-        "phaseOut": { "startIncome": 45000000, "withdrawalRate": 0.05 }
+        "id": "spouseDeduction",
+        "amount": 4851964.66,
+        "eligibility": { "married": true, "partnerGrossIncomeMax": 5151802.5 },
+        "allocation": "higherIncomeSpouse"
+      },
+      {
+        "id": "dependentChildDeduction",
+        "amount": 2446863.48,
+        "multiplierInputId": "dependentChildCount",
+        "defaultMultiplier": 1,
+        "eligibility": { "dependentChildren": true },
+        "allocation": "splitAcrossPersons"
       }
     ],
     "bracketsByStatus": {
@@ -75,6 +81,17 @@
       "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
     }
   },
+
+  "countryInputRegistry": [
+    {
+      "id": "dependentChildCount",
+      "type": "amount",
+      "label": "Dependent children",
+      "scope": "universal",
+      "section": "personalCircumstances",
+      "binding": "incomeTax"
+    }
+  ],
 
   "socialContributions": [
     {

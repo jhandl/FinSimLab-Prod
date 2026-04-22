@@ -1136,6 +1136,20 @@ label {
   white-space: nowrap;
 }
 
+#personalCircumstances {
+  --label-width: 230px;
+}
+
+#personalCircumstances .input-wrapper > label {
+  white-space: normal;
+  line-height: 1.15;
+}
+
+#personalCircumstances .input-wrapper > input,
+#personalCircumstances .input-wrapper > select {
+  flex-shrink: 0;
+}
+
 /* Only truncate dynamic investment parameter labels (avoid affecting all static labels). */
 .input-wrapper[data-dynamic-investment-param="true"] > label {
   overflow: hidden;
