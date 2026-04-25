@@ -2,104 +2,130 @@
   "country": "AR",
   "countryName": "Argentina",
   "jointFilingAllowed": false,
-  "version": "2026.01",
+  "version": "2026.04",
   "taxBasis": "worldwide",
 
-  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+  "treatyEquivalents": { "incomeTax": "income", "capitalGainsTax": "capitalGains", "capitalGains": "capitalGains", "dividends": "dividends" },
 
   "drawdownPriorities": [],
 
-  "updateMessage": "Adds experimental Argentina 2026 resident tax rules, household deduction handling, grouped employee social contributions, and Argentina-specific investment wrappers.",
+  "updateMessage": "Adds baseline Argentina income tax, payroll deductions, and capital-gains categories.",
 
   "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
 
   "economicData": {
-    "typicalRentalYield": 5.0,
-    "inflation": 36.5161,
-    "purchasingPowerParity": { "value": 419.90104, "year": 2024 },
-    "exchangeRate": { "perEur": 1620.35 },
-    "asOf": "2026-04-22",
-    "housingPricePerSquareMeter": { "currency": "EUR", "average": 1615.03 }
+    "asOf": "2026-04-25",
+    "typicalRentalYield": 0,
+    "inflation": 0,
+    "purchasingPowerParity": { "value": 1.0, "year": 2025 },
+    "exchangeRate": { "perEur": 1.0 },
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 0 }
   },
 
   "incomeTax": {
     "name": "Ganancias",
     "familyId": "incomeTax",
-    "tooltip": "Resident Argentine ordinary-income tax for tax year 2026 using the published Article 94 annual scale. The non-taxable minimum, spouse deduction, and dependent-child deduction run through pre-bracket income adjustments. The Article 30 employee special deduction plus deductible employee social-security contributions are still encoded as an employment-only piecewise credit because the current engine does not yet support income-type-scoped income adjustments in the resident income-tax path.",
-    "taxCredits": {
-      "employee": {
-        "scope": "earner",
-        "formula": {
-          "type": "piecewiseLinear",
-          "segments": [
-            { "upTo": 5151802.5, "rate": 0 },
-            { "upTo": 7151832.59, "rate": 0.05 },
-            { "upTo": 9151862.67, "rate": 0.09 },
-            { "upTo": 11151892.76, "rate": 0.12 },
-            { "upTo": 14151937.9, "rate": 0.15 },
-            { "upTo": 23152073.3, "rate": 0.19 },
-            { "upTo": 32152208.7, "rate": 0.23 },
-            { "upTo": 36000547.61445783, "rate": 0.27 },
-            { "upTo": 38410222.421686746, "rate": 0.2285 },
-            { "upTo": 40819897.21686747, "rate": 0.1953 },
-            { "upTo": 43229572.02409639, "rate": 0.1704 },
-            { "upTo": 45652411.8, "rate": 0.1455 },
-            { "upTo": 46844084.24096386, "rate": 0.1855 },
-            { "upTo": 54117863.41, "rate": 0.1523 },
-            { "upTo": 57080762.099700004, "rate": 0.12 },
-            { "upTo": 65902716.46, "rate": 0.08 },
-            { "upTo": 66080897.499699995, "rate": 0.12 },
-            { "upTo": 79581100.59969999, "rate": 0.08 },
-            { "upTo": 99831405.2597, "rate": 0.04 }
-          ]
-        }
-      }
-    },
+    "tooltip": "Baseline Article 94 progressive tariff with Article 30 deduction tracks approximated through income adjustments and optional profile selection.",
     "dependentChildMaxAge": 18,
     "jointBandIncreaseMax": 0,
     "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
     "incomeAdjustments": [
-      { "id": "gananciaMinimaNoImponible", "amount": 5151802.5 },
+      {
+        "id": "nonTaxableMinimum",
+        "amount": 3091035
+      },
       {
         "id": "spouseDeduction",
-        "amount": 4851964.66,
-        "eligibility": { "married": true, "partnerGrossIncomeMax": 5151802.5 },
-        "allocation": "higherIncomeSpouse"
+        "amount": 2911135,
+        "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 }
       },
       {
         "id": "dependentChildDeduction",
-        "amount": 2446863.48,
-        "multiplierInputId": "dependentChildCount",
-        "defaultMultiplier": 1,
-        "eligibility": { "dependentChildren": true },
-        "allocation": "splitAcrossPersons"
+        "amount": 1468096,
+        "multiplierInputId": "dependentChildrenCount",
+        "defaultMultiplier": 0
+      },
+      {
+        "id": "specialDeductionEmployment",
+        "amount": 11745933
+      },
+      {
+        "id": "extraTwelfthNonTaxable",
+        "amount": 257586.25
+      },
+      {
+        "id": "extraTwelfthSpouse",
+        "amount": 242594.5833333333,
+        "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 }
+      },
+      {
+        "id": "extraTwelfthChild",
+        "amount": 122341.3333333333,
+        "multiplierInputId": "dependentChildrenCount",
+        "defaultMultiplier": 0
       }
     ],
     "bracketsByStatus": {
-      "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
-      "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
-      "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
+      "single": { "0": 0.05, "1200000": 0.09, "2400000": 0.12, "3600000": 0.15, "5400000": 0.19, "10800000": 0.23, "16200000": 0.27, "24300000": 0.31, "36450000": 0.35 },
+      "singleWithDependents": { "0": 0.05, "1200000": 0.09, "2400000": 0.12, "3600000": 0.15, "5400000": 0.19, "10800000": 0.23, "16200000": 0.27, "24300000": 0.31, "36450000": 0.35 },
+      "married": { "0": 0.05, "1200000": 0.09, "2400000": 0.12, "3600000": 0.15, "5400000": 0.19, "10800000": 0.23, "16200000": 0.27, "24300000": 0.31, "36450000": 0.35 }
+    },
+    "profiles": {
+      "selfEmployed": {
+        "tooltip": "Approximates Article 30 special deduction track for self-employed taxpayers (2.5x base anchor).",
+        "incomeAdjustments": [
+          { "id": "nonTaxableMinimum", "amount": 3091035 },
+          { "id": "spouseDeduction", "amount": 2911135, "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 } },
+          { "id": "dependentChildDeduction", "amount": 1468096, "multiplierInputId": "dependentChildrenCount", "defaultMultiplier": 0 },
+          { "id": "specialDeductionSelfEmployed", "amount": 7727587.5 }
+        ]
+      },
+      "newProfessional": {
+        "tooltip": "Approximates Article 30 special deduction track for new professionals/entrepreneurs (3x base anchor).",
+        "incomeAdjustments": [
+          { "id": "nonTaxableMinimum", "amount": 3091035 },
+          { "id": "spouseDeduction", "amount": 2911135, "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 } },
+          { "id": "dependentChildDeduction", "amount": 1468096, "multiplierInputId": "dependentChildrenCount", "defaultMultiplier": 0 },
+          { "id": "specialDeductionNewProfessional", "amount": 9273105 }
+        ]
+      },
+      "pensionSpecific": {
+        "tooltip": "Optional pension deduction path that allows replacing the cumulative deduction total with a configured 8x minimum-pension anchor when higher.",
+        "incomeAdjustments": [
+          { "id": "nonTaxableMinimum", "amount": 3091035 },
+          { "id": "spouseDeduction", "amount": 2911135, "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 } },
+          { "id": "dependentChildDeduction", "amount": 1468096, "multiplierInputId": "dependentChildrenCount", "defaultMultiplier": 0 },
+          { "id": "specialDeductionEmployment", "amount": 11745933 },
+          { "id": "extraTwelfthNonTaxable", "amount": 257586.25 },
+          { "id": "extraTwelfthSpouse", "amount": 242594.5833333333, "eligibility": { "married": true, "partnerGrossIncomeMax": 3091035 } },
+          { "id": "extraTwelfthChild", "amount": 122341.3333333333, "multiplierInputId": "dependentChildrenCount", "defaultMultiplier": 0 },
+          { "id": "pensionSpecificDeduction", "amount": 3042554.48, "inputId": "pensionSpecificDeductionAmount", "inputValueMode": "replacementTotal" }
+        ]
+      }
     }
   },
 
-  "countryInputRegistry": [
-    {
-      "id": "dependentChildCount",
-      "type": "amount",
-      "label": "Dependent children",
-      "scope": "universal",
-      "section": "personalCircumstances",
-      "binding": "incomeTax"
-    }
-  ],
-
   "socialContributions": [
     {
-      "name": "Cargas sociales",
-      "familyId": "aportesSeguridadSocial",
-      "tooltip": "Grouped employee contribution proxy for Argentine dependent workers: 11% SIPA pension + 3% obra social + 3% INSSJP/PAMI, capped at the April 2026 monthly maximum contribution base annualized with a 13th-salary factor. Special regimes, month-by-month cap movements, and payroll-detail differences are documented in the gap report.",
-      "rate": 0.17,
-      "incomeCap": 54117863.41,
+      "name": "SIPA",
+      "familyId": "sipa",
+      "tooltip": "Employee pension contribution at 11%, approximating monthly caps with an annualized cap.",
+      "rate": 0.11,
+      "incomeCap": 49954950.84,
+      "applicableIncomeTypes": [ "employment" ]
+    },
+    {
+      "name": "Obra Social",
+      "familyId": "obraSocial",
+      "tooltip": "Employee health contribution at 3% on employment income.",
+      "rate": 0.03,
+      "applicableIncomeTypes": [ "employment" ]
+    },
+    {
+      "name": "PAMI",
+      "familyId": "pami",
+      "tooltip": "Employee INSSJP contribution at 3% on employment income.",
+      "rate": 0.03,
       "applicableIncomeTypes": [ "employment" ]
     }
   ],
@@ -107,105 +133,106 @@
   "additionalTaxes": [],
 
   "capitalGainsTax": {
-    "name": "Rentas",
+    "name": "Ganancias de Capital",
     "familyId": "capitalGainsTax",
-    "tooltip": "Simplified Argentine cedular capital-gains proxy using a 15% rate for taxable gains on non-exempt shares and similar financial assets. Public-offer listed local wrappers that the ruleset treats as exempt are modeled through zero-rate investment wrappers instead. Debt-instrument 5% cases, Article 100 special deductions, dividends, and detailed basket rules remain in the gap report.",
+    "tooltip": "Baseline 15% capital-gains path. Category-specific 5% treatment is modeled through wrapper-level overrides.",
     "rate": 0.15,
     "annualExemption": 0,
-    "allowLossOffset": true,
-    "baskets": [
-      { "id": "exemptDomestic", "rateOverride": 0, "lossCarryForward": false },
-      { "id": "taxableForeign", "lossCarryForward": true }
-    ]
+    "allowLossOffset": true
   },
 
   "propertyGainsTax": {
     "familyId": "propertyGainsTax",
     "taxRef": "capitalGains",
-    "primaryResidenceExemption": { "enabled": false, "proportional": false },
-    "holdingPeriodExemptionYears": null,
-    "residentsOnly": true,
-    "capitalGainsOptions": { "rate": 0.15, "eligibleForAnnualExemption": false, "allowLossOffset": false }
-  },
-
-  "realEstate": {
-    "reverseMortgage": { "payoutTaxTreatment": "taxFree" }
+    "residentsOnly": false,
+    "capitalGainsOptions": { "rateRef": "capitalGainsTax.rate", "eligibleForAnnualExemption": false, "allowLossOffset": true }
   },
 
   "pensionRules": {
-    "minRetirementAgePrivate": 0,
-    "minRetirementAgeOccupational": 0,
+    "minRetirementAgePrivate": 65,
+    "minRetirementAgeOccupational": 65,
     "statePensionAge": 65,
     "statePensionPeriod": "monthly",
-    "contributionLimits": {
-      "ageBandsPercent": { "0": 0 },
-      "annualCap": 0
+    "pensionIncomeShares": {
+      "statePension": { "default": 1.0 },
+      "privatePension": { "default": 1.0 },
+      "definedBenefit": { "default": 1.0 }
     },
-    "contributionLanes": [],
-    "pensionIncomeShares": {  },
-    "lumpSumTaxBands": {  },
-    "lumpSumMaxPercent": 0,
-    "minDrawdownRates": {  },
-    "statePensionIncreaseBands": {  },
-    "pensionSystem": { "type": "state_only" },
-    "taxAdvantaged": false,
-    "helpText": { "label": "Jubilación", "contributionDescriptionP1": "<p>Argentina does not expose a broad modeled tax-advantaged private pension lane in FinSim.</p><p>The ruleset therefore keeps the annual private-pension contribution cap at zero unless the engine is extended for narrower retirement-insurance deductions and product-specific rules.</p>", "contributionDescriptionP2": "<p>Argentina does not expose a broad modeled tax-advantaged private pension lane in FinSim.</p><p>The same zero-cap limitation applies to both people in couple mode.</p>", "statePensionDescriptionP1": "<p>Enter your expected monthly ANSES retirement benefit.</p><p>FinSim uses a single state-pension age of 65 as a conservative proxy and does not model the real sex- and contribution-history-based eligibility split.</p>", "statePensionDescriptionP2": "<p>Enter your partner's expected monthly ANSES retirement benefit.</p><p>FinSim uses the same simplified public-pension proxy for both people.</p>" },
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": true,
     "definedBenefit": { "treatment": "privatePension" }
   },
 
-  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
+  "residencyRules": {
+    "postEmigrationTaxYears": 0,
+    "taxesForeignIncome": true
+  },
+
+  "countryInputRegistry": [
+    {
+      "id": "deductionProfile",
+      "type": "selector",
+      "label": "Deductions Profile",
+      "required": false,
+      "section": "personalCircumstances",
+      "options": [
+        { "value": "selfEmployed", "label": "Self-Employed Track" },
+        { "value": "newProfessional", "label": "New Professional Track" },
+        { "value": "pensionSpecific", "label": "Pension Specific Track" }
+      ],
+      "binding": "incomeTax"
+    },
+    {
+      "id": "dependentChildrenCount",
+      "type": "amount",
+      "label": "Dependent Children Count",
+      "required": false,
+      "section": "personalCircumstances"
+    },
+    {
+      "id": "pensionSpecificDeductionAmount",
+      "type": "amount",
+      "label": "Pension Specific Deduction Amount",
+      "required": false,
+      "section": "personalCircumstances"
+    }
+  ],
 
   "adapters": [],
 
   "investmentTypes": [
     {
-      "key": "cedear_ar",
-      "label": "CEDEARs",
-      "baseRef": "globalEquity",
-      "baseCurrency": "USD",
-      "assetCountry": "ar",
-      "residenceScope": "global",
-      "taxation": {
-        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false, "basketId": "exemptDomestic" }
-      },
-      "helpText": "Approximation of publicly offered CEDEARs traded on CNV-authorized Argentine markets. The ruleset treats sale gains as exempt. Cases that fail the public-offer exemption, dividend withholding detail, and product-specific edge cases remain outside the modeled scope."
-    },
-    {
-      "key": "merval_ar",
-      "label": "Merval",
+      "key": "arsUnindexedSecurities_ar",
+      "label": "ARS Securities (No Index Clause)",
+      "baseRef": "globalBonds",
       "baseCurrency": "ARS",
       "assetCountry": "ar",
       "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rate": 0, "eligibleForAnnualExemption": false, "allowLossOffset": false, "basketId": "exemptDomestic" }
-      },
-      "helpText": "Approximation of Argentine listed equities traded on authorized local markets and treated as exempt public-offer securities. Non-listed shares and transactions that fall outside the exemption are not modeled by this wrapper."
+        "capitalGains": { "rate": 0.05, "allowLossOffset": true }
+      }
     },
     {
-      "key": "foreignShares_ar",
-      "label": "Foreign Shares",
-      "baseRef": "globalEquity",
-      "baseCurrency": "USD",
-      "assetCountry": "us",
-      "residenceScope": "global",
+      "key": "indexedOrFxSecurities_ar",
+      "label": "Indexed or FX Securities",
+      "baseRef": "globalBonds",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "taxableForeign" }
-      },
-      "helpText": "Approximation of non-exempt foreign listed shares held outside Argentina's exempt local public-offer wrappers. Gains use the modeled 15% cedular rate. Debt-instrument 5% cases, crypto-specific nuances, and exact foreign-broker reporting rules are documented in the gap report."
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
     },
     {
-      "key": "rsu_ar",
-      "label": "RSUs",
+      "key": "digitalAssets_ar",
+      "label": "Digital Assets",
       "baseRef": "globalEquity",
-      "baseCurrency": "USD",
-      "assetCountry": "us",
-      "residenceScope": "global",
-      "sellWhenReceived": true,
-      "excludeFromAllocations": true,
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true, "basketId": "taxableForeign" }
-      },
-      "helpText": "Restricted stock awards are modeled as employment income when they vest or are received, then any later gain uses the modeled 15% cedular rate. Payroll withholding, exact basis mechanics, and cross-border sourcing details remain outside the current engine."
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
     }
   ],
 

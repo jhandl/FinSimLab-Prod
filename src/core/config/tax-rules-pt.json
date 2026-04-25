@@ -1,0 +1,173 @@
+{
+  "country": "PT",
+  "countryName": "Portugal",
+  "jointFilingAllowed": true,
+  "version": "2026.04",
+  "taxBasis": "worldwide",
+
+  "treatyEquivalents": { "incomeTax": "income", "additionalTaxes": "income", "capitalGainsTax": "capitalGains" },
+
+  "drawdownPriorities": [],
+
+  "updateMessage": "Audit fix: Updated IRS progressive brackets to official 2026 Mainland values (OE2026).",
+
+  "locale": { "numberLocale": "pt-PT", "currencyCode": "EUR", "currencySymbol": "€" },
+
+  "economicData": {
+    "asOf": "2026-04-24",
+    "typicalRentalYield": 5.8,
+    "inflation": 2.1488,
+    "purchasingPowerParity": { "value": 0.530006, "year": 2025 },
+    "exchangeRate": { "perEur": 1.0 },
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 2985.6 }
+  },
+
+  "incomeTax": {
+    "name": "IRS",
+    "familyId": "incomeTax",
+    "tooltip": "Imposto sobre o Rendimento de Pessoas Singulares. Progressive tax on personal income for residents in Mainland Portugal. The €4,104 standard deduction is modeled as a pre-bracket adjustment.",
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "incomeAdjustments": [
+      { "id": "standardDeduction", "amount": 4104, "scope": "person" }
+    ],
+    "bracketsByStatus": {
+      "single": { "0": 0.125, "8342": 0.157, "12587": 0.212, "17838": 0.241, "23089": 0.311, "29397": 0.349, "43090": 0.431, "46566": 0.446, "86634": 0.48 },
+      "singleWithDependents": { "0": 0.125, "8342": 0.157, "12587": 0.212, "17838": 0.241, "23089": 0.311, "29397": 0.349, "43090": 0.431, "46566": 0.446, "86634": 0.48 },
+      "married": { "0": 0.125, "8342": 0.157, "12587": 0.212, "17838": 0.241, "23089": 0.311, "29397": 0.349, "43090": 0.431, "46566": 0.446, "86634": 0.48 }
+    },
+    "coupleComputation": { "type": "splitThenScale", "divisor": 2, "multiplier": 2 },
+    "profiles": {
+      "standard": {
+        "tooltip": "Standard progressive IRS regime for residents in Mainland Portugal.",
+        "incomeAdjustments": [
+          { "id": "standardDeduction", "amount": 4104, "scope": "person" }
+        ]
+      },
+      "nhr_2_0": {
+        "bracketsByStatus": {
+          "single": { "0": 0.2 },
+          "singleWithDependents": { "0": 0.2 },
+          "married": { "0": 0.2 }
+        },
+        "incomeAdjustments": [
+          { "id": "standardDeduction", "amount": 4104, "scope": "person" }
+        ],
+        "tooltip": "NHR 2.0 (IFICI) regime for high-value activities, applying a 20% flat rate to eligible employment income for 10 years."
+      }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "TSU",
+      "familyId": "segurancaSocial",
+      "tooltip": "Taxa Social Única (Employee portion). Flat 11% contribution on gross salary for private sector employees, with no cap.",
+      "rate": 0.11,
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [
+    {
+      "name": "TAS",
+      "familyId": "solidaritySurcharge",
+      "tooltip": "Taxa Adicional de Solidariedade. Surcharge of 2.5% on taxable income above €80,000 and 5% above €250,000.",
+      "brackets": { "0": 0, "80000": 0.025, "250000": 0.05 },
+      "deductibleExemptionAmount": 4104,
+      "base": "income",
+      "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ]
+    }
+  ],
+
+  "capitalGainsTax": { "name": "Mais-valias", "familyId": "capitalGainsTax", "tooltip": "Flat 28% tax on capital gains from financial assets (stocks, bonds). Residents can optionally choose to aggregate these with other income (not modeled).", "rate": 0.28, "allowLossOffset": true },
+
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "incomeTax",
+    "primaryResidenceExemption": { "enabled": true, "proportional": true },
+    "residentsOnly": true,
+    "tooltip": "Property capital gains are taxed as ordinary income. Real-world 50% inclusion rule is a known gap (100% is modeled)."
+  },
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 66,
+    "minRetirementAgeOccupational": 66,
+    "statePensionAge": 66,
+    "statePensionPeriod": "monthly",
+    "pensionIncomeShares": {
+      "statePension": { "default": 1.0 },
+      "privatePension": { "default": 1.0 }
+    },
+    "pensionSystem": { "type": "mixed" },
+    "taxAdvantaged": true
+  },
+
+  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
+
+  "countryInputRegistry": [
+    {
+      "id": "taxRegime",
+      "type": "selector",
+      "label": "Tax Regime",
+      "required": false,
+      "section": "personalCircumstances",
+      "options": [
+        { "value": "standard", "label": "Standard Progressive" },
+        { "value": "nhr_2_0", "label": "NHR 2.0 (IFICI) - 20%" }
+      ],
+      "binding": "incomeTax"
+    }
+  ],
+
+  "investmentTypes": [
+    {
+      "key": "shares_pt",
+      "label": "Ações",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "pt",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "funds_pt",
+      "label": "Fundos de Investimento",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "pt",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "crypto_pt",
+      "label": "Criptoativos",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "pt",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      },
+      "helpText": "Gains on crypto-assets held for less than 365 days are taxed at 28%. The 365-day exemption is not modeled."
+    },
+    {
+      "key": "rsu_pt",
+      "label": "RSUs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "EUR",
+      "assetCountry": "pt",
+      "residenceScope": "local",
+      "sellWhenReceived": true,
+      "excludeFromAllocations": true,
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}
