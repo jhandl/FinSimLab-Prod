@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
-  <script src="/src/frontend/web/ifs/bundle.1777208500848.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777213025926.js"></script>
   
   
   
@@ -1703,8 +1703,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       const appIcon = document.querySelector('.app-icon');
       if (appIcon) {
-        // Get current version from localStorage or default
-        const currentVersion = localStorage.getItem('simulatorVersion') || 'current';
+        const currentVersion = 'current';
         const tooltipText = `FinSimLab version ${currentVersion}`;
 
         // Use TooltipUtils to attach tooltip with 5-second delay
