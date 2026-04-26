@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
-  <script src="/src/frontend/web/ifs/bundle.1777150943900.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777208500848.js"></script>
   
   
   
@@ -119,6 +119,11 @@
           <div class="toggle-switch active">
             <div class="toggle-slider"></div>
           </div>
+        </button>
+
+        <button id="latestUpdatesMobile" class="mobile-menu-button secondary-button">
+          <i class="fas fa-bell"></i>
+          <span>Change log</span>
         </button>
 
         <div class="mobile-menu-divider"></div>
@@ -682,6 +687,7 @@
         const loadButton = document.getElementById('loadSimulationMobile');
         const demoButton = document.getElementById('loadDemoScenarioMobile');
         const helpButton = document.getElementById('startWizardMobile');
+        const latestUpdatesButton = document.getElementById('latestUpdatesMobile');
         const toggleButton = document.getElementById('experimentalToggleMobile');
         const eventsWizardToggleButton = document.getElementById('eventsWizardToggleMobile');
         const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
@@ -752,6 +758,8 @@
           hasSaveLoadSection = true;
           hasDemoHelpSection = true;
         }
+
+        if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
 
         // Show dividers only when they separate visible content
         // First divider: between Run/Status and Save/Load
@@ -833,6 +841,15 @@
           helpMobile.addEventListener('click', () => {
             this.closeMenu();
             helpDesktop.click();
+          });
+        }
+
+        // Change log
+        const latestUpdatesMobile = document.getElementById('latestUpdatesMobile');
+        if (latestUpdatesMobile) {
+          latestUpdatesMobile.addEventListener('click', () => {
+            this.closeMenu();
+            WebUI.getInstance().showLatestUpdates(true);
           });
         }
 
@@ -1687,7 +1704,7 @@
       const appIcon = document.querySelector('.app-icon');
       if (appIcon) {
         // Get current version from localStorage or default
-        const currentVersion = localStorage.getItem('simulatorVersion') || '1.27';
+        const currentVersion = localStorage.getItem('simulatorVersion') || 'current';
         const tooltipText = `FinSimLab version ${currentVersion}`;
 
         // Use TooltipUtils to attach tooltip with 5-second delay
