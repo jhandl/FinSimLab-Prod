@@ -101,6 +101,8 @@
     "pensionSystem": { "type": "mixed" },
     "taxAdvantaged": true,
     "helpText": {
+      "contributionDescriptionP1": "<p>Enter the percentage of your gross salary that you plan to contribute to your private pension each year.</p><p>This applies to salary events assigned to you.</p>",
+      "contributionDescriptionP2": "<p>Enter the percentage of your partner's gross salary that they plan to contribute to their private pension each year.</p><p>This applies to salary events assigned to your partner.</p>",
       "statePensionDescriptionP1": "<p>Enter your expected monthly Portuguese state pension amount.</p><p>Use your own estimate from Segurança Social or your pension statement. The simulator treats this as a monthly amount because Portugal's tax rules define state pension inputs monthly.</p>",
       "statePensionDescriptionP2": "<p>Enter your partner's expected monthly Portuguese state pension amount.</p><p>Use their own estimate from Segurança Social or their pension statement. The simulator treats this as a monthly amount because Portugal's tax rules define state pension inputs monthly.</p>"
     }
@@ -115,6 +117,7 @@
       "label": "Tax Regime",
       "required": false,
       "section": "personalCircumstances",
+      "helpText": "<p>Select which Portuguese personal income-tax regime should apply in the simulation.</p><p>Use Standard Progressive for the default IRS ladder, or NHR 2.0 when modeling IFICI-eligible employment.</p>",
       "options": [
         { "value": "standard", "label": "Standard Progressive", "description": "Standard progressive IRS regime for residents in Mainland Portugal." },
         { "value": "nhr_2_0", "label": "NHR 2.0 (IFICI) - 20%", "description": "NHR 2.0 (IFICI) regime for high-value activities, applying a 20% flat rate to eligible employment income for 10 years." }
