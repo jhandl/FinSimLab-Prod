@@ -99,7 +99,11 @@
       "privatePension": { "default": 1.0 }
     },
     "pensionSystem": { "type": "mixed" },
-    "taxAdvantaged": true
+    "taxAdvantaged": true,
+    "helpText": {
+      "statePensionDescriptionP1": "<p>Enter your expected monthly Portuguese state pension amount.</p><p>Use your own estimate from Segurança Social or your pension statement. The simulator treats this as a monthly amount because Portugal's tax rules define state pension inputs monthly.</p>",
+      "statePensionDescriptionP2": "<p>Enter your partner's expected monthly Portuguese state pension amount.</p><p>Use their own estimate from Segurança Social or their pension statement. The simulator treats this as a monthly amount because Portugal's tax rules define state pension inputs monthly.</p>"
+    }
   },
 
   "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
@@ -112,8 +116,8 @@
       "required": false,
       "section": "personalCircumstances",
       "options": [
-        { "value": "standard", "label": "Standard Progressive" },
-        { "value": "nhr_2_0", "label": "NHR 2.0 (IFICI) - 20%" }
+        { "value": "standard", "label": "Standard Progressive", "description": "Standard progressive IRS regime for residents in Mainland Portugal." },
+        { "value": "nhr_2_0", "label": "NHR 2.0 (IFICI) - 20%", "description": "NHR 2.0 (IFICI) regime for high-value activities, applying a 20% flat rate to eligible employment income for 10 years." }
       ],
       "binding": "incomeTax"
     }

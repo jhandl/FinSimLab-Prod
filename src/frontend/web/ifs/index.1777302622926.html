@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
-  <script src="/src/frontend/web/ifs/bundle.1777213025926.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777302644543.js"></script>
   
   
   
@@ -1803,12 +1803,7 @@
                 }
               }
 
-              // 3) Fallback to Config default country
-              if (!country && typeof Config !== 'undefined' && typeof Config.getInstance === 'function') {
-                try { country = String(Config.getInstance().getDefaultCountry() || '').toLowerCase(); } catch (_) { }
-              }
-
-              // 4) Resolve currency via cached tax rule set
+              // 3) Resolve currency via cached tax rule set
               if (country && typeof Config !== 'undefined' && typeof Config.getInstance === 'function') {
                 try {
                   const rs = Config.getInstance().getCachedTaxRuleSet(country);
