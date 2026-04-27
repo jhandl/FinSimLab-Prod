@@ -2654,14 +2654,23 @@ footer {
 }
 
 .country-tab-selector span.mode-toggle-active {
-  background-color: var(--card-bg-color, white);
+  background-color: var(--card-background);
   border-top: var(--card-header-border-width) solid var(--primary-color);
   border-left: var(--card-header-border-width) solid var(--primary-color);
   border-right: var(--card-header-border-width) solid var(--primary-color);
   z-index: 1;
   position: relative;
+}
+
+.country-tab-selector span.mode-toggle-active::after {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--card-header-border-width));
+  right: calc(-1 * var(--card-header-border-width));
   bottom: calc(-1 * var(--card-header-border-width));
-  /* Overlap the divider line */
+  height: var(--card-header-border-width);
+  background-color: var(--card-background);
+  pointer-events: none;
 }
 
 .country-tab-selector span:not(.mode-toggle-active) {
