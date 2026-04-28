@@ -14,7 +14,7 @@ main {
   flex: 1;
   display: grid;
   /*grid-template-columns: minmax(auto, max-content) minmax(0, 900px) 1fr;*/
-  grid-template-columns: minmax(auto, max-content) minmax(0, 810px) minmax(0, 1fr);
+  grid-template-columns: minmax(auto, max-content) minmax(0, var(--events-section-width)) minmax(0, 1fr);
   grid-template-areas: 
       "parameters events graphs"
       "data-section data-section data-section";
@@ -38,7 +38,7 @@ footer {
 .parameters-section {
   grid-area: parameters;
   display: grid;
-  grid-template-columns: repeat(2, minmax(306px, 306px)); /* The minmax should remain untouched: minmax(340px, 340px). */
+  grid-template-columns:  repeat(2, minmax(var(--parameter-card-width), var(--parameter-card-width)));
   gap: 1.35rem;
   justify-content: start;
 }
@@ -51,7 +51,7 @@ footer {
   padding: 1.35rem;
   box-shadow: var(--box-shadow);
   width: 100%;  /* Change from 900px to 100% */
-  max-width: 810px;  /* Add this to maintain maximum width */
+  max-width: var(--events-section-width);  /* Add this to maintain maximum width */
   justify-self: start;  /* Add this to ensure left alignment */
   flex-shrink: 0;
 }

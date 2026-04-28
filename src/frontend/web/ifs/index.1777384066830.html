@@ -7,12 +7,12 @@
   <title>Financial Simulator</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260419-1">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260427-2">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260428-1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260428-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
-  <script src="/src/frontend/web/ifs/bundle.1777313230615.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777384089048.js"></script>
   
   
   
@@ -1243,6 +1243,11 @@
     function generateLayoutResponsiveCSS() {
       const lbp = getLayoutBreakpoints();
       const bp = getBreakpoints();
+      
+      // Get width constants from CSS variables
+      const rootStyle = getComputedStyle(document.documentElement);
+      const parameterCardWidth = rootStyle.getPropertyValue('--parameter-card-width').trim() || '810px';
+      const eventsSectionWidth = rootStyle.getPropertyValue('--events-section-width').trim() || '810px';
 
       const css = `
         /* Global max-width constraint for all screen sizes */
@@ -1253,11 +1258,11 @@
         /* Wide Screen to 2-column layout */
         @media (max-width: ${lbp.wide}px) {
           header {
-            max-width: calc(2 * 306px + 1.35rem + 810px + 3 * 1.8rem);
+            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 3 * 1.8rem);
           }
           main {
             width: 100%;
-            max-width: calc(2 * 306px + 1.35rem + 810px + 3 * 1.8rem);
+            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 3 * 1.8rem);
             margin: 1.8rem auto var(--data-section-viewport-gap) auto;
             grid-template-columns: minmax(auto, max-content) minmax(0, 1fr);
             grid-template-areas: 
@@ -1272,8 +1277,8 @@
 
           .events-section {
             width: 100%;
-            max-width: 810px;
-            min-width: 810px;
+            max-width: ${eventsSectionWidth};
+            min-width: ${eventsSectionWidth};
             justify-self: center;
             margin-right: 0;
             margin-left: 0;
@@ -1299,7 +1304,7 @@
         /* Medium Screen to single column layout */
         @media (max-width: ${lbp.medium}px) {
           header {
-            max-width: calc(3 * 306px + 2 * 1.35rem + 2 * 1.2rem);
+            max-width: calc(3 * ${parameterCardWidth} + 2 * 1.35rem + 2 * 1.2rem);
           }
           main {
             grid-template-columns: 1fr;
@@ -1314,7 +1319,7 @@
           }
 
           .parameters-section {
-            grid-template-columns: repeat(3, minmax(306px, 306px));
+            grid-template-columns: repeat(3, minmax(${parameterCardWidth}, ${parameterCardWidth}));
             justify-content: center;
             max-width: 100%;
             justify-self: center;
@@ -1322,14 +1327,14 @@
 
           .graphs-section {
             flex-direction: column;
-            max-width: 810px;
+            max-width: ${eventsSectionWidth};
             justify-self: center;
           }
 
           .events-section {
             width: 100%;
             min-width: 0;
-            max-width: 810px;
+            max-width: ${eventsSectionWidth};
             margin: 0;
             justify-self: center;
           }
@@ -1360,10 +1365,10 @@
         /* Parameters section back to 2 columns */
         @media (max-width: ${lbp.narrow}px) {
           header {
-            max-width: calc(810px + 2 * 1.2rem);
+            max-width: calc(${parameterCardWidth} + 2 * 1.2rem);
           }
           .parameters-section {
-            grid-template-columns: repeat(2, minmax(306px, 306px));
+            grid-template-columns: repeat(2, minmax(${parameterCardWidth}, ${parameterCardWidth}));
             justify-content: center;
           }
         }

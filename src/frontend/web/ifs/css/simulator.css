@@ -47,6 +47,10 @@
   /* Shared min-width for amount inputs (events table + resolution panel) */
   --event-amount-input-min-width: 90px;
 
+  /* Layout Widths */
+  --parameter-card-width: 348px;
+  --events-section-width: 810px;
+
   /* Event Type Colors (RGB values) */
   --event-inflow-color: 76, 175, 80;
   --event-outflow-color: 239, 83, 80;
@@ -370,7 +374,7 @@ header.header-hidden {
   border-radius: 7.2px;
   padding: 1.125rem;
   box-shadow: var(--box-shadow);
-  max-width: 306px;
+  max-width: var(--parameter-card-width);
   width: 100%;
   position: relative;
   /* Enable positioning for info icons */
@@ -3252,8 +3256,7 @@ footer {
 }
 
 .events-section.card {
-  max-width: 810px;
-  /* Override .card's 306px to allow full-width events table */
+  /* Inherit 810px from .card to allow full-width events table */
   overflow: visible;
   /* Allow the container to grow with the table */
 }
