@@ -1,9 +1,9 @@
 :root {
     /* Layout Breakpoints for Grid Layout */
     --layout-breakpoint-wide: 2110px;      /* 3-column to 2-column layout */
-    --layout-breakpoint-medium: 1499px;    /* 2-column to single column layout */
-    --layout-breakpoint-narrow: 993px;     /* Parameters section 3-column to 2-column */
-    --layout-breakpoint-mobile: 663px;     /* Mobile parameter layout */
+    --layout-breakpoint-medium: 1565px;    /* 2-column to single column layout */
+    --layout-breakpoint-narrow: 1120px;     /* Parameters section 3-column to 2-column */
+    --layout-breakpoint-mobile: 746px;     /* Mobile parameter layout */
 }
 
 main {

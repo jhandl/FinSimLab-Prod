@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
-  <script src="/src/frontend/web/ifs/bundle.1777584205245.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777584835892.js"></script>
   
   
   
@@ -1258,13 +1258,13 @@
         /* Wide Screen to 2-column layout */
         @media (max-width: ${lbp.wide}px) {
           header {
-            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 3 * 1.8rem);
+            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 2 * 1.8rem);
           }
           main {
             width: 100%;
-            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 3 * 1.8rem);
+            max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 2 * 1.8rem);
             margin: 1.8rem auto var(--data-section-viewport-gap) auto;
-            grid-template-columns: minmax(auto, max-content) minmax(0, 1fr);
+            grid-template-columns: minmax(auto, max-content) minmax(0, ${eventsSectionWidth});
             grid-template-areas: 
                 "parameters events"
                 "graphs graphs"
