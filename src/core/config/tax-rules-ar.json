@@ -80,7 +80,6 @@
       "key": "plazoFijo_ar",
       "label": "Plazo Fijo",
       "shortLabel": "Plazo Fijo",
-      "baseRef": "globalBonds",
       "baseCurrency": "ARS",
       "assetCountry": "ar",
       "residenceScope": "local",

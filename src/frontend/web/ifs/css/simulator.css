@@ -467,6 +467,10 @@ header.header-hidden {
   transform: scale(1.1);
 }
 
+.events-section.card {
+  max-width: var(--events-section-width);
+}
+
 /* Ensure info icons work on all card-like elements */
 .events-section,
 .graph-container,
