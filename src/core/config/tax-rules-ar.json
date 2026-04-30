@@ -1,0 +1,140 @@
+{
+  "country": "AR",
+  "countryName": "Argentina",
+  "jointFilingAllowed": false,
+  "version": "2026.04",
+  "taxBasis": "worldwide",
+
+  "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
+
+  "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
+
+  "economicData": {
+    "asOf": "2026-04-30",
+    "typicalRentalYield": 5.0,
+    "inflation": 36.5161,
+    "purchasingPowerParity": { "value": 419.90104, "year": 2024 },
+    "exchangeRate": { "perEur": 1630.81 },
+    "housingPricePerSquareMeter": { "currency": "EUR", "average": 1624.39 }
+  },
+
+  "incomeTax": {
+    "name": "Ganancias",
+    "familyId": "incomeTax",
+    "tooltip": "Ganancias 4ta categoria modelado en forma anual con escala progresiva y deducciones personales del esquema empleado.",
+    "dependentChildMaxAge": 18,
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "incomeAdjustments": [
+      { "id": "minimoNoImponible", "amount": 5151802.5, "scope": "person" },
+      { "id": "deduccionEspecialEmpleados", "amount": 24728652.02, "scope": "person" },
+      { "id": "deduccionHijo", "amount": 2446863.48, "scope": "person", "multiplierInputId": "hijosDeducibles", "defaultMultiplier": 0 },
+      { "id": "deduccionesAdicionales", "amount": 0, "scope": "person", "inputId": "deduccionesAdicionales", "defaultAmount": 0 }
+    ],
+    "bracketsByStatus": {
+      "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+      "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+      "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
+    }
+  },
+
+  "socialContributions": [
+    {
+      "name": "Aportes",
+      "familyId": "aportes",
+      "tooltip": "Aportes personales del empleado modelados como una tasa total del 17% con tope anualizado.",
+      "rate": 0.17,
+      "incomeCap": 49954950.84,
+      "applicableIncomeTypes": [ "employment" ]
+    }
+  ],
+
+  "additionalTaxes": [],
+
+  "capitalGainsTax": { "name": "Rentas", "familyId": "capitalGainsTax", "tooltip": "\"Rentas\" refiere al Impuesto Cedular sobre rentas financieras especificas (incluida la enajenacion de monedas digitales). En este baseline la tasa general es 0% y Cripto aplica 15%.", "rate": 0, "annualExemption": 0, "allowLossOffset": true },
+
+  "pensionRules": {
+    "statePensionAge": 0,
+    "statePensionPeriod": "monthly",
+    "pensionIncomeShares": {
+      "statePension": { "default": 1.0 },
+      "privatePension": { "default": 1.0 },
+      "definedBenefit": { "default": 1.0 }
+    },
+    "pensionSystem": { "type": "state_only" },
+    "taxAdvantaged": false,
+    "helpText": { "statePensionDescriptionP1": "<p>Ingresa tu estimacion mensual de haber estatal.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>", "statePensionDescriptionP2": "<p>Ingresa la estimacion mensual de haber estatal de tu pareja.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>" },
+    "definedBenefit": { "treatment": "privatePension" }
+  },
+
+  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
+
+  "adapters": [],
+
+  "countryInputRegistry": [
+    { "id": "hijosDeducibles", "type": "amount", "label": "Hijos Deducibles", "required": false, "section": "personalCircumstances", "helpText": "<p>Ingresa la cantidad anual de hijos que computas para deduccion.</p><p>El baseline aplica un monto fijo por hijo y no modela reglas avanzadas de prorrateo.</p>" },
+    { "id": "deduccionesAdicionales", "type": "amount", "label": "Deducciones Adicionales", "required": false, "section": "personalCircumstances", "helpText": "<p>Ingresa el total anual de deducciones no modeladas automaticamente.</p><p>Incluye montos ya validados por tus propios topes legales.</p>" }
+  ],
+
+  "investmentTypes": [
+    {
+      "key": "plazoFijo_ar",
+      "label": "Plazo Fijo",
+      "shortLabel": "Plazo Fijo",
+      "baseRef": "globalBonds",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "titulosOns_ar",
+      "label": "Títulos y ONs",
+      "shortLabel": "Títulos y ONs",
+      "baseRef": "globalBonds",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "accionesCedears_ar",
+      "label": "Acciones y CEDEARs",
+      "shortLabel": "Acciones y CEDEARs",
+      "baseRef": "globalEquity",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "fondosInversion_ar",
+      "label": "Fondos de Inversión",
+      "shortLabel": "Fondos",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+      }
+    },
+    {
+      "key": "cripto_ar",
+      "label": "Cripto",
+      "shortLabel": "Cripto",
+      "baseCurrency": "USD",
+      "assetCountry": "us",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": { "rate": 0.15, "allowLossOffset": true }
+      }
+    }
+  ],
+
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+}
