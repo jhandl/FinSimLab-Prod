@@ -13,8 +13,7 @@ main {
   padding: 0 0.9rem;
   flex: 1;
   display: grid;
-  /*grid-template-columns: minmax(auto, max-content) minmax(0, 900px) 1fr;*/
-  grid-template-columns: minmax(auto, max-content) minmax(0, var(--events-section-width)) minmax(0, 1fr);
+  grid-template-columns: calc(2 * var(--parameter-card-width) + 1.35rem) minmax(0, var(--events-section-width)) minmax(0, 1fr);
   grid-template-areas: 
       "parameters events graphs"
       "data-section data-section data-section";
@@ -107,11 +106,13 @@ footer {
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;
+  min-width: 0;
   background-color: var(--card-background);
   border-radius: 7.2px;
   padding: 0;
   box-shadow: var(--box-shadow);
   max-width: 100%;
+  justify-self: stretch;
 }
 
 /* Remove card class constraints from data section */
@@ -125,4 +126,3 @@ footer {
 }
 
 /* Layout media queries will be generated dynamically by JavaScript */
-

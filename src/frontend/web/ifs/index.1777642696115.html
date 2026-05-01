@@ -7,7 +7,7 @@
   <title>Financial Simulator</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260428-1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260501-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260428-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
@@ -32,7 +32,7 @@
     window.wireboard('trackPageView', null, customContext);
   </script>
     
-  <script src="/src/frontend/web/ifs/bundle.1777639406033.js"></script>
+  <script src="/src/frontend/web/ifs/bundle.1777642715386.js"></script>
   
   
   
@@ -373,8 +373,7 @@
               <th class="sortable" data-col="event-type">Event Type <span class="sort-caret">⇅</span></th>
               <th class="sortable" data-col="event-name">Name <span class="sort-caret">⇅</span></th>
               <th class="sortable" data-col="event-amount">Amount <span class="sort-caret">⇅</span></th>
-              <th id="fromAgeHeader" class="sortable" data-col="from-age"><span class="header-text">From Age
-                </span><span class="sort-caret">⇅</span></th>
+              <th id="fromAgeHeader" class="sortable" data-col="from-age"><span class="header-text">From Age</span><span class="sort-caret">⇅</span></th>
               <th id="toAgeHeader" class="sortable" data-col="to-age"><span class="header-text">To Age </span><span class="sort-caret">⇅</span></th>
               <th class="sortable" data-col="event-rate">Rate <span class="sort-caret">⇅</span></th>
               <th class="sortable" data-col="event-match">Match <span class="sort-caret">⇅</span></th>
@@ -444,8 +443,7 @@
               <th data-key="NetIncome" title="Cash inflows after taxes (excludes pension contributions)">Inflows</th>
               <th data-key="Expenses" title="Total annual expenses">Outflows</th>
               <th data-key="RealEstateCapital" title="Total value of your owned real estate">R.Estate</th>
-              <th data-key="WithdrawalRate" title="Percentage of your liquid assets (Index Funds + Shares + Pension) that you're withdrawing to cover your expenses.">
-                Withdraw%</th>
+              <th data-key="WithdrawalRate" title="Percentage of your liquid assets (Index Funds + Shares + Pension) that you're withdrawing to cover your expenses.">Withdraw%</th>
               <th data-key="Worth" title="Your total net worth (sum of all assets)">Net Worth</th>
             </tr>
           </thead>
@@ -1285,7 +1283,7 @@
             width: 100%;
             max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 2 * 1.8rem);
             margin: 1.8rem auto var(--data-section-viewport-gap) auto;
-            grid-template-columns: minmax(auto, max-content) minmax(0, ${eventsSectionWidth});
+            grid-template-columns: calc(2 * ${parameterCardWidth} + 1.35rem) minmax(0, ${eventsSectionWidth});
             grid-template-areas: 
                 "parameters events"
                 "graphs graphs"
