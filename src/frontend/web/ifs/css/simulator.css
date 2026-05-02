@@ -1295,7 +1295,7 @@ th {
   max-height: calc(var(--data-section-available-height, calc(100vh - var(--header-height) - 2 * var(--data-section-viewport-gap))) - var(--data-section-card-header-height, 3rem));
   position: relative;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
 }
 
