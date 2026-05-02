@@ -2,13 +2,10 @@
   "country": "AR",
   "countryName": "Argentina",
   "jointFilingAllowed": false,
-  "version": "2026.04",
+  "version": "2026.05",
   "taxBasis": "worldwide",
-
   "treatyEquivalents": { "incomeTax": "income", "capitalGains": "capitalGains", "dividends": "dividends" },
-
   "locale": { "numberLocale": "es-AR", "currencyCode": "ARS", "currencySymbol": "$" },
-
   "economicData": {
     "asOf": "2026-04-30",
     "typicalRentalYield": 5.0,
@@ -17,26 +14,63 @@
     "exchangeRate": { "perEur": 1630.81 },
     "housingPricePerSquareMeter": { "currency": "EUR", "average": 1624.39 }
   },
-
   "incomeTax": {
     "name": "Ganancias",
     "familyId": "incomeTax",
     "tooltip": "Ganancias 4ta categoria modelado en forma anual con escala progresiva y deducciones personales del esquema empleado.",
     "dependentChildMaxAge": 18,
-    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
     "incomeAdjustments": [
       { "id": "minimoNoImponible", "amount": 5151802.5, "scope": "person" },
       { "id": "deduccionEspecialEmpleados", "amount": 24728652.02, "scope": "person" },
       { "id": "deduccionHijo", "amount": 2446863.48, "scope": "person", "multiplierInputId": "hijosDeducibles", "defaultMultiplier": 0 },
       { "id": "deduccionesAdicionales", "amount": 0, "scope": "person", "inputId": "deduccionesAdicionales", "defaultAmount": 0 }
     ],
+    "baseAdjustments": [
+      { "id": "aportesDeductibles", "amountRef": "aportes", "scope": "employment" }
+    ],
     "bracketsByStatus": {
       "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
       "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
       "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
+    },
+    "profiles": {
+      "estandar": {
+        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
+        "incomeAdjustments": [
+          { "id": "minimoNoImponible", "amount": 5151802.5, "scope": "person" },
+          { "id": "deduccionEspecialEmpleados", "amount": 24728652.02, "scope": "person" },
+          { "id": "deduccionHijo", "amount": 2446863.48, "scope": "person", "multiplierInputId": "hijosDeducibles", "defaultMultiplier": 0 },
+          { "id": "deduccionesAdicionales", "amount": 0, "scope": "person", "inputId": "deduccionesAdicionales", "defaultAmount": 0 }
+        ],
+        "baseAdjustments": [
+          { "id": "aportesDeductibles", "amountRef": "aportes", "scope": "employment" }
+        ],
+        "bracketsByStatus": {
+          "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+          "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+          "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
+        }
+      },
+      "patagonia": {
+        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
+        "incomeAdjustments": [
+          { "id": "minimoNoImponible", "amount": 6285199.05, "scope": "person" },
+          { "id": "deduccionEspecialEmpleados", "amount": 30168955.46, "scope": "person" },
+          { "id": "deduccionHijo", "amount": 2985173.45, "scope": "person", "multiplierInputId": "hijosDeducibles", "defaultMultiplier": 0 },
+          { "id": "deduccionesAdicionales", "amount": 0, "scope": "person", "inputId": "deduccionesAdicionales", "defaultAmount": 0 }
+        ],
+        "baseAdjustments": [
+          { "id": "aportesDeductibles", "amountRef": "aportes", "scope": "employment" }
+        ],
+        "bracketsByStatus": {
+          "single": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+          "singleWithDependents": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 },
+          "married": { "0": 0.05, "2000030.09": 0.09, "4000060.17": 0.12, "6000090.26": 0.15, "9000135.4": 0.19, "18000270.8": 0.23, "27000406.2": 0.27, "40500609.3": 0.31, "60750913.96": 0.35 }
+        }
+      }
     }
   },
-
   "socialContributions": [
     {
       "name": "Aportes",
@@ -47,34 +81,87 @@
       "applicableIncomeTypes": [ "employment" ]
     }
   ],
-
   "additionalTaxes": [],
-
+  "dividendTax": {
+    "enabled": true,
+    "name": "Retencion sobre dividendos locales",
+    "familyId": "dividendTax",
+    "displayName": "Dividend Tax",
+    "tooltip": "Aplica sobre rendimiento por dividendos declarados con fuente domestica.",
+    "rate": 0.07,
+    "sourceScope": "domestic"
+  },
+  "interestTax": {
+    "enabled": false,
+    "name": "Impuesto sobre intereses (no aplica)",
+    "familyId": "interestTax",
+    "displayName": "Interest Tax",
+    "tooltip": "Baseline actual: los rendimientos de interes domesticos configurados permanecen exentos en esta fase.",
+    "rate": 0,
+    "sourceScope": "domestic"
+  },
+  "wealthTax": {
+    "enabled": true,
+    "name": "Bienes Personales",
+    "familyId": "wealthTax",
+    "displayName": "Bienes Personales",
+    "tooltip": "Impuesto anual sobre patrimonio neto con minimo no imponible, exencion de vivienda y escala progresiva.",
+    "taxableThreshold": 384728044.57,
+    "exemptAmount": 384728044.57,
+    "homeExemption": 1346548155.99,
+    "brackets": { "0": 0.005, "52664283.73": 0.0075, "114105948.16": 0.01 },
+    "assetScope": {
+      "excludeInvestmentKeys": [ "plazoFijo_ar", "titulosOns_ar" ]
+    }
+  },
   "capitalGainsTax": { "name": "Rentas", "familyId": "capitalGainsTax", "tooltip": "\"Rentas\" refiere al Impuesto Cedular sobre rentas financieras especificas (incluida la enajenacion de monedas digitales). En este baseline la tasa general es 0% y Cripto aplica 15%.", "rate": 0, "annualExemption": 0, "allowLossOffset": true },
-
   "pensionRules": {
     "statePensionAge": 0,
     "statePensionPeriod": "monthly",
     "pensionIncomeShares": {
       "statePension": { "default": 1.0 },
-      "privatePension": { "default": 1.0 },
-      "definedBenefit": { "default": 1.0 }
+      "privatePension": { "default": 1.0 }
     },
     "pensionSystem": { "type": "state_only" },
     "taxAdvantaged": false,
-    "helpText": { "statePensionDescriptionP1": "<p>Ingresa tu estimacion mensual de haber estatal.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>", "statePensionDescriptionP2": "<p>Ingresa la estimacion mensual de haber estatal de tu pareja.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>" },
-    "definedBenefit": { "treatment": "privatePension" }
+    "helpText": {
+      "contributionDescriptionP1": "<p>El esquema argentino modelado no aplica aportes voluntarios a pension privada.</p><p>Deja este valor en 0% salvo que habilites una extension personalizada del modelo.</p>",
+      "contributionDescriptionP2": "<p>El esquema argentino modelado no aplica aportes voluntarios a pension privada para tu pareja.</p><p>Deja este valor en 0% salvo que habilites una extension personalizada del modelo.</p>",
+      "statePensionDescriptionP1": "<p>Ingresa tu estimacion mensual de haber estatal.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>",
+      "statePensionDescriptionP2": "<p>Ingresa la estimacion mensual de haber estatal de tu pareja.</p><p>La deduccion especifica de jubilados no esta modelada en esta version.</p>"
+    },
+    "definedBenefit": { "supported": false }
   },
-
-  "residencyRules": { "postEmigrationTaxYears": 0, "taxesForeignIncome": false },
-
+  "residencyRules": {
+    "postEmigrationTaxYears": 0,
+    "taxesForeignIncome": false,
+    "foreignTaxCreditPolicy": "unilateral",
+    "nonResidentOrdinaryIncome": { "mode": "none" }
+  },
   "adapters": [],
-
   "countryInputRegistry": [
+    {
+      "id": "jurisdiccionGanancias",
+      "type": "selector",
+      "label": "Jurisdiccion Ganancias",
+      "required": false,
+      "section": "personalCircumstances",
+      "binding": "incomeTax",
+      "helpText": "<p>Selecciona tu jurisdiccion para aplicar el perfil anual de deducciones de Ganancias.</p><p>Si lo dejas vacio, se usa el esquema estandar.</p>",
+      "options": [
+        { "value": "estandar", "label": "Estandar", "description": "Aplica deducciones personales generales (MNI, especial y por hijos) sin incremento patagonico." },
+        { "value": "patagonia", "label": "La Pampa", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Rio Negro", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Neuquen", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Chubut", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Santa Cruz", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Tierra del Fuego", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
+        { "value": "patagonia", "label": "Partido de Patagones (Buenos Aires)", "description": "Aplica deducciones personales incrementadas para zona patagonica." }
+      ]
+    },
     { "id": "hijosDeducibles", "type": "amount", "label": "Hijos Deducibles", "required": false, "section": "personalCircumstances", "helpText": "<p>Ingresa la cantidad anual de hijos que computas para deduccion.</p><p>El baseline aplica un monto fijo por hijo y no modela reglas avanzadas de prorrateo.</p>" },
     { "id": "deduccionesAdicionales", "type": "amount", "label": "Deducciones Adicionales", "required": false, "section": "personalCircumstances", "helpText": "<p>Ingresa el total anual de deducciones no modeladas automaticamente.</p><p>Incluye montos ya validados por tus propios topes legales.</p>" }
   ],
-
   "investmentTypes": [
     {
       "key": "plazoFijo_ar",
@@ -134,6 +221,5 @@
       }
     }
   ],
-
   "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
 }

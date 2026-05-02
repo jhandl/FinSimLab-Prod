@@ -35,6 +35,7 @@ EventWizards:
             - value: "defined_benefit"
               title: "Defined Benefit"
               description: "Pension or defined benefit plan"
+              condition: "dbiAvailable"
             - value: "tax_free"
               title: "Tax-free income"
               description: "Income not subject to taxation"
