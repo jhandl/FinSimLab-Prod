@@ -144,19 +144,20 @@
       "id": "jurisdiccionGanancias",
       "type": "selector",
       "label": "Jurisdiccion Ganancias",
-      "required": false,
+      "required": true,
       "section": "personalCircumstances",
+      "defaultOption": 1,
       "binding": "incomeTax",
-      "helpText": "<p>Selecciona tu jurisdiccion para aplicar el perfil anual de deducciones de Ganancias.</p><p>Si lo dejas vacio, se usa el esquema estandar.</p>",
+      "helpText": "<p>Selecciona tu jurisdiccion para aplicar el perfil anual de deducciones de Ganancias.</p>",
       "options": [
-        { "value": "estandar", "label": "Estandar", "description": "Aplica deducciones personales generales (MNI, especial y por hijos) sin incremento patagonico." },
+        { "value": "estandar", "label": "Otra", "description": "Aplica deducciones personales generales (MNI, especial y por hijos) sin incremento patagonico." },
         { "value": "patagonia", "label": "La Pampa", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
         { "value": "patagonia", "label": "Rio Negro", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
         { "value": "patagonia", "label": "Neuquen", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
         { "value": "patagonia", "label": "Chubut", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
         { "value": "patagonia", "label": "Santa Cruz", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
         { "value": "patagonia", "label": "Tierra del Fuego", "description": "Aplica deducciones personales incrementadas para zona patagonica." },
-        { "value": "patagonia", "label": "Partido de Patagones (Buenos Aires)", "description": "Aplica deducciones personales incrementadas para zona patagonica." }
+        { "value": "patagonia", "label": "Partido de Patagones", "description": "Aplica deducciones personales incrementadas para zona patagonica." }
       ]
     },
     { "id": "hijosDeducibles", "type": "amount", "label": "Hijos Deducibles", "required": false, "section": "personalCircumstances", "helpText": "<p>Ingresa la cantidad anual de hijos que computas para deduccion.</p><p>El baseline aplica un monto fijo por hijo y no modela reglas avanzadas de prorrateo.</p>" },

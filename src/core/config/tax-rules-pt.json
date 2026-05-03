@@ -115,8 +115,9 @@
       "id": "taxRegime",
       "type": "selector",
       "label": "Tax Regime",
-      "required": false,
+      "required": true,
       "section": "personalCircumstances",
+      "defaultOption": 1,
       "helpText": "<p>Select which Portuguese personal income-tax regime should apply in the simulation.</p><p>Use Standard Progressive for the default IRS ladder, or NHR 2.0 when modeling IFICI-eligible employment.</p>",
       "options": [
         { "value": "standard", "label": "Standard Progressive", "description": "Standard progressive IRS regime for residents in Mainland Portugal." },
