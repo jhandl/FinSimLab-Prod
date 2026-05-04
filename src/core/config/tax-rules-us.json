@@ -7,6 +7,12 @@
 
   "treatyEquivalents": { "incomeTax": "income", "capitalGainsTax": "capitalGains", "capitalGains": "capitalGains", "dividends": "dividends" },
 
+  "investmentWithholdingTaxes": {
+    "dividend": 0.3,
+    "interest": 0.1,
+    "capitalGains": 0
+  },
+
   "drawdownPriorities": [],
 
   "updateMessage": "Adds baseline 2026 U.S. federal income, payroll, and long-term capital gains rules.",
@@ -28,7 +34,7 @@
     "tooltip": "U.S. federal ordinary-income tax for 2026. Standard deductions are modeled through income adjustments; itemized deductions and most credits are out of scope.",
     "dependentChildMaxAge": 24,
     "jointBandIncreaseMax": 0,
-    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome" ],
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "definedBenefit", "rental", "otherIncome", "investmentTypeIncome", "investmentInterestIncome" ],
     "incomeAdjustments": [
       {
         "id": "standardDeductionSingle",

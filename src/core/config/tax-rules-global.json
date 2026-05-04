@@ -19,31 +19,13 @@
       "baseCurrency": "USD",
       "assetCountry": "us",
       "residenceScope": "global",
+      "returnType": "interest",
       "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility."
     }
   ],
   "treaties": [
   ],
-  "assetTaxes": {
-    "dividend": {
-      "us": 0.3
-    },
-    "interest": {
-      "us": 0.1
-    },
-    "capitalGains": {
-      "us": 0
-    }
-  },
   "economicRegimes": {
-    "_calibrationDocs": {
-      "zeroSumConstraint": "Σ(π_i × meanModifier_i) = 0 for each assetClass, where π is the stationary distribution computed from transitionMatrix (not manually stated probabilities).",
-      "stationaryDistribution": "Stationary distribution π is computed from transitionMatrix via power iteration (π_{n+1} = π_n × T) until convergence. This is the reference weighting for the zero-sum check.",
-      "transitionRowSum": "Each row in transitionMatrix must sum to 1.0.",
-      "volatilityMultipliers": "Must be positive (> 0). No zero-sum constraint applies.",
-      "addingRegimes": "Add entry to regimes[], add row and column to transitionMatrix, re-verify all constraints.",
-      "configurability": "The engine is fully data-driven: regime keys are arbitrary strings, any number of regimes is supported, and all parameters are tunable via config with no code changes required."
-    },
     "regimes": [
       {
         "key": "growth",
