@@ -214,9 +214,9 @@
       "key": "cripto_ar",
       "label": "Cripto",
       "shortLabel": "Cripto",
-      "baseCurrency": "USD",
-      "assetCountry": "us",
-      "residenceScope": "global",
+      "baseCurrency": "ARS",
+      "assetCountry": "ar",
+      "residenceScope": "local",
       "taxation": {
         "capitalGains": { "rate": 0.15, "allowLossOffset": true }
       }
