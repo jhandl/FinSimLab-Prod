@@ -225,5 +225,5 @@
       }
     }
   ],
-  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension", "incomeCash" ]
+  "pinnedIncomeTypes": [ "incomeSalaries", "incomeStatePension" ]
 }
