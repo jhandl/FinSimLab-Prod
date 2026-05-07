@@ -19,7 +19,7 @@
     "familyId": "incomeTax",
     "tooltip": "Ganancias 4ta categoria modelado en forma anual con escala progresiva y deducciones personales del esquema empleado.",
     "dependentChildMaxAge": 18,
-    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
+    "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome", "foreignInvestmentDividendIncome", "domesticInvestmentInterestIncome", "foreignInvestmentInterestIncome" ],
     "incomeAdjustments": [
       { "id": "minimoNoImponible", "amount": 5151802.5, "scope": "person" },
       { "id": "deduccionEspecialEmpleados", "amount": 24728652.02, "scope": "person" },
@@ -36,7 +36,7 @@
     },
     "profiles": {
       "estandar": {
-        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
+        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome", "foreignInvestmentDividendIncome", "domesticInvestmentInterestIncome", "foreignInvestmentInterestIncome" ],
         "incomeAdjustments": [
           { "id": "minimoNoImponible", "amount": 5151802.5, "scope": "person" },
           { "id": "deduccionEspecialEmpleados", "amount": 24728652.02, "scope": "person" },
@@ -53,7 +53,7 @@
         }
       },
       "patagonia": {
-        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome" ],
+        "applicableIncomeTypes": [ "employment", "privatePension", "statePension", "rental", "otherIncome", "investmentTypeIncome", "foreignInvestmentDividendIncome", "domesticInvestmentInterestIncome", "foreignInvestmentInterestIncome" ],
         "incomeAdjustments": [
           { "id": "minimoNoImponible", "amount": 6285199.05, "scope": "person" },
           { "id": "deduccionEspecialEmpleados", "amount": 30168955.46, "scope": "person" },
@@ -96,7 +96,7 @@
     "name": "Impuesto sobre intereses (no aplica)",
     "familyId": "interestTax",
     "displayName": "Interest Tax",
-    "tooltip": "Baseline actual: los rendimientos de interes domesticos configurados permanecen exentos en esta fase.",
+    "tooltip": "Los rendimientos de interes imponibles se enrutan por Ganancias cuando el tipo de inversion declara rendimiento por interes.",
     "rate": 0,
     "sourceScope": "domestic"
   },
@@ -114,7 +114,7 @@
       "excludeInvestmentKeys": [ "plazoFijo_ar", "titulosOns_ar" ]
     }
   },
-  "capitalGainsTax": { "name": "Rentas", "familyId": "capitalGainsTax", "tooltip": "\"Rentas\" refiere al Impuesto Cedular sobre rentas financieras especificas (incluida la enajenacion de monedas digitales). En este baseline la tasa general es 0% y Cripto aplica 15%.", "rate": 0, "annualExemption": 0, "allowLossOffset": true },
+  "capitalGainsTax": { "name": "Rentas", "familyId": "capitalGainsTax", "tooltip": "\"Rentas\" refiere al Impuesto Cedular sobre rentas financieras especificas. La tasa general es 0%; los wrappers gravados declaran su propia tasa.", "rate": 0, "annualExemption": 0, "allowLossOffset": true },
   "pensionRules": {
     "statePensionAge": 0,
     "statePensionPeriod": "monthly",
@@ -172,7 +172,8 @@
       "assetCountry": "ar",
       "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+        "returnType": "interest",
+        "capitalGains": { "rate": 0, "allowLossOffset": true }
       }
     },
     {
@@ -184,7 +185,8 @@
       "assetCountry": "ar",
       "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+        "returnType": "capitalGrowth",
+        "capitalGains": { "rate": 0, "allowLossOffset": true }
       }
     },
     {
@@ -196,7 +198,8 @@
       "assetCountry": "us",
       "residenceScope": "global",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+        "returnType": "dividend",
+        "capitalGains": { "rate": 0, "allowLossOffset": true }
       }
     },
     {
@@ -207,7 +210,7 @@
       "assetCountry": "ar",
       "residenceScope": "local",
       "taxation": {
-        "capitalGains": { "rateRef": "capitalGainsTax.rate", "allowLossOffset": true }
+        "capitalGains": { "rate": 0.15, "allowLossOffset": true }
       }
     },
     {
