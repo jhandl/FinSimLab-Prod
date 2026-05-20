@@ -105,7 +105,8 @@
 
 #countryAccessOverlay .country-access-modal .modal-footer {
   align-items: center;
-  border-top: 1px solid #eee;
+  background: var(--modal-footer-background, #f8f9fa);
+  border-top: 1px solid var(--modal-footer-border, #e9ecef);
   display: flex;
   flex: 0 0 auto;
   gap: 10px;
@@ -188,7 +189,7 @@
 #countryAccessOverlay .country-access-recovery-body {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 1.1rem;
   padding: 1rem 1.1rem 0.85rem;
 }
 
@@ -215,6 +216,10 @@
   margin: 0;
 }
 
+#countryAccessOverlay .country-access-recovery-copy {
+  font-size: 1rem;
+}
+
 #countryAccessOverlay .country-access-recovery-label {
   display: none;
 }
@@ -225,8 +230,15 @@
   font: inherit;
   min-height: 2.75rem;
   padding: 0.65rem 0.85rem;
-  text-align: left;
+  text-align: center;
   width: 100%;
+}
+
+#countryAccessOverlay .country-access-recovery-input::placeholder,
+#countryAccessOverlay .country-access-recovery-input::-webkit-input-placeholder {
+  color: #a6a6a6 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #a6a6a6 !important;
 }
 
 #countryAccessOverlay .country-access-recovery-input:focus {
@@ -237,10 +249,12 @@
 
 #countryAccessOverlay .country-access-recovery-error {
   color: #b42318;
-  min-height: 1.2rem;
+  min-height: 0;
 }
 
 #countryAccessOverlay .country-access-recovery-actions {
+  background: var(--modal-footer-background, #f8f9fa);
+  border-top: 1px solid var(--modal-footer-border, #e9ecef);
   padding-top: 0.7rem;
 }
 
@@ -1388,7 +1402,7 @@
   }
 
 #countryAccessOverlay .country-access-recovery-body {
-    gap: 0.8rem;
+    gap: 1.05rem;
     padding: 0.95rem 1rem 0.8rem;
   }
 

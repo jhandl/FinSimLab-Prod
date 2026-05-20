@@ -9,6 +9,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +28,12 @@
 /* --- Modal container --- */
 .event-wizard-modal {
   background: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: auto !important;      /* adapt to content */
   max-width: 560px !important; /* prevent overly wide screens */
   min-width: 320px !important; /* reasonable minimum */
   max-height: 85vh;    /* leave some breathing room vertically */
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -57,17 +59,18 @@
 
 /* --- Header --- */
 .event-wizard-step-header {
-  padding: 1rem 1rem 0.75rem;
-  border-bottom: 1px solid #e9ecef;
-  background: #f8f9fa;
+  padding: 8px 20px;
+  border-bottom: 1px solid #eee;
+  background: var(--background-color);
   text-align: center; /* Center title and step counter */
 }
 
 /* --- Header title size for ALL pages --- */
 .event-wizard-step-header h3 {
-  margin: 0 0 0.5rem 0;
-  color: #333;
-  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .event-wizard-progress {
@@ -85,9 +88,9 @@
 
 /* --- Footer --- */
 .event-wizard-step-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid #e9ecef;
-    background: #f8f9fa;
+    padding: 8px 20px;
+    border-top: 1px solid var(--modal-footer-border, #e9ecef);
+    background: var(--modal-footer-background, #f8f9fa);
 }
 
 /* --- Button Container --- */
@@ -639,10 +642,17 @@ input[name="description"] {
     max-height: 90vh;
   }
 
-  .event-wizard-step-header,
   .event-wizard-step-body,
   .event-wizard-step-footer {
       padding: 1rem;
+  }
+
+  .event-wizard-step-header {
+      padding: 7px 15px;
+  }
+
+  .event-wizard-step-footer {
+      padding: 8px 15px;
   }
 
   .event-wizard-buttons {
