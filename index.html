@@ -4,13 +4,26 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var recoveryToken = String(params.get('recovery_token') || '').trim();
+      var verificationToken = String(params.get('verification-token') || '').trim();
+      if (!recoveryToken && !verificationToken) return;
+
+      var labUrl = new URL('/lab/', window.location.origin);
+      if (recoveryToken) labUrl.searchParams.set('recovery_token', recoveryToken);
+      if (verificationToken) labUrl.searchParams.set('verification-token', verificationToken);
+      window.location.replace(labUrl.toString());
+    })();
+  </script>
   <title>FinSimLab | Finance Simulation Lab</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260415-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
 
-  <!-- wireboard tag -->
+  
   <script type="text/javascript">
   ;(function(w,i,r,e,b,oar,d){if(!w[b]){w.WireBoardNamespace=w.WireBoardNamespace||[];
   w.WireBoardNamespace.push(b);w[b]=function(){(w[b].q=w[b].q||[]).push(arguments)};
@@ -28,6 +41,8 @@
   var customContext=[{schema:'wb:io.wireboard/publisher',data:{publisher:'70ca4964-eaff-4fe9-89e1-e0cc07bed784'}}]
   window.wireboard('trackPageView', null, customContext);
   </script>
+  
+
 </head>
 <body>
   <header>
@@ -69,7 +84,7 @@
         <div class="feature-card">
           <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Scenario Planning</h3>
-          <p>Model your financial future with customizable life events and economic conditions.</p>
+          <p>Model your financial future with customisable life events and economic conditions.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><i class="fas fa-globe"></i></div>
@@ -199,7 +214,7 @@
     </div>
   </footer>
 
-  <script src="/bundle.1778186753814.js"></script>
+  <script src="/bundle.1779312015049.js" defer=""></script>
 
 
 </body></html>

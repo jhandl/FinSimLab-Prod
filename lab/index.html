@@ -8,12 +8,13 @@
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260501-1">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260502-1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260519-1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260517-4">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260331-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
 
-  <!-- wireboard tag -->
+  
   <script type="text/javascript">
     ;(function(w,i,r,e,b,oar,d){if(!w[b]){w.WireBoardNamespace=w.WireBoardNamespace||[];
     w.WireBoardNamespace.push(b);w[b]=function(){(w[b].q=w[b].q||[]).push(arguments)};
@@ -31,8 +32,11 @@
     var customContext=[{schema:'wb:io.wireboard/publisher',data:{publisher:'70ca4964-eaff-4fe9-89e1-e0cc07bed784'}}]
     window.wireboard('trackPageView', null, customContext);
   </script>
+  
+
+  
     
-  <script src="/lab/bundle.1778186775485.js"></script>
+  <script src="/lab/bundle.1779312033116.js" defer=""></script>
   
   
   
@@ -109,6 +113,13 @@
           <span>Help</span>
         </button>
 
+        <button id="latestUpdatesMobile" class="mobile-menu-button secondary-button">
+          <i class="fas fa-bell"></i>
+          <span>Change log</span>
+        </button>
+
+        <div class="mobile-menu-divider"></div>
+
         <button id="experimentalToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="off">
           <i class="fas fa-toggle-off"></i>
           <span>Tooltips: <strong>off</strong></span>
@@ -142,14 +153,9 @@
           </div>
         </button>
 
-        <button id="latestUpdatesMobile" class="mobile-menu-button secondary-button">
-          <i class="fas fa-bell"></i>
-          <span>Change log</span>
-        </button>
-
         <div class="mobile-menu-divider"></div>
 
-        <a href="https://www.buymeacoffee.com/jhandl" target="_blank" class="coffee-button">
+        <a id="coffeeButton" href="https://www.buymeacoffee.com/jhandl" target="_blank" class="coffee-button" hidden="">
           <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 36px; width: auto;">
         </a>
       </div>
@@ -480,6 +486,13 @@
   </div>
 
   <!-- SYSTEM UTILITIES SECTION -->
+  
+  
+  
+  
+  
+  
+  
   
   
   

@@ -1,30 +1,152 @@
 {
   "version": "1.0",
-  "investmentBaseTypes": [
-    {
-      "baseKey": "globalEquity",
-      "assetClass": "equity",
-      "label": "Equity Markets",
-      "shortLabel": "Eq",
-      "baseCurrency": "USD",
-      "assetCountry": "us",
-      "residenceScope": "global",
-      "helpText": "Represents broadly diversified equity investments like global index funds or ETFs. For reference, the average growth rate of the S&P500 over the last 30 years has been around 10%."
+
+  "countryReferences": {
+    "xx": {
+      "currencyCode": "XXX",
+      "economicData": {
+        "inflation": 2,
+        "exchangeRate": { "perEur": 1 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
-    {
-      "baseKey": "globalBonds",
-      "assetClass": "bond",
-      "label": "Bond Markets",
-      "shortLabel": "Bd",
-      "baseCurrency": "USD",
-      "assetCountry": "us",
-      "residenceScope": "global",
-      "returnType": "interest",
-      "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility."
+    "at": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.8238,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "be": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.6159,
+        "exchangeRate": { "perEur": 1.071712 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "bg": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 3.4814,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "de": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.4185,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "dk": {
+      "currencyCode": "DKK",
+      "economicData": {
+        "inflation": 1.9115,
+        "exchangeRate": { "perEur": 7.46 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "ee": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 4.2676,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "fi": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.0815,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "fr": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 1.9289,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "ie": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 1.8201,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "it": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.148,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "ch": {
+      "currencyCode": "CHF",
+      "economicData": {
+        "inflation": 0.5438,
+        "exchangeRate": { "perEur": 0.915 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0.35, "interest": 0.35, "capitalGains": 0 }
+    },
+    "es": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.273,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "pt": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.1488,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "se": {
+      "currencyCode": "SEK",
+      "economicData": {
+        "inflation": 2.2359,
+        "exchangeRate": { "perEur": 10.91 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "us": {
+      "currencyCode": "USD",
+      "economicData": {
+        "inflation": 2.6749,
+        "exchangeRate": { "perEur": 1.17 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0.3, "interest": 0.1, "capitalGains": 0 }
+    },
+    "ar": {
+      "currencyCode": "ARS",
+      "economicData": {
+        "inflation": 36.5161,
+        "exchangeRate": { "perEur": 1630.81 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     }
+  },
+
+  "investmentBaseTypes": [
+    { "baseKey": "globalEquity", "assetClass": "equity", "label": "Equity Markets", "shortLabel": "Eq", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "helpText": "Represents broadly diversified equity investments like global index funds or ETFs. For reference, the average growth rate of the S&P500 over the last 30 years has been around 10%." },
+    { "baseKey": "globalBonds", "assetClass": "bond", "label": "Bond Markets", "shortLabel": "Bd", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "returnType": "interest", "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility." }
   ],
-  "treaties": [
-  ],
+
+  "treaties": [],
+
   "economicRegimes": {
     "regimes": [
       {
@@ -36,20 +158,125 @@
       {
         "key": "recession",
         "label": "Recession",
-        "equity": { "meanModifier": -20, "volatilityMultiplier": 2.0 },
+        "equity": { "meanModifier": -20, "volatilityMultiplier": 2 },
         "bond": { "meanModifier": 6, "volatilityMultiplier": 1.5 }
       },
       {
         "key": "stagnation",
         "label": "Stagnation",
         "equity": { "meanModifier": -1, "volatilityMultiplier": 1.2 },
-        "bond": { "meanModifier": 1, "volatilityMultiplier": 1.0 }
+        "bond": { "meanModifier": 1, "volatilityMultiplier": 1 }
       }
     ],
     "transitionMatrix": {
-      "growth": { "growth": 0.80, "recession": 0.05, "stagnation": 0.15 },
-      "recession": { "growth": 0.30, "recession": 0.50, "stagnation": 0.20 },
-      "stagnation": { "growth": 0.40, "recession": 0.10, "stagnation": 0.50 }
+      "growth": { "growth": 0.8, "recession": 0.05, "stagnation": 0.15 },
+      "recession": { "growth": 0.3, "recession": 0.5, "stagnation": 0.2 },
+      "stagnation": { "growth": 0.4, "recession": 0.1, "stagnation": 0.5 }
     }
-  }
+  },
+
+  "countryInfo": [
+    {
+      "code": "ar",
+      "name": "Argentina",
+      "taxLabels": [ "Ganancias", "Aportes", "Dividendos", "Bienes Personales", "Rentas" ],
+      "investmentLabels": [ "Plazo Fijo", "Títulos y ONs", "Acciones y CEDEARs", "Fondos de Inversión", "Cripto", "Jubilación" ]
+    },
+    {
+      "code": "at",
+      "name": "Austria",
+      "taxLabels": [ "Tarif", "KV", "PV", "AV", "AK", "Wohnbauförderung", "KESt", "KESt/ImmoESt" ],
+      "investmentLabels": [ "Sparen bei der Bank", "Wertpapierdepot", "Bausparen", "Pension" ]
+    },
+    {
+      "code": "be",
+      "name": "Belgium",
+      "taxLabels": [ "personenbelasting", "RSZ", "dividenden", "spaarinterest", "TACT", "meerwaardebelasting" ],
+      "investmentLabels": [ "spaarrekening", "beleggingsrekening", "pensioenopbouw" ]
+    },
+    {
+      "code": "bg",
+      "name": "Bulgaria",
+      "taxLabels": [ "ДОД", "осигуровки", "капиталови" ],
+      "investmentLabels": [ "Фондове", "ДПФ" ]
+    },
+    {
+      "code": "ch",
+      "name": "Switzerland",
+      "taxLabels": [ "Bundessteuer", "Kanton/Gemeinde", "AHV/IV/EO", "ALV", "Vermögen", "Private Kapitalgewinne" ],
+      "investmentLabels": [ "Freie Vorsorge", "Vorsorge" ]
+    },
+    {
+      "code": "de",
+      "name": "Germany",
+      "taxLabels": [ "ESt", "KV", "PV", "RV", "AV", "Abgeltungsteuer" ],
+      "investmentLabels": [ "Depot", "Altersvorsorge" ]
+    },
+    {
+      "code": "dk",
+      "name": "Denmark",
+      "taxLabels": [ "Statsskat", "Kommuneskat", "am-bidrag", "Kirkeskat", "Ejendomsværdiskat", "Aktieindkomst" ],
+      "investmentLabels": [ "Frit depot", "Aktiesparekonto", "Lagerdepot", "Obligationer", "Rate og livrente" ]
+    },
+    {
+      "code": "ee",
+      "name": "Estonia",
+      "taxLabels": [ "Tulumaks", "Töötuskindlustus", "II sammas", "II/III sammas", "Kapitalikasum" ],
+      "investmentLabels": [ "Tavakonto", "Investeerimiskonto", "III sammas" ]
+    },
+    {
+      "code": "es",
+      "name": "Spain",
+      "taxLabels": [ "IRPF", "Cotización", "Solidaridad", "Dividendos", "Intereses", "Patrimonio", "Ahorro" ],
+      "investmentLabels": [ "Fondos con traspaso", "PIAS", "Valores y ahorro", "Pensiones" ]
+    },
+    {
+      "code": "fi",
+      "name": "Finland",
+      "taxLabels": [ "valtionvero", "kunnallisvero", "TyEL", "työttömyysvakuutus", "sairausvakuutus", "Yle-vero", "eläketulon lisävero", "pääomatulo" ],
+      "investmentLabels": [ "suorat osakkeet ja rahastot", "osakesäästötili", "PS-sopimus ja vapaaehtoinen eläkevakuutus", "säästöhenkivakuutus ja kapitalisaatiosopimus", "eläke" ]
+    },
+    {
+      "code": "fr",
+      "name": "France",
+      "taxLabels": [ "IR", "vieillesse", "CSG déductible", "CSG non déductible", "CRDS", "Agirc-Arrco", "CEHR", "PFU", "IFI" ],
+      "investmentLabels": [ "Livrets réglementés", "Plan d'épargne en actions", "Assurance-vie", "Épargne salariale", "Placements hors enveloppe", "Épargne retraite" ]
+    },
+    {
+      "code": "ie",
+      "name": "Ireland",
+      "taxLabels": [ "IT", "PRSI", "USC", "CGT" ],
+      "investmentLabels": [ "Index Funds", "Shares", "RSUs", "Private Pension" ]
+    },
+    {
+      "code": "it",
+      "name": "Italy",
+      "taxLabels": [ "IRPEF", "addizionale regionale", "IVS", "plusvalenze" ],
+      "investmentLabels": [ "conto titoli", "PIR", "fondo pensione" ]
+    },
+    {
+      "code": "pt",
+      "name": "Portugal",
+      "taxLabels": [ "IRS", "TSU", "TAS", "Mais-valias" ],
+      "investmentLabels": [ "Ações", "Fundos de Investimento", "Criptoativos", "RSUs", "Pension" ]
+    },
+    {
+      "code": "se",
+      "name": "Sweden",
+      "taxLabels": [ "kommunal/statlig", "allmän pensionsavgift", "public service-avgift", "begravningsavgift", "kapital" ],
+      "investmentLabels": [ "ISK", "KF/PEPP", "depå", "fondkonto", "pensionssparande" ]
+    },
+    {
+      "code": "us",
+      "name": "United States",
+      "taxLabels": [ "Federal Income Tax", "Social Security", "Medicare", "Additional Medicare", "Capital Gains" ],
+      "investmentLabels": [ "Equity Brokerage", "Bond Brokerage", "Pension" ]
+    },
+    {
+      "code": "xx",
+      "name": "Demo Country",
+      "taxLabels": [ "Income Tax", "Social Insurance", "Capital Gains Tax" ],
+      "investmentLabels": [ "Index Funds", "Shares", "Private Pension" ]
+    }
+  ]
 }

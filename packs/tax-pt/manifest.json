@@ -1,0 +1,9 @@
+{
+  "packId": "tax-pt",
+  "country": "pt",
+  "deployId": "d7a7cbb3cb1495c1bf781ffbf73b68cf7ae999ee",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "Ckcq3DqMVgLGPQZF",
+  "payloadSha256": "30ee105d4528651ead10d48afe23ab0c42ac73cee56efe4127c5df866bb08cf6"
+}

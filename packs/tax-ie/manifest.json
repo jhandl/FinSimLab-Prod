@@ -1,0 +1,9 @@
+{
+  "packId": "tax-ie",
+  "country": "ie",
+  "deployId": "d7a7cbb3cb1495c1bf781ffbf73b68cf7ae999ee",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "XAnc6tEmUI30WZ8s",
+  "payloadSha256": "5f1fa47155e6f4e659e5fb06781e3a2389db7a8f843a166c1319103ba6a10d07"
+}

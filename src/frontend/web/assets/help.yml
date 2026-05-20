@@ -36,6 +36,94 @@ WelcomeTabs:
         - title: "Pinch Point Visualisation"
           description: "Use the color scheme dropdown ({icon:palette}) in the data table to highlight critical periods in your plan."
 
+  - id: tutorials
+    title: Tutorials
+    excludeFromHeightCalculation: true
+    contentType: tutorials
+    content:
+      storageKey: "finsim.helpTutorialProgress"
+      progressActionLabel: "Change tutorial progress"
+      fullscreenPlayLabel: "Play fullscreen"
+      fullscreenCloseLabel: "Close video"
+      fullscreenDialogLabel: "Tutorial video"
+      progressLabels:
+        notStarted: "Not started"
+        inProgress: "In progress"
+        completed: "Completed"
+      items:
+        - id: "tour"
+          title: "Tour of the Simulator"
+          duration: "4 min"
+          videoTitle: "Tour of the Simulator"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/tour.mp4"
+          localVideoUrl: "/tutorials/tour.mp4"
+          description: |
+            - What each main screen area is for
+            - How scenarios move from inputs to results
+        - id: "starting-position"
+          title: "Entering Your Starting Position"
+          duration: "5 min"
+          videoTitle: "Entering Your Starting Position"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/starting-position.mp4"
+          localVideoUrl: "/tutorials/starting-position.mp4"
+          description: |
+            - Which fields describe your current financial position
+            - How ages, assets, pensions, and targets shape every run
+        - id: "adding-events"
+          title: "Adding Events"
+          duration: "6 min"
+          videoTitle: "Adding Events"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/adding-events.mp4"
+          localVideoUrl: "/tutorials/adding-events.mp4"
+          description: |
+            - When to use the Events table
+            - How salaries, expenses, windfalls, and shocks affect the timeline
+        - id: "property-mortgages"
+          title: "Buying Property and Mortgages"
+          duration: "7 min"
+          videoTitle: "Buying Property and Mortgages"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/property-mortgages.mp4"
+          localVideoUrl: "/tutorials/property-mortgages.mp4"
+          description: |
+            - How purchase and mortgage events connect
+            - How property sales and mortgage payoffs appear in results
+        - id: "investments-pensions"
+          title: "Investments, Pensions, and Allocations"
+          duration: "6 min"
+          videoTitle: "Investments, Pensions, and Allocations"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/investments-pensions.mp4"
+          localVideoUrl: "/tutorials/investments-pensions.mp4"
+          description: |
+            - How surplus cash is allocated
+            - How pension contributions and investment wrappers differ
+        - id: "charts-tables"
+          title: "Charts, Tables, and Present Value"
+          duration: "5 min"
+          videoTitle: "Charts, Tables, and Present Value"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/charts-tables.mp4"
+          localVideoUrl: "/tutorials/charts-tables.mp4"
+          description: |
+            - How to read the charts and detailed data table
+            - When to use nominal values or present-value display
+        - id: "monte-carlo"
+          title: "Monte Carlo and Stress Testing"
+          duration: "6 min"
+          videoTitle: "Monte Carlo and Stress Testing"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/monte-carlo.mp4"
+          localVideoUrl: "/tutorials/monte-carlo.mp4"
+          description: |
+            - What success probability means
+            - How to find weak points in a plan under variable returns
+        - id: "relocation"
+          title: "Relocation and Multi-Country Scenarios"
+          duration: "8 min"
+          videoTitle: "Relocation and Multi-Country Scenarios"
+          videoUrl: "https://tutorials.finsimlab.com/tutorials/relocation.mp4"
+          localVideoUrl: "/tutorials/relocation.mp4"
+          description: |
+            - How relocation events shape the residency timeline
+            - When country links, currency, and cross-border taxes matter
+
   - id: faq
     title: F.A.Q.
     excludeFromHeightCalculation: true
@@ -111,6 +199,140 @@ WelcomeTabs:
           description: "Your financial data never leaves your computer or phone. It's all processed in your browser."
         - title: "Complementary tools"
           description: "Consider also using Irish Tax Hub's [tax calculators](https://www.irishtaxhub.ie/calculators){tax calculators,suite,net income,free,pension,try calculator} and PWC's [income tax calculator](https://download.pwc.com/ie/budget-2025/income-tax-calculator.html){income tax calculator,your status,are you entitled}."
+
+
+CountryAccessCheckout:
+
+  modal:
+    title: "Real Country Tax Rules Plans"
+    disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial advice."
+    confirmCancelRefundTitle: "Cancel Subscription?"
+    confirmCancelRefund: "Cancel this subscription and use one of your automatic refunds? Access will end immediately."
+    actions:
+      close: "Close"
+      recoverLicense: "Recover license"
+      manageBilling: "Billing details"
+      cancelRefund: "Cancel & refund"
+      canceling: "Canceling..."
+      saveCountries: "Save changes"
+      scheduleAtRenewal: "Schedule at renewal"
+      changeTier: "Change tier"
+      continueToStripe: "Checkout"
+      openingStripe: "Opening Stripe..."
+      disabledCheckoutTitle: "Select a paid tier and the required countries to continue."
+    recovery:
+      title: "Recover license"
+      copy: "Enter the same email you used with Stripe and we'll send a recovery link if we find a matching license."
+      emailLabel: "Stripe email"
+      emailPlaceholder: "name@example.com"
+      validationError: "Enter the email you used at checkout."
+      sentToast: "If we found a matching license, a recovery link is on its way."
+      rateLimited: "A recovery link was sent recently. Please wait a few minutes before requesting another one."
+      tokenExpired: "This recovery link has expired. Open the menu and choose Recover license to request a new recovery link."
+      tokenUsed: "This recovery link has already been used. Open the menu and choose Recover license to request a new recovery link."
+      cooldownActive: "This license was recently restored on another browser or device. Try again after {date}."
+      failed: "We could not restore your license from this recovery link."
+      actions:
+        cancel: "Cancel"
+        send: "Send link"
+        sending: "Sending..."
+    gift:
+      title: "Redeem gift code"
+      copyAbove: "Enter your email and we'll send a secure link to finish redeeming this gift code."
+      copyBelow: "We need it to identify your license if you use another device or clear your browser storage."
+      emailLabel: "Email"
+      emailPlaceholder: "name@example.com"
+      validationError: "Enter a valid email address."
+      sentToast: "Check your email for a secure link to finish redeeming your gift code."
+      invalidCode: "This gift code is not valid or has expired."
+      activeSubscriptionExists: "This browser already has an active Real Countries plan. Open Real Countries to manage it, or use another browser or device for this gift."
+      rateLimited: "A secure link was sent recently. Please wait a few minutes before requesting another one."
+      actions:
+        cancel: "Cancel"
+        continue: "Send link"
+        redeeming: "Sending..."
+    toasts:
+      title: ""
+      countriesUpdated: "Countries updated"
+      countryChangesScheduled: "Country changes scheduled"
+      tierChangeSubmitted: "Tier change submitted"
+      planCanceledAndRefunded: "Subscription canceled and refund started"
+    errorTitles:
+      gift: "Gift Code Unavailable"
+      checkout: "Checkout Unavailable"
+      tierChange: "Tier Change Failed"
+      countryUpdate: "Country Update Failed"
+      billingPortal: "Billing Portal Unavailable"
+      cancelRefund: "Cancellation Failed"
+    success:
+      eyebrow: "Checkout complete"
+      message: "Your selected countries are ready. To use this license on another device, open the menu there, choose [Recover license], and enter your email."
+      allCountries: "All supported countries"
+      availableCountry: "available"
+      unknownPlan: "Real Countries"
+      action: "Start planning"
+      videoTitle: "Welcome video"
+      videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"
+      activation:
+        eyebrow: "Activating..."
+        message: "Waiting for Stripe confirmation. This usually takes a few seconds."
+      recovery:
+        eyebrow: "License restored"
+        message: "Your countries are available again."
+        action: "Continue planning"
+      gift:
+        eyebrow: "Gift activated"
+        message: "Your gift code has been confirmed and your Real Countries are ready."
+        action: "Start planning"
+        activation:
+          eyebrow: "Activating your gift"
+          message: "Waiting for gift confirmation. This usually takes a few seconds."
+
+  tiers:
+    free:
+      label: "Free Playground"
+      price: "€0"
+      lines: |
+        - One fictitious country.
+        - Simple tax rules.
+        - Ideal to learn the basics.
+      description: |
+        #### Use this plan:
+        - To get familiar with the simulator.
+        - As a teaching tool.
+        #### Limitations:
+        - No real country tax rules.
+        - No global mobility.
+        #### Upgrade to:
+        - Make projections based on real countries.
+        - Get tax rules updates while subscribed.
+        - See what happens if you move to other countries.
+    country_1:
+      label: "Home Country"
+      lines: |
+        - Get one country's real tax rules.
+        - {countryAccessGracePeriodDays}-day grace period to:
+          - Try different countries.
+          - Cancel subscription.
+      description: |
+        Choose one country to unlock its tax rules and investments (you can change it during the grace period)
+    country_2:
+      label: "Relocation"
+      lines: |
+        - Unlock two countries.
+        - Model relocation scenarios.
+        - Same {countryAccessGracePeriodDays}-day grace period.
+      description: |
+        Choose two countries to unlock their tax rules and investments (you can change them during the grace period)
+    country_all:
+      label: "The World"
+      lines: |
+        - Unlock all {countryCount} supported countries.
+        - Get countries as they are added.
+        - Relocate all over the world!
+        - {countryAccessGracePeriodDays}-day refund period.
+      description: |
+        Select which countries you want to see in the country selection dropdowns (you can change this anytime)
 
 
 ###########################################################

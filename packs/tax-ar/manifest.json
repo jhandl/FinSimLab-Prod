@@ -1,0 +1,9 @@
+{
+  "packId": "tax-ar",
+  "country": "ar",
+  "deployId": "d7a7cbb3cb1495c1bf781ffbf73b68cf7ae999ee",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "SbXRmXqSt08D6GpG",
+  "payloadSha256": "2bc7bee822349c1dd7e0769bdf22f50b794207efd57d8dc49bc4d65fd3f16a1c"
+}

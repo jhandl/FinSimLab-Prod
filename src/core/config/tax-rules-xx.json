@@ -1,0 +1,180 @@
+{
+  "country": "XX",
+  "countryName": "Demo Country",
+  "version": "2026.01",
+  "taxBasis": "worldwide",
+  "jointFilingAllowed": false,
+  "treatyEquivalents": {
+    "incomeTax": "income",
+    "capitalGains": "capitalGains",
+    "dividends": "dividends"
+  },
+  "locale": {
+    "numberLocale": "en-IE",
+    "currencyCode": "XXX",
+    "currencySymbol": ""
+  },
+  "economicData": {
+    "typicalRentalYield": 5,
+    "inflation": 2,
+    "purchasingPowerParity": { "value": 1, "year": 2026 },
+    "exchangeRate": { "perEur": 1, "asOf": "2026-01-01" },
+    "housingPricePerSquareMeter": { "currency": "XXX", "average": 2000 }
+  },
+  "incomeTax": {
+    "name": "Income Tax",
+    "familyId": "incomeTax",
+    "tooltip": "The tax paid on taxable income.",
+    "taxCredits": {
+      "personal": {
+        "single": 1500,
+        "singleWithDependents": 2000,
+        "married": 3000
+      },
+      "employee": 1000
+    },
+    "ageExemptionAge": 65,
+    "ageExemptionLimit": 20000,
+    "dependentChildMaxAge": 18,
+    "bracketsByStatus": {
+      "single": { "0": 0.25, "50000": 0.5},
+      "singleWithDependents": { "0": 0.25, "55000": 0.5 },
+      "married": { "0": 0.25, "80000": 0.5 }
+    }
+  },
+  "socialContributions": [
+    {
+      "name": "Social Insurance",
+      "familyId": "socialContributions",
+      "tooltip": "The social insurance contribution paid on taxable income.",
+      "rate": 0.03,
+      "applicableIncomeTypes": {
+        "employment": true,
+        "selfEmployment": true
+      }
+    }
+  ],
+  "capitalGainsTax": {
+    "name": "Capital Gains Tax",
+    "familyId": "capitalGainsTax",
+    "tooltip": "The tax paid on capital gains from investments.",
+    "rate": 0.25,
+    "annualExemption": 1000,
+    "allowLossOffset": true
+  },
+  "propertyGainsTax": {
+    "familyId": "propertyGainsTax",
+    "taxRef": "capitalGains",
+    "primaryResidenceExemption": {
+      "enabled": true,
+      "proportional": true
+    },
+    "residentsOnly": false,
+    "capitalGainsOptions": {
+      "rateRef": "capitalGains",
+      "eligibleForAnnualExemption": true,
+      "allowLossOffset": true
+    }
+  },
+  "realEstate": {
+    "reverseMortgage": {
+      "payoutTaxTreatment": "loan"
+    }
+  },
+  "dividendTax": {
+    "rate": 0.25,
+    "annualExemption": 0,
+    "withholding": false
+  },
+  "interestTax": {
+    "rate": 0.25,
+    "withholding": false
+  },
+  "additionalTaxes": [],
+
+  "pensionRules": {
+    "minRetirementAgePrivate": 60,
+    "minRetirementAgeOccupational": 60,
+    "minRetirementAgeState": 67,
+    "contributionLimits": {
+      "ageBandsPercent": {
+        "0": 0.15,
+        "40": 0.2,
+        "50": 0.25
+      },
+      "annualCap": 100000
+    },
+    "lumpSumTaxBands": {
+      "0": 0,
+      "250000": 0.25
+    },
+    "lumpSumLifetimeCap": {
+      "taxFreeAmount": 250000,
+      "excessBands": {
+        "0": 0.25
+      }
+    },
+    "lumpSumMaxPercent": 0.3,
+    "minDrawdownRates": {
+      "60": 0.05
+    },
+    "statePensionAge": 65,
+    "statePensionPeriod": "monthly",
+    "statePensionIncreaseBands": {},
+    "pensionSystem": {
+      "type": "mixed"
+    },
+    "taxAdvantaged": true,
+    "helpText": {
+      "label": "Private Pension",
+      "contributionDescriptionP1": "How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.",
+      "contributionDescriptionP2": "How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.",
+      "statePensionDescriptionP1": "Enter your expected monthly state pension amount.",
+      "statePensionDescriptionP2": "Enter your partner's expected monthly state pension amount."
+    },
+    "definedBenefit": {
+      "treatment": "privatePension"
+    }
+  },
+  "residencyRules": {
+    "postEmigrationTaxYears": 0,
+    "taxesForeignIncome": false,
+    "nonResidentCreditPolicy": "none",
+    "trailingCreditPolicy": "none"
+  },
+  "adapters": [],
+  "investmentTypes": [
+    {
+      "key": "indexFunds_xx",
+      "label": "Index Funds",
+      "baseRef": "globalEquity",
+      "baseCurrency": "XXX",
+      "assetCountry": "xx",
+      "residenceScope": "global",
+      "taxation": {
+        "capitalGains": {
+          "rate": 0.20
+        }
+      },
+      "helpText": "This is a wrapper for index funds (they hold many investments to spread the risk), with gains taxed at 20%."
+    },
+    {
+      "key": "shares_xx",
+      "label": "Shares",
+      "baseCurrency": "XXX",
+      "assetCountry": "xx",
+      "residenceScope": "local",
+      "taxation": {
+        "capitalGains": {
+          "rate": 0.25,
+          "annualExemption": 1000,
+          "allowLossOffset": true
+        }
+      },
+      "helpText": "These are individual company shares, with gains taxed at 25% with a 1000 annual exemption and loss offset."
+    }
+  ],
+  "pinnedIncomeTypes": [
+    "incomeSalaries"
+  ]
+}

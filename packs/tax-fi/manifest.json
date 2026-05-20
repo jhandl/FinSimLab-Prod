@@ -1,0 +1,9 @@
+{
+  "packId": "tax-fi",
+  "country": "fi",
+  "deployId": "d7a7cbb3cb1495c1bf781ffbf73b68cf7ae999ee",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "ecYVUxxXObMsyBTx",
+  "payloadSha256": "fcba7b1907084457d3cfc7b9612bb4dc76f7520e7819be1ff3287910cb25b2a9"
+}

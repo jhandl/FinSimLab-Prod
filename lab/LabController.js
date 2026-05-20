@@ -185,14 +185,18 @@ class MobileBurgerMenu {
     const loadButton = document.getElementById('loadSimulationMobile');
     const demoButton = document.getElementById('loadDemoScenarioMobile');
     const helpButton = document.getElementById('startWizardMobile');
+    const countriesButton = document.getElementById('countryAccessButtonMobile');
+    const feedbackButton = document.getElementById('feedbackButtonMobile');
     const latestUpdatesButton = document.getElementById('latestUpdatesMobile');
     const toggleButton = document.getElementById('experimentalToggleMobile');
     const eventsWizardToggleButton = document.getElementById('eventsWizardToggleMobile');
     const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
     const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
+    const coffeeButton = document.getElementById('coffeeButton');
     const firstDivider = document.querySelector('.mobile-menu-divider');
     const secondDivider = document.querySelectorAll('.mobile-menu-divider')[1];
     const thirdDivider = document.querySelectorAll('.mobile-menu-divider')[2];
+    const fourthDivider = document.querySelectorAll('.mobile-menu-divider')[3];
 
     // Hardcoded toggle to show/hide the experimental toggle button
     const SHOW_TOGGLE_BUTTON = false;
@@ -217,20 +221,37 @@ class MobileBurgerMenu {
     let hasRunSection = false;
     let hasSaveLoadSection = false;
     let hasDemoHelpSection = false;
+    let hasCountriesSection = false;
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
-    if (currentWidth > breakpoints.tablet) {
-      // Desktop mode: Only show Demo/Help/Coffee buttons that are visible in header but burger menu is always available
+    if (currentWidth > breakpoints.countries) {
+      // Wide desktop: primary, secondary, and Countries buttons are visible in the header.
       if (runButton) runButton.style.display = 'none';
       if (statusDiv) statusDiv.style.display = 'none';
       if (saveButton) saveButton.style.display = 'none';
       if (loadButton) loadButton.style.display = 'none';
       if (demoButton) demoButton.style.display = 'none';
       if (helpButton) helpButton.style.display = 'none';
+      if (countriesButton) countriesButton.style.display = 'none';
 
       hasRunSection = false;
       hasSaveLoadSection = false;
       hasDemoHelpSection = false;
+      hasCountriesSection = false;
+    } else if (currentWidth > breakpoints.tablet) {
+      // Compact desktop: Countries moves first; Demo/Help and Save/Load remain in the header.
+      if (runButton) runButton.style.display = 'none';
+      if (statusDiv) statusDiv.style.display = 'none';
+      if (saveButton) saveButton.style.display = 'none';
+      if (loadButton) loadButton.style.display = 'none';
+      if (demoButton) demoButton.style.display = 'none';
+      if (helpButton) helpButton.style.display = 'none';
+      if (countriesButton) countriesButton.style.display = 'flex';
+
+      hasRunSection = false;
+      hasSaveLoadSection = false;
+      hasDemoHelpSection = false;
+      hasCountriesSection = true;
     } else if (currentWidth > breakpoints.mobile) {
       // Tablet mode: Show Demo/Help buttons (moved to burger menu)
       if (runButton) runButton.style.display = 'none';
@@ -239,10 +260,12 @@ class MobileBurgerMenu {
       if (loadButton) loadButton.style.display = 'none';
       if (demoButton) demoButton.style.display = 'flex';
       if (helpButton) helpButton.style.display = 'flex';
+      if (countriesButton) countriesButton.style.display = 'flex';
 
       hasRunSection = false;
       hasSaveLoadSection = false;
       hasDemoHelpSection = true;
+      hasCountriesSection = true;
     } else {
       // Mobile mode: Show Save/Load + Demo/Help (all hidden from header)
       if (runButton) runButton.style.display = 'none';
@@ -251,13 +274,16 @@ class MobileBurgerMenu {
       if (loadButton) loadButton.style.display = 'flex';
       if (demoButton) demoButton.style.display = 'flex';
       if (helpButton) helpButton.style.display = 'flex';
+      if (countriesButton) countriesButton.style.display = 'flex';
 
       hasRunSection = false;
       hasSaveLoadSection = true;
       hasDemoHelpSection = true;
+      hasCountriesSection = true;
     }
 
     if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
+    if (feedbackButton) feedbackButton.style.display = 'flex';
 
     // Show dividers only when they separate visible content
     // First divider: between Run/Status and Save/Load
@@ -267,7 +293,7 @@ class MobileBurgerMenu {
 
     // Second divider: between Save/Load and Demo/Help/Toggle
     if (secondDivider) {
-      secondDivider.style.display = (hasSaveLoadSection && hasDemoHelpSection) ? 'block' : 'none';
+      secondDivider.style.display = (hasSaveLoadSection && (hasDemoHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
     }
 
     // Show/hide toggle buttons based on the hardcoded booleans
@@ -285,9 +311,15 @@ class MobileBurgerMenu {
       countryTabsSyncToggleButton.style.display = SHOW_COUNTRY_TABS_SYNC_TOGGLE ? 'flex' : 'none';
     }
 
-    // Third divider: between Demo/Help/Toggle and Coffee (Coffee is always visible)
+    // Third divider: between Change log and toggles
     if (thirdDivider) {
-      thirdDivider.style.display = (hasDemoHelpSection || hasToggleSection) ? 'block' : 'none';
+      thirdDivider.style.display = (latestUpdatesButton && hasToggleSection) ? 'block' : 'none';
+    }
+
+    // Fourth divider: between toggles and Coffee
+    if (fourthDivider) {
+      const coffeeVisible = !!(coffeeButton && !coffeeButton.hidden);
+      fourthDivider.style.display = (hasToggleSection && coffeeVisible) ? 'block' : 'none';
     }
   }
 
@@ -634,6 +666,7 @@ class MobileBurgerMenu {
 function getBreakpoints() {
   const style = getComputedStyle(document.documentElement);
   return {
+    countries: parseInt(style.getPropertyValue('--breakpoint-countries')),
     tablet: parseInt(style.getPropertyValue('--breakpoint-tablet')),
     mobile: parseInt(style.getPropertyValue('--breakpoint-mobile'))
   };
@@ -678,6 +711,11 @@ function generateHeaderResponsiveCSS() {
       .header-right { display: none !important; }
       .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
       .mobile-menu { display: block; }
+    }
+
+    /* Compact Desktop Mode: Move Countries to the burger before the other header actions */
+    @media (max-width: ${bp.countries}px) and (min-width: ${bp.tablet + 1}px) {
+      #countryAccessButton { display: none !important; }
     }
     
     /* Tablet Mode: Move secondary buttons to burger menu */
