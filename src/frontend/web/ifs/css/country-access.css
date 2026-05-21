@@ -1352,10 +1352,11 @@
   width: 100%;
 }
 
-#checkoutSuccessOverlay .checkout-success-video iframe {
-  border: 0;
+#checkoutSuccessOverlay .checkout-success-video video {
+  background: #0d1624;
   display: block;
   height: 100%;
+  object-fit: contain;
   width: 100%;
 }
 

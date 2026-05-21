@@ -271,11 +271,12 @@ CountryAccessCheckout:
       availableCountry: "available"
       unknownPlan: "Real Countries"
       action: "Start planning"
-      videoTitle: "Welcome video"
-      videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"
+      videoTitle: "Tour of the Simulator"
+      videoUrl: "/tutorials/tour.mp4"
       activation:
         eyebrow: "Activating..."
         message: "Waiting for Stripe confirmation. This usually takes a few seconds."
+        minimumDisplaySeconds: 10
       recovery:
         eyebrow: "License restored"
         message: "Your countries are available again."
