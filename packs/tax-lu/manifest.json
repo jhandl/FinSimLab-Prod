@@ -1,0 +1,9 @@
+{
+  "packId": "tax-lu",
+  "country": "lu",
+  "deployId": "08948a0b7b225cd274dc83450a8e212d9bbfb1d7",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "o9SaciOfqiYjnhyA",
+  "payloadSha256": "764f782db06565f2738a060d5db4e365c136b45a630e335cbedd554d44e32ef0"
+}

@@ -1,6 +1,6 @@
 {
   "relocationEnabled": true,
-  "tutorialsEnabled": false,
+  "tutorialsEnabled": true,
   "autoShiftOnRelocationAgeChange": true,
   "availableCountries": [
     { "code": "xx", "name": "Demo Country"},
@@ -14,6 +14,7 @@
     { "code": "fr", "name": "France", "region": "Europe" },
     { "code": "ie", "name": "Ireland", "region": "Europe" },
     { "code": "it", "name": "Italy", "region": "Europe" },
+    { "code": "lu", "name": "Luxembourg", "region": "Europe" },
     { "code": "nl", "name": "Netherlands", "region": "Europe" },
     { "code": "ch", "name": "Switzerland", "region": "Europe" },
     { "code": "es", "name": "Spain", "region": "Europe" },

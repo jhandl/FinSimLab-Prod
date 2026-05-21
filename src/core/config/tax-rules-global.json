@@ -90,6 +90,14 @@
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
+    "lu": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.3264,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
     "nl": {
       "currencyCode": "EUR",
       "economicData": {
@@ -261,6 +269,12 @@
       "name": "Italy",
       "taxLabels": [ "IRPEF", "addizionale regionale", "IVS", "plusvalenze" ],
       "investmentLabels": [ "conto titoli", "PIR", "fondo pensione" ]
+    },
+    {
+      "code": "lu",
+      "name": "Luxembourg",
+      "taxLabels": [ "barème", "maladie", "pension", "dépendance", "intérêts", "plus-values" ],
+      "investmentLabels": [ "Portefeuille personnel", "Épargne à intérêts", "Épargne-logement", "3e pilier" ]
     },
     {
       "code": "nl",
