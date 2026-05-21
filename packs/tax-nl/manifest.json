@@ -1,0 +1,9 @@
+{
+  "packId": "tax-nl",
+  "country": "nl",
+  "deployId": "31211363ef020f0c5418e33badd1330feef829c7",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "YtfjO7DFFBJ9amtA",
+  "payloadSha256": "6145277f389ab83d311ebe32739bee10757dba5de638aeb0053bef1066f1157c"
+}

@@ -90,6 +90,14 @@
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
+    "nl": {
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 2.5912,
+        "exchangeRate": { "perEur": 1.0 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
     "ch": {
       "currencyCode": "CHF",
       "economicData": {
@@ -253,6 +261,12 @@
       "name": "Italy",
       "taxLabels": [ "IRPEF", "addizionale regionale", "IVS", "plusvalenze" ],
       "investmentLabels": [ "conto titoli", "PIR", "fondo pensione" ]
+    },
+    {
+      "code": "nl",
+      "name": "Netherlands",
+      "taxLabels": [ "Box 1", "Zvw", "Box 3", "Box 2" ],
+      "investmentLabels": [ "Box 3-bezittingen", "Groene beleggingen", "Aanmerkelijk belang", "Lijfrente" ]
     },
     {
       "code": "pt",
