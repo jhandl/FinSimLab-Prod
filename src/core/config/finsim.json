@@ -1,5 +1,6 @@
 {
   "relocationEnabled": true,
+  "tutorialsEnabled": false,
   "autoShiftOnRelocationAgeChange": true,
   "availableCountries": [
     { "code": "xx", "name": "Demo Country"},
