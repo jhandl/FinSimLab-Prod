@@ -186,6 +186,7 @@ class MobileBurgerMenu {
     const demoButton = document.getElementById('loadDemoScenarioMobile');
     const helpButton = document.getElementById('startWizardMobile');
     const countriesButton = document.getElementById('countryAccessButtonMobile');
+    const recoverLicenseButton = document.getElementById('recoverLicenseButtonMobile');
     const feedbackButton = document.getElementById('feedbackButtonMobile');
     const latestUpdatesButton = document.getElementById('latestUpdatesMobile');
     const toggleButton = document.getElementById('experimentalToggleMobile');
@@ -193,10 +194,15 @@ class MobileBurgerMenu {
     const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
     const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
     const coffeeButton = document.getElementById('coffeeButton');
-    const firstDivider = document.querySelector('.mobile-menu-divider');
-    const secondDivider = document.querySelectorAll('.mobile-menu-divider')[1];
-    const thirdDivider = document.querySelectorAll('.mobile-menu-divider')[2];
-    const fourthDivider = document.querySelectorAll('.mobile-menu-divider')[3];
+    const firstDivider = document.getElementById('mobileRunDivider');
+    const secondDivider = document.getElementById('mobileSaveLoadDivider');
+    const countriesDivider = document.getElementById('mobileCountriesDivider');
+    const feedbackDivider = document.getElementById('mobileFeedbackDivider');
+    const thirdDivider = document.getElementById('mobileToggleDivider');
+    const fourthDivider = document.getElementById('mobileCoffeeDivider');
+    const isVisibleMenuItem = function (element) {
+      return !!(element && element.style.display !== 'none' && !element.hidden);
+    };
 
     // Hardcoded toggle to show/hide the experimental toggle button
     const SHOW_TOGGLE_BUTTON = false;
@@ -285,6 +291,9 @@ class MobileBurgerMenu {
     if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
     if (feedbackButton) feedbackButton.style.display = 'flex';
 
+    const hasLicenseSection = hasCountriesSection || isVisibleMenuItem(recoverLicenseButton);
+    const hasFeedbackSection = isVisibleMenuItem(feedbackButton) || isVisibleMenuItem(latestUpdatesButton);
+
     // Show dividers only when they separate visible content
     // First divider: between Run/Status and Save/Load
     if (firstDivider) {
@@ -294,6 +303,16 @@ class MobileBurgerMenu {
     // Second divider: between Save/Load and Demo/Help/Toggle
     if (secondDivider) {
       secondDivider.style.display = (hasSaveLoadSection && (hasDemoHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
+    }
+
+    // Countries divider: between Help and Real Countries
+    if (countriesDivider) {
+      countriesDivider.style.display = (hasDemoHelpSection && hasCountriesSection) ? 'block' : 'none';
+    }
+
+    // Feedback divider: between Recover License/Real Countries and Feedback/Change log
+    if (feedbackDivider) {
+      feedbackDivider.style.display = (hasLicenseSection && hasFeedbackSection) ? 'block' : 'none';
     }
 
     // Show/hide toggle buttons based on the hardcoded booleans
@@ -313,7 +332,7 @@ class MobileBurgerMenu {
 
     // Third divider: between Change log and toggles
     if (thirdDivider) {
-      thirdDivider.style.display = (latestUpdatesButton && hasToggleSection) ? 'block' : 'none';
+      thirdDivider.style.display = (isVisibleMenuItem(latestUpdatesButton) && hasToggleSection) ? 'block' : 'none';
     }
 
     // Fourth divider: between toggles and Coffee

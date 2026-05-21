@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260501-1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260520-2">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260521-1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260521-3">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260520-2">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
@@ -36,7 +36,7 @@
 
   
     
-  <script src="/lab/bundle.1779380904191.js" defer=""></script>
+  <script src="/lab/bundle.1779384062771.js" defer=""></script>
   
   
   
@@ -91,7 +91,7 @@
         </button>
         <div id="progressMobile" class="mobile-menu-status">Ready</div>
 
-        <div class="mobile-menu-divider"></div>
+        <div id="mobileRunDivider" class="mobile-menu-divider"></div>
 
         <button id="saveSimulationMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-save"></i>
@@ -102,7 +102,7 @@
           <span>Load Scenario</span>
         </button>
 
-        <div class="mobile-menu-divider"></div>
+        <div id="mobileSaveLoadDivider" class="mobile-menu-divider"></div>
 
         <button id="loadDemoScenarioMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-play-circle"></i>
@@ -113,12 +113,16 @@
           <span>Help</span>
         </button>
 
+        <div id="mobileCountriesDivider" class="mobile-menu-divider"></div>
+
+        <div id="mobileFeedbackDivider" class="mobile-menu-divider"></div>
+
         <button id="latestUpdatesMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-bell"></i>
           <span>Change log</span>
         </button>
 
-        <div class="mobile-menu-divider"></div>
+        <div id="mobileToggleDivider" class="mobile-menu-divider"></div>
 
         <button id="experimentalToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="off">
           <i class="fas fa-toggle-off"></i>
@@ -153,7 +157,7 @@
           </div>
         </button>
 
-        <div class="mobile-menu-divider"></div>
+        <div id="mobileCoffeeDivider" class="mobile-menu-divider"></div>
 
         <a id="coffeeButton" href="https://www.buymeacoffee.com/jhandl" target="_blank" class="coffee-button" hidden="">
           <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 36px; width: auto;">
