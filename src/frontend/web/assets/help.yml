@@ -272,7 +272,8 @@ CountryAccessCheckout:
       unknownPlan: "Real Countries"
       action: "Start planning"
       videoTitle: "Tour of the Simulator"
-      videoUrl: "/tutorials/tour.mp4"
+      videoUrl: "https://tutorials.finsimlab.com/tutorials/tour.mp4"
+      localVideoUrl: "/tutorials/tour.mp4"
       activation:
         eyebrow: "Activating..."
         message: "Waiting for Stripe confirmation. This usually takes a few seconds."
