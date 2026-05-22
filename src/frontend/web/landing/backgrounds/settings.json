@@ -1,5 +1,5 @@
 {
-  "_startImage": "background01.png",
+  "_startImage": "xx01.png",
   "ar03.png": {
     "position": {
       "x": 61.03,
@@ -25,55 +25,6 @@
     "position": {
       "x": 50,
       "y": 34.35
-    },
-    "zoom": 1
-  },
-  "background01.png": {
-    "position": {
-      "x": 15.95,
-      "y": 100
-    },
-    "zoom": 1.2
-  },
-  "background08.png": {
-    "position": {
-      "x": 9.79,
-      "y": 100
-    },
-    "zoom": 1.15
-  },
-  "background11.png": {
-    "position": {
-      "x": 0,
-      "y": 100
-    },
-    "zoom": 1.45
-  },
-  "background12.png": {
-    "position": {
-      "x": 100,
-      "y": 100
-    },
-    "zoom": 1.05
-  },
-  "background18.png": {
-    "position": {
-      "x": 50,
-      "y": 100
-    },
-    "zoom": 1
-  },
-  "background20.png": {
-    "position": {
-      "x": 50,
-      "y": 100
-    },
-    "zoom": 1
-  },
-  "background28.png": {
-    "position": {
-      "x": 50,
-      "y": 100
     },
     "zoom": 1
   },
@@ -174,5 +125,47 @@
       "y": 36.48
     },
     "zoom": 1
+  },
+  "xx01.png": {
+    "position": {
+      "x": 23.25,
+      "y": 100
+    },
+    "zoom": 1.2
+  },
+  "xx02.png": {
+    "position": {
+      "x": 0,
+      "y": 100
+    },
+    "zoom": 1.2
+  },
+  "xx03.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "xx04.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "xx05.png": {
+    "position": {
+      "x": 0,
+      "y": 100
+    },
+    "zoom": 1.4
+  },
+  "xx06.png": {
+    "position": {
+      "x": 100,
+      "y": 100
+    },
+    "zoom": 1.15
   }
 }
