@@ -395,7 +395,8 @@ nav ul li a:hover {
   width: 100%;
   max-width: 600px;
   aspect-ratio: 1448 / 1019;
-  --landing-hero-background-offset-y: -27%;
+  --landing-hero-background-desk-offset: 27%;
+  --landing-hero-background-window-height: calc(100% - var(--landing-hero-background-desk-offset));
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-xl);
@@ -414,8 +415,10 @@ nav ul li a:hover {
 }
 
 .landing-hero-composite-background {
+  bottom: auto;
+  height: var(--landing-hero-background-window-height);
   object-fit: cover;
-  transform: translateY(var(--landing-hero-background-offset-y));
+  object-position: center center;
   opacity: 0;
   transition: opacity 0.7s ease;
 }

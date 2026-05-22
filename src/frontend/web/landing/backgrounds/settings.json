@@ -1,0 +1,178 @@
+{
+  "_startImage": "background01.png",
+  "ar03.png": {
+    "position": {
+      "x": 61.03,
+      "y": 100
+    },
+    "zoom": 1.3
+  },
+  "ar04.png": {
+    "position": {
+      "x": 0,
+      "y": 72.24
+    },
+    "zoom": 1.3
+  },
+  "ar05.png": {
+    "position": {
+      "x": 50,
+      "y": 66.63
+    },
+    "zoom": 1
+  },
+  "at01.png": {
+    "position": {
+      "x": 50,
+      "y": 34.35
+    },
+    "zoom": 1
+  },
+  "background01.png": {
+    "position": {
+      "x": 15.95,
+      "y": 100
+    },
+    "zoom": 1.2
+  },
+  "background08.png": {
+    "position": {
+      "x": 9.79,
+      "y": 100
+    },
+    "zoom": 1.15
+  },
+  "background11.png": {
+    "position": {
+      "x": 0,
+      "y": 100
+    },
+    "zoom": 1.45
+  },
+  "background12.png": {
+    "position": {
+      "x": 100,
+      "y": 100
+    },
+    "zoom": 1.05
+  },
+  "background18.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "background20.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "background28.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "ch01.png": {
+    "position": {
+      "x": 0,
+      "y": 43.39
+    },
+    "zoom": 1.2
+  },
+  "cz01.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "de01.jpg": {
+    "position": {
+      "x": 50,
+      "y": 9.46
+    },
+    "zoom": 1
+  },
+  "es01.png": {
+    "position": {
+      "x": 0,
+      "y": 51.89
+    },
+    "zoom": 1.1
+  },
+  "fr01.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "fr02.png": {
+    "position": {
+      "x": 50,
+      "y": 0
+    },
+    "zoom": 1
+  },
+  "gb01.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "gr01.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "ie01.png": {
+    "position": {
+      "x": 77.54,
+      "y": 85.41
+    },
+    "zoom": 1.85
+  },
+  "ie03.png": {
+    "position": {
+      "x": 100,
+      "y": 73.77
+    },
+    "zoom": 1.2
+  },
+  "ie04.png": {
+    "position": {
+      "x": 50.64,
+      "y": 50
+    },
+    "zoom": 1
+  },
+  "it01.png": {
+    "position": {
+      "x": 50,
+      "y": 100
+    },
+    "zoom": 1
+  },
+  "nl01.jpg": {
+    "position": {
+      "x": 50,
+      "y": 0
+    },
+    "zoom": 1
+  },
+  "pt01.png": {
+    "position": {
+      "x": 50,
+      "y": 36.48
+    },
+    "zoom": 1
+  }
+}

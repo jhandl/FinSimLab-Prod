@@ -1,9 +1,9 @@
 {
   "packId": "tax-it",
   "country": "it",
-  "deployId": "d7e766f9a38078f07bfcd338a4b41fd7a15d4307",
+  "deployId": "03b7e488bb4fb1f1beedfb3cbd12a1ad13960dc6",
   "algorithm": "AES-256-GCM",
   "payload": "payload.enc",
-  "nonce": "befGipQl9mtgvqLR",
-  "payloadSha256": "6a649cb1b9f0484b4634ed2de9fffb84abb13360961e82cc82647c9b0479b7e6"
+  "nonce": "80JCjX_94sDRgu-5",
+  "payloadSha256": "def2f0c2789d7a5144105d0806849364ba1fa575a2f3328d94a61c51c9929324"
 }
