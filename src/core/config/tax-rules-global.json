@@ -101,6 +101,17 @@
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
+    "hr": {
+      "name": "Croatia",
+      "taxLabels": [ "Porez na dohodak", "I. stup", "II. stup", "Dividende", "Kamate", "Kapitalni dobici" ],
+      "investmentLabels": [ "III. stup", "Fondovi / broker", "Štednja" ],
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 3.0563,
+        "exchangeRate": { "perEur": 1 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
     "ie": {
       "name": "Ireland",
       "taxLabels": [ "IT", "PRSI", "USC", "CGT" ],
@@ -175,6 +186,17 @@
       "economicData": {
         "inflation": 2.1488,
         "exchangeRate": { "perEur": 1 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
+    "pl": {
+      "name": "Poland",
+      "taxLabels": [ "PIT", "emerytalna", "rentowa", "chorobowa", "zdrowotna", "danina solidarnościowa", "kapitały pieniężne", "PIT-38" ],
+      "investmentLabels": [ "PIT-38", "kapitały pieniężne", "IKE", "OIPE", "IKZE", "PPE", "PPK", "oszczędzanie emerytalne" ],
+      "currencyCode": "PLN",
+      "economicData": {
+        "inflation": 3.7124,
+        "exchangeRate": { "perEur": 4.24 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },

@@ -1,0 +1,9 @@
+{
+  "packId": "tax-hr",
+  "country": "hr",
+  "deployId": "9b5d69319a44f6cfc5018f488e8e6eba8ba0e462",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "MvJi8uJMJxQgdIY7",
+  "payloadSha256": "8ab7518801b1645e22aa146ca17e3927a3d04acad40f94fa2b23a90f8f634f6b"
+}
