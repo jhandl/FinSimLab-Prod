@@ -201,8 +201,8 @@ WelcomeTabs:
             - "If you don't save your scenario before closing this browser tab, it will be lost."
         - question: "What do you store in your servers?"
           answer:
-            - "If you only use the free tier, I know nothing about you."
-            - "If you subscribe to a paid tier, your license and the email you gave Stripe are stored in my servers. Is store your email so I can identify your license and send it to you in case you need to recover it."
+            - "If you only use the free tier, I only get your public IP address."
+            - "If you subscribe to a paid tier, your license and the email you gave Stripe are stored in my servers. I store your email so I can identify your license and send it to you in case you need to recover it."
             - "If you send me feedback, I store that feedback in my servers. I will also store your email if you decide to share it with me so that I can respond to you."
             - "I promise I won't spam your email. I encourage you to use a disposable email address service (like 33mail.com) so you can block me if I ever break my promise."
         - question: "Why would I need to recover my license?"

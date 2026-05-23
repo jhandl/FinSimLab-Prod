@@ -46,6 +46,17 @@
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
+    "cy": {
+      "name": "Cyprus",
+      "taxLabels": [ "Εισόδημα", "Κοινωνικές ασφαλίσεις", "ΓεΣΥ", "Άμυνα", "Κεφαλαιουχικά" ],
+      "investmentLabels": [ "Τίτλοι", "Καινοτόμες", "Ταμεία" ],
+      "currencyCode": "EUR",
+      "economicData": {
+        "inflation": 1.7714,
+        "exchangeRate": { "perEur": 1 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
     "de": {
       "name": "Germany",
       "taxLabels": [ "ESt", "KV", "PV", "RV", "AV", "Abgeltungsteuer" ],

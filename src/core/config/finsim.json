@@ -7,6 +7,7 @@
     { "code": "at", "name": "Austria", "region": "Europe" },
     { "code": "be", "name": "Belgium", "region": "Europe" },
     { "code": "bg", "name": "Bulgaria", "region": "Europe" },
+    { "code": "cy", "name": "Cyprus", "region": "Europe" },
     { "code": "de", "name": "Germany", "region": "Europe" },
     { "code": "dk", "name": "Denmark", "region": "Europe" },
     { "code": "ee", "name": "Estonia", "region": "Europe" },
