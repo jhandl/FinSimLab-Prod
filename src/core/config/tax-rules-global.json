@@ -57,6 +57,17 @@
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
+    "cz": {
+      "name": "Czechia",
+      "taxLabels": [ "Příjmy", "Sociální", "Zdravotní", "Prodej" ],
+      "investmentLabels": [ "Dlouhodobý investiční produkt", "Cenné papíry", "Kryptoaktiva", "Stavební spoření", "Penzijko" ],
+      "currencyCode": "CZK",
+      "economicData": {
+        "inflation": 3.3992,
+        "exchangeRate": { "perEur": 24.29 }
+      },
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
+    },
     "de": {
       "name": "Germany",
       "taxLabels": [ "ESt", "KV", "PV", "RV", "AV", "Abgeltungsteuer" ],

@@ -1,0 +1,9 @@
+{
+  "packId": "tax-cz",
+  "country": "cz",
+  "deployId": "5285a364784fef2b9d5668ec822aeb7307fce8e8",
+  "algorithm": "AES-256-GCM",
+  "payload": "payload.enc",
+  "nonce": "E7nx4apGJL5YGBpJ",
+  "payloadSha256": "be6f16d2e8b757d4a1d9d3a7b1e6c6c8a11bed8f0b374c9e4fb3129a55563bc6"
+}
