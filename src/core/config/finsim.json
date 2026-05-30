@@ -19,7 +19,7 @@
     { "code": "ie", "name": "Ireland", "region": "Europe" },
     { "code": "it", "name": "Italy", "region": "Europe" },
     { "code": "lu", "name": "Luxembourg", "region": "Europe" },
-    { "code": "nl", "name": "Netherlands", "region": "Europe" },
+    { "code": "nl", "name": "Netherlands", "displayName": "The Netherlands", "region": "Europe" },
     { "code": "ch", "name": "Switzerland", "region": "Europe" },
     { "code": "es", "name": "Spain", "region": "Europe" },
     { "code": "pt", "name": "Portugal", "region": "Europe" },
