@@ -1252,21 +1252,6 @@ document.addEventListener('DOMContentLoaded', function () {
   updateColorSchemeAttribute('default');
 });
 
-// App Icon Version Tooltip
-document.addEventListener('DOMContentLoaded', function () {
-  const appIcon = document.querySelector('.app-icon');
-  if (appIcon) {
-    const currentVersion = 'current';
-    const tooltipText = `FinSimLab version ${currentVersion}`;
-
-    // Use TooltipUtils to attach tooltip with 5-second delay
-    TooltipUtils.attachTooltip(appIcon, tooltipText, {
-      hoverDelay: 5000,  // 5 seconds
-      touchDelay: 5000   // 5 seconds for touch devices too
-    });
-  }
-});
-
 // Welcome Modal & Global Toggle Manager
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('welcomeModalToggleMobile');
