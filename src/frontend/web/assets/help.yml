@@ -285,8 +285,20 @@ CountryAccessCheckout:
       scheduleAtRenewal: "Schedule at renewal"
       changeTier: "Change tier"
       continueToStripe: "Checkout"
+      continuePromoWithStripe: "Continue with Stripe"
       openingStripe: "Opening Stripe..."
       disabledCheckoutTitle: "Select a paid tier and the required countries to continue."
+    promo:
+      expired:
+        title: "Your Real Countries promo has ended"
+        messageAllCountries: "Your promotional Real Countries access ended on {date}. Continue with Stripe to keep the same plan: \"{planName}\"."
+        messageWithCountries: "Your promotional Real Countries access ended on {date}. Continue with Stripe to keep the same plan \"{planName}\" and countries: {countries}."
+        errorTitle: "Checkout Unavailable"
+        actions:
+          close: "Close"
+          continueWithStripe: "Continue with Stripe"
+          openRealCountries: "Open Real Countries"
+          openingStripe: "Opening Stripe..."
     recovery:
       title: "Recover license"
       copy: "Enter the same email you used with Stripe and we'll send a recovery link if it matches a valid license."
@@ -304,15 +316,15 @@ CountryAccessCheckout:
         send: "Send link"
         sending: "Sending..."
     gift:
-      title: "Redeem gift code"
-      copyAbove: "Enter your email and we'll send a secure link to finish redeeming this gift code."
+      title: "Redeem promo code"
+      copyAbove: "Enter your email and we'll send a secure link to finish redeeming this promo code."
       copyBelow: "We need it to identify your license if you use another device or clear your browser storage."
       emailLabel: "Email"
       emailPlaceholder: "name@example.com"
       validationError: "Enter a valid email address."
-      sentToast: "Check your email for a secure link to finish redeeming your gift code."
-      invalidCode: "This gift code is not valid or has expired."
-      activeSubscriptionExists: "This browser already has an active Real Countries plan. Open Real Countries to manage it, or use another browser or device for this gift."
+      sentToast: "Check your email for a secure link to finish redeeming your promo code."
+      invalidCode: "This promo code is not valid or has expired."
+      activeSubscriptionExists: "This browser already has an active Real Countries plan. Open Real Countries to manage it, or use another browser or device for this promo."
       rateLimited: "A secure link was sent recently. Please wait a few minutes before requesting another one."
       actions:
         cancel: "Cancel"
@@ -325,7 +337,7 @@ CountryAccessCheckout:
       tierChangeSubmitted: "Tier change submitted"
       planCanceledAndRefunded: "Subscription canceled and refund started"
     errorTitles:
-      gift: "Gift Code Unavailable"
+      gift: "Promo Code Unavailable"
       checkout: "Checkout Unavailable"
       tierChange: "Tier Change Failed"
       countryUpdate: "Country Update Failed"
@@ -350,12 +362,12 @@ CountryAccessCheckout:
         message: "Your countries are available again."
         action: "Continue planning"
       gift:
-        eyebrow: "Gift activated"
-        message: "Your gift code has been confirmed and your Real Countries are ready."
+        eyebrow: "Promo activated"
+        message: "Your promo code has been confirmed and your Real Countries are ready."
         action: "Start planning"
         activation:
-          eyebrow: "Activating your gift"
-          message: "Waiting for gift confirmation. This usually takes a few seconds."
+          eyebrow: "Activating your promo"
+          message: "Waiting for promo confirmation. This usually takes a few seconds."
 
   tiers:
     free:

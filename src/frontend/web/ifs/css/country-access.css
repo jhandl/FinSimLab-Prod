@@ -1033,6 +1033,27 @@
   padding: 1rem 4vw;
 }
 
+#promoExpiredOverlay {
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 1rem 4vw;
+}
+
+#promoExpiredOverlay .promo-expired-modal {
+  margin: 0;
+}
+
+#promoExpiredOverlay .promo-expired-modal .modal-footer {
+  align-items: center;
+  background: var(--modal-footer-background, #f8f9fa);
+  border-top: 1px solid var(--modal-footer-border, #e9ecef);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 8px 20px;
+}
+
 #giftEmailOverlay .gift-email-modal {
   background: white;
   border: 0;
