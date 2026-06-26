@@ -2053,10 +2053,6 @@ th {
 }
 
 /* Match original select width for pension capped pseudo-select */
-#PensionContributionCappedToggle.pseudo-select {
-  min-width: 75px;
-  max-width: 75px;
-}
 #Allocations [id^="PensionCappedToggle_"].pseudo-select {
   min-width: 75px;
   max-width: 75px;

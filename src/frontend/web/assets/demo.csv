@@ -7,8 +7,8 @@ InitialSavings,14000
 InitialPension,0
 RetirementAge,65
 EmergencyStash,20000
-PensionGrowthRate,6%
-PensionGrowthStdDev,12%
+PensionGrowth_xx,6%
+PensionVolatility_xx,12%
 MarriageYear,2025
 YoungestChildBorn,0
 OldestChildBorn,2027

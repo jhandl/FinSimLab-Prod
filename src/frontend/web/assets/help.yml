@@ -704,7 +704,7 @@ WizardSteps:
       side: "right"
       align: "start"
 
-  - dynamicInvestmentField: "PensionContributionCapped"
+  - dynamicInvestmentField: "PensionCapped"
     tours: [full, mini]
     card: Allocations
     popover:
