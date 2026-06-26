@@ -50,9 +50,10 @@
 
   /* Shared min-width for amount inputs (events table + resolution panel) */
   --event-amount-input-min-width: 90px;
+  --events-table-min-width: 774px;
 
   /* Layout Widths */
-  --parameter-card-width: 348px;
+  --parameter-card-width: 400px;
   --events-section-width: 810px;
 
   /* Event Type Colors (RGB values) */
@@ -486,7 +487,7 @@ header.header-hidden {
 }
 
 .events-section.card {
-  max-width: var(--events-section-width);
+  max-width: var(--adaptive-events-width, var(--events-section-width));
 }
 
 /* Ensure info icons work on all card-like elements */
@@ -1627,7 +1628,8 @@ label {
 }
 
 #personalCircumstances .input-wrapper > input,
-#personalCircumstances .input-wrapper > select {
+#personalCircumstances .input-wrapper > select,
+#personalCircumstances .input-wrapper > .percentage-container {
   flex-shrink: 0;
 }
 
@@ -1866,17 +1868,13 @@ th {
 }
 
 #Events {
-  width: 774px;
-  /* Fixed width 774px instead of 100% */
+  width: max(100%, var(--events-table-min-width));
   border-collapse: collapse;
   margin-bottom: 0.25rem;
   /* tighter spacing below the table */
   table-layout: flex;
-  /* Keep fixed layout */
-  min-width: 774px;
-  /* Same as width to prevent resizing */
-  max-width: 774px;
-  /* Same as width to prevent resizing */
+  min-width: var(--events-table-min-width);
+  max-width: none;
 }
 
 #Events th,
@@ -3969,9 +3967,8 @@ footer {
 }
 
 .events-section.card {
-  /* Inherit 810px from .card to allow full-width events table */
+  /* The panel width is driven by adaptive layout variables; the table scrolls internally when needed. */
   overflow: visible;
-  /* Allow the container to grow with the table */
 }
 
 /* Center-align dropdown header and items so they look identical regardless of parent alignment */
@@ -4234,7 +4231,7 @@ footer {
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, var(--event-type-width, 140px)) 120px 90px 100px;
+  grid-template-columns: minmax(0, var(--event-type-width, 140px)) minmax(0, 120px) minmax(0, 90px) minmax(0, 100px);
   /* align with event-summary-main */
   align-items: center;
   gap: 0.5rem;
@@ -4243,7 +4240,7 @@ footer {
 }
 
 .events-accordion-container.year-mode .accordion-header-main {
-  grid-template-columns: var(--event-type-width, 140px) 120px 90px 120px;
+  grid-template-columns: minmax(0, var(--event-type-width, 140px)) minmax(0, 120px) minmax(0, 90px) minmax(0, 120px);
   /* longer period label */
 }
 
@@ -4541,15 +4538,15 @@ footer {
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, var(--event-type-width, 140px)) 120px 90px 100px;
-  /* allow first cell to shrink */
+  grid-template-columns: minmax(0, var(--event-type-width, 140px)) minmax(0, 120px) minmax(0, 90px) minmax(0, 100px);
+  /* allow cells to shrink when the accordion is constrained */
   align-items: center;
   gap: 0.5rem;
 }
 
 /* Adjust grid columns for year mode to accommodate longer text */
 .events-accordion-container.year-mode .event-summary-main {
-  grid-template-columns: var(--event-type-width, 140px) 120px 90px 120px;
+  grid-template-columns: minmax(0, var(--event-type-width, 140px)) minmax(0, 120px) minmax(0, 90px) minmax(0, 120px);
   /* Increase period column width */
 }
 
@@ -4585,12 +4582,18 @@ footer {
   justify-self: end;
   text-align: right;
   white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .event-summary-period {
   justify-self: start;
   text-align: left;
   white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: 0.5rem;
   /* Added extra spacing between amount and period */
 }

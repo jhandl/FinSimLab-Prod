@@ -231,7 +231,6 @@ class MobileBurgerMenu {
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
     if (currentWidth > breakpoints.countries) {
-      // Wide desktop: primary, secondary, and Countries buttons are visible in the header.
       if (runButton) runButton.style.display = 'none';
       if (statusDiv) statusDiv.style.display = 'none';
       if (saveButton) saveButton.style.display = 'none';
@@ -245,7 +244,6 @@ class MobileBurgerMenu {
       hasDemoHelpSection = false;
       hasCountriesSection = false;
     } else if (currentWidth > breakpoints.tablet) {
-      // Compact desktop: Countries moves first; Demo/Help and Save/Load remain in the header.
       if (runButton) runButton.style.display = 'none';
       if (statusDiv) statusDiv.style.display = 'none';
       if (saveButton) saveButton.style.display = 'none';
@@ -259,7 +257,6 @@ class MobileBurgerMenu {
       hasDemoHelpSection = false;
       hasCountriesSection = true;
     } else if (currentWidth > breakpoints.mobile) {
-      // Tablet mode: Show Demo/Help buttons (moved to burger menu)
       if (runButton) runButton.style.display = 'none';
       if (statusDiv) statusDiv.style.display = 'none';
       if (saveButton) saveButton.style.display = 'none';
@@ -273,7 +270,6 @@ class MobileBurgerMenu {
       hasDemoHelpSection = true;
       hasCountriesSection = true;
     } else {
-      // Mobile mode: Show Save/Load + Demo/Help (all hidden from header)
       if (runButton) runButton.style.display = 'none';
       if (statusDiv) statusDiv.style.display = 'none';
       if (saveButton) saveButton.style.display = 'flex';
@@ -681,45 +677,54 @@ class MobileBurgerMenu {
   }
 }
 
-// Get breakpoint values from CSS custom properties
+let cssLengthProbe = null;
+let adaptiveLayoutScheduled = false;
+
 function getBreakpoints() {
   const style = getComputedStyle(document.documentElement);
   return {
-    countries: parseInt(style.getPropertyValue('--breakpoint-countries')),
-    tablet: parseInt(style.getPropertyValue('--breakpoint-tablet')),
-    mobile: parseInt(style.getPropertyValue('--breakpoint-mobile'))
+    countries: parseInt(style.getPropertyValue('--breakpoint-countries'), 10),
+    tablet: parseInt(style.getPropertyValue('--breakpoint-tablet'), 10),
+    mobile: parseInt(style.getPropertyValue('--breakpoint-mobile'), 10)
   };
 }
 
-// Get layout breakpoint values from CSS custom properties
-function getLayoutBreakpoints() {
-  const style = getComputedStyle(document.documentElement);
-  return {
-    wide: parseInt(style.getPropertyValue('--layout-breakpoint-wide')),
-    medium: parseInt(style.getPropertyValue('--layout-breakpoint-medium')),
-    narrow: parseInt(style.getPropertyValue('--layout-breakpoint-narrow')),
-    mobile: parseInt(style.getPropertyValue('--layout-breakpoint-mobile'))
-  };
+function getHeaderResponsiveMode() {
+  const currentWidth = window.innerWidth;
+  const breakpoints = getBreakpoints();
+  if (currentWidth > breakpoints.countries) return 'full';
+  if (currentWidth > breakpoints.tablet) return 'country-menu';
+  if (currentWidth > breakpoints.mobile) return 'secondary-menu';
+  return 'save-load-menu';
 }
 
-// Generate header responsive CSS from centralized breakpoints
+function updateHeaderResponsiveState() {
+  document.body.classList.remove(
+    'header-name-hidden',
+    'header-country-menu',
+    'header-secondary-menu',
+    'header-save-load-menu',
+    'header-run-short'
+  );
+  document.body.setAttribute('data-header-mode', getHeaderResponsiveMode());
+  if (window.mobileBurgerMenuInstance && typeof window.mobileBurgerMenuInstance.updateMenuContent === 'function') {
+    window.mobileBurgerMenuInstance.updateMenuContent();
+  }
+  return { mode: getHeaderResponsiveMode() };
+}
+
 function generateHeaderResponsiveCSS() {
   const bp = getBreakpoints();
-
   const css = `
-    /* Global max-width constraint for header to align with main content */
     header {
       max-width: 2350px;
       margin: 0 auto;
     }
-    
 
-    
-    /* Desktop Mode: Show all buttons with grouping */
     @media (min-width: ${bp.tablet + 1}px) {
       header { display: flex !important; flex-wrap: nowrap !important; gap: 0.5rem !important; padding: 0.75rem 1.2rem !important; height: 60px !important; justify-content: space-between !important; align-items: center !important; }
       .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; display: flex !important; align-items: center !important; gap: 0.75rem !important; }
-      .header-left .app-name { display: none !important; } @media (min-width: 994px) { .header-left .app-name { display: block !important; margin: 0 !important; font-size: 1.25rem !important; font-weight: 700 !important; } }
+      .header-left .app-name { display: none !important; }
       .header-left .app-name a { color: var(--color-button-dark) !important; text-decoration: none !important; white-space: nowrap !important; }
       .header-left .app-icon-link { display: flex !important; }
       .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
@@ -732,12 +737,14 @@ function generateHeaderResponsiveCSS() {
       .mobile-menu { display: block; }
     }
 
-    /* Compact Desktop Mode: Move Countries to the burger before the other header actions */
+    @media (min-width: 994px) {
+      .header-left .app-name { display: block !important; margin: 0 !important; font-size: 1.25rem !important; font-weight: 700 !important; }
+    }
+
     @media (max-width: ${bp.countries}px) and (min-width: ${bp.tablet + 1}px) {
       #countryAccessButton { display: none !important; }
     }
-    
-    /* Tablet Mode: Move secondary buttons to burger menu */
+
     @media (max-width: ${bp.tablet}px) and (min-width: ${bp.mobile + 1}px) {
       header { display: flex !important; flex-wrap: nowrap !important; gap: 0.5rem !important; padding: 0.75rem 1.2rem !important; height: 60px !important; justify-content: space-between !important; align-items: center !important; }
       .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; }
@@ -755,36 +762,28 @@ function generateHeaderResponsiveCSS() {
       #runSimulation span { display: none; }
     }
 
-             /* Mobile Mode: Show Icon + Run + Status + burger menu */
-     @media (max-width: ${bp.mobile}px) {
-       body { padding-top: 60px !important; }
-       header { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; padding: 0.75rem 1.2rem !important; position: fixed !important; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; height: 60px !important; gap: 0.5rem !important; }
-       .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; margin: 0 !important; padding: 0 !important; }
-       .header-left .app-name { display: none !important; }
-       .header-left .app-icon-link { display: flex !important; }
-       .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
-       .header-center-right { display: flex !important; flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; }
-       .header-center { margin: 0 auto !important; gap: 0 !important; justify-content: center !important; display: flex !important; }
-       .button-group-primary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
-       .button-group-secondary { display: none !important; }
-       .header-right { display: none !important; }
-       .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
-       .mobile-menu { display: block; }
-       #saveSimulation, #loadSimulation { display: none !important; }
-       #runSimulation { display: inline-block !important; }
-       #runSimulation::before { content: "Run"; }
-       #runSimulation span { display: none; }
-       #progress { display: inline-block !important; }
-       main { margin-top: 1.8rem; display: flex; flex-direction: column; gap: 1.8rem; }
-       .events-section { width: 100%; max-width: 810px; justify-self: left; overflow-x: auto; }
-       .events-section table { width: 100%; }
-       .graph-container { width: 100%; max-width: calc(100% - 1.5rem); min-height: calc((100vw - 1.5rem) * 0.6); max-height: calc((100vw - 1.5rem) * 0.9); }
-       .data-section { display: none; }
-       #mobile-data-message { display: block; max-width: none; }
-     }
-    `;
+    @media (max-width: ${bp.mobile}px) {
+      body { padding-top: 60px !important; }
+      header { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; padding: 0.75rem 1.2rem !important; position: fixed !important; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; height: 60px !important; gap: 0.5rem !important; }
+      .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; margin: 0 !important; padding: 0 !important; }
+      .header-left .app-name { display: none !important; }
+      .header-left .app-icon-link { display: flex !important; }
+      .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
+      .header-center-right { display: flex !important; flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; }
+      .header-center { margin: 0 auto !important; gap: 0 !important; justify-content: center !important; display: flex !important; }
+      .button-group-primary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
+      .button-group-secondary { display: none !important; }
+      .header-right { display: none !important; }
+      .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
+      .mobile-menu { display: block; }
+      #saveSimulation, #loadSimulation { display: none !important; }
+      #runSimulation { display: inline-block !important; }
+      #runSimulation::before { content: "Run"; }
+      #runSimulation span { display: none; }
+      #progress { display: inline-block !important; }
+    }
+  `;
 
-  // Inject CSS into the page
   let styleElement = document.getElementById('dynamic-header-responsive-css');
   if (!styleElement) {
     styleElement = document.createElement('style');
@@ -794,203 +793,168 @@ function generateHeaderResponsiveCSS() {
   styleElement.textContent = css;
 }
 
-// Generate layout responsive CSS from centralized breakpoints
-function generateLayoutResponsiveCSS() {
-  const lbp = getLayoutBreakpoints();
-  const bp = getBreakpoints();
-  
-  // Get width constants from CSS variables
-  const rootStyle = getComputedStyle(document.documentElement);
-  const parameterCardWidth = rootStyle.getPropertyValue('--parameter-card-width').trim() || '810px';
-  const eventsSectionWidth = rootStyle.getPropertyValue('--events-section-width').trim() || '810px';
-
-  const css = `
-    /* Global max-width constraint for all screen sizes */
-    main {
-      max-width: 2350px;
-    }
-    
-    /* Wide Screen to 2-column layout */
-    @media (max-width: ${lbp.wide}px) {
-      header {
-        max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 2 * 1.8rem);
-      }
-      main {
-        width: 100%;
-        max-width: calc(2 * ${parameterCardWidth} + 1.35rem + ${eventsSectionWidth} + 2 * 1.8rem);
-        margin: 1.8rem auto var(--data-section-viewport-gap) auto;
-        grid-template-columns: calc(2 * ${parameterCardWidth} + 1.35rem) minmax(0, ${eventsSectionWidth});
-        grid-template-areas: 
-            "parameters events"
-            "graphs graphs"
-            "data-section data-section";
-      }
-
-      .parameters-section {
-        justify-content: center;
-      }
-
-      .events-section {
-        width: 100%;
-        max-width: ${eventsSectionWidth};
-        min-width: ${eventsSectionWidth};
-        justify-self: center;
-        margin-right: 0;
-        margin-left: 0;
-      }
-
-      .graphs-section {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: stretch;
-        gap: 1.8rem;
-        width: 100%;
-        max-height: none;
-      }
-
-      .graph-container {
-        flex: 1 1 calc(50% - 1rem);
-        min-width: 0;
-        max-width: 100%;
-        width: 100%;
-      }
-    }
-
-    /* Medium Screen to single column layout */
-    @media (max-width: ${lbp.medium}px) {
-      header {
-        max-width: calc(3 * ${parameterCardWidth} + 2 * 1.35rem + 2 * 1.2rem);
-      }
-      main {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "parameters"
-            "events"
-            "graphs"
-            "data-section";
-        max-width: 100%;
-        overflow-x: hidden;
-        justify-content: center;
-      }
-
-      .parameters-section {
-        grid-template-columns: repeat(3, minmax(${parameterCardWidth}, ${parameterCardWidth}));
-        justify-content: center;
-        max-width: 100%;
-        justify-self: center;
-      }
-
-      .graphs-section {
-        flex-direction: column;
-        max-width: ${eventsSectionWidth};
-        justify-self: center;
-      }
-
-      .events-section {
-        width: 100%;
-        min-width: 0;
-        max-width: ${eventsSectionWidth};
-        margin: 0;
-        justify-self: center;
-      }
-
-      .data-section {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        overflow: visible;
-        justify-self: center;
-      }
-    }
-
-    /* Parameters cards ordering for 3-column parameters layout:
-       row 2 = Drawdown, Allocations, Economy */
-    @media (max-width: ${lbp.medium}px) and (min-width: ${lbp.narrow + 1}px) {
-      .parameters-section > #drawdownPriorities {
-        order: 4;
-      }
-      .parameters-section > #Allocations {
-        order: 5;
-      }
-      .parameters-section > #growthRates {
-        order: 6;
-      }
-    }
-
-    /* Parameters section back to 2 columns */
-    @media (max-width: ${lbp.narrow}px) {
-      .parameters-section {
-        grid-template-columns: repeat(2, minmax(${parameterCardWidth}, ${parameterCardWidth}));
-        justify-content: center;
-      }
-    }
-
-    /* Mobile Screen adjustments */
-    @media (max-width: ${lbp.mobile}px) {
-      header {
-        max-width: none;
-      }
-      main {
-        margin: 1.8rem auto var(--data-section-viewport-gap) auto;
-        max-width: none;
-      }
-
-      .parameters-section {
-        grid-template-columns: 1fr;
-        justify-content: center;
-        justify-self: center;
-        justify-items: center;
-      }
-
-      .events-section {
-        width: 100%;
-        min-width: 0;
-        max-width: none;
-        justify-self: center;
-      }
-
-      .graphs-section {
-        max-width: none;
-        justify-self: center;
-      }
-
-      .data-section {
-        justify-self: center;
-      }
-
-      .parameters-section > #drawdownPriorities {
-        order: 99;
-      }
-    }
-    
-    /* Small mobile header compensation */
-    @media (max-width: ${bp.smallMobile}px) {
-      main {
-        margin-top: calc(60px + 1.8rem);
-        margin-bottom: var(--data-section-viewport-gap);
-      }
-    }
-    `;
-
-  // Inject CSS into the page
-  let styleElement = document.getElementById('dynamic-layout-responsive-css');
-  if (!styleElement) {
-    styleElement = document.createElement('style');
-    styleElement.id = 'dynamic-layout-responsive-css';
-    document.head.appendChild(styleElement);
+function getCssLength(value, fallback) {
+  const raw = String(value || '').trim();
+  if (!raw) return fallback;
+  const numeric = parseFloat(raw);
+  if (Number.isFinite(numeric) && raw.endsWith('px')) return numeric;
+  if (!document.body) return Number.isFinite(numeric) ? numeric : fallback;
+  if (!cssLengthProbe) {
+    cssLengthProbe = document.createElement('div');
+    cssLengthProbe.style.position = 'fixed';
+    cssLengthProbe.style.visibility = 'hidden';
+    cssLengthProbe.style.pointerEvents = 'none';
+    cssLengthProbe.style.height = '0';
+    cssLengthProbe.style.overflow = 'hidden';
+    cssLengthProbe.style.left = '0';
+    cssLengthProbe.style.top = '0';
+    document.body.appendChild(cssLengthProbe);
   }
-  styleElement.textContent = css;
+  cssLengthProbe.style.width = raw;
+  const measured = cssLengthProbe.getBoundingClientRect().width;
+  return measured > 0 ? measured : fallback;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Generate header responsive CSS from centralized breakpoints
-  generateHeaderResponsiveCSS();
+function getCssVariableLength(name, fallback) {
+  return getCssLength('var(' + name + ')', fallback);
+}
 
-  // Generate layout responsive CSS from centralized breakpoints
-  generateLayoutResponsiveCSS();
+function getComputedLength(element, property, fallback) {
+  if (!element) return fallback;
+  return getCssLength(window.getComputedStyle(element).getPropertyValue(property), fallback);
+}
+
+function formatPx(value) {
+  return Math.max(0, Math.round(value * 100) / 100) + 'px';
+}
+
+function parameterGridWidth(columns, cardWidth, gap) {
+  return columns * cardWidth + Math.max(0, columns - 1) * gap;
+}
+
+function fittedParameterColumns(available, cardWidth, gap) {
+  for (let columns = 3; columns >= 2; columns--) {
+    if (parameterGridWidth(columns, cardWidth, gap) <= available + 0.5) return columns;
+  }
+  return 1;
+}
+
+function updateMainAdaptiveLayout() {
+  const main = document.querySelector('main');
+  const parametersSection = document.querySelector('.parameters-section');
+  if (!main || !parametersSection) return null;
+
+  const root = document.documentElement;
+  const mainStyle = window.getComputedStyle(main);
+  const viewportWidth = root.clientWidth || window.innerWidth || 0;
+  const mainPadding = getCssLength(mainStyle.paddingLeft, 0) + getCssLength(mainStyle.paddingRight, 0);
+  const available = Math.max(1, viewportWidth - mainPadding);
+  const cardWidth = Math.max(1, getCssVariableLength('--parameter-card-width', 348));
+  const eventsWidth = Math.max(1, getCssVariableLength('--events-section-width', 810));
+  const eventsTableMinWidth = Math.max(1, getCssVariableLength('--events-table-min-width', 774));
+  const graphMinWidth = Math.max(1, getCssVariableLength('--graphs-section-min-width', 520));
+  const graphPreferredWidth = Math.max(graphMinWidth, getCssVariableLength('--graphs-section-preferred-width', graphMinWidth));
+  const labMaxWidth = Math.max(1, getCssVariableLength('--lab-max-width', 2350));
+  const mainGap = getComputedLength(main, 'column-gap', getCssVariableLength('--lab-main-gap', 28.8));
+  const parameterGap = getComputedLength(parametersSection, 'column-gap', getCssVariableLength('--parameter-grid-gap', 21.6));
+
+  const pairedParameterWidth = parameterGridWidth(2, cardWidth, parameterGap);
+  const fullRequiredWidth = pairedParameterWidth + eventsWidth + graphMinWidth + 2 * mainGap;
+  const paramsEventsRequiredWidth = pairedParameterWidth + eventsWidth + mainGap;
+  let mode = 'stacked';
+  let columns = fittedParameterColumns(available, cardWidth, parameterGap);
+
+  if (available >= fullRequiredWidth) {
+    mode = 'full';
+    columns = 2;
+  } else if (available >= paramsEventsRequiredWidth) {
+    mode = 'params-events';
+    columns = 2;
+  }
+
+  const renderedCardWidth = (columns === 1) ? Math.min(cardWidth, available) : cardWidth;
+  const parametersWidth = parameterGridWidth(columns, renderedCardWidth, parameterGap);
+  const renderedEventsWidth = Math.min(eventsWidth, available);
+  let mainMaxWidth = labMaxWidth;
+  if (mode === 'full') {
+    mainMaxWidth = Math.max(labMaxWidth, parametersWidth + renderedEventsWidth + graphPreferredWidth + 2 * mainGap);
+  } else if (mode === 'params-events') {
+    mainMaxWidth = parametersWidth + renderedEventsWidth + mainGap;
+  } else if (mode === 'stacked') {
+    mainMaxWidth = Math.max(parametersWidth, renderedEventsWidth);
+  }
+
+  root.style.setProperty('--parameter-column-count', String(columns));
+  root.style.setProperty('--adaptive-parameter-card-width', formatPx(renderedCardWidth));
+  root.style.setProperty('--adaptive-parameters-width', formatPx(parametersWidth));
+  root.style.setProperty('--adaptive-events-width', formatPx(renderedEventsWidth));
+  root.style.setProperty('--adaptive-main-max-width', formatPx(mainMaxWidth));
+  main.dataset.layoutMode = mode;
+  main.dataset.parameterColumns = String(columns);
+
+  document.body.classList.toggle('lab-layout-full', mode === 'full');
+  document.body.classList.toggle('lab-layout-params-events', mode === 'params-events');
+  document.body.classList.toggle('lab-layout-stacked', mode === 'stacked');
+  document.body.classList.toggle('lab-data-deferred', available < eventsTableMinWidth);
+
+  return {
+    mode: mode,
+    parameterColumns: columns,
+    availableWidth: available,
+    parameterCardWidth: cardWidth,
+    renderedCardWidth: renderedCardWidth,
+    parametersWidth: parametersWidth,
+    eventsWidth: renderedEventsWidth,
+    graphPreferredWidth: graphPreferredWidth,
+    mainMaxWidth: mainMaxWidth
+  };
+}
+
+function updateLabAdaptiveLayout() {
+  const layoutState = updateMainAdaptiveLayout();
+  const headerState = updateHeaderResponsiveState();
+  window.__labAdaptiveLayoutState = {
+    layout: layoutState,
+    header: headerState
+  };
+  document.dispatchEvent(new CustomEvent('lab-layout-updated', { detail: window.__labAdaptiveLayoutState }));
+  if (typeof scheduleDataSectionViewportLockUpdate === 'function') {
+    scheduleDataSectionViewportLockUpdate();
+  }
+  return window.__labAdaptiveLayoutState;
+}
+
+function scheduleLabAdaptiveLayout() {
+  if (adaptiveLayoutScheduled) return;
+  adaptiveLayoutScheduled = true;
+  requestAnimationFrame(function () {
+    adaptiveLayoutScheduled = false;
+    updateLabAdaptiveLayout();
+  });
+}
+
+function initializeAdaptiveLayoutObservers() {
+  const observer = new MutationObserver(scheduleLabAdaptiveLayout);
+  const header = document.querySelector('header');
+  const parameters = document.querySelector('.parameters-section');
+  if (header) observer.observe(header, { childList: true, subtree: true });
+  if (parameters) observer.observe(parameters, { childList: true, subtree: true });
+  window.addEventListener('resize', scheduleLabAdaptiveLayout);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', scheduleLabAdaptiveLayout);
+  }
+}
+
+window.updateLabAdaptiveLayout = updateLabAdaptiveLayout;
+
+document.addEventListener('DOMContentLoaded', () => {
+  generateHeaderResponsiveCSS();
+  updateLabAdaptiveLayout();
+  initializeAdaptiveLayoutObservers();
 
   // Create global instance for wizard access
   window.mobileBurgerMenuInstance = new MobileBurgerMenu();
+  updateLabAdaptiveLayout();
   initializeResponsiveHeader();
 });
 

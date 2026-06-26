@@ -1,25 +1,59 @@
 :root {
-    /* Layout Breakpoints for Grid Layout */
-    --layout-breakpoint-wide: 2110px;      /* 3-column to 2-column layout */
-    --layout-breakpoint-medium: 1565px;    /* 2-column to single column layout */
-    --layout-breakpoint-narrow: 1120px;     /* Parameters section 3-column to 2-column */
-    --layout-breakpoint-mobile: 746px;     /* Mobile parameter layout */
+    --lab-main-gap: 1.8rem;
+    --parameter-grid-gap: 1.35rem;
+    --graphs-section-min-width: 520px;
+    --lab-max-width: 2350px;
+    --parameter-card-default-width: 348px;
+    --events-section-default-width: 810px;
+    --graphs-section-preferred-width: calc(var(--lab-max-width) - (2 * var(--parameter-card-default-width) + var(--parameter-grid-gap)) - var(--events-section-default-width) - (2 * var(--lab-main-gap)));
 }
 
 main {
   width: 100%;
-  max-width: none;
+  max-width: var(--adaptive-main-max-width, var(--lab-max-width));
   margin: 1.8rem auto var(--data-section-viewport-gap, 1.8rem) auto;
   padding: 0 0.9rem;
   flex: 1;
   display: grid;
-  grid-template-columns: calc(2 * var(--parameter-card-width) + 1.35rem) minmax(0, var(--events-section-width)) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas: 
+      "parameters"
+      "events"
+      "graphs"
+      "data-section";
+  gap: var(--lab-main-gap);
+  justify-content: center;
+  align-content: start;
+}
+
+main[data-layout-mode="full"] {
+  grid-template-columns: var(--adaptive-parameters-width) var(--adaptive-events-width) minmax(var(--graphs-section-min-width), 1fr);
+  grid-template-areas:
       "parameters events graphs"
       "data-section data-section data-section";
-  gap: 1.8rem;
+  max-width: var(--adaptive-main-max-width);
   justify-content: start;
-  align-content: start;
+}
+
+main[data-layout-mode="params-events"] {
+  grid-template-columns: var(--adaptive-parameters-width) var(--adaptive-events-width);
+  grid-template-areas:
+      "parameters events"
+      "graphs graphs"
+      "data-section data-section";
+  max-width: var(--adaptive-main-max-width);
+  justify-content: center;
+}
+
+main[data-layout-mode="stacked"] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+      "parameters"
+      "events"
+      "graphs"
+      "data-section";
+  max-width: var(--adaptive-main-max-width);
+  justify-content: center;
 }
 
 footer {
@@ -37,9 +71,23 @@ footer {
 .parameters-section {
   grid-area: parameters;
   display: grid;
-  grid-template-columns:  repeat(2, minmax(var(--parameter-card-width), var(--parameter-card-width)));
-  gap: 1.35rem;
+  grid-template-columns: repeat(var(--parameter-column-count, 1), minmax(0, var(--adaptive-parameter-card-width, var(--parameter-card-width))));
+  gap: var(--parameter-grid-gap);
+  justify-content: center;
+  justify-self: center;
+  max-width: min(100%, var(--adaptive-parameters-width, var(--parameter-card-width)));
+  width: 100%;
+}
+
+main[data-layout-mode="full"] .parameters-section,
+main[data-layout-mode="params-events"] .parameters-section {
   justify-content: start;
+  justify-self: start;
+}
+
+.parameters-section > .card {
+  max-width: none;
+  width: 100%;
 }
 
 /* Events section */
@@ -49,10 +97,16 @@ footer {
   border-radius: 7.2px;
   padding: 1.35rem;
   box-shadow: var(--box-shadow);
-  width: 100%;  /* Change from 900px to 100% */
-  max-width: var(--events-section-width);  /* Add this to maintain maximum width */
-  justify-self: start;  /* Add this to ensure left alignment */
+  width: 100%;
+  max-width: var(--adaptive-events-width, var(--events-section-width));
+  min-width: 0;
+  justify-self: center;
   flex-shrink: 0;
+}
+
+main[data-layout-mode="full"] .events-section,
+main[data-layout-mode="params-events"] .events-section {
+  justify-self: start;
 }
 
 /* Graphs section */
@@ -60,12 +114,27 @@ footer {
   grid-area: graphs;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: var(--lab-main-gap);
   margin: 0;
   width: 100%;
   min-width: 0;
   height: 100%;
   flex-shrink: 1;
+  justify-self: stretch;
+  max-width: 100%;
+}
+
+main[data-layout-mode="params-events"] .graphs-section {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  width: 100%;
+  max-height: none;
+}
+
+main[data-layout-mode="stacked"] .graphs-section {
+  justify-self: center;
+  max-width: var(--adaptive-events-width, var(--events-section-width));
 }
 
 .graph-container {
@@ -79,6 +148,12 @@ footer {
   width: 100%;
   position: relative;
   min-width: 0;
+}
+
+main[data-layout-mode="params-events"] .graph-container {
+  flex: 1 1 calc(50% - 1rem);
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Make canvas responsive */
@@ -125,4 +200,11 @@ footer {
   display: none;
 }
 
-/* Layout media queries will be generated dynamically by JavaScript */
+body.lab-data-deferred .data-section:not(#mobile-data-message) {
+  display: none;
+}
+
+body.lab-data-deferred #mobile-data-message {
+  display: block;
+  max-width: none;
+}
