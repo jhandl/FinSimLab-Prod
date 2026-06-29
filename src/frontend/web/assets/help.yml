@@ -415,6 +415,14 @@ CountryAccessCheckout:
       description: |
         Select which countries you want to see in the country selection dropdowns (you can change this anytime)
 
+LegacyScenarioMigrationModal:
+  title: "Scenario Updated"
+  body: |
+    This scenario file was created with an older version of this software, and it specified growth and volatility assumptions for Irish pensions, funds, and shares. I converted those avalues to the current investment setup so your results stay as close as possible. You can review the generated holdings and fees in the Allocations panel.<br>
+    If you save this scenario it will be saved with the new setup. I recommend you do that to stop getting this message every time you load the scenario.
+  actions:
+    confirm: "Got it"
+
 
 ###########################################################
 
@@ -672,6 +680,14 @@ WizardSteps:
       side: "right"
       align: "start"
 
+  - dynamicInvestmentField: "InvestmentWrapperFee"
+    tours: [full, mini]
+    card: Allocations
+    popover:
+      description: "<p>Annual wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
+      side: "right"
+      align: "start"
+
   - dynamicInvestmentField: "PensionContributionHoldsP1"
     tours: [full, mini]
     card: Allocations
@@ -685,6 +701,22 @@ WizardSteps:
     card: Allocations
     popover:
       description: "<p>Selects which global instrument your partner's private pension contributions are invested in.</p><p>Use <b>Mix...</b> to split between two instruments over time (fixed mix or glidepath).</p>"
+      side: "right"
+      align: "start"
+
+  - dynamicInvestmentField: "PensionWrapperFeeP1"
+    tours: [full, mini]
+    card: Allocations
+    popover:
+      description: "<p>Annual pension wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
+      side: "right"
+      align: "start"
+
+  - dynamicInvestmentField: "PensionWrapperFeeP2"
+    tours: [full, mini]
+    card: Allocations
+    popover:
+      description: "<p>Annual pension wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
       side: "right"
       align: "start"
 

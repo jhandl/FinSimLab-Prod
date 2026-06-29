@@ -1802,7 +1802,8 @@ th {
   margin: 0;
 }
 
-.growth-rates-table th {
+.growth-rates-table th,
+#Allocations .allocations-column-title {
   text-align: center;
   padding: 0.25rem 0.25rem;
   font-size: 0.9rem;
@@ -2101,11 +2102,39 @@ th {
   overflow-wrap: anywhere;
 }
 
+#Allocations .allocations-column-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  flex-wrap: nowrap;
+}
+
+#Allocations .allocations-column-header-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#Allocations .allocations-column-title-alloc,
+#Allocations .allocations-column-title-fees {
+  flex: 0 0 60px;
+  width: 60px;
+}
+
+#Allocations .allocations-column-title-holding {
+  flex: 0 0 auto;
+}
+
 /* Smaller % box in allocations */
 #Allocations .input-wrapper[data-allocations-row="true"] .percentage-container {
   width: 60px;
   flex: 0 0 60px;
   order: 1;
+}
+
+#Allocations .input-wrapper[data-allocations-row="true"] .alloc-fee-container {
+  width: 60px;
+  flex: 0 0 60px;
+  order: 3;
 }
 
 #Allocations .input-wrapper[data-allocations-row="true"] input.percentage {
@@ -2127,9 +2156,13 @@ th {
   pointer-events: none;
 }
 
-#Allocations .percentage-container::after {
-  right: 0.2rem;
-  font-size: 0.72rem;
+#Allocations .input-wrapper[data-allocations-row="true"] .alloc-fee-container input.percentage {
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+#Allocations .alloc-fee-container input.percentage::placeholder {
+  font-size: 0.8rem;
 }
 
 /* Narrower pseudo-selects inside allocations (pension capped + holds) */
@@ -2160,7 +2193,7 @@ th {
 }
 
 .percentage-container::after {
-  content: '%';
+  content: "%";
   position: absolute;
   right: 0.25rem;
   top: 50%;
@@ -2690,6 +2723,35 @@ footer {
   padding: 0rem 1rem 1rem 1rem;
   /* top, right, bottom, left */
   text-align: right;
+}
+
+.legacy-scenario-migration-modal {
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.legacy-scenario-migration-modal .legacy-scenario-migration-content {
+  margin: 0;
+  width: min(90vw, 640px);
+  max-width: 640px;
+  max-height: min(80dvh, 480px);
+  overflow-y: auto;
+}
+
+.legacy-scenario-migration-modal .modal-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.legacy-scenario-migration-modal .modal-body p {
+  line-height: 1.35;
+}
+
+.legacy-scenario-migration-modal .modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1rem;
 }
 
 /* Mix config modal */

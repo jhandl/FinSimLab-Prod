@@ -257,6 +257,8 @@
     }
   },
 
+  "feeDefaults": { "investmentWrapper": 0.0025, "directShares": 0, "pension": 0.01 },
+
   "investmentBaseTypes": [
     { "baseKey": "globalEquity", "assetClass": "equity", "label": "Equity Markets", "shortLabel": "Equity", "mixLabel": "Eq", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "helpText": "Represents broadly diversified equity investments like global index funds or ETFs. For reference, the average growth rate of the S&P500 over the last 30 years has been around 10%." },
     { "baseKey": "globalBonds", "assetClass": "bond", "label": "Bond Markets", "shortLabel": "Bonds", "mixLabel": "Bd", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "returnType": "interest", "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility." }
@@ -265,30 +267,41 @@
   "treaties": [],
 
   "economicRegimes": {
+    "calibration": {
+      "version": "2026-06-29",
+      "neutrality": "Runtime calibration preserves user-provided unconditional annual growth and volatility for each asset class.",
+      "method": "Regime mean modifiers define centered state shapes. Between-regime variance is deducted from the user volatility budget, and residual within-regime volatility is distributed by normalized volatility multipliers.",
+      "sources": [ "https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions", "https://shillerdata.com/", "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html", "https://fred.stlouisfed.org/series/SP500" ],
+      "acceptance": { "stationaryMeanTolerance": 1e-12, "unconditionalVolatilityTolerance": 1e-12 }
+    },
+    "assetClasses": {
+      "equity": { "meanVarianceShare": 0.25 },
+      "bond": { "meanVarianceShare": 0.15 }
+    },
     "regimes": [
       {
         "key": "growth",
         "label": "Growth",
-        "equity": { "meanModifier": 3.847826087, "volatilityMultiplier": 0.7 },
-        "bond": { "meanModifier": -1.413043478, "volatilityMultiplier": 0.8 }
+        "equity": { "meanModifier": 0.35, "volatilityMultiplier": 0.7 },
+        "bond": { "meanModifier": -0.3, "volatilityMultiplier": 0.8 }
       },
       {
         "key": "recession",
         "label": "Recession",
-        "equity": { "meanModifier": -20, "volatilityMultiplier": 2 },
-        "bond": { "meanModifier": 6, "volatilityMultiplier": 1.5 }
+        "equity": { "meanModifier": -1.4, "volatilityMultiplier": 2 },
+        "bond": { "meanModifier": 1, "volatilityMultiplier": 1.5 }
       },
       {
         "key": "stagnation",
         "label": "Stagnation",
-        "equity": { "meanModifier": -1, "volatilityMultiplier": 1.2 },
-        "bond": { "meanModifier": 1, "volatilityMultiplier": 1 }
+        "equity": { "meanModifier": -0.5, "volatilityMultiplier": 1.2 },
+        "bond": { "meanModifier": 0.4, "volatilityMultiplier": 1 }
       }
     ],
     "transitionMatrix": {
-      "growth": { "growth": 0.8, "recession": 0.05, "stagnation": 0.15 },
-      "recession": { "growth": 0.3, "recession": 0.5, "stagnation": 0.2 },
-      "stagnation": { "growth": 0.4, "recession": 0.1, "stagnation": 0.5 }
+      "growth": { "growth": 0.81, "recession": 0.06, "stagnation": 0.13 },
+      "recession": { "growth": 0.45, "recession": 0.4, "stagnation": 0.15 },
+      "stagnation": { "growth": 0.35, "recession": 0.12, "stagnation": 0.53 }
     }
   }
 }

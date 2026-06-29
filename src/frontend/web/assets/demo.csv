@@ -24,11 +24,11 @@ Priority_indexFunds,1
 Priority_shares,2
 InitialCapital_indexFunds_xx,0
 InitialCapital_shares_xx,0
-GlobalAssetGrowth_globalEquity,7%
+GlobalAssetGrowth_globalEquity,8%
 GlobalAssetVolatility_globalEquity,18%
 GlobalAssetGrowth_globalBonds,4%
 GlobalAssetVolatility_globalBonds,6%
-LocalAssetGrowth_xx_shares,7%
+LocalAssetGrowth_xx_shares,9%
 LocalAssetVolatility_xx_shares,22%
 InvestmentAllocation_xx_indexFunds,50%
 InvestmentAllocation_xx_shares,50%

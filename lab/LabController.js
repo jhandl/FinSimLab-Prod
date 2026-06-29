@@ -192,6 +192,7 @@ class MobileBurgerMenu {
     const toggleButton = document.getElementById('experimentalToggleMobile');
     const eventsWizardToggleButton = document.getElementById('eventsWizardToggleMobile');
     const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
+    const customFeesToggleButton = document.getElementById('customFeesToggleMobile');
     const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
     const coffeeButton = document.getElementById('coffeeButton');
     const firstDivider = document.getElementById('mobileRunDivider');
@@ -210,6 +211,7 @@ class MobileBurgerMenu {
     const SHOW_EVENTS_WIZARD_TOGGLE = true;
     // Always show the Present Value toggle
     const SHOW_PRESENT_VALUE_TOGGLE = true;
+    const SHOW_CUSTOM_FEES_TOGGLE = true;
     // Show only when relocation is active and there is an effective relocation (MV to a different country).
     let SHOW_COUNTRY_TABS_SYNC_TOGGLE = false;
     try {
@@ -228,7 +230,7 @@ class MobileBurgerMenu {
     let hasSaveLoadSection = false;
     let hasDemoHelpSection = false;
     let hasCountriesSection = false;
-    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
+    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
     if (currentWidth > breakpoints.countries) {
       if (runButton) runButton.style.display = 'none';
@@ -321,6 +323,9 @@ class MobileBurgerMenu {
     }
     if (presentValueToggleButton) {
       presentValueToggleButton.style.display = SHOW_PRESENT_VALUE_TOGGLE ? 'flex' : 'none';
+    }
+    if (customFeesToggleButton) {
+      customFeesToggleButton.style.display = SHOW_CUSTOM_FEES_TOGGLE ? 'flex' : 'none';
     }
     if (countryTabsSyncToggleButton) {
       countryTabsSyncToggleButton.style.display = SHOW_COUNTRY_TABS_SYNC_TOGGLE ? 'flex' : 'none';
@@ -419,6 +424,14 @@ class MobileBurgerMenu {
     if (presentValueToggleMobile) {
       presentValueToggleMobile.addEventListener('click', () => {
         this.handlePresentValueToggle(presentValueToggleMobile);
+      });
+    }
+
+    // Custom Fees Toggle
+    const customFeesToggleMobile = document.getElementById('customFeesToggleMobile');
+    if (customFeesToggleMobile) {
+      customFeesToggleMobile.addEventListener('click', () => {
+        this.handleCustomFeesToggle();
       });
     }
 
@@ -570,6 +583,10 @@ class MobileBurgerMenu {
     CountryTabSyncManager.getInstance().setSyncState(enabled);
   }
 
+  handleCustomFeesToggle() {
+    WebUI.getInstance().toggleCustomFees();
+  }
+
   initializeToggleState() {
     // Initialize experimental toggle
     const toggleButton = document.getElementById('experimentalToggleMobile');
@@ -657,6 +674,11 @@ class MobileBurgerMenu {
           }
         }
       } catch (_) { /* no-op */ }
+    }
+
+    const customFeesToggleButton = document.getElementById('customFeesToggleMobile');
+    if (customFeesToggleButton) {
+      WebUI.getInstance().syncCustomFeesMenuToggle();
     }
 
     // Initialize Country Tabs Sync toggle (default to 'on')
