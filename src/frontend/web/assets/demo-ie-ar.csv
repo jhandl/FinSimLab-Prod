@@ -1,0 +1,99 @@
+# FinSim Save File
+# Parameters
+StartCountry,ie
+StartingAge,30
+TargetAge,90
+InitialSavings,20000
+InitialPension,0
+RetirementAge,65
+EmergencyStash,20000
+MarriageYear,2025
+YoungestChildBorn,0
+OldestChildBorn,2027
+P2StartingAge,28
+P2RetirementAge,65
+InitialPensionP2,0
+simulation_mode,couple
+economy_mode,montecarlo
+CustomFeesEnabled,true
+EconomicRegimesEnabled,false
+Inflation_ie,3%
+Priority_cash,5
+Priority_pension,3
+Priority_indexFunds,1
+Priority_shares,2
+Priority_valoresCNV,7
+Priority_cedears,4
+Priority_cripto,6
+InitialCapital_indexFunds_ie,0
+InitialCapital_shares_ie,0
+GlobalAssetGrowth_globalEquity,7%
+GlobalAssetVolatility_globalEquity,15%
+GlobalAssetGrowth_globalBonds,5%
+GlobalAssetVolatility_globalBonds,10%
+LocalAssetGrowth_ar_valoresCNV,0%
+LocalAssetVolatility_ar_valoresCNV,0%
+LocalAssetGrowth_ar_cripto,0%
+LocalAssetVolatility_ar_cripto,0%
+InvestmentAllocation_ie_indexFunds,50%
+InvestmentAllocation_ie_shares,50%
+InvestmentAllocation_xx_shares,
+InvestmentAllocation_xx_indexFunds,
+StatePension_ie,289
+StatePension_ar,0
+StatePension_at,0
+StatePension_xx,0
+P2StatePension_ie,270
+P2StatePension_ar,0
+P2StatePension_at,0
+P2StatePension_xx,0
+P1PensionContrib_ie,30%
+P2PensionContrib_ie,25%
+PensionCapped_ie,Yes
+PensionCapped_ar,Yes
+WrapperFee_ie_indexFunds,0%
+WrapperFee_ie_shares,1%
+WrapperFee_ie_pensionP1,0%
+WrapperFee_ie_pensionP2,0%
+TaxCredit_personal_ie,4000
+TaxInput_ie_personal,4000
+MixConfig_ar_cedears_asset1,globalEquity
+MixConfig_ar_pensionP1_asset1,globalEquity
+MixConfig_ar_pensionP2_asset1,globalEquity
+MixConfig_ie_indexFunds_asset1,globalEquity
+MixConfig_ie_shares_asset1,globalEquity
+MixConfig_ie_pensionP1_asset1,globalBonds
+MixConfig_ie_pensionP2_asset1,globalBonds
+
+# Events
+Type,Name,Amount,FromAge,ToAge,Rate,Extra
+SI2np,Your Partner,30000,28,39,0.02,0
+SI,You,40000,30,39,0.035,0.03
+E,Life,40000,30,39,,
+E,Kid,6000,32,39,,
+R,Family House,40000,35,65,,
+M,Family House,18000,35,60,0.035,
+MV,AR,0,40,,,
+E,Kid,3374538,40,52,,
+E,Life,22496918,40,100,,
+SI,You,22496918,40,64,0.035,0.03
+SI2np,Your Partner,16872689,40,62,0.02,0
+RI,Family House,3064,40,65,,
+R,Downsize,61919,65,100,,
+SM,Crash,,70,72,-0.25,
+
+# EventMeta
+Row,Currency,LinkedCountry,LinkedRows,SplitMvRow,SplitMvId,SplitAnchorAmount,SellMvRow,SellMvId,RentMvRow,RentMvId,Resolved,ResolvedMvRow,ResolvedMvId,ResolvedCategory,SplitValueMode,SplitReviewedSuggestedAmount,SplitSuggestionModelVersion,SplitSegmentId
+1,,,1|11,7,,,,,,,,,,,,,,seg_1
+2,,,2|10,7,,,,,,,,,,,,,,seg_2
+3,,,3|9,7,,,,,,,,,,,,,,seg_3
+4,,,4|8,7,,,,,,,,,,,,,,seg_4
+5,EUR,ie,,,,,,,,,1,7,,boundary,,,,
+6,EUR,ie,,,,,,,,,1,7,,boundary,,,,
+7,ARS,ar,,,,,,,,,,,,,,,,
+8,ARS,ar,4|8,7,,6000,,,,,,,,,suggested,3374538,1,seg_4
+9,ARS,ar,3|9,7,,40000,,,,,,,,,suggested,22496918,1,seg_3
+10,ARS,ar,2|10,7,,40000,,,,,,,,,suggested,22496918,1,seg_2
+11,ARS,ar,1|11,7,,30000,,,,,,,,,suggested,16872689,1,seg_1
+12,EUR,ie,,,,,,,7,,1,7,,boundary,,,,
+13,ARS,ar,,,,,,,,,,,,,,,,
