@@ -2647,6 +2647,10 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
@@ -2658,6 +2662,7 @@ footer {
 .modal-content {
   background-color: white;
   margin: 10% auto;
+  box-sizing: border-box;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   max-width: 500px;
@@ -2714,24 +2719,21 @@ footer {
 
 .modal-body p {
   margin: 0;
-  line-height: 1;
+  line-height: 1.35;
   color: var(--text-color);
   word-wrap: break-word;
 }
 
 .modal-footer {
-  padding: 0rem 1rem 1rem 1rem;
-  /* top, right, bottom, left */
-  text-align: right;
-}
-
-.legacy-scenario-migration-modal {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
 }
 
-.legacy-scenario-migration-modal .legacy-scenario-migration-content {
+.legacy-scenario-migration-modal .legacy-scenario-migration-content,
+.custom-fees-disable-warning-modal .custom-fees-disable-warning-content {
   margin: 0;
   width: min(90vw, 640px);
   max-width: 640px;
@@ -2739,18 +2741,22 @@ footer {
   overflow-y: auto;
 }
 
-.legacy-scenario-migration-modal .modal-body {
+.legacy-scenario-migration-modal .modal-body,
+.custom-fees-disable-warning-modal .modal-body {
   padding: 1.25rem 1.5rem;
 }
 
-.legacy-scenario-migration-modal .modal-body p {
+.legacy-scenario-migration-modal .modal-body p,
+.custom-fees-disable-warning-modal .modal-body p {
   line-height: 1.35;
 }
 
-.legacy-scenario-migration-modal .modal-footer {
+.legacy-scenario-migration-modal .modal-footer,
+.custom-fees-disable-warning-modal .modal-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 0.75rem;
   padding: 0.75rem 1rem;
 }
 

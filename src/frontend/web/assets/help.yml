@@ -423,6 +423,13 @@ LegacyScenarioMigrationModal:
   actions:
     confirm: "Got it"
 
+CustomFeesDisableWarningModal:
+  title: "Use Default Fees?"
+  body: "This scenario has custom fee values. Turning custom fees off will change the results."
+  actions:
+    cancel: "Keep custom fees"
+    confirm: "Use default fees"
+
 
 ###########################################################
 
