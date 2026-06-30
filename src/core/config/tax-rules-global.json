@@ -180,14 +180,14 @@
     },
     "ch": {
       "name": "Switzerland",
-      "taxLabels": [ "Bundessteuer", "Kanton/Gemeinde", "Social Contributions", "Private Kapitalgewinne", "Vermögen" ],
-      "investmentLabels": [ "Freie Vorsorge" ],
+      "taxLabels": [ "Bundessteuer", "Sozialabgaben", "Kapitalgewinn" ],
+      "investmentLabels": [ "Aktien/Fonds", "Bonds", "3b Leben" ],
       "currencyCode": "CHF",
       "economicData": {
         "inflation": 0.5438,
-        "exchangeRate": { "perEur": 0.915 }
+        "exchangeRate": { "perEur": 0.923 }
       },
-      "investmentWithholdingTaxes": { "dividend": 0.35, "interest": 0.35, "capitalGains": 0 }
+      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
     "es": {
       "name": "Spain",
