@@ -15,8 +15,8 @@
     },
     "at": {
       "name": "Austria",
-      "taxLabels": [ "Tarif", "Social Contributions", "KESt", "KESt/ImmoESt" ],
-      "investmentLabels": [ "Sparbuch", "Depot", "Bausparen" ],
+      "taxLabels": [ "Einkommensteuer", "Sozialversicherung", "Kapitalertragsteuer" ],
+      "investmentLabels": [ "Depot/ETFs", "Krypto", "Fondspolizze" ],
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.8238,
@@ -246,7 +246,7 @@
     },
     "ar": {
       "name": "Argentina",
-      "taxLabels": [ "Ganancias", "Social Contributions", "Cedular", "Dividendos", "Intereses" ],
+      "taxLabels": [ "Ganancias", "Aportes", "Cedular", "Dividendos", "Intereses" ],
       "investmentLabels": [ "Valores CNV", "CEDEARs", "Cripto" ],
       "currencyCode": "ARS",
       "economicData": {

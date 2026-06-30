@@ -173,8 +173,5 @@
       },
       "helpText": "These are individual company shares, with gains taxed at 25% with a 1000 annual exemption and loss offset."
     }
-  ],
-  "pinnedIncomeTypes": [
-    "incomeSalaries"
   ]
 }

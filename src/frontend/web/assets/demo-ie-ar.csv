@@ -18,12 +18,12 @@ economy_mode,montecarlo
 CustomFeesEnabled,true
 EconomicRegimesEnabled,false
 Inflation_ie,3%
-Priority_cash,5
+Priority_cash,4
 Priority_pension,3
 Priority_indexFunds,1
 Priority_shares,2
 Priority_valoresCNV,7
-Priority_cedears,4
+Priority_cedears,5
 Priority_cripto,6
 InitialCapital_indexFunds_ie,0
 InitialCapital_shares_ie,0
@@ -57,43 +57,43 @@ WrapperFee_ie_pensionP1,0%
 WrapperFee_ie_pensionP2,0%
 TaxCredit_personal_ie,4000
 TaxInput_ie_personal,4000
-MixConfig_ar_cedears_asset1,globalEquity
-MixConfig_ar_pensionP1_asset1,globalEquity
-MixConfig_ar_pensionP2_asset1,globalEquity
 MixConfig_ie_indexFunds_asset1,globalEquity
 MixConfig_ie_shares_asset1,globalEquity
 MixConfig_ie_pensionP1_asset1,globalBonds
 MixConfig_ie_pensionP2_asset1,globalBonds
+MixConfig_ar_cedears_asset1,globalEquity
+MixConfig_ar_pensionP1_asset1,globalEquity
+MixConfig_ar_pensionP2_asset1,globalEquity
 
 # Events
 Type,Name,Amount,FromAge,ToAge,Rate,Extra
-SI2np,Your Partner,30000,28,39,0.02,0
+SI2np,Your Partner,30000,28,37,0.02,0
 SI,You,40000,30,39,0.035,0.03
 E,Life,40000,30,39,,
 E,Kid,6000,32,39,,
 R,Family House,40000,35,65,,
 M,Family House,18000,35,60,0.035,
+SI2np,Your Partner,16872689,38,62,0.02,0
 MV,AR,0,40,,,
 E,Kid,3374538,40,52,,
 E,Life,22496918,40,100,,
 SI,You,22496918,40,64,0.035,0.03
-SI2np,Your Partner,16872689,40,62,0.02,0
 RI,Family House,3064,40,65,,
-R,Downsize,61919,65,100,,
+R,Downsize,103971930,65,100,,
 SM,Crash,,70,72,-0.25,
 
 # EventMeta
 Row,Currency,LinkedCountry,LinkedRows,SplitMvRow,SplitMvId,SplitAnchorAmount,SellMvRow,SellMvId,RentMvRow,RentMvId,Resolved,ResolvedMvRow,ResolvedMvId,ResolvedCategory,SplitValueMode,SplitReviewedSuggestedAmount,SplitSuggestionModelVersion,SplitSegmentId
-1,,,1|11,7,,,,,,,,,,,,,,seg_1
-2,,,2|10,7,,,,,,,,,,,,,,seg_2
-3,,,3|9,7,,,,,,,,,,,,,,seg_3
-4,,,4|8,7,,,,,,,,,,,,,,seg_4
-5,EUR,ie,,,,,,,,,1,7,,boundary,,,,
-6,EUR,ie,,,,,,,,,1,7,,boundary,,,,
-7,ARS,ar,,,,,,,,,,,,,,,,
-8,ARS,ar,4|8,7,,6000,,,,,,,,,suggested,3374538,1,seg_4
-9,ARS,ar,3|9,7,,40000,,,,,,,,,suggested,22496918,1,seg_3
-10,ARS,ar,2|10,7,,40000,,,,,,,,,suggested,22496918,1,seg_2
-11,ARS,ar,1|11,7,,30000,,,,,,,,,suggested,16872689,1,seg_1
-12,EUR,ie,,,,,,,7,,1,7,,boundary,,,,
+1,,,1|7,8,,,,,,,,,,,,,,seg_1
+2,,,2|11,8,,,,,,,,,,,,,,seg_2
+3,,,3|10,8,,,,,,,,,,,,,,seg_3
+4,,,4|9,8,,,,,,,,,,,,,,seg_4
+5,EUR,ie,,,,,,,,,1,8,,boundary,,,,
+6,EUR,ie,,,,,,,,,1,8,,boundary,,,,
+7,ARS,ar,1|7,8,,30000,,,,,,,,,suggested,16872689,1,seg_1
+8,ARS,ar,,,,,,,,,,,,,,,,
+9,ARS,ar,4|9,8,,6000,,,,,,,,,suggested,3374538,1,seg_4
+10,ARS,ar,3|10,8,,40000,,,,,,,,,suggested,22496918,1,seg_3
+11,ARS,ar,2|11,8,,40000,,,,,,,,,suggested,22496918,1,seg_2
+12,EUR,ie,,,,,,,8,,1,8,,boundary,,,,
 13,ARS,ar,,,,,,,,,,,,,,,,

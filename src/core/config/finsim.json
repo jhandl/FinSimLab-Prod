@@ -3,6 +3,12 @@
   "tutorialsEnabled": false,
   "blogEnabled": false,
   "autoShiftOnRelocationAgeChange": true,
+  "pinnedIncomeTypes": [
+    "incomeSalaries",
+    "incomeStatePension",
+    "incomePrivatePension",
+    "incomeCash"
+  ],
   "availableCountries": [
     { "code": "xx", "name": "Demo Country"},
     { "code": "at", "name": "Austria", "region": "Europe" },

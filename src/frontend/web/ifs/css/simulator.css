@@ -3771,6 +3771,12 @@ footer {
   opacity: 1;
 }
 
+.visualization-tooltip .attribution-tooltip-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
 /* Indent bullet points in visualization tooltips */
 .visualization-tooltip ul {
   margin: 0;
