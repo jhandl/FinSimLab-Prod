@@ -202,8 +202,8 @@
     },
     "pt": {
       "name": "Portugal",
-      "taxLabels": [ "IRS", "TSU", "TAS", "Mais-valias" ],
-      "investmentLabels": [ "Ações", "Fundos de Investimento", "Criptoativos", "RSUs" ],
+      "taxLabels": [ "IRS", "Segurança Social", "Taxa solidariedade", "Mais-valias" ],
+      "investmentLabels": [ "Ações/ETFs", "Seguros", "Cripto" ],
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.1488,
