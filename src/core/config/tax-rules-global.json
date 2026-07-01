@@ -26,12 +26,12 @@
     },
     "be": {
       "name": "Belgium",
-      "taxLabels": [ "personenbelasting", "RSZ", "dividenden", "spaarinterest", "TACT", "meerwaardebelasting" ],
-      "investmentLabels": [ "spaarrekening", "beleggingsrekening" ],
+      "taxLabels": [ "Personenbelasting", "RSZ", "Meerwaarden", "Dividenden", "Roerende inkomsten" ],
+      "investmentLabels": [ "Securities" ],
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.6159,
-        "exchangeRate": { "perEur": 1.071712 }
+        "exchangeRate": { "perEur": 1 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
