@@ -29,7 +29,8 @@
   --input-field-border: 1px;
   --events-line-divider: 0px;
   --card-header-border-width: 1px;
-  --starting-position-field-width: 115px;
+  --parameters-panel-field-width: 115px;
+  --starting-position-field-width: var(--parameters-panel-field-width);
 
   /* Responsive Breakpoints for Progressive Header */
   --breakpoint-countries: 1060px;
@@ -1627,9 +1628,21 @@ label {
   line-height: 1.15;
 }
 
-#personalCircumstances .input-wrapper > input,
-#personalCircumstances .input-wrapper > select,
-#personalCircumstances .input-wrapper > .percentage-container {
+#startingPosition .input-wrapper input:not([type="hidden"]),
+#startingPosition .input-wrapper select,
+#startingPosition .input-wrapper .percentage-container,
+#startingPosition .pseudo-select,
+#personalCircumstances .input-wrapper input:not([type="hidden"]),
+#personalCircumstances .input-wrapper select,
+#personalCircumstances .input-wrapper .percentage-container,
+#personalCircumstances .pseudo-select,
+#Targets .input-wrapper input:not([type="hidden"]),
+#Targets .input-wrapper select,
+#Targets .input-wrapper .percentage-container,
+#Targets .pseudo-select {
+  width: var(--parameters-panel-field-width);
+  min-width: var(--parameters-panel-field-width);
+  max-width: var(--parameters-panel-field-width);
   flex-shrink: 0;
 }
 
@@ -2428,14 +2441,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
-}
-
-#startingPosition input {
-  width: var(--starting-position-field-width);
-}
-
-#startingPosition .percentage-container {
-  width: 100px;
 }
 
 input.currency {
@@ -5456,9 +5461,9 @@ footer {
 
 /* Match native select/input height and width used in parameters */
 #startingPosition #StartCountryToggle.pseudo-select {
-  min-width: var(--starting-position-field-width);
+  min-width: var(--parameters-panel-field-width);
   /* wide enough for country names used in this card */
-  max-width: var(--starting-position-field-width);
+  max-width: var(--parameters-panel-field-width);
   height: 1.62rem;
   /* lock height to match native select */
   line-height: 1.62rem;
