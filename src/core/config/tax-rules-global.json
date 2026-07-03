@@ -37,8 +37,8 @@
     },
     "bg": {
       "name": "Bulgaria",
-      "taxLabels": [ "ДОД", "осигуровки", "капиталови" ],
-      "investmentLabels": [ "КИС" ],
+      "taxLabels": [ "Данък доход", "Осигуровки", "Капиталови", "Дивиденти" ],
+      "investmentLabels": [ "Рег. пазар", "Обл. активи" ],
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 3.4814,
