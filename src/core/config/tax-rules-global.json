@@ -181,11 +181,11 @@
     "ch": {
       "name": "Switzerland",
       "taxLabels": [ "Bundessteuer", "Sozialabgaben", "Kapitalgewinn" ],
-      "investmentLabels": [ "Aktien/Fonds", "Bonds", "3b Leben" ],
+      "investmentLabels": [ "Wertschriften", "Lebensversicherung" ],
       "currencyCode": "CHF",
       "economicData": {
         "inflation": 0.5438,
-        "exchangeRate": { "perEur": 0.923 }
+        "exchangeRate": { "perEur": 0.922 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
