@@ -8,9 +8,11 @@
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260626-adaptive3">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260702-parameter-width-all2">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260708-wp21">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260625-2">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260520-2">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260708-guided-center2">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/guided-setup.css?v=20260708-wp5">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/insights.css?v=20260706-6">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/events-sort.css?v=2025-08-23-usc">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/bubbles.css?v=20260421-6">
 
@@ -19,7 +21,7 @@
 
   
     
-  <script src="/lab/bundle.1783117237533.js" defer=""></script>
+  <script src="/lab/bundle.1783546745287.js" defer=""></script>
   
   
   
@@ -48,6 +50,7 @@
           <button id="saveSimulation" class="secondary-button">Save</button>
           <input type="file" id="loadSimulationDialog" accept=".csv,text/csv" style="display: none;">
           <button id="loadSimulation" class="secondary-button">Load</button>
+          <button id="newSimulation" class="secondary-button">New</button>
         </div>
         <div class="button-group-secondary">
           <button id="loadDemoScenarioHeader" class="secondary-button">Demo</button>
@@ -83,6 +86,10 @@
         <button id="loadSimulationMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-folder-open"></i>
           <span>Load Scenario</span>
+        </button>
+        <button id="newSimulationMobile" class="mobile-menu-button secondary-button">
+          <i class="fas fa-file"></i>
+          <span>New Scenario</span>
         </button>
 
         <div id="mobileSaveLoadDivider" class="mobile-menu-divider"></div>
@@ -420,6 +427,11 @@
   </div>
 
   <!-- SYSTEM UTILITIES SECTION -->
+  
+  
+  
+  
+  
   
   
   

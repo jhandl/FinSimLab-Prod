@@ -36,49 +36,48 @@ LandingHeroWhatIf:
 
 WelcomeTabs:
 
-  - id: getting-started
+  - id: start
     title: Start
-    contentType: workflow
+    contentType: start
     content:
-      steps:
-        - title: "Enter Your Current Situation"
-          description: "Pick your country (if you're on a real country paid tier), single or two-person mode, fill in your current financial position and personal circumstances."
-        - title: "Set Targets & Assumptions"
-          description: "Set retirement ages, emergency fund, presumed state pension amounts, pension contributions, allocations, drawdown order, and economy assumptions."
-        - title: "Build the Timeline"
-          description: "Use the Events table or wizard to add salaries, expenses, property and mortgage events, rental income, market shocks, and relocations (if your paid tier includes two or more countries)."
-        - title: "Run, Inspect, Iterate"
-          description: "Run the simulation, see the likelihood that your plan will succeed, then check the charts and data table. Use the color schemes to find weak points and adjust the plan."
-
-  - id: key-concepts
-    title: Modes
-    contentType: list
-    content:
-      items:
-        - title: "Single vs Two-Person Mode"
-          description: "Use the toggle icons to switch between individual ({icon:user}) and couples/partnerships ({icon:user-friends}) with separate pensions and retirement ages."
-        - title: "Linear vs Variable Growth"
-          description: "Toggle between a fixed growth rate ({icon:chart-line}) and a variable growth rate ({icon:chart-variable}) to simulate different market conditions and understand the probability of success."
-        - title: "Events modes: Age vs Year, Table vs Cards"
-          description: "Toggle between age-based and year-based planning in the Events table to better understand your timeline. Use the cards view to collapse/expand the table rows in smaller screens."
-
-  - id: tips-tricks
-    title: Tips
-    contentType: list
-    content:
-      items:
-        - title: "Demo Scenario"
-          description: "The best way to get familiar with the simulator is to try the demo scenario. Hit the Demo button to load and run it."
-        - title: "Stress Testing"
-          description: "Try different economic scenarios such as higher inflation, lower investment returns and market crashes to see how robust your plan is."
-        - title: "Pinch Point Visualisation"
-          description: "Use the color scheme dropdown ({icon:palette}) in the data table to highlight critical periods in your plan."
+      intro: "Describe your life — work, home, family, plans — and see how your money could play out over a lifetime."
+      quick:
+        title: "Quick setup"
+        subtitle: "A rough sketch with starter values — a feel for how it all works."
+        badge: "about 5 min"
+        icon: "fa-bolt"
+      full:
+        title: "Full setup"
+        subtitle: "Build your real plan — every panel covered, at your own pace."
+        badge: "about 15 min"
+        icon: "fa-route"
+      chipFree: "Demo Country rules"
+      chipSingle: "{CountryName} tax rules"
+      chipMulti: "your unlocked countries' rules"
+      privacy: "Everything you enter stays in your browser — nothing is uploaded anywhere."
+      explore: "or explore on your own"
 
   - id: tutorials
-    title: Tutorials
+    title: Learn
     excludeFromHeightCalculation: true
     contentType: tutorials
     content:
+      orientation:
+        label: "Walkthroughs"
+        items:
+          - id: demo
+            title: "Demo scenario"
+            subtitle: "sample plan · 1 min"
+            icon: "fa-play-circle"
+          - id: quick-tour
+            title: "Quick tour"
+            subtitle: "the screen · 2 min"
+            icon: "fa-map-signs"
+          - id: full-tour
+            title: "Full tour"
+            subtitle: "every field · your pace"
+            icon: "fa-book"
+      videosLabel: "Video Tutorials"
       storageKey: "finsim.helpTutorialProgress"
       progressActionLabel: "Change tutorial progress"
       fullscreenPlayLabel: "Play fullscreen"
@@ -254,6 +253,24 @@ WelcomeTabs:
           answer:
             - "Yes, but you have to copy the scenario files to the other device."
             - "Your saved scenarios are only in the devices you saved them to."
+        - question: "How do I plan for a couple instead of one person?"
+          answer:
+            - "Use the person toggle at the top of the parameters to switch between individual and two-person mode. Two-person mode adds separate ages, pension contributions, and state pension settings for the second person, while household income and expenses stay shared."
+        - question: "What is the difference between fixed and variable growth?"
+          answer:
+            - "The growth mode toggle switches between a fixed annual growth rate and variable growth with volatility. With volatility values set, the simulator runs thousands of Monte Carlo simulations under different market conditions and reports the likelihood that your plan succeeds."
+        - question: "Can I work with years instead of ages in the Events table?"
+          answer:
+            - "Yes. The Events table has a toggle to switch between age-based and year-based planning. There is also a cards view that presents each event as a collapsible card, which works better on smaller screens."
+        - question: "What is the fastest way to get familiar with the simulator?"
+          answer:
+            - "Load the demo scenario from the Learn tab (or the Demo button in the header), run it, and explore the charts and data table. The tours and video tutorials in the Learn tab go deeper."
+        - question: "How do I stress-test my plan?"
+          answer:
+            - "Try harsher economic assumptions: raise inflation, lower investment growth, or add market crash events to the timeline, and see how robust your plan is."
+        - question: "How do I find the weak points in my plan?"
+          answer:
+            - "After a simulation run, use the color scheme dropdown in the data table to highlight critical periods. The coloring shows where cashflow gets tight or savings run low."
 
   - id: notes
     title: Notes
@@ -448,10 +465,14 @@ WizardSteps:
             description: "store your scenario to a file"
           - title: "Load"
             description: "reopen a saved scenario"
+          - title: "New"
+            description: "start a fresh scenario"
           - title: "Help"
             description: "get a tour or assistance for a field"
           - title: "Demo"
             description: "load and run a demo scenario"
+          - title: "Insights"
+            description: "after each run, click the ⓘ icon in the result box for plain-English observations about your plan"
         footnote: "On small screens some of these move into the ☰ menu."
       showButtons: ["next", "close"]
       side: "bottom"
@@ -468,6 +489,15 @@ WizardSteps:
             description: "if you specified linear growth rates ({icon:chart-line}), this will show either 'Success' or the age at which you ran out of money"
           - title: "With Volatility"
             description: "if you specified some volatility ({icon:chart-variable}), it will show the probability of success of your scenario"
+      side: "bottom"
+      align: "center"
+
+  - element: "#progress"
+    tours: [full]
+    popover:
+      contentType: text
+      content:
+        text: "After every simulation, a small ⓘ appears in this box. Click it for plain-English observations about your results — where cashflow gets tight, why a plan fails, and how outcomes spread across simulations."
       side: "bottom"
       align: "center"
 

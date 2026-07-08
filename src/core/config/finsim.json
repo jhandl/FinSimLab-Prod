@@ -1,7 +1,7 @@
 {
   "relocationEnabled": true,
-  "tutorialsEnabled": false,
-  "blogEnabled": false,
+  "tutorialsEnabled": true,
+  "blogEnabled": true,
   "autoShiftOnRelocationAgeChange": true,
   "pinnedIncomeTypes": [
     "incomeSalaries",

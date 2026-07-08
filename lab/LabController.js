@@ -177,12 +177,17 @@ class MobileBurgerMenu {
   }
 
   updateMenuContent() {
-    const currentWidth = window.innerWidth;
-    const breakpoints = getBreakpoints();
+    const headerState = window.__labAdaptiveLayoutState && window.__labAdaptiveLayoutState.header;
+    const hasCountryAction = !!document.getElementById('countryAccessButton');
+    const mode = document.body.getAttribute('data-header-mode') || (headerState ? headerState.mode : 'full');
+    const visible = (headerState && headerState.visible && headerState.mode === mode)
+      ? headerState.visible
+      : buildHeaderVisibleState(mode, hasCountryAction);
     const runButton = document.getElementById('runSimulationMobile');
     const statusDiv = document.getElementById('progressMobile');
     const saveButton = document.getElementById('saveSimulationMobile');
     const loadButton = document.getElementById('loadSimulationMobile');
+    const newButton = document.getElementById('newSimulationMobile');
     const demoButton = document.getElementById('loadDemoScenarioMobile');
     const helpButton = document.getElementById('startWizardMobile');
     const countriesButton = document.getElementById('countryAccessButtonMobile');
@@ -232,59 +237,25 @@ class MobileBurgerMenu {
     let hasCountriesSection = false;
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
-    if (currentWidth > breakpoints.countries) {
-      if (runButton) runButton.style.display = 'none';
-      if (statusDiv) statusDiv.style.display = 'none';
-      if (saveButton) saveButton.style.display = 'none';
-      if (loadButton) loadButton.style.display = 'none';
-      if (demoButton) demoButton.style.display = 'none';
-      if (helpButton) helpButton.style.display = 'none';
-      if (countriesButton) countriesButton.style.display = 'none';
+    const showRunInMenu = visible.run === false;
+    const showStatusInMenu = false;
+    const showSaveLoadInMenu = visible.saveLoadNew === false;
+    const showDemoHelpInMenu = visible.demoHelp === false;
+    const showCountriesInMenu = !!countriesButton && hasCountryAction && visible.countries === false;
 
-      hasRunSection = false;
-      hasSaveLoadSection = false;
-      hasDemoHelpSection = false;
-      hasCountriesSection = false;
-    } else if (currentWidth > breakpoints.tablet) {
-      if (runButton) runButton.style.display = 'none';
-      if (statusDiv) statusDiv.style.display = 'none';
-      if (saveButton) saveButton.style.display = 'none';
-      if (loadButton) loadButton.style.display = 'none';
-      if (demoButton) demoButton.style.display = 'none';
-      if (helpButton) helpButton.style.display = 'none';
-      if (countriesButton) countriesButton.style.display = 'flex';
+    if (runButton) runButton.style.display = showRunInMenu ? 'flex' : 'none';
+    if (statusDiv) statusDiv.style.display = showStatusInMenu ? 'block' : 'none';
+    if (saveButton) saveButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
+    if (loadButton) loadButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
+    if (newButton) newButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
+    if (demoButton) demoButton.style.display = showDemoHelpInMenu ? 'flex' : 'none';
+    if (helpButton) helpButton.style.display = showDemoHelpInMenu ? 'flex' : 'none';
+    if (countriesButton) countriesButton.style.display = showCountriesInMenu ? 'flex' : 'none';
 
-      hasRunSection = false;
-      hasSaveLoadSection = false;
-      hasDemoHelpSection = false;
-      hasCountriesSection = true;
-    } else if (currentWidth > breakpoints.mobile) {
-      if (runButton) runButton.style.display = 'none';
-      if (statusDiv) statusDiv.style.display = 'none';
-      if (saveButton) saveButton.style.display = 'none';
-      if (loadButton) loadButton.style.display = 'none';
-      if (demoButton) demoButton.style.display = 'flex';
-      if (helpButton) helpButton.style.display = 'flex';
-      if (countriesButton) countriesButton.style.display = 'flex';
-
-      hasRunSection = false;
-      hasSaveLoadSection = false;
-      hasDemoHelpSection = true;
-      hasCountriesSection = true;
-    } else {
-      if (runButton) runButton.style.display = 'none';
-      if (statusDiv) statusDiv.style.display = 'none';
-      if (saveButton) saveButton.style.display = 'flex';
-      if (loadButton) loadButton.style.display = 'flex';
-      if (demoButton) demoButton.style.display = 'flex';
-      if (helpButton) helpButton.style.display = 'flex';
-      if (countriesButton) countriesButton.style.display = 'flex';
-
-      hasRunSection = false;
-      hasSaveLoadSection = true;
-      hasDemoHelpSection = true;
-      hasCountriesSection = true;
-    }
+    hasRunSection = showRunInMenu || showStatusInMenu;
+    hasSaveLoadSection = showSaveLoadInMenu;
+    hasDemoHelpSection = showDemoHelpInMenu;
+    hasCountriesSection = showCountriesInMenu;
 
     if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
     if (feedbackButton) feedbackButton.style.display = 'flex';
@@ -371,6 +342,16 @@ class MobileBurgerMenu {
       loadMobile.addEventListener('click', () => {
         this.closeMenu();
         loadDesktop.click();
+      });
+    }
+
+    // New Scenario
+    const newMobile = document.getElementById('newSimulationMobile');
+    const newDesktop = document.getElementById('newSimulation');
+    if (newMobile && newDesktop) {
+      newMobile.addEventListener('click', () => {
+        this.closeMenu();
+        newDesktop.click();
       });
     }
 
@@ -701,108 +682,320 @@ class MobileBurgerMenu {
 
 let cssLengthProbe = null;
 let adaptiveLayoutScheduled = false;
+let headerMeasurementInProgress = false;
 
-function getBreakpoints() {
-  const style = getComputedStyle(document.documentElement);
+const HEADER_COMFORT_MARGIN_PX = 24;
+const HEADER_FIT_TOLERANCE_PX = 0.5;
+const HEADER_CANDIDATES = [
+  { mode: 'full', brand: 'full', run: 'full' },
+  { mode: 'full', brand: 'icon', run: 'full' },
+  { mode: 'country-menu', brand: 'full', run: 'full' },
+  { mode: 'country-menu', brand: 'icon', run: 'full' },
+  { mode: 'secondary-menu', brand: 'icon', run: 'short' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short' }
+];
+
+function applyHeaderResponsiveAttributes(mode, brand, run) {
+  if (document.body.getAttribute('data-header-mode') !== mode) {
+    document.body.setAttribute('data-header-mode', mode);
+  }
+  if (document.body.getAttribute('data-header-brand') !== brand) {
+    document.body.setAttribute('data-header-brand', brand);
+  }
+  if (document.body.getAttribute('data-header-run') !== run) {
+    document.body.setAttribute('data-header-run', run);
+  }
+  const runLabel = document.querySelector('#runSimulation span');
+  if (runLabel) {
+    const nextLabel = run === 'short' ? 'Run' : 'Run Simulation';
+    if (runLabel.textContent !== nextLabel) runLabel.textContent = nextLabel;
+  }
+}
+
+function isHeaderElementVisible(element) {
+  if (!element) return false;
+  const style = window.getComputedStyle(element);
+  return style.display !== 'none' && style.visibility !== 'hidden' && !element.hidden;
+}
+
+function getVisibleHeaderChildren(container) {
+  if (!container) return [];
+  return Array.from(container.children).filter((child) => {
+    if (child.id === 'loadSimulationDialog') return false;
+    return isHeaderElementVisible(child);
+  });
+}
+
+function getFlexColumnGap(element) {
+  if (!element) return 0;
+  const style = window.getComputedStyle(element);
+  return getCssLength(style.columnGap || style.gap, 0);
+}
+
+function measureOuterWidth(element) {
+  if (!isHeaderElementVisible(element)) return 0;
+  const style = window.getComputedStyle(element);
+  const rect = element.getBoundingClientRect();
+  return rect.width +
+    getCssLength(style.marginLeft, 0) +
+    getCssLength(style.marginRight, 0);
+}
+
+function measureFlexContentWidth(container) {
+  const children = getVisibleHeaderChildren(container);
+  if (!children.length) return 0;
+  const gap = getFlexColumnGap(container);
+  let width = 0;
+  for (let i = 0; i < children.length; i++) {
+    width += measureOuterWidth(children[i]);
+  }
+  return width + gap * Math.max(0, children.length - 1);
+}
+
+function buildHeaderVisibleState(mode, hasCountryAction) {
+  const showSaveLoad = mode === 'full' || mode === 'country-menu' || mode === 'secondary-menu';
+  const showDemoHelp = mode === 'full' || mode === 'country-menu';
   return {
-    countries: parseInt(style.getPropertyValue('--breakpoint-countries'), 10),
-    tablet: parseInt(style.getPropertyValue('--breakpoint-tablet'), 10),
-    mobile: parseInt(style.getPropertyValue('--breakpoint-mobile'), 10)
+    run: true,
+    status: true,
+    saveLoadNew: showSaveLoad,
+    demoHelp: showDemoHelp,
+    countries: hasCountryAction && mode === 'full'
   };
 }
 
-function getHeaderResponsiveMode() {
-  const currentWidth = window.innerWidth;
-  const breakpoints = getBreakpoints();
-  if (currentWidth > breakpoints.countries) return 'full';
-  if (currentWidth > breakpoints.tablet) return 'country-menu';
-  if (currentWidth > breakpoints.mobile) return 'secondary-menu';
-  return 'save-load-menu';
+function measureHeaderCenterRightWidth(headerCenterRight) {
+  if (!headerCenterRight || !isHeaderElementVisible(headerCenterRight)) return 0;
+  const headerCenter = headerCenterRight.querySelector('.header-center');
+  const headerRight = headerCenterRight.querySelector('.header-right');
+  const centerWidth = measureFlexContentWidth(headerCenter);
+  const rightWidth = measureFlexContentWidth(headerRight);
+  let total = centerWidth + rightWidth;
+  if (centerWidth > 0 && rightWidth > 0) {
+    total += getFlexColumnGap(headerCenterRight);
+  }
+  return total;
+}
+
+function syncHeaderRightVisibility(headerCenterRight) {
+  if (!headerCenterRight) return;
+  const headerRight = headerCenterRight.querySelector('.header-right');
+  if (!headerRight) return;
+  const hasContent = Array.from(headerRight.children).some((child) => isHeaderElementVisible(child));
+  headerRight.setAttribute('data-has-content', hasContent ? 'true' : 'false');
+}
+
+function measureHeaderCandidate(candidate, elements, hasCountryAction) {
+  const headerStyle = window.getComputedStyle(elements.header);
+  const headerWidth = elements.header.getBoundingClientRect().width || document.documentElement.clientWidth || window.innerWidth;
+  const paddingLeft = getCssLength(headerStyle.paddingLeft, 0);
+  const paddingRight = getCssLength(headerStyle.paddingRight, 0);
+  const headerLeftWidth = measureOuterWidth(elements.headerLeft);
+  const centerRightWidth = measureHeaderCenterRightWidth(elements.headerCenterRight);
+  const toggleWidth = measureOuterWidth(elements.mobileMenuToggle);
+  const directRegions = [headerLeftWidth, centerRightWidth, toggleWidth].filter((width) => width > 0).length;
+  const directHeaderGaps = getFlexColumnGap(elements.header) * Math.max(0, directRegions - 1);
+  const requiredWidth = paddingLeft +
+    paddingRight +
+    headerLeftWidth +
+    centerRightWidth +
+    toggleWidth +
+    directHeaderGaps +
+    HEADER_COMFORT_MARGIN_PX;
+  return {
+    mode: candidate.mode,
+    brand: candidate.brand,
+    run: candidate.run,
+    requiredWidth: requiredWidth,
+    availableWidth: Math.max(0, headerWidth - paddingLeft - paddingRight - HEADER_COMFORT_MARGIN_PX),
+    headerWidth: headerWidth,
+    comfortMargin: HEADER_COMFORT_MARGIN_PX,
+    visible: buildHeaderVisibleState(candidate.mode, hasCountryAction)
+  };
+}
+
+function selectHeaderResponsiveCandidate() {
+  const header = document.querySelector('header');
+  const headerLeft = header.querySelector('.header-left');
+  const headerCenterRight = header.querySelector('.header-center-right');
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  syncHeaderRightVisibility(headerCenterRight);
+  const hasCountryAction = !!document.getElementById('countryAccessButton');
+  const candidates = hasCountryAction
+    ? HEADER_CANDIDATES
+    : HEADER_CANDIDATES.filter((candidate) => candidate.mode !== 'country-menu');
+  const elements = {
+    header: header,
+    headerLeft: headerLeft,
+    headerCenterRight: headerCenterRight,
+    mobileMenuToggle: mobileMenuToggle
+  };
+  let selected = null;
+  let fallback = null;
+
+  headerMeasurementInProgress = true;
+  try {
+    for (let i = 0; i < candidates.length; i++) {
+      const candidate = candidates[i];
+      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run);
+      const measured = measureHeaderCandidate(candidate, elements, hasCountryAction);
+      fallback = measured;
+      if (measured.requiredWidth <= measured.headerWidth + HEADER_FIT_TOLERANCE_PX) {
+        selected = measured;
+        break;
+      }
+    }
+    selected = selected || fallback;
+    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run);
+  } finally {
+    headerMeasurementInProgress = false;
+  }
+  return selected;
 }
 
 function updateHeaderResponsiveState() {
-  document.body.classList.remove(
-    'header-name-hidden',
-    'header-country-menu',
-    'header-secondary-menu',
-    'header-save-load-menu',
-    'header-run-short'
-  );
-  document.body.setAttribute('data-header-mode', getHeaderResponsiveMode());
+  const state = selectHeaderResponsiveCandidate();
+  if (!window.__labAdaptiveLayoutState) window.__labAdaptiveLayoutState = {};
+  window.__labAdaptiveLayoutState.header = state;
   if (window.mobileBurgerMenuInstance && typeof window.mobileBurgerMenuInstance.updateMenuContent === 'function') {
     window.mobileBurgerMenuInstance.updateMenuContent();
   }
-  return { mode: getHeaderResponsiveMode() };
+  return state;
 }
 
 function generateHeaderResponsiveCSS() {
-  const bp = getBreakpoints();
   const css = `
     header {
       max-width: 2350px;
       margin: 0 auto;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      gap: 0.5rem !important;
+      padding: 0.75rem 1.2rem !important;
+      height: 60px !important;
+      justify-content: space-between !important;
+      align-items: center !important;
     }
 
-    @media (min-width: ${bp.tablet + 1}px) {
-      header { display: flex !important; flex-wrap: nowrap !important; gap: 0.5rem !important; padding: 0.75rem 1.2rem !important; height: 60px !important; justify-content: space-between !important; align-items: center !important; }
-      .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; display: flex !important; align-items: center !important; gap: 0.75rem !important; }
-      .header-left .app-name { display: none !important; }
-      .header-left .app-name a { color: var(--color-button-dark) !important; text-decoration: none !important; white-space: nowrap !important; }
-      .header-left .app-icon-link { display: flex !important; }
-      .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
-      .header-center-right { flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; display: flex !important; }
-      .header-center { margin: 0 auto !important; gap: 1rem !important; justify-content: center !important; display: flex !important; }
-      .button-group-primary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
-      .button-group-secondary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
-      .header-right { display: none !important; }
-      .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
-      .mobile-menu { display: block; }
+    .header-left {
+      flex: 0 0 auto !important;
+      min-width: 40px !important;
+      justify-content: flex-start !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
     }
 
-    @media (min-width: 994px) {
-      .header-left .app-name { display: block !important; margin: 0 !important; font-size: 1.25rem !important; font-weight: 700 !important; }
+    .header-left .app-icon-link {
+      display: flex !important;
     }
 
-    @media (max-width: ${bp.countries}px) and (min-width: ${bp.tablet + 1}px) {
-      #countryAccessButton { display: none !important; }
+    .header-left .app-icon {
+      display: block !important;
+      width: 32px;
+      height: 32px;
     }
 
-    @media (max-width: ${bp.tablet}px) and (min-width: ${bp.mobile + 1}px) {
-      header { display: flex !important; flex-wrap: nowrap !important; gap: 0.5rem !important; padding: 0.75rem 1.2rem !important; height: 60px !important; justify-content: space-between !important; align-items: center !important; }
-      .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; }
-      .header-left .app-name { display: none !important; }
-      .header-left .app-icon-link { display: flex !important; }
-      .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
-      .header-center-right { flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; display: flex !important; }
-      .header-center { margin: 0 auto !important; gap: 0 !important; justify-content: center !important; display: flex !important; }
-      .button-group-primary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
-      .button-group-secondary { display: none !important; }
-      .header-right { display: none !important; }
-      .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
-      .mobile-menu { display: block; }
-      #runSimulation::before { content: "Run"; }
-      #runSimulation span { display: none; }
+    .header-left .app-name {
+      margin: 0 !important;
+      font-size: 1.25rem !important;
+      font-weight: 700 !important;
     }
 
-    @media (max-width: ${bp.mobile}px) {
-      body { padding-top: 60px !important; }
-      header { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; padding: 0.75rem 1.2rem !important; position: fixed !important; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; height: 60px !important; gap: 0.5rem !important; }
-      .header-left { flex: 0 0 auto !important; min-width: 40px !important; justify-content: flex-start !important; margin: 0 !important; padding: 0 !important; }
-      .header-left .app-name { display: none !important; }
-      .header-left .app-icon-link { display: flex !important; }
-      .header-left .app-icon { display: block !important; width: 32px; height: 32px; }
-      .header-center-right { display: flex !important; flex: 1 1 auto !important; min-width: 0 !important; gap: 0.5rem !important; justify-content: center !important; }
-      .header-center { margin: 0 auto !important; gap: 0 !important; justify-content: center !important; display: flex !important; }
-      .button-group-primary { display: flex !important; gap: 0.5rem !important; justify-content: center !important; }
-      .button-group-secondary { display: none !important; }
-      .header-right { display: none !important; }
-      .mobile-menu-toggle { flex: 0 0 auto !important; min-width: 40px !important; }
-      .mobile-menu { display: block; }
-      #saveSimulation, #loadSimulation { display: none !important; }
-      #runSimulation { display: inline-block !important; }
-      #runSimulation::before { content: "Run"; }
-      #runSimulation span { display: none; }
-      #progress { display: inline-block !important; }
+    .header-left .app-name a {
+      color: var(--color-button-dark) !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+    }
+
+    .header-center-right {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      gap: 0.5rem !important;
+      justify-content: center !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .header-center {
+      margin: 0 auto !important;
+      gap: 1rem !important;
+      justify-content: center !important;
+      display: flex !important;
+      align-items: center !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+
+    .button-group-primary {
+      display: flex !important;
+      gap: 0.5rem !important;
+      justify-content: center !important;
+      align-items: center !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+
+    #runSimulation {
+      flex: 0 0 auto !important;
+    }
+
+    #progress {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+
+    .button-group-secondary {
+      display: flex !important;
+      gap: 0.5rem !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .header-right {
+      margin-left: 0 !important;
+      display: none !important;
+      gap: 0.5rem !important;
+      align-items: center !important;
+    }
+
+    .header-right[data-has-content="true"] {
+      display: flex !important;
+    }
+
+    .mobile-menu-toggle {
+      flex: 0 0 auto !important;
+      min-width: 40px !important;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+
+    body[data-header-brand="icon"] .header-left .app-name {
+      display: none !important;
+    }
+
+    body[data-header-brand="full"] .header-left .app-name {
+      display: block !important;
+    }
+
+    body[data-header-mode="country-menu"] #countryAccessButton {
+      display: none !important;
+    }
+
+    body[data-header-mode="secondary-menu"] .button-group-secondary,
+    body[data-header-mode="save-load-menu"] .button-group-secondary {
+      display: none !important;
+    }
+
+    body[data-header-mode="save-load-menu"] #saveSimulation,
+    body[data-header-mode="save-load-menu"] #loadSimulation,
+    body[data-header-mode="save-load-menu"] #newSimulation {
+      display: none !important;
     }
   `;
 
@@ -955,15 +1148,36 @@ function scheduleLabAdaptiveLayout() {
   });
 }
 
+function isAdaptiveLayoutMutationRelevant(mutation) {
+  if (mutation.type === 'childList' || mutation.type === 'characterData') return true;
+  if (mutation.type !== 'attributes') return false;
+  return mutation.attributeName === 'style' ||
+    mutation.attributeName === 'class' ||
+    mutation.attributeName === 'hidden';
+}
+
 function initializeAdaptiveLayoutObservers() {
-  const observer = new MutationObserver(scheduleLabAdaptiveLayout);
+  const observer = new MutationObserver(function (mutations) {
+    if (headerMeasurementInProgress) return;
+    for (let i = 0; i < mutations.length; i++) {
+      if (isAdaptiveLayoutMutationRelevant(mutations[i])) {
+        scheduleLabAdaptiveLayout();
+        return;
+      }
+    }
+  });
   const header = document.querySelector('header');
   const parameters = document.querySelector('.parameters-section');
-  if (header) observer.observe(header, { childList: true, subtree: true });
+  if (header) observer.observe(header, { childList: true, subtree: true, characterData: true, attributes: true });
   if (parameters) observer.observe(parameters, { childList: true, subtree: true });
   window.addEventListener('resize', scheduleLabAdaptiveLayout);
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', scheduleLabAdaptiveLayout);
+  }
+  if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+    document.fonts.ready.then(function () {
+      scheduleLabAdaptiveLayout();
+    });
   }
 }
 

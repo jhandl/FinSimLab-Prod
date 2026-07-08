@@ -1,0 +1,182 @@
+GuidedCopy:
+  demoQuickTour:
+    message: "Want a quick tour of what you're looking at?"
+    title: "Quick Tour"
+  chrome:
+    next: "Next"
+    runSimulation: "Run my simulation"
+    exit: "Exit guided setup"
+    exitConfirm: "Leave guided setup? Everything you've entered stays in place."
+    exitConfirmTitle: "Exit Guided Setup"
+    allocationsFooter: "FinSim never recommends investments — it only simulates what you describe."
+  fieldNotes:
+    required: "This one is needed to build the plan."
+    optionalZero: "Optional — leave it blank and we'll use zero for now. You can fill it in on the panel later."
+    reassurance: "A rough estimate is fine. You can refine this later."
+  mortgageTermDefault: 25
+  mortgageDownPaymentShareDefault: 20
+  mortgageRateDefault: 3.5
+  interviewOpeners:
+    free: "Rough or even made-up numbers work fine — the Demo Country is a sandbox."
+    entitled: "Ballpark figures are fine — you can refine everything later."
+  finale:
+    dataTableMessage: "The year-by-year breakdown behind these charts is available too."
+    dataTableLink: "Show the detailed table"
+    upsell: "Want to see this plan under real {CountryName} tax rules?"
+    upsellDismiss: "×"
+    resumePrompt: "Pick up where you left off? Your plan from your last visit is still here."
+    resumeTitle: "Welcome back"
+  events:
+    singleSalaryName: "Salary"
+    salaryName: "Your salary"
+    partnerSalaryName: "Partner's salary"
+    expensesName: "Living expenses"
+    rentName: "Rent"
+    homeName: "Home"
+
+GuidedSections:
+  startingPosition:
+    title: "Starting Position"
+    questions:
+      planFor: "Who is this plan for?"
+      country: "Which country do you live in?"
+      ages: "How old are you both?"
+      startingAge: "How old are you?"
+      p2StartingAge: "How old is your partner?"
+      initialSavings: "Roughly how much do you have in savings right now? Cash and deposits — a ballpark is fine."
+      pensionPots: "What is already in your pension pots?"
+      initialPension: "Do you have a pension pot already? Roughly how much is in it? Leave blank if you're not sure."
+      initialPensionP2: "Does your partner have a pension pot already? Roughly how much is in it? Leave blank if you're not sure."
+      currentBalances: "What is already invested outside pensions?"
+    why:
+      planFor: "Couples are taxed differently in many countries — this sets up the right treatment from the start."
+      country: "Each country has its own tax rules — this picks the rulebook for the whole plan."
+      ages: "Ages anchor the timeline — every event, tax band, and pension rule keys off them."
+      initialSavings: "Your starting cash is the simulation's opening balance."
+      pensionPots: "Pension pots grow tax-free and unlock at retirement — the starting balance drives that curve."
+      currentBalances: "Starting investment balances let the first projection begin from your real portfolio."
+    choices:
+      justMe: "Just me"
+      couple: "Me and my partner"
+      enterAmount: "I'll enter an amount"
+      dontKnow: "I don't know"
+  personalCircumstances:
+    title: "Personal Circumstances"
+    subtitle: "A few family details — these affect tax credits and bands."
+    questions:
+      marriageYear: "If you're married, what year did you marry? Leave blank if not."
+      hasChildren: "Do you have children?"
+      childrenBirthYears: "When were your children born?"
+      oldestChildBorn: "What year was your oldest child born?"
+      youngestChildBorn: "And your youngest? Skip if you have only one child."
+    why:
+      marriageYear: "Marriage can change tax credits and bands from that year on."
+      hasChildren: "Children affect tax credits and, in some countries, benefits — timing matters."
+      childrenBirthYears: "Children affect tax credits and, in some countries, benefits — timing matters."
+    choices:
+      yes: "Yes"
+      no: "No"
+  targets:
+    title: "Targets"
+    questions:
+      retirementAges: "When would you each like to stop working?"
+      retirementAge: "At what age would you like to stop working?"
+      p2RetirementAge: "And your partner?"
+      targetAge: "How long should the plan run? We'll simulate up to this age."
+      emergencyStash: "How much would you like to keep set aside for emergencies? Skip if unsure."
+    why:
+      retirementAges: "When salaries stop and pension drawdown can begin. Earlier means fewer earning years and a longer drawdown."
+      targetAge: "How far to run the simulation — to see whether the money outlasts the plan."
+      emergencyStash: "The simulator keeps this much in cash before investing surpluses."
+  moneyHabits:
+    title: "Money Habits"
+    questions:
+      pensionContribution: "Does money go into a pension from your pay? Roughly what percentage of your salary? Leave blank if unsure."
+      pensionContributionP2: "Does money go into your partner's pension from their pay? Roughly what percentage?"
+      surplusDestination: "When there's money left over after spending, what usually happens to it?"
+      investedShare: "Roughly what share of your spare money gets invested? A guess is fine."
+      allocationSplit: "How is spare money split across your investment types?"
+    why:
+      pensionContribution: "Contributions reduce taxable income — even a rough figure improves tax accuracy."
+      surplusDestination: "This only tells the simulator what to do with leftover money — it never recommends investments."
+      investedShare: "This only tells the simulator what to do with leftover money — it never recommends investments."
+      allocationSplit: "This only tells the simulator what to do with leftover money — it never recommends investments."
+    choices:
+      enterAmount: "I'll enter an amount"
+      dontKnow: "I don't know"
+      bank: "It stays in my bank account"
+      invested: "Some of it gets invested"
+  events:
+    title: "Your Events"
+    intro: "Events are the story of your financial life — income, spending, home. Let's add the basics."
+    questions:
+      salary: "Do you earn a salary?"
+      salaryDetails: "How much do you earn, and until when?"
+      salaryAmount: "Roughly how much per year, before tax?"
+      salaryUntilAge: "Until what age?"
+      salaryMatch: "Does your employer pay into your pension too? What percentage of salary do they match? Skip if none or unsure."
+      partnerSalary: "Does your partner earn a salary?"
+      partnerSalaryDetails: "How much does your partner earn, and until when?"
+      partnerSalaryAmount: "Roughly how much does your partner earn per year, before tax?"
+      partnerSalaryUntilAge: "Until what age will your partner earn a salary?"
+      partnerSalaryMatch: "Does your partner's employer pay into their pension too? What percentage of salary do they match? Skip if none or unsure."
+      expensesRent: "Roughly how much does your household spend per year — not counting rent? A ballpark is fine."
+      expensesMortgage: "Roughly how much does your household spend per year — not counting mortgage payments? A ballpark is fine."
+      expensesOwn: "Roughly how much does your household spend per year? A ballpark is fine."
+      housing: "Do you rent or own your home?"
+      rent: "What's your monthly rent?"
+      ownOutright: "Nothing needed now. If you plan to sell, or to buy another property, add it from the Events table any time."
+      quickMortgage: "What is your current mortgage payment, and how many years are left?"
+    why:
+      housing: "Housing is usually the biggest cost — and a home is an asset the simulator tracks."
+      rent: "Housing is usually the biggest cost — and a home is an asset the simulator tracks."
+      ownOutright: "A home is an asset the simulator can track when you add it in full setup or the Events table."
+      quickMortgage: "A rough payment and years left are enough to model the remaining mortgage."
+      salary: "Your income helps us estimate taxes and savings capacity."
+      salaryDetails: "Your income helps us estimate taxes and savings capacity."
+      salaryMatch: "Employer contributions are free money that compounds for decades."
+      partnerSalary: "Your household income helps us estimate taxes and savings capacity."
+      partnerSalaryDetails: "Your household income helps us estimate taxes and savings capacity."
+      partnerSalaryMatch: "Employer contributions are free money that compounds for decades."
+      expenses: "Yearly spending determines what's left to save or invest."
+    placeholders:
+      expensesRent: "Exclude your rent of about {monthlyRent} per month."
+    notes:
+      quickMortgage: "We'll assume a typical mortgage — 25-year term, 20% down. Refine it any time in the full setup or the Events table."
+    homeName: "Home"
+    mortgageFields:
+      monthlyPayment: "Monthly payment"
+      yearsLeft: "Years left"
+      rate: "Interest rate"
+    choices:
+      yes: "Yes"
+      no: "No"
+      rent: "I rent"
+      ownOutright: "I own it outright"
+      mortgage: "I own it with a mortgage"
+  drawdownPriorities:
+    title: "Drawdown Priorities"
+    body:
+      - "Most years, your income and cash cover your spending. In years where they do not, FinSim needs to know which pot to use first."
+      - "This order tells the simulator where to take money from when there is a shortfall. It does not change your investments, contributions, or tax rules; it only controls the withdrawal order."
+    animationCaption: "Example only - you will rearrange the real list on the next panel."
+    button: "Review order"
+    demoItems:
+      - "Cash"
+      - "Investments"
+      - "Pension"
+  economy:
+    title: "Economy"
+    body: "We used starter assumptions for your first run. These are not forecasts or recommendations. Edit them whenever you like."
+    button: "Review assumptions"
+    questions:
+      inflation: "What inflation rate should this plan use?"
+      growthAssumptions: "Confirm or edit the starter equity growth and bond yield."
+    why:
+      inflation: "Inflation affects what future money is worth in today's terms."
+      growthAssumptions: "Growth assumptions drive long-term investment projections, but they are not recommendations."
+    defaults:
+      equityGrowth: 8
+      equityVolatility: 15
+      bondYield: 4
+      bondVolatility: 6

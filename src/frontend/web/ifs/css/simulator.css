@@ -32,11 +32,6 @@
   --parameters-panel-field-width: 115px;
   --starting-position-field-width: var(--parameters-panel-field-width);
 
-  /* Responsive Breakpoints for Progressive Header */
-  --breakpoint-countries: 1060px;
-  --breakpoint-tablet: 800px;
-  --breakpoint-mobile: 540px;
-
   /* Header positioning control */
   --header-height: 60px;
   --data-section-viewport-gap: 18px;
@@ -577,11 +572,11 @@ header.header-hidden {
 /* Welcome Modal Styles */
 .welcome-modal {
   --welcome-modal-original-width: 600px;
-  --welcome-modal-original-height: 420px;
+  --welcome-modal-original-height: 530px;
   --welcome-modal-standard-width: var(--welcome-modal-original-width);
   --welcome-modal-standard-height: var(--welcome-modal-original-height);
   --welcome-modal-tutorial-width: 1180px;
-  --welcome-modal-tutorial-height: 720px;
+  --welcome-modal-tutorial-height: 660px;
   position: fixed;
   top: 0;
   left: 0;
@@ -743,7 +738,7 @@ header.header-hidden {
   border-top: 1px solid var(--primary-color);
   border-left: 1px solid var(--primary-color);
   border-right: 1px solid var(--primary-color);
-  border-bottom: 1px solid white;
+  border-bottom: none;
   z-index: 2;
 }
 
@@ -770,6 +765,222 @@ header.header-hidden {
 .welcome-tab-content.active {
   opacity: 1;
   visibility: visible;
+}
+
+.welcome-start {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 20px 14px;
+}
+
+.welcome-start-intro {
+  margin: 0;
+  line-height: 1.5;
+  color: #4f6074;
+}
+
+.welcome-start-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.welcome-start-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  padding: 18px 18px 16px;
+  min-height: 136px;
+  border: 2px solid #ccd8e7;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8fbff 0%, #f1f6fc 100%);
+  box-shadow: 0 4px 14px rgba(41, 66, 102, 0.1);
+  color: var(--text-color);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.4;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.welcome-start-card:hover,
+.welcome-start-card:focus-visible {
+  border-color: #4f7ec9;
+  box-shadow: 0 8px 22px rgba(49, 86, 141, 0.18);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.welcome-start-card:active {
+  transform: translateY(0);
+}
+
+.welcome-orientation-action:hover,
+.welcome-orientation-action:focus-visible {
+  border-color: #3f6fb9;
+  box-shadow: 0 8px 20px rgba(46, 78, 127, 0.22);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.welcome-orientation-action:active {
+  transform: translateY(0);
+}
+
+.welcome-start-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.welcome-start-card-title,
+.welcome-orientation-title {
+  color: #293241;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.welcome-start-card-title {
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.welcome-start-card-subtitle,
+.welcome-orientation-subtitle {
+  color: #4f6074;
+  line-height: 1.45;
+}
+
+.welcome-start-card-subtitle {
+  width: 100%;
+  font-size: 0.96rem;
+  text-align: center;
+}
+
+.welcome-start-card-badge {
+  margin-top: auto;
+  align-self: center;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: #e8f0ff;
+  color: #466ab0;
+}
+
+.welcome-start-footnote {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dfe8ee;
+  padding-top: 12px;
+}
+
+.welcome-start-privacy {
+  margin: 0;
+  color: #4f6074;
+  line-height: 1.4;
+}
+
+.welcome-start-explore {
+  margin: 0;
+  text-align: center;
+}
+
+.welcome-start-explore-link {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--primary-color);
+}
+
+.welcome-orientation {
+  --welcome-orientation-side-padding: 20px;
+  padding: 0 var(--welcome-orientation-side-padding) 10px;
+}
+
+.welcome-orientation-label,
+.welcome-tutorials-label {
+  display: block;
+  margin: 0 0 10px;
+  color: #1f3f6a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px 0;
+  background: linear-gradient(90deg, #eef4ff 0%, #dbe8ff 50%, #eef4ff 100%);
+  border-bottom: 1px solid #cfdef4;
+}
+
+.welcome-orientation-label {
+  margin-left: calc(-1 * var(--welcome-orientation-side-padding));
+  margin-right: calc(-1 * var(--welcome-orientation-side-padding));
+  padding-left: var(--welcome-orientation-side-padding);
+  padding-right: var(--welcome-orientation-side-padding);
+}
+
+.welcome-orientation-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.welcome-orientation-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 74px;
+  padding: 8px 8px;
+  border: 2px solid #c8daf3;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fafdff 0%, #eef5ff 100%);
+  box-shadow: 0 4px 12px rgba(46, 78, 127, 0.14);
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: center;
+  font: inherit;
+  line-height: 1.35;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.welcome-orientation-action i {
+  align-items: center;
+  background: #4f7ec9;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  font-size: 0.9rem;
+}
+
+.welcome-orientation-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.welcome-orientation-title {
+  font-size: 0.95rem;
+}
+
+.welcome-orientation-subtitle {
+  font-size: 0.76rem;
+  line-height: 1.35;
 }
 
 /* Scrollable tab content for FAQ */
@@ -799,16 +1010,30 @@ header.header-hidden {
 
 .welcome-tab-content[data-tab="tutorials"] {
   padding: 0;
+  top: 37px;
 }
 
 .welcome-tutorials {
+  --welcome-tutorials-side-padding: clamp(14px, calc(0.61vw + 9.33px), 16px);
   display: grid;
   grid-template-columns: clamp(250px, calc(24.24vw + 63.33px), 330px) minmax(0, 1fr);
-  gap: clamp(22px, calc(3.64vw - 6px), 34px);
+  column-gap: clamp(22px, calc(3.64vw - 6px), 34px);
+  row-gap: 8px;
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  padding: 12px clamp(14px, calc(0.61vw + 9.33px), 16px) 10px;
+  margin-top: 0;
+  border-top: 1px solid #d8e3ef;
+  padding: 0 var(--welcome-tutorials-side-padding) 10px;
+}
+
+.welcome-tutorials-label {
+  grid-column: 1 / -1;
+  margin-left: calc(-1 * var(--welcome-tutorials-side-padding));
+  margin-right: calc(-1 * var(--welcome-tutorials-side-padding));
+  margin-bottom: 2px;
+  padding-left: var(--welcome-tutorials-side-padding);
+  padding-right: var(--welcome-tutorials-side-padding);
 }
 
 .tutorial-list {
@@ -955,8 +1180,13 @@ header.header-hidden {
 .tutorial-stage {
   min-width: 0;
   min-height: 0;
-  overflow-y: auto;
-  padding: 8px 0 0;
+  overflow: hidden;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+.tutorial-stage::-webkit-scrollbar {
+  display: none;
 }
 
 .tutorial-video-frame {
@@ -1109,37 +1339,6 @@ header.header-hidden {
 
 body.tutorial-fullscreen-open {
   overflow: hidden;
-}
-
-.tutorial-details {
-  border: 1px solid #dfe8ee;
-  border-radius: 14px;
-  margin-top: 18px;
-  min-height: 130px;
-  padding: 12px 18px;
-}
-
-.tutorial-title {
-  color: #293241;
-  font-size: 1.45rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 0 0 6px;
-}
-
-.tutorial-description {
-  color: #4f6074;
-  font-size: 1rem;
-  line-height: 1.45;
-}
-
-.tutorial-description ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.tutorial-description p {
-  margin: 0 0 0.5rem;
 }
 
 @media (max-height: 740px) and (min-width: 769px) {
@@ -1444,16 +1643,99 @@ body.modal-open {
     min-width: 70px;
   }
 
+  .welcome-start {
+    gap: 10px;
+    padding: 10px 12px 8px;
+  }
+
+  .welcome-start-intro {
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .welcome-start-cards {
+    gap: 10px;
+  }
+
+  .welcome-start-card {
+    min-height: 110px;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .welcome-start-card-title {
+    font-size: 1rem;
+  }
+
+  .welcome-start-card-subtitle {
+    font-size: 0.87rem;
+    line-height: 1.35;
+  }
+
+  .welcome-start-card-badge {
+    font-size: 0.76rem;
+    padding: 2px 9px;
+  }
+
+  .welcome-start-footnote {
+    padding-top: 8px;
+  }
+
+  .welcome-start-privacy {
+    font-size: 0.88rem;
+    line-height: 1.32;
+  }
+
+  .welcome-start-explore-link {
+    font-size: 0.9rem;
+  }
+
+  .welcome-orientation {
+    --welcome-orientation-side-padding: 12px;
+    padding: 0 var(--welcome-orientation-side-padding) 8px;
+  }
+
+  .welcome-orientation-actions {
+    gap: 8px;
+  }
+
+  .welcome-orientation-action {
+    min-height: 66px;
+    padding: 6px 4px;
+    gap: 3px;
+  }
+
+  .welcome-orientation-action i {
+    width: 26px;
+    height: 26px;
+    font-size: 0.82rem;
+  }
+
+  .welcome-orientation-title {
+    font-size: 0.84rem;
+  }
+
+  .welcome-orientation-subtitle {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
   .welcome-tab-content[data-tab="tutorials"] {
     padding: 0;
+    top: 33px;
   }
 
   .welcome-tutorials {
+    --welcome-tutorials-side-padding: 12px;
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 12px;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: 8px;
     overflow: hidden;
-    padding: 12px;
+    padding: 0 var(--welcome-tutorials-side-padding) 12px;
+  }
+
+  .welcome-tutorials-label {
+    margin-bottom: 0;
   }
 
   .tutorial-list {
@@ -1476,16 +1758,6 @@ body.modal-open {
 
   .tutorial-card {
     min-height: 88px;
-  }
-
-  .tutorial-details {
-    margin-top: 12px;
-    min-height: 0;
-    padding: 12px 14px;
-  }
-
-  .tutorial-title {
-    font-size: 1.15rem;
   }
 
   /* Mobile responsive for welcome content */
@@ -3749,7 +4021,7 @@ footer {
   line-height: 1.3;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   max-width: 500px;
-  white-space: normal;
+  white-space: pre-line;
 }
 
 /* Improve readability for tablet/phone touch devices that use desktop width */
@@ -4039,6 +4311,62 @@ footer {
   transition: all 0.15s ease;
   position: relative;
   z-index: 2;
+}
+
+.insight-range-glow {
+  position: fixed;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--insight-range-glow-stroke, rgba(108, 128, 176, 0.92));
+  background-color: transparent;
+  -webkit-backdrop-filter: brightness(1.16) saturate(1.08);
+  backdrop-filter: brightness(1.16) saturate(1.08);
+  box-shadow: 0 0 10px 4px var(--insight-range-glow-shadow-soft, rgba(195, 210, 241, 0.58)),
+    0 0 13px 6px var(--insight-range-glow-shadow-strong, rgba(122, 141, 192, 0.5));
+  z-index: 10002;
+  animation: insight-range-glow-fade 1.6s linear forwards;
+}
+
+.insight-range-glow::before,
+.insight-range-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.insight-range-glow::before {
+  background: radial-gradient(120% 95% at 50% 50%,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.4) 42%,
+      rgba(255, 255, 255, 0.12) 72%,
+      rgba(255, 255, 255, 0) 100%);
+  mix-blend-mode: screen;
+}
+
+.insight-range-glow::after {
+  background-color: var(--insight-range-glow-fill, rgba(170, 188, 228, 0.34));
+  mix-blend-mode: screen;
+  opacity: 0.72;
+}
+
+@keyframes insight-range-glow-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.995);
+  }
+
+  16% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.002);
+  }
 }
 
 .events-section.card {

@@ -1,5 +1,24 @@
-/* Event Wizard – Dedicated, compact styling
+/* version: 20260708-guided-center2
+   Event Wizard – Dedicated, compact styling
    (Loaded after simulator.css, so these rules override earlier ones) */
+
+:root {
+  --wizard-modal-width: min(600px, calc(100vw - 2rem));
+  --wizard-modal-min-height: 340px;
+  --wizard-modal-max-height: min(620px, 85dvh);
+  --wizard-modal-top: clamp(1rem, 17vh, 8rem);
+  --wizard-visible-height: 100vh;
+}
+
+.wizard-skin-events,
+.wizard-skin-guided {
+  --wizard-question-size: 1.2rem;
+  --wizard-body-size: 1rem;
+  --wizard-note-size: 0.875rem;
+  --wizard-header-padding: 8px 20px;
+  --wizard-body-padding: 1.25rem;
+  --wizard-footer-padding: 8px 20px;
+}
 
 /* --- Base Modal Overlay --- */
 .wizard-overlay {
@@ -13,7 +32,9 @@
     -webkit-backdrop-filter: blur(2px);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding-top: var(--wizard-modal-top);
     z-index: 10000;
 }
 
@@ -29,10 +50,11 @@
 .event-wizard-modal {
   background: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  width: auto !important;      /* adapt to content */
-  max-width: 560px !important; /* prevent overly wide screens */
-  min-width: 320px !important; /* reasonable minimum */
-  max-height: 85vh;    /* leave some breathing room vertically */
+  width: var(--wizard-modal-width) !important;
+  min-height: min(var(--wizard-modal-min-height), var(--wizard-visible-height));
+  max-height: min(var(--wizard-modal-max-height), var(--wizard-visible-height));
+  max-width: none !important;
+  min-width: 0 !important;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -44,22 +66,25 @@
    behind mobile browser UI or the on-screen keyboard. */
 @supports (height: 100dvh) {
   .event-wizard-modal {
-    /* 85 % of the *visible* viewport height */
-    max-height: 85dvh;
     /* Respect iOS safe-area on devices with a home indicator */
-    max-height: calc(85dvh - env(safe-area-inset-bottom, 0px));
+    --wizard-modal-max-height: calc(min(620px, 85dvh) - env(safe-area-inset-bottom, 0px));
   }
 }
 
 .event-wizard-step-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.event-wizard-modal.wizard-height-animating {
+  transition: height 200ms ease;
 }
 
 /* --- Header --- */
 .event-wizard-step-header {
-  padding: 8px 20px;
+  padding: var(--wizard-header-padding);
   border-bottom: 1px solid #eee;
   background: var(--background-color);
   text-align: center; /* Center title and step counter */
@@ -69,7 +94,7 @@
 .event-wizard-step-header h3 {
   margin: 0 0 0.25rem 0;
   color: var(--primary-color);
-  font-size: 1.2rem;
+  font-size: var(--wizard-question-size);
   font-weight: 600;
 }
 
@@ -78,19 +103,100 @@
   color: #888;
 }
 
+.event-wizard-progress-bar {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.event-wizard-progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--primary-color, #007bff);
+  transition: width 0.2s ease;
+}
+
 /* --- Body --- */
 .event-wizard-step-body {
   flex: 1;
-  padding: 1.25rem;
+  min-height: 0;
+  padding: var(--wizard-body-padding);
   overflow-y: auto;
   background: white;
+  position: relative;
 }
 
 /* --- Footer --- */
 .event-wizard-step-footer {
-    padding: 8px 20px;
+    padding: var(--wizard-footer-padding);
     border-top: 1px solid var(--modal-footer-border, #e9ecef);
     background: var(--modal-footer-background, #f8f9fa);
+}
+
+.wizard-step-enter,
+.wizard-step-exit {
+  width: 100%;
+}
+
+.wizard-step-enter {
+  animation: wizard-step-enter 180ms ease both;
+}
+
+.wizard-step-exit {
+  animation: wizard-step-exit 180ms ease both;
+  position: absolute;
+  inset: var(--wizard-body-padding);
+  pointer-events: none;
+}
+
+.wizard-step-enter[data-direction="forward"] {
+  --wizard-step-enter-from: 24px;
+}
+
+.wizard-step-enter[data-direction="back"] {
+  --wizard-step-enter-from: -24px;
+}
+
+.wizard-step-exit[data-direction="forward"] {
+  --wizard-step-exit-to: -24px;
+}
+
+.wizard-step-exit[data-direction="back"] {
+  --wizard-step-exit-to: 24px;
+}
+
+@keyframes wizard-step-enter {
+  from {
+    opacity: 0;
+    transform: translateX(var(--wizard-step-enter-from, 0));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wizard-step-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--wizard-step-exit-to, 0));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-wizard-modal.wizard-height-animating {
+    transition: none;
+  }
+
+  .wizard-step-enter,
+  .wizard-step-exit {
+    animation: none;
+  }
 }
 
 /* --- Button Container --- */
@@ -128,6 +234,13 @@
     border-color: var(--primary-color, #007bff);
 }
 
+.wizard-key-hint {
+    display: inline-block;
+    margin-left: 0.35rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
 .event-wizard-button-primary:hover:not(:disabled) {
     background: #0056b3;
     border-color: #0056b3;
@@ -136,6 +249,34 @@
 /* --- Content Styles --- */
 .event-wizard-intro {
     text-align: center;
+}
+
+.wizard-question {
+    font-size: var(--wizard-question-size);
+    font-weight: 600;
+    color: #1f2937;
+    line-height: 1.35;
+    margin: 0 0 1rem 0;
+}
+
+.wizard-required-marker {
+    color: var(--error-color, #dc3545);
+    font-weight: 700;
+    margin-left: 0.2rem;
+}
+
+.wizard-field-note {
+    color: #64748b;
+    font-size: var(--wizard-note-size);
+    line-height: 1.4;
+    margin: -0.35rem 0 0.85rem 0;
+}
+
+.wizard-why {
+    color: #64748b;
+    font-size: calc(var(--wizard-note-size) - 0.05rem);
+    line-height: 1.4;
+    margin-top: 0.85rem;
 }
 
 /* --- Input Groups --- */
@@ -276,6 +417,45 @@
     margin-left: 0;
 }
 
+/* Guided setup asks the question in the prompt header, so hide duplicated inline
+   labels for single-input steps and keep text/controls centered in the modal. */
+.wizard-skin-guided .event-wizard-content {
+    text-align: center;
+}
+
+.wizard-skin-guided .wizard-field-note {
+    font-size: var(--wizard-note-size);
+}
+
+.wizard-skin-guided .wizard-why,
+.wizard-skin-guided .event-wizard-help {
+    font-size: var(--wizard-body-size);
+    line-height: 1.45;
+}
+
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group {
+    justify-content: center;
+}
+
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group label {
+    display: none;
+}
+
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group input,
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group .dropdown-wrapper,
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group select,
+.wizard-skin-guided .event-wizard-content-input .event-wizard-input-group .event-wizard-dropdown-control {
+    margin-left: 0;
+}
+
+.wizard-skin-guided .event-wizard-content-fields .event-wizard-input-group.label-position-top {
+    align-items: center;
+}
+
+.wizard-skin-guided .event-wizard-content-fields .event-wizard-input-group.label-position-top label {
+    text-align: center;
+}
+
 .event-wizard-input-group input:focus {
     outline: none;
     border-color: var(--primary-color, #007bff);
@@ -287,6 +467,15 @@
     color: #666;
     margin-top: 0.5rem;
     text-align: center;
+}
+
+.event-wizard-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-wizard-field-row {
+    margin: 0.65rem 0;
 }
 
 /* --- Choice Options --- */
@@ -311,6 +500,12 @@
     background: #f8f9fa;
 }
 
+.event-wizard-choice-option:focus {
+    outline: none;
+    border-color: var(--primary-color, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
 .event-wizard-choice-option.selected {
     border-color: var(--primary-color, #007bff);
     background: rgba(0, 123, 255, 0.1);
@@ -327,6 +522,12 @@
     font-size: 0.95rem;
     text-align: center;
     display: block;
+}
+
+.wizard-choice-index {
+    margin-right: 0.4rem;
+    color: #64748b;
+    font-weight: 500;
 }
 
 .event-wizard-choice-description {
@@ -637,9 +838,8 @@ input[name="description"] {
 /* --- Mobile responsiveness --- */
 @media (max-width: 768px) {
   .event-wizard-modal {
-    width: 95%;
+    width: 95vw !important;
     max-width: 95vw; /* ensure it never exceeds viewport */
-    max-height: 90vh;
   }
 
   .event-wizard-step-body,
