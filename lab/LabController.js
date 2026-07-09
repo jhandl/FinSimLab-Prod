@@ -188,7 +188,6 @@ class MobileBurgerMenu {
     const saveButton = document.getElementById('saveSimulationMobile');
     const loadButton = document.getElementById('loadSimulationMobile');
     const newButton = document.getElementById('newSimulationMobile');
-    const demoButton = document.getElementById('loadDemoScenarioMobile');
     const helpButton = document.getElementById('startWizardMobile');
     const countriesButton = document.getElementById('countryAccessButtonMobile');
     const recoverLicenseButton = document.getElementById('recoverLicenseButtonMobile');
@@ -233,14 +232,14 @@ class MobileBurgerMenu {
     // Track which sections have visible content
     let hasRunSection = false;
     let hasSaveLoadSection = false;
-    let hasDemoHelpSection = false;
+    let hasHelpSection = false;
     let hasCountriesSection = false;
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
     const showRunInMenu = visible.run === false;
     const showStatusInMenu = false;
     const showSaveLoadInMenu = visible.saveLoadNew === false;
-    const showDemoHelpInMenu = visible.demoHelp === false;
+    const showHelpInMenu = visible.demoHelp === false;
     const showCountriesInMenu = !!countriesButton && hasCountryAction && visible.countries === false;
 
     if (runButton) runButton.style.display = showRunInMenu ? 'flex' : 'none';
@@ -248,13 +247,12 @@ class MobileBurgerMenu {
     if (saveButton) saveButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
     if (loadButton) loadButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
     if (newButton) newButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
-    if (demoButton) demoButton.style.display = showDemoHelpInMenu ? 'flex' : 'none';
-    if (helpButton) helpButton.style.display = showDemoHelpInMenu ? 'flex' : 'none';
+    if (helpButton) helpButton.style.display = showHelpInMenu ? 'flex' : 'none';
     if (countriesButton) countriesButton.style.display = showCountriesInMenu ? 'flex' : 'none';
 
     hasRunSection = showRunInMenu || showStatusInMenu;
     hasSaveLoadSection = showSaveLoadInMenu;
-    hasDemoHelpSection = showDemoHelpInMenu;
+    hasHelpSection = showHelpInMenu;
     hasCountriesSection = showCountriesInMenu;
 
     if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
@@ -269,14 +267,14 @@ class MobileBurgerMenu {
       firstDivider.style.display = (hasRunSection && hasSaveLoadSection) ? 'block' : 'none';
     }
 
-    // Second divider: between Save/Load and Demo/Help/Toggle
+    // Second divider: between Save/Load and Help/Toggle
     if (secondDivider) {
-      secondDivider.style.display = (hasSaveLoadSection && (hasDemoHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
+      secondDivider.style.display = (hasSaveLoadSection && (hasHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
     }
 
     // Countries divider: between Help and Real Countries
     if (countriesDivider) {
-      countriesDivider.style.display = (hasDemoHelpSection && hasCountriesSection) ? 'block' : 'none';
+      countriesDivider.style.display = (hasHelpSection && hasCountriesSection) ? 'block' : 'none';
     }
 
     // Feedback divider: between Recover License/Real Countries and Feedback/Change log
@@ -352,16 +350,6 @@ class MobileBurgerMenu {
       newMobile.addEventListener('click', () => {
         this.closeMenu();
         newDesktop.click();
-      });
-    }
-
-    // Demo
-    const demoMobile = document.getElementById('loadDemoScenarioMobile');
-    const demoDesktop = document.getElementById('loadDemoScenarioHeader');
-    if (demoMobile && demoDesktop) {
-      demoMobile.addEventListener('click', () => {
-        this.closeMenu();
-        demoDesktop.click();
       });
     }
 

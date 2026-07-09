@@ -461,6 +461,8 @@ WizardSteps:
         items:
           - title: "Run"
             description: "calculate projections"
+          - title: "Result"
+            description: "get plain-English insights"
           - title: "Save"
             description: "store your scenario to a file"
           - title: "Load"
@@ -469,10 +471,6 @@ WizardSteps:
             description: "start a fresh scenario"
           - title: "Help"
             description: "get a tour or assistance for a field"
-          - title: "Demo"
-            description: "load and run a demo scenario"
-          - title: "Insights"
-            description: "after each run, click the ⓘ icon in the result box for plain-English observations about your plan"
         footnote: "On small screens some of these move into the ☰ menu."
       showButtons: ["next", "close"]
       side: "bottom"

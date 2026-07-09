@@ -46,7 +46,7 @@
 
   /* Shared min-width for amount inputs (events table + resolution panel) */
   --event-amount-input-min-width: 90px;
-  --events-table-min-width: 774px;
+  --events-table-min-width: 770px;
 
   /* Layout Widths */
   --parameter-card-width: 400px;
@@ -2238,8 +2238,9 @@ th {
 }
 
 #Events td:last-child {
-  width: 36px;
-  min-width: 36px;
+  width: 32px;
+  min-width: 32px;
+  max-width: 32px;
   text-align: center;
 }
 
@@ -5513,7 +5514,7 @@ footer {
 
 /* Match */
 #Events th:nth-child(8) {
-  width: 36px;
+  width: 32px;
 }
 
 /* Delete button */

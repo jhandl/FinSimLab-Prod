@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260626-adaptive3">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260708-wp21">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260709-events-trash-width1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260625-2">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260708-guided-center2">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/guided-setup.css?v=20260708-wp5">
@@ -21,7 +21,7 @@
 
   
     
-  <script src="/lab/bundle.1783546745287.js" defer=""></script>
+  <script src="/lab/bundle.1783586649571.js" defer=""></script>
   
   
   
@@ -53,7 +53,6 @@
           <button id="newSimulation" class="secondary-button">New</button>
         </div>
         <div class="button-group-secondary">
-          <button id="loadDemoScenarioHeader" class="secondary-button">Demo</button>
           <button id="startWizard" class="secondary-button">Help</button>
         </div>
       </div>
@@ -94,10 +93,6 @@
 
         <div id="mobileSaveLoadDivider" class="mobile-menu-divider"></div>
 
-        <button id="loadDemoScenarioMobile" class="mobile-menu-button secondary-button">
-          <i class="fas fa-play-circle"></i>
-          <span>Demo</span>
-        </button>
         <button id="startWizardMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-question-circle"></i>
           <span>Help</span>
@@ -162,6 +157,8 @@
       </div>
     </nav>
   </header>
+
+  <button id="loadDemoScenarioHeader" type="button" hidden="" aria-hidden="true">Demo</button>
 
   <main>
     <div class="parameters-section">
