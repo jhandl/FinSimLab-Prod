@@ -487,15 +487,8 @@ WizardSteps:
             description: "if you specified linear growth rates ({icon:chart-line}), this will show either 'Success' or the age at which you ran out of money"
           - title: "With Volatility"
             description: "if you specified some volatility ({icon:chart-variable}), it will show the probability of success of your scenario"
-      side: "bottom"
-      align: "center"
-
-  - element: "#progress"
-    tours: [full]
-    popover:
-      contentType: text
-      content:
-        text: "After every simulation, a small ⓘ appears in this box. Click it for plain-English observations about your results — where cashflow gets tight, why a plan fails, and how outcomes spread across simulations."
+          - title: "Insights"
+            description: "After every simulation, a small ⓘ appears in this box. Click it for plain-English observations about your results"
       side: "bottom"
       align: "center"
 
