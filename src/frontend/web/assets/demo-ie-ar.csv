@@ -47,8 +47,8 @@ P2StatePension_ie,270
 P2StatePension_ar,0
 P2StatePension_at,0
 P2StatePension_xx,0
-P1PensionContrib_ie,30%
-P2PensionContrib_ie,25%
+P1PensionContrib_ie,max
+P2PensionContrib_ie,10%
 PensionCapped_ie,Yes
 PensionCapped_ar,Yes
 WrapperFee_ie_indexFunds,0%

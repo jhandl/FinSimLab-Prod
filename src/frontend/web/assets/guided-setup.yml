@@ -91,8 +91,9 @@ GuidedSections:
   moneyHabits:
     title: "Money Habits"
     questions:
-      pensionContribution: "Does money go into a pension from your pay? Roughly what percentage of your salary? Leave blank if unsure."
-      pensionContributionP2: "Does money go into your partner's pension from their pay? Roughly what percentage?"
+      pensionContribution: "Does money go into a pension from your pay? Enter a percentage of salary, or choose Max for the tax-relieved maximum. Leave blank if unsure."
+      pensionContributionP2: "Does money go into your partner's pension from their pay? Enter a percentage of salary, or choose Max."
+      pensionContributionMaxNote: "Tip: the Max button contributes the most your country allows tax-free — the limit rises with age, and the simulation follows it automatically."
       surplusDestination: "When there's money left over after spending, what usually happens to it?"
       investedShare: "Roughly what share of your spare money gets invested? A guess is fine."
       allocationSplit: "How is spare money split across your investment types?"

@@ -36,8 +36,8 @@ StatePension_xx,1000
 StatePension_ie,0
 P2StatePension_xx,900
 P2StatePension_ie,0
-P1PensionContrib_xx,30%
-P2PensionContrib_xx,25%
+P1PensionContrib_xx,5
+P2PensionContrib_xx,8%
 PensionCapped_xx,Yes
 TaxCredit_personal_xx,1500
 MixConfig_xx_indexFunds_asset1,globalEquity

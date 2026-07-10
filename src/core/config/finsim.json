@@ -3,6 +3,7 @@
   "tutorialsEnabled": true,
   "blogEnabled": false,
   "showPriceJustification": false,
+  "showPensionTooltip": false,
   "autoShiftOnRelocationAgeChange": true,
   "pinnedIncomeTypes": [
     "incomeSalaries",

@@ -462,6 +462,10 @@ CustomFeesDisableWarningModal:
     cancel: "Keep custom fees"
     confirm: "Use default fees"
 
+PensionContributionTooltip:
+  maxStandard: ""
+  maxTaxAdvantaged: ""
+
 
 ###########################################################
 

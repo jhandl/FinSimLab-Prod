@@ -1,4 +1,4 @@
-/* version: 20260710-mortgage-layout
+/* version: 20260710-pension-max-layout2
    Event Wizard – Dedicated, compact styling
    (Loaded after simulator.css, so these rules override earlier ones) */
 
@@ -543,6 +543,19 @@
     align-items: center;
     width: fit-content;
     max-width: 100%;
+}
+
+.event-wizard-modal .pension-max-control {
+    display: inline-block;
+    width: 78px;
+    max-width: 78px;
+}
+
+.event-wizard-modal .pension-max-control input.percentage-input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: right;
 }
 
 .wizard-skin-events .event-wizard-content-input input[name="alias"],

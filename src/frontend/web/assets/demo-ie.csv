@@ -11,7 +11,7 @@ RetirementAge,65
 EmergencyStash,20000
 InvestmentAllocation_ie_indexFunds,50%
 InvestmentAllocation_ie_shares,50%
-P1PensionContrib_ie,30%
+P1PensionContrib_ie,max
 PensionCapped_ie,Yes
 PensionGrowth_ie,5%
 PensionVolatility_ie,10%
@@ -33,7 +33,7 @@ P2StartingAge,28
 P2RetirementAge,65
 P2StatePension_ie,270
 InitialPensionP2,0
-P2PensionContrib_ie,25%
+P2PensionContrib_ie,10%
 simulation_mode,couple
 
 # Events

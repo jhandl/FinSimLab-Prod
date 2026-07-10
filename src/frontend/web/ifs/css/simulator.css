@@ -1,3 +1,4 @@
+/* cache-version: 20260710-pension-max6 */
 @import '../../common.css';
 @import 'wizard.css';
 
@@ -22,6 +23,7 @@
   --box-shadow: var(--shadow-card);
   --transition-default: background-color 0.2s;
   --border-radius: var(--radius-xs);
+  --percentage-suffix-offset: 0.25rem;
   --border-radius-large: var(--radius-sm);
 
   /* Simulator-specific variables */
@@ -2417,6 +2419,11 @@ th {
   order: 1;
 }
 
+#Allocations .input-wrapper[data-allocations-row="true"] .percentage-container.pension-max-host {
+  width: 76px;
+  flex: 0 0 76px;
+}
+
 #Allocations .input-wrapper[data-allocations-row="true"] .alloc-fee-container {
   width: 60px;
   flex: 0 0 60px;
@@ -2481,7 +2488,7 @@ th {
 .percentage-container::after {
   content: "%";
   position: absolute;
-  right: 0.25rem;
+  right: var(--percentage-suffix-offset);
   top: 50%;
   transform: translateY(-50%);
   color: var(--percentage-color, #666);
@@ -2490,6 +2497,72 @@ th {
   font-size: 0.81rem;
   opacity: var(--show-percentage, 0);
   transition: opacity 0.2s;
+}
+
+/* Pension contribution MAX affix button */
+.pension-max-host {
+  position: relative;
+  --pension-max-button-width: 26px;
+}
+.pension-max-host::after {
+  content: "%";
+  position: absolute;
+  right: calc(var(--pension-max-button-width) + var(--percentage-suffix-offset));
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--percentage-color, #666);
+  pointer-events: none;
+  z-index: 1;
+  font-size: 0.81rem;
+  opacity: var(--show-percentage, 0);
+  transition: opacity 0.2s;
+}
+.pension-max-host.pension-max-active-host::after {
+  opacity: 0;
+}
+.pension-max-host input.percentage,
+.pension-max-host input.percentage-input {
+  padding-right: calc(var(--pension-max-button-width) + 1rem) !important;
+}
+.pension-max-host input.pension-max-active {
+  padding-right: calc(var(--pension-max-button-width) + 0.45rem) !important;
+}
+.pension-max-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--pension-max-button-width);
+  min-width: var(--pension-max-button-width);
+  max-width: var(--pension-max-button-width);
+  padding: 0 2px;
+  box-sizing: border-box;
+  border: none;
+  border-left: 1px solid var(--border-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  background: transparent;
+  color: #999;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: var(--transition-default);
+}
+.pension-max-btn:hover {
+  color: var(--primary-color);
+  background: var(--primary-100);
+}
+.pension-max-btn.active {
+  color: #fff;
+  background: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
+input.pension-max-active {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-align: right;
 }
 
 .percentage {
@@ -4069,6 +4142,15 @@ footer {
 /* Ensure markdown tables in tooltips render legibly on dark background */
 .visualization-tooltip table {
   border-collapse: collapse;
+}
+
+/* Keep pension tooltip table flush to avoid extra bottom gap. */
+.visualization-tooltip.pension-tooltip {
+  white-space: normal;
+}
+
+.visualization-tooltip.pension-tooltip table {
+  margin: 0;
 }
 
 .visualization-tooltip th,
