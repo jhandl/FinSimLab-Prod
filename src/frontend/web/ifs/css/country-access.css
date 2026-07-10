@@ -102,10 +102,57 @@
   flex: 1 1 auto;
   gap: 0.35rem;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
   min-height: 0;
   overflow: hidden;
   padding: 0.45rem 1.5rem 0.3rem;
+}
+
+#countryAccessOverlay .country-access-pricing-banner {
+  color: #34445b;
+  display: flex;
+  font-size: 1.15rem;
+  font-weight: 650;
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: center;
+  line-height: 1.28;
+  padding: 0;
+  text-align: center;
+}
+
+#countryAccessOverlay .country-access-pricing-banner-line {
+  align-items: baseline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+  max-width: 100%;
+}
+
+#countryAccessOverlay .country-access-pricing-help {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--primary-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95em;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+#countryAccessOverlay .country-access-pricing-help:hover,
+#countryAccessOverlay .country-access-pricing-help:focus-visible {
+  color: var(--secondary-color);
+}
+
+#countryAccessOverlay .country-access-pricing-help:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 3px;
 }
 
 #countryAccessOverlay .country-access-modal .modal-footer {
@@ -274,7 +321,7 @@
   align-items: stretch;
   clip-path: inset(-1.1rem);
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
   isolation: isolate;
   min-height: 8.3rem;
   min-width: 0;
@@ -450,11 +497,38 @@
 }
 
 #countryAccessOverlay .country-access-tier-price {
+  align-items: baseline;
   color: var(--text-color);
+  display: flex;
+  flex-wrap: wrap;
   font-size: 0.98rem;
   font-weight: 650;
+  gap: 0.24rem 0.38rem;
   grid-column: 1;
   line-height: 1.25;
+}
+
+#countryAccessOverlay .country-access-tier-original-price {
+  color: #6c7788;
+  font-weight: 600;
+}
+
+#countryAccessOverlay .country-access-tier-discount-price {
+  color: var(--text-color);
+  font-weight: 750;
+}
+
+#countryAccessOverlay .country-access-tier-discount-tag {
+  background: #e9f6ee;
+  border: 1px solid #badbc6;
+  border-radius: 999px;
+  color: #23633b;
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.15;
+  padding: 0.14rem 0.38rem;
+  white-space: nowrap;
 }
 
 #countryAccessOverlay .country-access-tier-count,
@@ -493,7 +567,7 @@
   flex-direction: column;
   gap: 0.9rem;
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
   min-height: 0;
   min-width: 0;
   overflow: hidden;

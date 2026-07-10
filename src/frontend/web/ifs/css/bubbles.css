@@ -36,6 +36,37 @@
   font-weight: 600;
 }
 
+.driver-popover.compact-help-popover {
+  padding-top: 16px !important;
+}
+
+.driver-popover.compact-help-popover .driver-popover-title {
+  margin-bottom: 0.35rem !important;
+  padding-bottom: 0.4rem !important;
+  padding-top: 0 !important;
+}
+
+.driver-popover.compact-help-popover .driver-popover-description p {
+  margin: 0;
+}
+
+.driver-popover.compact-help-popover .annual-access-options {
+  margin: 0.35rem 0;
+  padding-left: 1.35rem;
+}
+
+.driver-popover.compact-help-popover .annual-access-options li {
+  margin: 0 0 0.25rem;
+}
+
+.driver-popover.compact-help-popover .annual-access-options li:last-child {
+  margin-bottom: 0;
+}
+
+.driver-popover.compact-help-popover .annual-access-options li::marker {
+  font-weight: 700;
+}
+
 .driver-popover-description {
   max-height: 300px;
   overflow-y: auto;

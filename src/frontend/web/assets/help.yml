@@ -290,8 +290,22 @@ CountryAccessCheckout:
   modal:
     title: "Real Country Tax Rules Plans"
     disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial advice."
-    confirmCancelRefundTitle: "Cancel Subscription?"
-    confirmCancelRefund: "Cancel this subscription and use one of your automatic refunds? Access will end immediately."
+    normalPricingBanner: "Paid plans grant one year of access, no auto-renewal. Renew any time at {renewalDiscountPercent}% off."
+    normalPricingWhyLabel: "Why?"
+    normalPricingWhyTitle: "Other options:"
+    normalPricingWhyDescription: |
+      <ol class="annual-access-options">
+        <li><b>Subscription:</b> Nobody wants that.</li>
+        <li><b>Lifetime access:</b> Tax rules need to be maintained.</li>
+        <li><b>Pay for updates:</b> The app has to work with new <i>and</i> old rules.</li>
+      </ol>
+      <p>None of them seems fair.</p>
+    foundingPricingBanner: "Founders offer: pay once for lifetime access. Every update included."
+    recoveryNudgeEnabled: true
+    recoveryNudgeTitle: "Recover Existing License"
+    recoveryNudge: "Already purchased? Recover your license before checkout to avoid creating a duplicate license on a new device."
+    confirmCancelRefundTitle: "Cancel & refund?"
+    confirmCancelRefund: "Cancel this purchase and request your grace-period refund? Access will end immediately."
     actions:
       close: "Close"
       recoverLicense: "Recover license"
@@ -299,9 +313,11 @@ CountryAccessCheckout:
       cancelRefund: "Cancel & refund"
       canceling: "Canceling..."
       saveCountries: "Save changes"
-      scheduleAtRenewal: "Schedule at renewal"
-      changeTier: "Change tier"
+      upgradeTier: "Upgrade tier"
+      changeTier: "Upgrade tier"
       continueToStripe: "Checkout"
+      renewWithStripe: "Renew with Stripe"
+      extendOneYearUntil: "Extend 1 year → until {date}"
       continuePromoWithStripe: "Continue with Stripe"
       openingStripe: "Opening Stripe..."
       disabledCheckoutTitle: "Select a paid tier and the required countries to continue."
@@ -350,9 +366,8 @@ CountryAccessCheckout:
     toasts:
       title: ""
       countriesUpdated: "Countries updated"
-      countryChangesScheduled: "Country changes scheduled"
       tierChangeSubmitted: "Tier change submitted"
-      planCanceledAndRefunded: "Subscription canceled and refund started"
+      planCanceledAndRefunded: "Purchase canceled and refund started"
     errorTitles:
       gift: "Promo Code Unavailable"
       checkout: "Checkout Unavailable"
@@ -403,7 +418,7 @@ CountryAccessCheckout:
         - No global mobility.
         #### Upgrade to:
         - Make projections based on real countries.
-        - Get tax rules updates while subscribed.
+        - Get tax rules updates while your access is active.
         - See what happens if you move to other countries.
     country_1:
       label: "Home Country"
@@ -411,7 +426,7 @@ CountryAccessCheckout:
         - Get one country's real tax rules.
         - {countryAccessGracePeriodDays}-day grace period to:
           - Try different countries.
-          - Cancel subscription.
+          - Cancel and request a refund.
       description: |
         Choose one country to unlock its tax rules and investments (you can change it during the grace period)
     country_2:

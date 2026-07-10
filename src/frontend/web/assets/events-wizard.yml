@@ -275,6 +275,7 @@ EventWizards:
         content:
           text: "Give this property a name:"
           validation: "required"
+          why: "This name links the property, mortgage, rent, and sale details in the simulation."
         showButtons: ["back", "next"]
            
       - stepId: "cash_purchase_price"
@@ -285,6 +286,7 @@ EventWizards:
           text: "What's the total purchase price of the property?"
           inputType: "currency"
           validation: "required|positive"
+          why: "This becomes the property value and purchase cost in your plan."
         showButtons: ["back", "next"]
         condition: "financing === 'cash'"
 
@@ -296,6 +298,7 @@ EventWizards:
           text: "What's the total purchase price of the property?"
           inputType: "currency"
           validation: "required|positive"
+          why: "This sets the property value used to calculate the mortgage amount."
         showButtons: ["back", "next"]
         condition: "financing === 'mortgage'"
 
@@ -307,6 +310,7 @@ EventWizards:
           text: "How much will you pay as a down payment?"
           inputType: "currency"
           validation: "required|positive|lt:propertyValue"
+          why: "The remaining purchase price becomes the mortgage principal."
         showButtons: ["back", "next"]
         condition: "financing === 'mortgage'"
         
@@ -319,6 +323,7 @@ EventWizards:
           text: "When will you buy and sell this property?"
           help: "If you don't plan to sell it, leave the second field blank."
           validation: "fromAgeRequired|positive"
+          why: "The start age places the purchase in the simulation; the end age controls a later sale."
         showButtons: ["back", "next"]
         
       - stepId: "appreciation"
@@ -330,6 +335,8 @@ EventWizards:
           text: "What annual appreciation rate do you expect?"
           inputType: "percentage"
           validation: "optional"
+          showRequirementNote: false
+          why: "Leave blank to grow the property with inflation."
         showButtons: ["back", "next"]
         condition: "fromAge !== toAge"
         
@@ -646,6 +653,11 @@ EventWizards:
 
 # Wizard UI Configuration
 WizardConfig:
+  copy:
+    fieldNotes:
+      required: "Required."
+      optional: "Optional."
+
   modal:
     width: "600px"
     maxHeight: "80vh"
