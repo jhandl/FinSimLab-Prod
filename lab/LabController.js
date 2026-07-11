@@ -272,12 +272,12 @@ class MobileBurgerMenu {
       secondDivider.style.display = (hasSaveLoadSection && (hasHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
     }
 
-    // Countries divider: between Help and Real Countries
+    // Countries divider: between Help and Country Plans
     if (countriesDivider) {
       countriesDivider.style.display = (hasHelpSection && hasCountriesSection) ? 'block' : 'none';
     }
 
-    // Feedback divider: between Recover License/Real Countries and Feedback/Change log
+    // Feedback divider: between Recover License/Country Plans and Feedback/Change log
     if (feedbackDivider) {
       feedbackDivider.style.display = (hasLicenseSection && hasFeedbackSection) ? 'block' : 'none';
     }

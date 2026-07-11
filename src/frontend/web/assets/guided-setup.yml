@@ -1,7 +1,4 @@
 GuidedCopy:
-  demoQuickTour:
-    message: "Want a quick tour of what you're looking at?"
-    title: "Quick Tour"
   chrome:
     next: "Next"
     runSimulation: "Run my simulation"

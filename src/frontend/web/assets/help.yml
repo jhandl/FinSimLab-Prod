@@ -224,9 +224,9 @@ WelcomeTabs:
             - "Purchasing Power Parity (PPP) is used for suggesting equivalent values when resolving events impacted by a relocation."
         - question: "Is the free tier based on a real country?"
           answer:
-            - "No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without choosing a real country plan."
+            - "No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without purchasing a Country Plan."
             - "Only paid tiers unlock country-specific tax rules and investment wrappers. Relocation needs at least two unlocked real countries." 
-        - question: "How accurate are the projections with real country tax rules?"
+        - question: "How accurate are the projections with real-country tax models?"
           answer:
             - "Tax rules for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations."
             - "The projections are estimates based on your inputs and assumptions about future economic conditions. Not a prediction of the future."
@@ -288,7 +288,7 @@ WelcomeTabs:
 CountryAccessCheckout:
 
   modal:
-    title: "Real Country Tax Rules Plans"
+    title: "Country Tax Model Plans"
     disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial advice."
     normalPricingBanner: "Paid plans grant one year of access, no auto-renewal. Renew any time at {renewalDiscountPercent}% off."
     normalPricingWhyLabel: "Why?"
@@ -323,14 +323,14 @@ CountryAccessCheckout:
       disabledCheckoutTitle: "Select a paid tier and the required countries to continue."
     promo:
       expired:
-        title: "Your Real Countries promo has ended"
-        messageAllCountries: "Your promotional Real Countries access ended on {date}. Continue with Stripe to keep the same plan: \"{planName}\"."
-        messageWithCountries: "Your promotional Real Countries access ended on {date}. Continue with Stripe to keep the same plan \"{planName}\" and countries: {countries}."
+        title: "Your Country Plans promo has ended"
+        messageAllCountries: "Your promotional Country Plans access ended on {date}. Continue with Stripe to keep the same plan: \"{planName}\"."
+        messageWithCountries: "Your promotional Country Plans access ended on {date}. Continue with Stripe to keep the same plan \"{planName}\" and countries: {countries}."
         errorTitle: "Checkout Unavailable"
         actions:
           close: "Close"
           continueWithStripe: "Continue with Stripe"
-          openRealCountries: "Open Real Countries"
+          openCountryPlans: "Open Country Plans"
           openingStripe: "Opening Stripe..."
     recovery:
       title: "Recover license"
@@ -357,7 +357,7 @@ CountryAccessCheckout:
       validationError: "Enter a valid email address."
       sentToast: "Check your email for a secure link to finish redeeming your promo code."
       invalidCode: "This promo code is not valid or has expired."
-      activeSubscriptionExists: "This browser already has an active Real Countries plan. Open Real Countries to manage it, or use another browser or device for this promo."
+      activeSubscriptionExists: "This browser already has an active Country Plan. Open Country Plans to manage it, or use another browser or device for this promo."
       rateLimited: "A secure link was sent recently. Please wait a few minutes before requesting another one."
       actions:
         cancel: "Cancel"
@@ -380,7 +380,7 @@ CountryAccessCheckout:
       message: "Your selected countries are ready. To use this license on another device, open the (☰) menu there, choose [Recover license], and enter your email."
       allCountries: "All supported countries"
       availableCountry: "available"
-      unknownPlan: "Real Countries"
+      unknownPlan: "Country Plans"
       action: "Start planning"
       videoTitle: "Tour of the Simulator"
       videoUrl: "https://tutorials.finsimlab.com/tutorials/tour.mp4"
@@ -395,7 +395,7 @@ CountryAccessCheckout:
         action: "Continue planning"
       gift:
         eyebrow: "Promo activated"
-        message: "Your promo code has been confirmed and your Real Countries are ready."
+        message: "Your promo code has been confirmed and your countries are ready."
         action: "Start planning"
         activation:
           eyebrow: "Activating your promo"
@@ -414,16 +414,16 @@ CountryAccessCheckout:
         - To get familiar with the simulator.
         - As a teaching tool.
         #### Limitations:
-        - No real country tax rules.
+        - No real-country tax models.
         - No global mobility.
         #### Upgrade to:
-        - Make projections based on real countries.
+        - Make projections using tax models of real countries.
         - Get tax rules updates while your access is active.
         - See what happens if you move to other countries.
     country_1:
       label: "Home Country"
       lines: |
-        - Get one country's real tax rules.
+        - Get one country's tax model.
         - {countryAccessGracePeriodDays}-day grace period to:
           - Try different countries.
           - Cancel and request a refund.
