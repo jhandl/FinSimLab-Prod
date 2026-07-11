@@ -465,6 +465,9 @@ CustomFeesDisableWarningModal:
 PensionContributionTooltip:
   maxStandard: ""
   maxTaxAdvantaged: ""
+  noRelief: "No tax relief on contributions; growth is tax-free."
+  unlimitedRelief: "No contribution limit. Contributions are tax-deductible up to ${maxAmount} per year."
+  reliefFloor: "The deduction is calculated on at least ${floor} of income."
 
 
 ###########################################################
