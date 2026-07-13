@@ -197,6 +197,7 @@ class MobileBurgerMenu {
     const eventsWizardToggleButton = document.getElementById('eventsWizardToggleMobile');
     const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
     const customFeesToggleButton = document.getElementById('customFeesToggleMobile');
+    const localTaxTermsToggleButton = document.getElementById('localTaxTermsToggleMobile');
     const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
     const coffeeButton = document.getElementById('coffeeButton');
     const firstDivider = document.getElementById('mobileRunDivider');
@@ -216,6 +217,7 @@ class MobileBurgerMenu {
     // Always show the Present Value toggle
     const SHOW_PRESENT_VALUE_TOGGLE = true;
     const SHOW_CUSTOM_FEES_TOGGLE = true;
+    const SHOW_LOCAL_TAX_TERMS_TOGGLE = true;
     // Show only when relocation is active and there is an effective relocation (MV to a different country).
     let SHOW_COUNTRY_TABS_SYNC_TOGGLE = false;
     try {
@@ -234,7 +236,7 @@ class MobileBurgerMenu {
     let hasSaveLoadSection = false;
     let hasHelpSection = false;
     let hasCountriesSection = false;
-    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
+    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_LOCAL_TAX_TERMS_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
 
     const showRunInMenu = visible.run === false;
     const showStatusInMenu = false;
@@ -295,6 +297,9 @@ class MobileBurgerMenu {
     }
     if (customFeesToggleButton) {
       customFeesToggleButton.style.display = SHOW_CUSTOM_FEES_TOGGLE ? 'flex' : 'none';
+    }
+    if (localTaxTermsToggleButton) {
+      localTaxTermsToggleButton.style.display = SHOW_LOCAL_TAX_TERMS_TOGGLE ? 'flex' : 'none';
     }
     if (countryTabsSyncToggleButton) {
       countryTabsSyncToggleButton.style.display = SHOW_COUNTRY_TABS_SYNC_TOGGLE ? 'flex' : 'none';

@@ -35,6 +35,9 @@ LandingHeroWhatIf:
     - investments underperform
     - the market crashes when I retire
 
+AppShell:
+  localTaxTerms: "Local Terms"
+
 WelcomeTabs:
 
   - id: start

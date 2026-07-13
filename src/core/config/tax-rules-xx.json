@@ -1,6 +1,7 @@
 {
   "country": "XX",
   "countryName": "Demo Country",
+  "language": "en",
   "version": "2026.01",
   "taxBasis": "worldwide",
   "jointFilingAllowed": false,
