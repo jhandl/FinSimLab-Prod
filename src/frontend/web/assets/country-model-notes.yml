@@ -1,0 +1,32 @@
+xx: |
+  ### Demo Country model notes
+
+  **Updated January 2026**
+
+  Demo Country is the public baseline ruleset. It exists so the simulator can
+  demonstrate income, pension, investment, and property flows without implying
+  that a real jurisdiction is selected.
+
+  Use it when a scenario is about simulator behavior rather than local legal
+  detail.
+
+  - Ordinary income tax, social insurance, capital gains tax, private pensions,
+    index funds, and shares are represented.
+  - The rules are intentionally generic and educational.
+  - Real-world filing rules, personal tax advice, and country-specific reliefs
+    are not modelled.
+
+ie: |
+  ### Ireland model notes
+
+  **Updated December 2025**
+
+  The Ireland model covers the main ordinary-income taxes, capital gains
+  treatment, pension rules, investment wrappers, and residency behavior
+  represented in the source ruleset.
+
+  - Income tax bands and credits, PRSI, USC, CGT, exit-tax treatment, pensions,
+    index funds, shares, and RSUs are represented.
+  - Scenario inputs are annual and map into the configured Irish tax families.
+  - Individual tax advice, filing elections, every relief, and niche exemptions
+    outside the source ruleset are not modelled.

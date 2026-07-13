@@ -19,7 +19,7 @@
   </script>
   <title>FinSimLab | Finance Simulation Lab</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
-  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260530-2">
+  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260711-blog-merge1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
 
@@ -39,6 +39,7 @@
           <li><a data-scroll-to="features">Features</a></li>
           <li><a data-scroll-to="how-it-works">How It Works</a></li>
           <li><a data-scroll-to="about-me">About</a></li>
+          <li data-landing-blog-nav="" hidden="" aria-hidden="true"><a data-scroll-to="blog">Blog</a></li>
         </ul>
       </nav>
     </div>
@@ -169,31 +170,45 @@
     </div>
   </section>
 
+  <section id="blog" class="landing-blog" hidden="" aria-hidden="true">
+    <div class="container">
+      <div class="landing-blog-header">
+        <h2>Blog</h2>
+      </div>
+      <div class="landing-blog-grid">
+        <a class="landing-blog-card landing-blog-card--article" href="/blog/tax-rules-authoring/">
+          <span class="landing-blog-card-label">Workflow</span>
+          <h3>How FinSimLab authors country tax rules</h3>
+          <p>The source-first process behind country models, review gates, implementation checks, and documented limitations.</p>
+        </a>
+        <a class="landing-blog-card landing-blog-card--article" href="/blog/transparent-country-models/">
+          <span class="landing-blog-card-label">Planning</span>
+          <h3>What a personal finance simulator can answer</h3>
+          <p>How to use scenarios to compare choices, stress test assumptions, and keep planning decisions grounded.</p>
+        </a>
+        <a class="landing-blog-card landing-blog-card--article" href="/blog/local-scenario-files/">
+          <span class="landing-blog-card-label">Product</span>
+          <h3>Why FinSimLab keeps your data local</h3>
+          <p>A look at the privacy tradeoffs behind browser-only scenario files and transparent calculations.</p>
+        </a>
+        <a class="landing-blog-card landing-blog-card--country" href="/countries/">
+          <span class="landing-blog-card-label">Country notes</span>
+          <h3>Country notes</h3>
+          <p>Short updates when a country model lands or when a tax-rule approximation deserves extra explanation.</p>
+        </a>
+      </div>
+      <div class="landing-blog-actions">
+        <a class="landing-blog-view-all" href="/blog/">View all articles</a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="container">
       <h2>Ready to explore your financial future?</h2>
       <a href="/lab/" class="cta-button">Launch Simulator</a>
     </div>
   </section>
-
-  <!--
-  <section class="newsletter">
-    <div class="container">
-      <div class="newsletter-content">
-        <h2>Stay Updated</h2>
-        <p>Subscribe to receive news about feature updates, financial insights, and tips for using the simulator.</p>
-        <form id="newsletter-form" class="newsletter-form">
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Your email address" required>
-            <button type="submit" class="subscribe-button">Subscribe</button>
-          </div>
-          <div id="form-message"></div>
-          <p class="privacy-note">We respect your privacy. Your email will only be used to send simulator updates.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-  -->
 
   <section id="disclaimer" class="disclaimer disclaimer-bottom">
     <div class="container">
@@ -209,7 +224,7 @@
     </div>
   </footer>
 
-  <script src="/bundle.1783768974049.js" defer=""></script>
+  <script src="/bundle.1783932268782.js" defer=""></script>
 
 
 </body></html>

@@ -2275,8 +2275,15 @@ th {
 }
 
 .priority-item.dragging {
-  opacity: 0.5;
-  background-color: #f8f9fa;
+  cursor: grabbing;
+}
+
+.priority-item.drag-source-hidden {
+  visibility: hidden;
+}
+
+.priority-item.priority-reordering {
+  transition: transform 180ms ease-out;
 }
 
 .drag-handle {

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Origin Story | FinSimLab</title>
+<meta name="description" content="How FinSimLab came to be, and how it&#39;s built.">
+<style>
+:root{color-scheme:light;--ink:#17202a;--muted:#5d6876;--line:#d9e1e8;--soft:#f4f7f9;--accent:#176e63}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:#145c88;text-decoration-thickness:.08em;text-underline-offset:.18em}a:hover{color:#0d415f}
+header.site{border-bottom:1px solid var(--line);background:#fff}nav{max-width:960px;margin:0 auto;padding:16px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav a{font-weight:650;text-decoration:none;color:var(--ink)}nav a.active{color:var(--accent)}
+main{max-width:960px;margin:0 auto;padding:44px 20px 64px}h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:0 0 16px}h2{font-size:1.45rem;margin:36px 0 12px}
+.lead{font-size:1.16rem;color:var(--muted);max-width:760px}.meta{color:var(--muted);font-size:.94rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+.card{border:1px solid var(--line);border-radius:8px;padding:18px;background:#fff}.card h2,.card h3{margin-top:0}.pill-list{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:10px 0 0;list-style:none}
+.pill-list li{border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);font-size:.9rem;background:var(--soft)}
+.note{border-left:4px solid var(--accent);padding:10px 0 10px 16px;background:linear-gradient(90deg,#eff7f5,transparent)}footer{border-top:1px solid var(--line);color:var(--muted);padding:22px 20px;text-align:center}
+</style>
+</head>
+<body>
+<header class="site"><nav><a href="/">FinSimLab</a><a href="/countries/">Countries</a><a href="/blog/" class="active">Blog</a></nav></header>
+<main>
+<article>
+<p class="meta">2026-05-24</p>
+<h1>Origin Story</h1>
+<p class="lead">How FinSimLab came to be, and how it&#39;s built.</p>
+<p>FinSimLab started its life as a Google Sheet. I live in Ireland, so I wanted to model the Irish tax system to answer questions like: </p>
+<ul>
+<li><em>Is it better to invest in a low fee but high exit tax ETF or in a lower tax but high fees Investment Trust</em>?   </li>
+<li>W<em>hat if I delay the house purchase by 5 years</em>?  </li>
+<li><em>Can my plan survive higher inflation or a market crash?</em></li>
+</ul>
+<p>Spreadsheet formulas didn’t cut it, and since I had a couple of decades of experience as a software developer, I wrote the simulator in Javascript (this was before ChatGPT). The spreadsheet provided the front-end with input fields and nice charts. I shared it in the Irish personal finance subreddit and got quite a lot of interest. I always thought about making it into a website, but I had a stressful job and a family, and it never seemed the right time.</p>
+<p>Then two things happened: I lost my job, and AI coding tools arrived. So I switched from working for someone else to working for myself, at my own pace, and having a ton of fun trying the new coding tools. I used AI to help me create a website closely mimicking the spreadsheet, plugged in the code and tax rules that ran the spreadsheet, and published it as <a href="https://finsim.ie">finsim.ie</a>, free to use and for Ireland only.</p>
+<p>Then I started considering the possibility of modeling other countries, which would open the door to experimenting with relocation scenarios and answer questions like “what if I retire earlier and move to a country with lower taxes and cost of living?” That would be valuable and open the market to the whole world. So I bought <a href="https://finsimlab.com">finsimlab.com</a> and got to work.</p>
+
+</article>
+</main>
+<footer>Static pages generated from authored FinSim Markdown.</footer>
+</body>
+</html>

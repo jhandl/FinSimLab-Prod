@@ -880,6 +880,11 @@
   flex-direction: column;
 }
 
+#countryAccessOverlay .country-access-country-list-expanded .country-access-country-group {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 #countryAccessOverlay .country-access-country-group-selected {
   background: rgba(52, 199, 132, 0.1);
 }
@@ -891,6 +896,19 @@
 #countryAccessOverlay .country-access-empty {
   color: #5f718a;
   padding: 0.75rem;
+}
+
+#countryAccessOverlay .country-access-country-row-shell {
+  display: block;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+#countryAccessOverlay .country-access-country-row-shell-expanded {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
 }
 
 #countryAccessOverlay .country-access-country-row {
@@ -908,6 +926,10 @@
   padding: 0.18rem 0.55rem;
   text-align: left;
   white-space: normal;
+}
+
+#countryAccessOverlay .country-access-country-row-has-detail {
+  padding-right: calc(0.55rem + 2.25rem);
 }
 
 #countryAccessOverlay .country-access-country-row:hover {
@@ -938,6 +960,14 @@
 
 #countryAccessOverlay .country-access-country-row-locked {
   cursor: default;
+}
+
+#countryAccessOverlay .country-access-country-row-expanded {
+  flex: 0 0 auto;
+}
+
+#countryAccessOverlay .country-access-country-label {
+  cursor: inherit;
 }
 
 #countryAccessOverlay .country-access-country-checkbox {
@@ -976,6 +1006,111 @@
   white-space: nowrap;
 }
 
+#countryAccessOverlay .country-access-country-detail-toggle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #5f718a;
+  cursor: pointer;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.25rem;
+  z-index: 1;
+  -webkit-appearance: none;
+}
+
+#countryAccessOverlay .country-access-country-detail-toggle:hover,
+#countryAccessOverlay .country-access-country-detail-toggle:focus-visible {
+  color: var(--color-button);
+}
+
+#countryAccessOverlay .country-access-country-detail-toggle:focus-visible {
+  outline: 2px solid rgba(72, 126, 204, 0.32);
+  outline-offset: -3px;
+}
+
+#countryAccessOverlay .country-access-country-detail-chevron {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  display: block;
+  height: 0.48rem;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+  width: 0.48rem;
+}
+
+#countryAccessOverlay .country-access-country-row-expanded .country-access-country-detail-chevron {
+  transform: rotate(225deg);
+}
+
+#countryAccessOverlay .country-access-country-detail {
+  animation: countryAccessCountryDetailReveal 220ms ease both;
+  background: #fff;
+  border-top: 1px solid rgba(124, 143, 169, 0.18);
+  box-sizing: border-box;
+  color: #425466;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.55rem;
+  line-height: 1.45;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.8rem 0.75rem 0.95rem;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown h1,
+#countryAccessOverlay .country-access-country-detail-markdown h2,
+#countryAccessOverlay .country-access-country-detail-markdown h3,
+#countryAccessOverlay .country-access-country-detail-markdown h4 {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown p {
+  margin: 0;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown ul,
+#countryAccessOverlay .country-access-country-detail-markdown ol {
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown li {
+  margin: 0.18rem 0;
+}
+
+#countryAccessOverlay .country-access-country-detail-markdown strong {
+  color: var(--text-color);
+}
+
+#countryAccessOverlay .country-access-country-detail-link {
+  align-self: flex-start;
+  color: var(--color-button);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+#countryAccessOverlay .country-access-country-detail-link:hover,
+#countryAccessOverlay .country-access-country-detail-link:focus-visible {
+  text-decoration: underline;
+}
+
 #countryAccessOverlay .country-access-country-meta {
   align-items: center;
   display: none;
@@ -1010,6 +1145,19 @@
 #countryAccessOverlay .country-access-country-locked {
   background: rgba(72, 126, 204, 0.12);
   color: var(--color-button);
+}
+
+@keyframes countryAccessCountryDetailReveal {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    max-height: 100%;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #countryAccessOverlay .country-access-close,
@@ -1487,6 +1635,14 @@
     transition: none;
   }
 
+#countryAccessOverlay .country-access-country-detail {
+    animation: none;
+  }
+
+#countryAccessOverlay .country-access-country-detail-chevron {
+    transition: none;
+  }
+
 #checkoutSuccessOverlay .checkout-success-mark .fa-spinner {
     animation: none;
   }
@@ -1570,6 +1726,10 @@
     padding: 0.25rem 0.65rem;
   }
 
+#countryAccessOverlay .country-access-country-row-has-detail {
+    padding-right: calc(0.65rem + 2.35rem);
+  }
+
 #countryAccessOverlay .country-access-country-checkbox {
     height: 1.25rem;
     width: 1.25rem;
@@ -1596,6 +1756,11 @@
 
 #countryAccessOverlay .country-access-country-summary {
     grid-column: 1 / -1;
+  }
+
+#countryAccessOverlay .country-access-country-detail-toggle {
+    height: 2.25rem;
+    width: 2.35rem;
   }
 
 #countryAccessOverlay .country-access-close,

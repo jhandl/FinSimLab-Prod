@@ -249,6 +249,7 @@
 /* --- Content Styles --- */
 .event-wizard-intro {
     text-align: center;
+    white-space: pre-line;
 }
 
 .wizard-question {
@@ -257,6 +258,7 @@
     color: #1f2937;
     line-height: 1.35;
     margin: 0 0 1rem 0;
+    white-space: pre-line;
 }
 
 .wizard-required-marker {
@@ -282,6 +284,7 @@
     font-size: var(--wizard-note-size);
     line-height: 1.4;
     margin: -0.35rem 0 0.85rem 0;
+    white-space: pre-line;
 }
 
 .wizard-control-stack {
@@ -307,6 +310,7 @@
     font-size: calc(var(--wizard-note-size) - 0.05rem);
     line-height: 1.4;
     margin-top: 0.85rem;
+    white-space: pre-line;
 }
 
 /* --- Input Groups --- */
@@ -323,7 +327,7 @@
     /* Allow the label to take up available space and wrap if it is long */
     flex: 1 1 auto;
     margin-right: 0.75rem;
-    white-space: normal; /* enable wrapping */
+    white-space: pre-line; /* enable wrapping + configured line breaks */
     text-align: left;
 
     /* Ensure label typography matches period description text */
@@ -582,6 +586,16 @@
     color: #666;
     margin-top: 0.5rem;
     text-align: center;
+    white-space: pre-line;
+}
+
+.wizard-percentage-total {
+    color: #666;
+    font-size: var(--wizard-body-size);
+    line-height: 1.45;
+    margin-top: 0.5rem;
+    text-align: center;
+    white-space: pre-line;
 }
 
 .event-wizard-fields {
@@ -601,6 +615,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     align-items: start;
+}
+
+.wizard-skin-guided .wizard-fields-pair {
+    align-items: stretch;
+}
+
+.wizard-skin-guided .wizard-fields-pair .event-wizard-field-row {
+    justify-content: flex-end;
 }
 
 .wizard-fields-pair > .wizard-fields-shared-note {
@@ -671,6 +693,7 @@
     font-size: 0.95rem;
     text-align: center;
     display: block;
+    white-space: pre-line;
 }
 
 .wizard-choice-index {
@@ -684,6 +707,7 @@
     color: #666;
     text-align: center;
     display: block;
+    white-space: pre-line;
 }
 
 
@@ -855,6 +879,10 @@
 }
 
 /* --- Summary Styles --- */
+.event-wizard-summary p {
+    white-space: pre-line;
+}
+
 .wizard-summary-details {
     background: #f8f9fa;
     border: 1px solid #e9ecef;

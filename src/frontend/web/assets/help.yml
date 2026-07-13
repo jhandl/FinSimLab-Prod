@@ -30,31 +30,32 @@ LandingHeroWhatIf:
     - we rent permanently
     - we downsize in retirement
     - we need major renovations
-    - we have a large  expense
+    - we have a large expense
     - we spend 10% more
     - investments underperform
+    - the market crashes when I retire
 
 WelcomeTabs:
 
   - id: start
-    title: Start
+    title: Start here
     contentType: start
     content:
-      intro: "Describe your life — work, home, family, plans — and see how your money could play out over a lifetime."
+      intro: "Describe your financial situation, your targets and plans — and see how your money could play out over a lifetime."
       quick:
         title: "Quick setup"
-        subtitle: "A rough sketch with starter values — a feel for how it all works."
+        subtitle: "A rough sketch with starter values to get a feel for how it all works."
         badge: "about 5 min"
         icon: "fa-bolt"
       full:
         title: "Full setup"
-        subtitle: "Build your real plan — every panel covered, at your own pace."
+        subtitle: "A detailed plan using your own values, with guidance every step of the way."
         badge: "about 15 min"
         icon: "fa-route"
       chipFree: "Demo Country rules"
       chipSingle: "{CountryName} tax rules"
       chipMulti: "your unlocked countries' rules"
-      privacy: "Everything you enter stays in your browser — nothing is uploaded anywhere."
+      privacy: "Everything you enter stays in your browser. Nothing is uploaded anywhere."
       explore: "or explore on your own"
 
   - id: tutorials
@@ -65,18 +66,18 @@ WelcomeTabs:
       orientation:
         label: "Walkthroughs"
         items:
-          - id: demo
-            title: "Demo scenario"
-            subtitle: "sample plan · 1 min"
-            icon: "fa-play-circle"
           - id: quick-tour
             title: "Quick tour"
-            subtitle: "the screen · 2 min"
+            subtitle: "the main areas · 2 min"
             icon: "fa-map-signs"
           - id: full-tour
             title: "Full tour"
             subtitle: "every field · your pace"
             icon: "fa-book"
+          - id: demo
+            title: "Demo scenario"
+            subtitle: "sample plan · 1 min"
+            icon: "fa-play-circle"
       videosLabel: "Video Tutorials"
       storageKey: "finsim.helpTutorialProgress"
       progressActionLabel: "Change tutorial progress"
@@ -282,7 +283,7 @@ WelcomeTabs:
         - title: "Use of AI"
           description: "This product was partially developed with AI, by a seasoned software engineer who obsesses about every little detail (me). But keep in mind that I'm not an accountant or financial advisor, nor am I able to vouch for the precision of every number used in modelling real countries. Approximations and simplifications were made, and mistakes happen. Send me feedback if you find an issue and I will do my best to correct it."
         - title: "Disclaimer"
-          description: "This is not financial advice. It's a tool to help you understand how different decisions and scenarios can affect your long term financial future. Don't make serious financial decisions without talking to a financial advisor."
+          description: "This is not financial, investment, tax, or legal advice. It's a tool to help you understand how different decisions and scenarios can affect your long term financial future. Don't make serious financial decisions without talking to a financial advisor."
 
 
 CountryAccessCheckout:
@@ -418,17 +419,17 @@ CountryAccessCheckout:
         - No global mobility.
         #### Upgrade to:
         - Make projections using tax models of real countries.
-        - Get tax rules updates while your access is active.
         - See what happens if you move to other countries.
+        - Get tax model updates while your access is active.
     country_1:
       label: "Home Country"
       lines: |
         - Get one country's tax model.
         - {countryAccessGracePeriodDays}-day grace period to:
           - Try different countries.
-          - Cancel and request a refund.
+          - Cancel and get a refund.
       description: |
-        Choose one country to unlock its tax rules and investments (you can change it during the grace period)
+        Choose one country to unlock its tax model (you can change it during the grace period)
     country_2:
       label: "Relocation"
       lines: |
@@ -436,7 +437,7 @@ CountryAccessCheckout:
         - Model relocation scenarios.
         - Same {countryAccessGracePeriodDays}-day grace period.
       description: |
-        Choose two countries to unlock their tax rules and investments (you can change them during the grace period)
+        Choose two countries to unlock their tax rules (you can change them during the grace period)
     country_all:
       label: "The World"
       lines: |
@@ -492,8 +493,10 @@ WizardSteps:
           - title: "New"
             description: "start a fresh scenario"
           - title: "Help"
-            description: "get a tour or assistance for a field"
-        footnote: "On small screens some of these move into the ☰ menu."
+            description: "get help, or assistance for a field"
+          - title: "Country Plans"
+            description: "get tax models of real countries"
+        # footnote: "On small screens some of these move into the ☰ menu."
       showButtons: ["next", "close"]
       side: "bottom"
       align: "center"
@@ -550,7 +553,7 @@ WizardSteps:
     tours: [full, mini]
     card: startingPosition
     popover:
-      description: "<p>Two-person simulation mode.</p><p>This allows you to enter separate pension pots, retirement ages, and state pension information for both people.</p><p>Income events can be assigned to either person.</p>"
+      description: "<p>Two-person simulation mode.</p><p>This allows you to enter separate pension pots, retirement ages, and pension information for a couple.</p><p>Income events can be assigned to either person.</p>"
       side: "right"
       align: "center"
       
@@ -558,7 +561,7 @@ WizardSteps:
     tours: [full, mini]
     card: startingPosition
     popover:
-      description: "<p>Select your current country of residence.</p><p>This sets the active tax rules for calculations. You can add a relocation event to move to another country, and that country's tax rules will then apply.</p>"
+      description: "<p>Select your current country of residence.</p><p>This sets the active tax rules for calculations. You can add a relocation event to move to another country (if available), and that country's tax model will then apply.</p>"
       side: "right"
       align: "start"
 
@@ -582,7 +585,7 @@ WizardSteps:
     tours: [full, mini]
     card: startingPosition
     popover:
-      description: "<p>Enter your current savings.</p><p>Any cash you have sitting in your bank accounts or safety box, not earning significant interest. In two-person mode, this represents the combined savings for both people.</p>"
+      description: "<p>Enter your current savings.</p><p>Any cash you have sitting in your bank accounts or safety box (or matress), not earning significant interest. In two-person mode, this represents the combined savings for both people.</p>"
       side: "right"
       align: "start"
   
@@ -606,7 +609,7 @@ WizardSteps:
     tours: [full, mini]
     card: startingPosition
     popover:
-      description: "<p>The current value of your ${investmentType.label} investments. It is assumed that they hold the assets specified in the Allocations panel.</p><p>${investmentType.helpText}</p>"
+      description: "<p>The current value of your ${investmentType.label} investments, if you have any.</p><p>${investmentType.helpText}</p>"
       side: "right"
       align: "start"
 
@@ -614,7 +617,7 @@ WizardSteps:
     tours: [full, mini]
     card: personalCircumstances
     popover:
-      description: "<p>Describe your personal circumstances here, as they affect your tax calculations throughout the simulation. This includes current details or future plans for marriage/partnership and children, which influence tax bands and credits.</p>"
+      description: "<p>Describe your personal circumstances here, as they affect your tax calculations throughout the simulation. This includes current details or future plans for marriage/partnership and children, which can influence tax bands and credits.</p>"
       side: "right"
       align: "start"
 
@@ -630,7 +633,7 @@ WizardSteps:
     tours: [full, mini]
     card: personalCircumstances
     popover:
-      description: "<p>The year that your oldest child was born or is expected or speculated to be born.</p><p>Your income tax band limits may increase if you have dependent children, starting when your first child is born.</p>"
+      description: "<p>The year that your oldest child was born or is expected or speculated to be born (leave empty if you don't plan to have kids).</p><p>Your income tax band limits may increase if you have dependent children, starting when your first child is born.</p>"
       side: "right"
       align: "start"
 
@@ -638,7 +641,7 @@ WizardSteps:
     tours: [full, mini]
     card: personalCircumstances
     popover:
-      description: "<p>The year that your youngest child was born or is expected or speculated to be born.</p><p>Your income tax band limits increase for dependent children may continue until your youngest child is over ${taxRules.incomeTax.dependentChildMaxAge}.</p>"
+      description: "<p>The year that your youngest child was born or is expected or speculated to be born (leave empty if you don't plan to have kids).</p><p>Your income tax band limits increase for dependent children may continue until your youngest child is over ${taxRules.incomeTax.dependentChildMaxAge}.</p>"
       side: "right"
       align: "start"
 
@@ -646,7 +649,7 @@ WizardSteps:
     tours: [full, mini]
     card: personalCircumstances
     popover:
-      description: "<p>The amount of personal tax credit you are entitled to according to your personal circumstances (widow, carer, etc).</p><p>This is separate from the employee tax credit, and doesn't factor in dependent children (refer to [this revenue page](https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/tax-relief-charts/index.aspx){tax,relief,credit,personal,exemption}).</p>"
+      description: "<p>The amount of personal tax credit you are entitled to according to your personal circumstances (widow, carer, etc).</p><p>This is separate from employment-related tax credits, and doesn't include dependent children.</p><p>Use [this official tax resource](${taxRules.helpResources.personalTaxInputs.url}) to calculate the amount.</p>"
       side: "right"
       align: "start"
 
@@ -734,7 +737,7 @@ WizardSteps:
     tours: [full, mini]
     card: Allocations
     popover:
-      description: "<p>Annual wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
+      description: "<p>The annual fee that your bank or broker charges to hold your investments. Default: ${investmentType.defaultFeeText}.</p>"
       side: "right"
       align: "start"
 
@@ -758,7 +761,7 @@ WizardSteps:
     tours: [full, mini]
     card: Allocations
     popover:
-      description: "<p>Annual pension wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
+      description: "<p>The annual fee that your pension provider charges to hold your pension. Default: ${investmentType.defaultFeeText}.</p>"
       side: "right"
       align: "start"
 
@@ -766,7 +769,7 @@ WizardSteps:
     tours: [full, mini]
     card: Allocations
     popover:
-      description: "<p>Annual pension wrapper fees reduce expected growth. Default: ${investmentType.defaultFeeText}.</p>"
+      description: "<p>The annual fee that your partner's pension provider charges to hold their pension. Default: ${investmentType.defaultFeeText}.</p>"
       side: "right"
       align: "start"
 
@@ -822,7 +825,7 @@ WizardSteps:
     tours: [full, mini]
     card: growthRates
     popover:
-      description: "<p>Variable growth mode.</p><p>In this mode, the simulator runs thousands of times using both growth rates and volatility. This provides a probability of success rather than a single outcome, accounting for market uncertainty and fluctuations. At least one of the volatility rates must be greater than 0%.</p>"
+      description: "<p>Variable growth mode.</p><p>In this mode, the simulator runs thousands of times with varying growth rates according to the volatility you specify. This provides a probability of success rather than a single outcome, accounting for market uncertainty and fluctuations. At least one of the volatility rates must be greater than 0%.</p>"
       side: "right"
       align: "center"
 
@@ -830,7 +833,7 @@ WizardSteps:
     tours: [full, mini]
     card: growthRates
     popover:
-      description: "<p>The expected average annual growth rate of <b>${investmentType.label}</b>, not adjusted for inflation.</p><p>${investmentType.helpText}</p>"
+      description: "<p>The expected average annual growth rate of <b>${investmentType.label}</b>, independent of inflation.</p><p>${investmentType.helpText}</p>"
       side: "right"
       align: "start"
 
@@ -846,7 +849,7 @@ WizardSteps:
     tours: [full, mini]
     card: growthRates
     popover:
-      description: "<p>The expected average annual growth rate of <b>${investmentType.label}</b>, not adjusted for inflation.</p><p>${investmentType.helpText}</p>"
+      description: "<p>The expected average annual growth rate of <b>${investmentType.label}</b>, independent of inflation.</p><p>${investmentType.helpText}</p>"
       side: "right"
       align: "start"
 
@@ -902,7 +905,7 @@ WizardSteps:
     card: events
     eventTypes: ["NOP"]
     popover:
-      description: "<p>The 'No Operation' is a way to mute an event without deleting it.</p><p>If you select it, the event will not be included in the simulation.</p>"
+      description: "<p>The 'No Operation' is a way to mute an event without deleting it.</p><p>If you select it, the event will not be used by the simulation.</p>"
       side: "bottom"
       align: "center"
 
@@ -912,7 +915,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI"]
     popover:
-      description: "<p>Your gross salary income.</p><p>This income will contribute to your private pension based on your pension contribution percentage.</p>"
+      description: "<p>Your gross salary income.</p><p>This income can contribute to your private pension based on your pension contribution percentage.</p>"
       side: "bottom"
       align: "center"
 
@@ -922,7 +925,7 @@ WizardSteps:
     card: events
     eventTypes: ["SInp"]
     popover:
-      description: "<p>A gross salary income that does not contribute to your pension.</p><p>This is useful for modeling salary income that doesn't qualify for pension contributions.</p>"
+      description: "<p>A gross salary income that does not contribute to your pension.</p><p>This is useful for modeling salary income that doesn't qualify for pension contributions, or in countries where there's no private pension system.</p>"
       side: "bottom"
       align: "center"
 
@@ -932,7 +935,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2"]
     popover:
-      description: "<p>A gross salary income for your partner.</p><p>This income will contribute to your partner's private pension based on their pension contribution percentage.</p>"
+      description: "<p>A gross salary income for your partner.</p><p>This income can contribute to your partner's private pension based on their pension contribution percentage.</p>"
       side: "bottom"
       align: "center"
 
@@ -942,7 +945,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2np"]
     popover:
-      description: "<p>A gross salary income for your partner that does not contribute to their pension.</p><p>This is useful for modeling salary income that doesn't qualify for pension contributions.</p>"
+      description: "<p>A gross salary income for your partner that does not contribute to their pension.</p><p>This is useful for modeling salary income that doesn't qualify for pension contributions, or in countries where there's no private pension system.</p>"
       side: "bottom"
       align: "center"
 
@@ -952,7 +955,7 @@ WizardSteps:
     card: events
     eventTypes: ["UI"]
     popover:
-      description: "<p>The gross value of Restricted Stock Units as they vest, provided by some employers as part of the compensation package.</p>"
+      description: "<p>The gross yearly value of Restricted Stock Units as they vest, provided by some employers as part of the compensation package.</p>"
       side: "bottom"
       align: "center"
 
@@ -1022,7 +1025,7 @@ WizardSteps:
     card: events
     eventTypes: ["M"]
     popover:
-      description: "<p>A mortgage on a real estate property.</p><p>Use the name-column selector to choose which property this mortgage belongs to.</p>"
+      description: "<p>A mortgage on a real estate property.</p><p>Use the name-column selector to choose which property this mortgage belongs to. Or use the Event Wizard, which creates both the property purchase and the mortgage events together. </p>"
       side: "bottom"
       align: "center"
 
@@ -1052,7 +1055,7 @@ WizardSteps:
     card: events
     eventTypes: ["MR"]
     popover:
-      description: "<p>A reverse mortgage that pays out cash while accruing a loan balance against the property value.</p>"
+      description: "<p>A reverse mortgage that pays out cash while accruing a debt against the property value.</p>"
       side: "bottom"
       align: "center"
 
@@ -1092,7 +1095,7 @@ WizardSteps:
     card: events
     eventTypes: ["RI"]
     popover:
-      description: "<p>The name of the event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the rental income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1101,7 +1104,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI"]
     popover:
-      description: "<p>The name of your salary income .</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of your salary income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1110,7 +1113,7 @@ WizardSteps:
     card: events
     eventTypes: ["SInp"]
     popover:
-      description: "<p>The name of your non-pensionable salary income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of your non-pensionable salary income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1119,7 +1122,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2"]
     popover:
-      description: "<p>The name of your partner's salary income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of your partner's salary income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1128,7 +1131,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2np"]
     popover:
-      description: "<p>The name of your partner's non-pensionable salary income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of your partner's non-pensionable salary income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1137,7 +1140,7 @@ WizardSteps:
     card: events
     eventTypes: ["UI"]
     popover:
-      description: "<p>The name of the RSU income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the RSU income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1146,7 +1149,7 @@ WizardSteps:
     card: events
     eventTypes: ["DBI"]
     popover:
-      description: "<p>The name of the Defined Benefit income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the Defined Benefit income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1155,7 +1158,7 @@ WizardSteps:
     card: events
     eventTypes: ["FI"]
     popover:
-      description: "<p>The name of the tax free income event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the tax free income.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1164,7 +1167,7 @@ WizardSteps:
     card: events
     eventTypes: ["E"]
     popover:
-      description: "<p>The name of the Expense event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the expense.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1173,7 +1176,7 @@ WizardSteps:
     card: events
     eventTypes: ["SM"]
     popover:
-      description: "<p>The name of the Stock Market event.</p><p>You can enter any name you want. It's just for your reference.</p>"
+      description: "<p>The name of the stock market event.</p><p>You can enter any name you want. It's just for your reference.</p>"
       side: "bottom"
       align: "center"
 
@@ -1182,7 +1185,7 @@ WizardSteps:
     card: events
     eventTypes: ["R"]
     popover:
-      description: "<p>The name of the Real Estate event.</p><p>You can enter any name you want. Mortgage-related events will link to this property through their selector in the name column.</p>"
+      description: "<p>The name of the property.</p><p>You can enter any name you want. Mortgage-related events will link to this property through their selector in the name column.</p>"
       side: "bottom"
       align: "center"
 
@@ -1227,7 +1230,7 @@ WizardSteps:
     card: events
     eventTypes: ["MV"]
     popover:
-      description: "<p>This cell is a destination-country selector.</p><p>Choose the country you are moving to. The simulator will apply that country's tax and economic rules from the relocation age.</p>"
+      description: "<p>This cell is a destination-country selector.</p><p>Choose the country you are moving to. The simulator will apply that country's tax and economic model starting at the relocation age.</p>"
       side: "bottom"
       align: "center"
 
@@ -1237,7 +1240,7 @@ WizardSteps:
     card: events
     eventTypes: ["MV"]
     popover:
-      description: "<p>This cell is a destination-country selector.</p><p>Choose the country you are moving to. The simulator will apply that country's tax and economic rules from the relocation age.</p>"
+      description: "<p>This cell is a destination-country selector.</p><p>Choose the country you are moving to. The simulator will apply that country's tax and economic rules starting at the relocation age.</p>"
       side: "bottom"
       align: "center"
 
@@ -1250,7 +1253,7 @@ WizardSteps:
     tours: [full, mini]
     card: events
     popover:
-      description: "<p>The yearly amount for the event.</p><p>For Real Estate, enter the cash paid at purchase: the full price for a cash purchase, or the down payment if financed. For Mortgage, enter the amount you will repay each year.</p>"
+      description: "<p>The yearly amount for the event, expressed in present value.</p><p>For Real Estate, enter the cash paid at purchase: the full price for a cash purchase, or the down payment if financed. For Mortgage, enter the amount you will repay each year.</p>"
       side: "bottom"
       align: "center"
 
@@ -1313,7 +1316,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2np"]
     popover:
-      description: "<p>The present value of your partner's gross yearly salary income.</p>"
+      description: "<p>The present value of your partner's gross yearly salary income that does not contribute to their pension.</p>"
       side: "bottom"
       align: "center"
 
@@ -1340,7 +1343,7 @@ WizardSteps:
     card: events
     eventTypes: ["FI"]
     popover:
-      description: "<p>The present value of the gross yearly income from a tax free income.</p>"
+      description: "<p>The present value of the yearly income from a tax free income.</p>"
       side: "bottom"
       align: "center"
 
@@ -1368,7 +1371,7 @@ WizardSteps:
     card: events
     eventTypes: ["R"]
     popover:
-      description: "<p>The present value of the down payment for the real estate property.</p><p>If the property is bought without a mortgage, enter the full purchase price here.</p>"
+      description: "<p>The present value of the down payment for the property.</p><p>If the property is bought without a mortgage, enter the full purchase price here.</p>"
       side: "bottom"
       align: "center"
 
@@ -1377,7 +1380,7 @@ WizardSteps:
     card: events
     eventTypes: ["M"]
     popover:
-      description: "<p>The present value of the yearly amount you will repay on the mortgage.</p><p>You can get this number from an online mortgage calculator, and multiplying the monthly repayment by 12.</p>"
+      description: "<p>The present value of the yearly amount you will repay on the mortgage.</p><p>You can get this number from an online mortgage calculator, and multiplying the monthly repayment by 12. Or you can use the events wizard, and it will calculate this value for you.</p>"
       side: "bottom"
       align: "center"
 
@@ -1386,7 +1389,7 @@ WizardSteps:
     card: events
     eventTypes: ["MO"]
     popover:
-      description: "<p>The extra yearly amount paid directly against mortgage principal.</p>"
+      description: "<p>The extra yearly amount paid on top of the mortgage.</p>"
       side: "bottom"
       align: "center"
 
@@ -1395,7 +1398,7 @@ WizardSteps:
     card: events
     eventTypes: ["MP"]
     popover:
-      description: "<p>The one-off payoff amount for the mortgage (auto-updated when linked mortgage terms change).</p>"
+      description: "<p>The one-off payoff amount for the mortgage (auto-updated when linked mortgage terms change). You can use the events wizard you calculate this value.</p>"
       side: "bottom"
       align: "center"
 
@@ -1404,7 +1407,7 @@ WizardSteps:
     card: events
     eventTypes: ["MR"]
     popover:
-      description: "<p>The yearly cash payout from the reverse mortgage.</p>"
+      description: "<p>The yearly cash payout from the reverse mortgage. You can use the events wizard you calculate this value.</p>"
       side: "bottom"
       align: "center"
 
@@ -1443,7 +1446,7 @@ WizardSteps:
     card: events
     eventTypes: ["RI"]
     popover:
-      description: "<p>The {{age_or_year}} at which the income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1452,7 +1455,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI"]
     popover:
-      description: "<p>The {{age_or_year}} at which the salary income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the salary income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1461,7 +1464,7 @@ WizardSteps:
     card: events
     eventTypes: ["SInp"]
     popover:
-      description: "<p>The {{age_or_year}} at which the salary income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the salary income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1470,7 +1473,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2"]
     popover:
-      description: "<p>The {{age_or_year}} at which the salary income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the salary income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1479,7 +1482,7 @@ WizardSteps:
     card: events
     eventTypes: ["SI2np"]
     popover:
-      description: "<p>The {{age_or_year}} at which the salary income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the salary income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1488,7 +1491,7 @@ WizardSteps:
     card: events
     eventTypes: ["UI"]
     popover:
-      description: "<p>The {{age_or_year}} at which the RSU income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the RSU income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1497,7 +1500,7 @@ WizardSteps:
     card: events
     eventTypes: ["DBI"]
     popover:
-      description: "<p>The {{age_or_year}} at which the Defined Benefit income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the Defined Benefit income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1506,7 +1509,7 @@ WizardSteps:
     card: events
     eventTypes: ["FI"]
     popover:
-      description: "<p>The {{age_or_year}} at which the tax free income event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the tax free income starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1515,7 +1518,7 @@ WizardSteps:
     card: events
     eventTypes: ["E"]
     popover:
-      description: "<p>The {{age_or_year}} at which the expense event starts.</p>"
+      description: "<p>The {{age_or_year}} at which the expense starts.</p>"
       side: "bottom"
       align: "center"
 
@@ -1698,7 +1701,7 @@ WizardSteps:
     card: events
     eventTypes: ["R"]
     popover:
-      description: "<p>The {{age_or_year}} up to and including which the property is held.</p><p>The total value of the property will be computed including mortgage repayments plus the expected appreciation and it will be sold after the {{age_or_year}} you enter here. The proceeds will be invested according to your chosen allocation</p>"
+      description: "<p>The {{age_or_year}} up to and including which the property is held.</p><p>The total value of the property will be computed including mortgage repayments plus the expected appreciation and it will be sold after the {{age_or_year}} you enter here. The proceeds will be invested according to your chosen allocation or used to purchase another property the following year.</p>"
       side: "bottom"
       align: "center"
 
@@ -1854,7 +1857,7 @@ WizardSteps:
     card: events
     eventTypes: ["SM"]
     popover:
-      description: "<p>The total percentage that the market will fall or rise in the specified period of time.</p><p>For example, to simulate an S&P500 dot-com crash when you're 40, you'd enter 40 as the starting age, and 41 as the ending age, and -40% as the rate. This will override the market growth you specified in the economy parameters with a ~29% drop per year for those two years. For a bull run, you'd use a positive growth percentage.</p><p>Keep in mind that high volatility values already imply bubbles and crashes, but it's interesting to see what happens if the crash comes at the worst time, for example [just as you retire](https://en.wikipedia.org/wiki/Retirement_spend-down){sequence risk,retirement,withdrawal,market,returns}.</p>"
+      description: "<p>The total percentage that the market will fall or rise in the specified period of time.</p><p>For example, to simulate an S&P500 dot-com crash when you're 30 years old, you'd enter 30 as the starting age, and 35 as the ending age, and -40% as the rate (the market lost ~40% in two years). This will override the market growth you specified in the economy parameters with a ~29% drop per year for those two years. For a bull run, you'd use a positive growth percentage.</p><p>Keep in mind that high volatility values already imply bubbles and crashes, but it's interesting to see what happens if the crash comes at the worst time, for example [just as you retire](https://en.wikipedia.org/wiki/Retirement_spend-down){sequence risk,retirement,withdrawal,market,returns}.</p>"
       side: "bottom"
       align: "center"
 
@@ -2066,7 +2069,7 @@ WizardSteps:
     tours: [full, mini]
     card: events
     popover:
-      description: "<p>Click the ⇅ icon to keep the table sorted by any column. Click once for ascending ▲, twice for descending ▼, thrice to stop sorting.</p>"
+      description: "<p>Click the ⇅ icon to keep the table sorted by any column. Click once for ascending ▲, twice for descending ▼, and a third time to stop sorting.</p>"
       side: "top"
       align: "center"
 
@@ -2074,7 +2077,7 @@ WizardSteps:
     tours: [full, mini]
     card: events
     popover:
-      description: "<p>Toggle to see the events in form of a table.</p><p>This view is ideal for larger screens and when you know your way around these events. It's more like a spreadsheet, where you see all the data at a glance and can modify it directly.</p>"
+      description: "<p>Toggle to see the events as a table.</p><p>This view is ideal for larger screens and when you know your way around these events. It's more like a spreadsheet, where you see all the data at a glance and can modify it directly.</p>"
       side: "bottom"
       align: "center"
 
@@ -2082,7 +2085,7 @@ WizardSteps:
     tours: [full, mini]
     card: events
     popover:
-      description: "<p>Toggle to see the events in form of expandable panels.</p><p>This view is best for smaller screens and when you're learning the ropes. When expanded, the event information is more like a form, with clear labels that make it easier to understand what they are for.</p>"
+      description: "<p>Toggle to see the events as expandable panels.</p><p>This view is best for smaller screens or when you're learning the ropes. When expanded, the event information is more like a form, with clear labels that make it easier to understand what they are for.</p>"
       side: "bottom"
       align: "center"
 
@@ -2109,7 +2112,7 @@ WizardSteps:
     tours: [quick, full]
     card: graphs
     popover:
-      description: "<p>Your financial projections over time.</p><ul><li><strong>Cashflow</strong>: income & expenses by category, with a line for your net cashflow.</li><li><strong>Assets</strong>: wealth growth and distribution across different asset types.</li></ul>"
+      description: "<p>Your financial projections over time.</p><ul><li><strong>Cashflow</strong>: income & expenses by category, with a line for your net cashflow and another one for your total expenses.</li><li><strong>Assets</strong>: wealth growth and distribution across different asset types.</li></ul>"
       side: "left"
       align: "center"
 
@@ -2158,7 +2161,7 @@ WizardSteps:
       title: "Tour Complete!"
       description: >
         <p><b>Congratulations!</b> You've completed the tour of the Finance Simulation Lab.</p>
-        <p>You can always return to this tour by clicking Help or pressing the ? key on any field.</p>
+        <p>Remember that you can always get help if you're in doubt while filling a field by clicking Help or pressing the ? key.</p>
         <p><b>Happy planning!</b> 🎯</p>
       showButtons: ["prev", "next"]
       prevBtnText: ["Back"]
