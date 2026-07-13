@@ -53,8 +53,8 @@ WelcomeTabs:
         badge: "about 15 min"
         icon: "fa-route"
       chipFree: "Demo Country rules"
-      chipSingle: "{CountryName} tax rules"
-      chipMulti: "your unlocked countries' rules"
+      chipSingle: "{CountryName} tax model"
+      chipMulti: "your unlocked countries' model"
       privacy: "Everything you enter stays in your browser. Nothing is uploaded anywhere."
       explore: "or explore on your own"
 
@@ -204,7 +204,7 @@ WelcomeTabs:
         - question: "Can couples use this together?"
           answer:
             - "Yes! Toggle to \"Two-Person Mode\" using the {icon:user-friends} icon. This allows separate incomes, pensions, and retirement ages."
-            - "The simulator applies the active country's couple or partner tax rules while keeping each person's income, pensions, and retirement timing separate."
+            - "The simulator models the active country's couple or partner tax rules while keeping each person's income, pensions, and retirement timing separate."
         - question: "What is Monte Carlo simulation?"
           answer:
             - "When in Variable Growth mode, your scenario runs thousands of times with random variations in investment returns."
@@ -215,7 +215,7 @@ WelcomeTabs:
             - "Use the color schemes ({icon:palette}) in the simulation data table to understand where your plan tends to fail." 
         - question: "How do relocation events work?"
           answer:
-            - "A Relocation event changes your country of residence from a specific point in time, so the simulator can apply the new country's tax rules and economic conditions."
+            - "A Relocation event changes your country of residence from a specific point in time, so the simulator can apply the new country's tax model and economic conditions."
             - "After you add a relocation event, some events may be impacted and show warning badges. Use the inline suggestions to resolve the issues: split events, keep original currencies, link events to a country, or convert values."
             - "Multi-country scenarios show country flags in the input areas for country-specific inputs, and may add currency selectors for the charts and the data table."
         - question: "How does currency conversion work in charts and tables?"
@@ -226,10 +226,10 @@ WelcomeTabs:
         - question: "Is the free tier based on a real country?"
           answer:
             - "No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without purchasing a Country Plan."
-            - "Only paid tiers unlock country-specific tax rules and investment wrappers. Relocation needs at least two unlocked real countries." 
+            - "Only paid tiers unlock a model of country-specific tax rules and investment wrappers. Relocation needs at least two unlocked real countries." 
         - question: "How accurate are the projections with real-country tax models?"
           answer:
-            - "Tax rules for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations."
+            - "Tax models for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations."
             - "The projections are estimates based on your inputs and assumptions about future economic conditions. Not a prediction of the future."
         - question: "Is my financial data secure?"
           answer:
@@ -290,15 +290,15 @@ CountryAccessCheckout:
 
   modal:
     title: "Country Tax Model Plans"
-    disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial advice."
+    disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial, tax, investment or legal advice."
     normalPricingBanner: "Paid plans grant one year of access, no auto-renewal. Renew any time at {renewalDiscountPercent}% off."
     normalPricingWhyLabel: "Why?"
     normalPricingWhyTitle: "Other options:"
     normalPricingWhyDescription: |
       <ol class="annual-access-options">
         <li><b>Subscription:</b> Nobody wants that.</li>
-        <li><b>Lifetime access:</b> Tax rules need to be maintained.</li>
-        <li><b>Pay for updates:</b> The app has to work with new <i>and</i> old rules.</li>
+        <li><b>Lifetime access:</b> Tax models need to be maintained.</li>
+        <li><b>Pay for updates:</b> The app has to work with new <i>and</i> old tax models.</li>
       </ol>
       <p>None of them seems fair.</p>
     foundingPricingBanner: "Founders offer: pay once for lifetime access. Every update included."
@@ -437,7 +437,7 @@ CountryAccessCheckout:
         - Model relocation scenarios.
         - Same {countryAccessGracePeriodDays}-day grace period.
       description: |
-        Choose two countries to unlock their tax rules (you can change them during the grace period)
+        Choose two countries to unlock their tax models (you can change them during the grace period)
     country_all:
       label: "The World"
       lines: |
@@ -561,7 +561,7 @@ WizardSteps:
     tours: [full, mini]
     card: startingPosition
     popover:
-      description: "<p>Select your current country of residence.</p><p>This sets the active tax rules for calculations. You can add a relocation event to move to another country (if available), and that country's tax model will then apply.</p>"
+      description: "<p>Select your current country of residence.</p><p>This sets the active tax model for calculations. You can add a relocation event to move to another country (if available), and that country's tax model will then apply.</p>"
       side: "right"
       align: "start"
 
@@ -793,7 +793,7 @@ WizardSteps:
     tours: [full, mini]
     card: Allocations
     popover:
-      description: "<p>Limit on your pension contribution. Tax relief applies only up to the annual cap defined in the current tax rules.<ul><li><b>Yes</b>: stop at the ${taxRules.pensionRules.contributionLimits.annualCap,currency} cap (inflation-adjusted).</li><li><b>No</b>: pay tax on amounts above the ${taxRules.pensionRules.contributionLimits.annualCap,currency} cap.</li><li><b>Match</b>: contribute only what your employer matches (e.g. 4% you + 4% employer).</li></ul></p>"
+      description: "<p>Limit on your pension contribution. Tax relief applies only up to the annual cap defined in the current tax model.<ul><li><b>Yes</b>: stop at the ${taxRules.pensionRules.contributionLimits.annualCap,currency} cap (inflation-adjusted).</li><li><b>No</b>: pay tax on amounts above the ${taxRules.pensionRules.contributionLimits.annualCap,currency} cap.</li><li><b>Match</b>: contribute only what your employer matches (e.g. 4% you + 4% employer).</li></ul></p>"
       side: "right"
       align: "start"
 
