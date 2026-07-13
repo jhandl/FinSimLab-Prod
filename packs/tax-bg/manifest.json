@@ -1,9 +1,9 @@
 {
   "packId": "tax-bg",
   "country": "bg",
-  "deployId": "5d97138606e00d80a5b6ce7f0c60935be9c66cce",
+  "deployId": "4c76e0195cfddaa3638b11b9a5c0692fa29e3919",
   "algorithm": "AES-256-GCM",
   "payload": "payload.enc",
-  "nonce": "ZazRtYHvsp2a-JPB",
-  "payloadSha256": "0dc9fe1468879fe449aa4b2aac9c0cab5f8b3abe43931b8c0c49c76b2d1e10be"
+  "nonce": "vSxJBF1S32e3TkwU",
+  "payloadSha256": "f9abbf38ddf4af7ebba5b5f70dd9a7ff4cf4c46884c6b0a69732ab38eb5c84d7"
 }
