@@ -41,30 +41,19 @@ WelcomeTabs:
     title: Start here
     contentType: start
     content:
-      intro: "Describe your financial situation, your targets and plans — and see how your money could play out over a lifetime."
+      intro: "See how your money could play out over a lifetime."
       quick:
         title: "Quick setup"
-        subtitle: "A rough sketch with starter values to get a feel for how it all works."
+        subtitle: "Create a rough sketch of a plan to get a feel for how it all works."
         badge: "about 5 min"
         icon: "fa-bolt"
       full:
         title: "Full setup"
-        subtitle: "A detailed plan using your own values, with guidance every step of the way."
+        subtitle: "Create a detailed plan with guidance every step of the way."
         badge: "about 15 min"
         icon: "fa-route"
-      chipFree: "Demo Country rules"
-      chipSingle: "{CountryName} tax model"
-      chipMulti: "your unlocked countries' model"
-      privacy: "Everything you enter stays in your browser. Nothing is uploaded anywhere."
-      explore: "or explore on your own"
-
-  - id: tutorials
-    title: Learn
-    excludeFromHeightCalculation: true
-    contentType: tutorials
-    content:
-      orientation:
-        label: "Walkthroughs"
+      tours:
+        label: "Not ready to enter your numbers? Look around first."
         items:
           - id: quick-tour
             title: "Quick tour"
@@ -74,11 +63,15 @@ WelcomeTabs:
             title: "Full tour"
             subtitle: "every field · your pace"
             icon: "fa-book"
-          - id: demo
-            title: "Demo scenario"
-            subtitle: "sample plan · 1 min"
-            icon: "fa-play-circle"
-      videosLabel: "Video Tutorials"
+      chipFree: "sample tax rules"
+      chipSingle: "{CountryName} tax model"
+      chipMulti: "your unlocked countries' model"
+
+  - id: tutorials
+    title: Tutorials
+    excludeFromHeightCalculation: true
+    contentType: tutorials
+    content:
       storageKey: "finsim.helpTutorialProgress"
       progressActionLabel: "Change tutorial progress"
       fullscreenPlayLabel: "Play fullscreen"
@@ -265,7 +258,7 @@ WelcomeTabs:
             - "Yes. The Events table has a toggle to switch between age-based and year-based planning. There is also a cards view that presents each event as a collapsible card, which works better on smaller screens."
         - question: "What is the fastest way to get familiar with the simulator?"
           answer:
-            - "Load the demo scenario from the Learn tab (or the Demo button in the header), run it, and explore the charts and data table. The tours and video tutorials in the Learn tab go deeper."
+            - "Load the demo scenario from the Demo button in the header, run it, and explore the charts and data table. The tours on the Start tab and the Tutorials tab go deeper."
         - question: "How do I stress-test my plan?"
           answer:
             - "Try harsher economic assumptions: raise inflation, lower investment growth, or add market crash events to the timeline, and see how robust your plan is."
@@ -469,6 +462,12 @@ PensionContributionTooltip:
   noRelief: "No tax relief on contributions; growth is tax-free."
   unlimitedRelief: "No contribution limit. Contributions are tax-deductible up to ${maxAmount} per year."
   reliefFloor: "The deduction is calculated on at least ${floor} of income."
+
+TourControls:
+  previous: "Prev"
+  next: "Next"
+  close: "Close"
+  done: "Done"
 
 
 ###########################################################
@@ -2163,6 +2162,8 @@ WizardSteps:
         <p><b>Congratulations!</b> You've completed the tour of the Finance Simulation Lab.</p>
         <p>Remember that you can always get help if you're in doubt while filling a field by clicking Help or pressing the ? key.</p>
         <p><b>Happy planning!</b> 🎯</p>
+      demoEpilogue: >
+        <p>You've been exploring a sample plan. Use New when you're ready to start your own.</p>
       showButtons: ["prev", "next"]
       prevBtnText: ["Back"]
       nextBtnText: ["Done"]

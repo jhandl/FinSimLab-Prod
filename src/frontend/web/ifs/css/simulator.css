@@ -1,4 +1,4 @@
-/* cache-version: 20260710-pension-max6 */
+/* cache-version: 20260713-welcome-tour4 */
 @import '../../common.css';
 @import 'wizard.css';
 
@@ -577,8 +577,8 @@ header.header-hidden {
   --welcome-modal-original-height: 530px;
   --welcome-modal-standard-width: var(--welcome-modal-original-width);
   --welcome-modal-standard-height: var(--welcome-modal-original-height);
-  --welcome-modal-tutorial-width: 1180px;
-  --welcome-modal-tutorial-height: 660px;
+  --welcome-modal-tutorial-width: 1140px;
+  --welcome-modal-tutorial-height: 500px;
   position: fixed;
   top: 0;
   left: 0;
@@ -780,6 +780,7 @@ header.header-hidden {
   margin: 0;
   line-height: 1.5;
   color: #4f6074;
+  text-align: center;
 }
 
 .welcome-start-cards {
@@ -877,63 +878,18 @@ header.header-hidden {
   color: #466ab0;
 }
 
-.welcome-start-footnote {
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #dfe8ee;
-  padding-top: 12px;
-}
-
-.welcome-start-privacy {
-  margin: 0;
-  color: #4f6074;
-  line-height: 1.4;
-}
-
-.welcome-start-explore {
+.welcome-start-tours-label {
   margin: 0;
   text-align: center;
-}
-
-.welcome-start-explore-link {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  color: var(--primary-color);
-}
-
-.welcome-orientation {
-  --welcome-orientation-side-padding: 20px;
-  padding: 0 var(--welcome-orientation-side-padding) 10px;
-}
-
-.welcome-orientation-label,
-.welcome-tutorials-label {
-  display: block;
-  margin: 0 0 10px;
-  color: #1f3f6a;
-  font-size: 0.8rem;
+  color: #3d536a;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 6px 0;
-  background: linear-gradient(90deg, #eef4ff 0%, #dbe8ff 50%, #eef4ff 100%);
-  border-bottom: 1px solid #cfdef4;
-}
-
-.welcome-orientation-label {
-  margin-left: calc(-1 * var(--welcome-orientation-side-padding));
-  margin-right: calc(-1 * var(--welcome-orientation-side-padding));
-  padding-left: var(--welcome-orientation-side-padding);
-  padding-right: var(--welcome-orientation-side-padding);
+  line-height: 1.35;
 }
 
 .welcome-orientation-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -1017,6 +973,7 @@ header.header-hidden {
 
 .welcome-tutorials {
   --welcome-tutorials-side-padding: clamp(14px, calc(0.61vw + 9.33px), 16px);
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: clamp(250px, calc(24.24vw + 63.33px), 330px) minmax(0, 1fr);
   column-gap: clamp(22px, calc(3.64vw - 6px), 34px);
@@ -1026,16 +983,7 @@ header.header-hidden {
   overflow: hidden;
   margin-top: 0;
   border-top: 1px solid #d8e3ef;
-  padding: 0 var(--welcome-tutorials-side-padding) 10px;
-}
-
-.welcome-tutorials-label {
-  grid-column: 1 / -1;
-  margin-left: calc(-1 * var(--welcome-tutorials-side-padding));
-  margin-right: calc(-1 * var(--welcome-tutorials-side-padding));
-  margin-bottom: 2px;
-  padding-left: var(--welcome-tutorials-side-padding);
-  padding-right: var(--welcome-tutorials-side-padding);
+  padding: 10px var(--welcome-tutorials-side-padding);
 }
 
 .tutorial-list {
@@ -1679,22 +1627,8 @@ body.modal-open {
     padding: 2px 9px;
   }
 
-  .welcome-start-footnote {
-    padding-top: 8px;
-  }
-
-  .welcome-start-privacy {
-    font-size: 0.88rem;
-    line-height: 1.32;
-  }
-
-  .welcome-start-explore-link {
-    font-size: 0.9rem;
-  }
-
-  .welcome-orientation {
-    --welcome-orientation-side-padding: 12px;
-    padding: 0 var(--welcome-orientation-side-padding) 8px;
+  .welcome-start-tours-label {
+    font-size: 0.84rem;
   }
 
   .welcome-orientation-actions {
@@ -1733,11 +1667,7 @@ body.modal-open {
     grid-template-rows: auto auto minmax(0, 1fr);
     gap: 8px;
     overflow: hidden;
-    padding: 0 var(--welcome-tutorials-side-padding) 12px;
-  }
-
-  .welcome-tutorials-label {
-    margin-bottom: 0;
+    padding: 12px var(--welcome-tutorials-side-padding);
   }
 
   .tutorial-list {
