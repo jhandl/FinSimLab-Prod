@@ -17,6 +17,9 @@
       "name": "Austria",
       "taxLabels": [ "Einkommensteuer", "Sozialversicherung", "Kapitalertragsteuer" ],
       "investmentLabels": [ "Depot/ETFs", "Krypto", "Fondspolizze" ],
+      "translations": {
+        "en": { "Einkommensteuer": "Income tax", "Sozialversicherung": "Social insurance", "Kapitalertragsteuer": "Capital gains tax (KESt)", "Depot/ETFs": "Brokerage/ETF", "Krypto": "Crypto", "Fondspolizze": "Fund policy" }
+      },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.8238,
@@ -28,6 +31,9 @@
       "name": "Belgium",
       "taxLabels": [ "Personenbelasting", "RSZ", "Meerwaarden", "Dividenden", "Roerende inkomsten" ],
       "investmentLabels": [ "Securities" ],
+      "translations": {
+        "en": { "Personenbelasting": "Personal income tax", "RSZ": "Employee social security contributions", "Meerwaarden": "Capital gains", "Dividenden": "Dividends", "Roerende inkomsten": "Income from movable property", "Securities": "Securities" }
+      },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.6159,
@@ -39,6 +45,9 @@
       "name": "Bulgaria",
       "taxLabels": [ "Данък доход", "Осигуровки", "Капиталови", "Дивиденти" ],
       "investmentLabels": [ "Рег. пазар", "Обл. активи" ],
+      "translations": {
+        "en": { "Данък доход": "Income Tax", "Осигуровки": "Social security contributions", "Капиталови": "Capital Gains", "Дивиденти": "Dividends", "Рег. пазар": "Reg. market", "Обл. активи": "Taxable assets" }
+      },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 3.4814,
@@ -182,6 +191,9 @@
       "name": "Switzerland",
       "taxLabels": [ "Bundessteuer", "Sozialabgaben", "Kapitalgewinn" ],
       "investmentLabels": [ "Wertschriften", "Lebensversicherung" ],
+      "translations": {
+        "en": { "Bundessteuer": "Direct federal tax", "Sozialabgaben": "Social contributions", "Kapitalgewinn": "Capital gains", "Wertschriften": "Securities", "Lebensversicherung": "Life insurance" }
+      },
       "currencyCode": "CHF",
       "economicData": {
         "inflation": 0.5438,
@@ -204,6 +216,9 @@
       "name": "Portugal",
       "taxLabels": [ "IRS", "Segurança Social", "Taxa solidariedade", "Mais-valias" ],
       "investmentLabels": [ "Ações/ETF", "Seguros", "Cripto" ],
+      "translations": {
+        "en": { "Segurança Social": "Social Security", "Taxa solidariedade": "Solidarity surcharge", "Mais-valias": "Capital gains", "Ações/ETF": "Shares/ETF", "Seguros": "Insurance", "Cripto": "Crypto" }
+      },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 2.1488,
@@ -248,6 +263,9 @@
       "name": "Argentina",
       "taxLabels": [ "Ganancias", "Aportes", "Cedular", "Dividendos", "Intereses" ],
       "investmentLabels": [ "Valores CNV", "CEDEARs", "Cripto" ],
+      "translations": {
+        "en": { "Ganancias": "Income tax", "Aportes": "Employee contributions", "Cedular": "Schedular tax", "Dividendos": "Dividends", "Intereses": "Interest", "Valores CNV": "CNV securities", "Cripto": "Crypto" }
+      },
       "currencyCode": "ARS",
       "economicData": {
         "inflation": 36.5161,
