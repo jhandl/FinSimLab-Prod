@@ -1,42 +1,568 @@
-LandingHeroWhatIf:
-  lines:
-    - inflation increases
-    - I retire earlier
-    - I retire later
-    - we move to <country>
-    - the market crashes
-    - I put more in the pension
-    - we increase bond allocation
-    - we buy a smaller house
-    - we delay the house purchase
-    - I buy a rental property
-    - I take a career break
-    - I get promoted
-    - I lose my job
-    - I take a career break
-    - one of us stops working
-    - I pay off my mortgage
-    - I overpay my mortgage
-    - we take a larger mortgage
-    - my partner retires earlier
-    - I live to 100
-    - I max out pension contributions
-    - the market is flat for 5 years
-    - we hold more cash
-    - we reduce spending
-    - we have a child
-    - we have another child
-    - mortgage rates rise
-    - we rent permanently
-    - we downsize in retirement
-    - we need major renovations
-    - we have a large expense
-    - we spend 10% more
-    - investments underperform
-    - the market crashes when I retire
-
 AppShell:
   localTaxTerms: "Local Terms"
+
+Simulator:
+  common:
+    yes: "Yes"
+    no: "No"
+    max: "Max"
+    maxButton: "MAX"
+    maxContributionLabel: "Contribute the maximum allowed"
+    inflation: "inflation"
+    version: "Version {version}"
+    warningTitle: "Warning"
+    information: "Information"
+  pageTitle: "Financial Simulator"
+  accessibility:
+    toggleMobileMenu: "Toggle mobile menu"
+    coffeeButton: "Buy Me A Coffee"
+  status:
+    ready: "Ready"
+    running: "Running..."
+    successPrefix: "Success "
+    runs: "{runs} runs"
+  actions:
+    runSimulation: "Run Simulation"
+    save: "Save"
+    load: "Load"
+    new: "New"
+    saveScenario: "Save Scenario"
+    loadScenario: "Load Scenario"
+    newScenario: "New Scenario"
+    help: "Help"
+    changeLog: "Change log"
+    feedback: "Feedback"
+    countryPlans: "Country Plans"
+    recoverLicense: "Recover license"
+    demo: "Demo"
+    addEvent: "Add Event"
+    showAnyway: "Show anyway"
+    cancel: "Cancel"
+    apply: "Apply"
+    ok: "OK"
+  options:
+    "Yes": "Yes"
+    "No": "No"
+    "Match": "Match"
+    "on": "on"
+    "off": "off"
+  shell:
+    tooltipsLabel: "Tooltips:"
+    runSimulationShort: "Run"
+    eventWizard: "Event Wizard"
+    introWindow: "Intro Window"
+    presentValue: "Present Value"
+    customFees: "Custom fees"
+  sections:
+    startingPosition: "Starting Position"
+    personalCircumstances: "Personal Circumstances"
+    targets: "Targets"
+    allocations: "Allocations"
+    drawdownPriorities: "Drawdown Priorities"
+    economy: "Economy"
+    events: "Events"
+    simulationData: "Simulation Data"
+  parameters:
+    currentCountry: "Current Country"
+    selectCountry: "Select country"
+    theirCurrentAge: "Their Current Age"
+    theirPensionFund: "Their Pension Fund"
+    theirRetirementAge: "Their Retirement Age"
+    marriageYear: "Marriage Year"
+    oldestChildBirthYear: "Oldest Child Birth Year"
+    youngestChildBirthYear: "Youngest Child Birth Year"
+    finalAge: "Final Age"
+    emergencyFund: "Emergency Fund"
+    labels:
+      startingAge: { neutral: "Current Age", your: "Your Current Age" }
+      initialPension: { neutral: "Pension Fund", your: "Your Pension Fund" }
+      retirementAge: { neutral: "Retirement Age", your: "Your Retirement Age" }
+      initialSavings: { neutral: "Current Savings", your: "Current Savings (Joint)" }
+    ageTooltips:
+      bornIn: "Born in {year}"
+      retireIn: "Retire in {year}"
+      targetYear: "Year {year}"
+  allocations:
+    columns:
+      allocation: "Alloc"
+      holding: "Holding"
+      fees: "Fees"
+    feeTooltip: "Annual fee reduces expected growth. Default: {default}."
+    wrapperFeeLabel: "{label} wrapper fee"
+    mix:
+      optionLabel: "Mix..."
+      optionDescription: "Configure a fixed or glidepath mix."
+      title: "Mix Strategy"
+      fixed: "Fixed"
+      glidePath: "Glide Path"
+      asset1: "Asset 1:"
+      asset2: "Asset 2:"
+      agePlaceholder: "Age"
+  economy:
+    growthRate: "Growth Rate"
+    volatility: "Volatility"
+    bondGrowthHint: "Expected annual bond yield"
+    equityGrowthHint: "Expected annual equity growth"
+    growthHint: "Expected annual growth"
+    inflation: "Inflation"
+    inflationCountry: "Inflation ({country})"
+  pensions:
+    pension: "Pension"
+    yourPension: "Your Pension"
+    theirPension: "Their Pension"
+    contributionCapped: "Pension Contrib. Capped"
+    statePension: "State Pension ({period})"
+    yourStatePension: "Your State Pension ({period})"
+    theirStatePension: "Their State Pension ({period})"
+    capOptions:
+      "Yes": "Contributions are capped at the configured annual limit."
+      "No": "Contributions are not capped at the configured annual limit."
+      "Match": "Use the pension cap setting from the linked contribution."
+  tables:
+    exportDescription: "Export data table as CSV"
+    rendering: "Rendering table"
+    mobileMessage: "📊 The detailed data table is available on wider screens."
+    withdrawalRateTooltip: "Percentage of your liquid assets ({assets} + Pension) that you're withdrawing to cover your expenses."
+    groups:
+      grossIncome: "Gross Income"
+      deductions: "Deductions"
+      netCashflow: "Net Cashflow"
+      assets: "Assets"
+    columns:
+      age: "Age"
+      ageTooltip: "Your age in this simulation year"
+      year: "Year"
+      yearTooltip: "Calendar year of the simulation"
+      grossIncome: "Gross Income"
+      grossIncomeTooltip: "Gross income columns (dynamic)"
+      pensionContribution: "P.Contrib"
+      pensionContributionTooltip: "Amount contributed to private pensions (excluding employer match)"
+      inflows: "Inflows"
+      inflowsTooltip: "Cash inflows after taxes (excludes pension contributions)"
+      outflows: "Outflows"
+      outflowsTooltip: "Total annual expenses"
+      realEstate: "R.Estate"
+      realEstateTooltip: "Total value of your owned real estate"
+      withdrawalRate: "Withdraw%"
+      withdrawalRateTooltip: "Percentage of liquid assets withdrawn to cover expenses"
+      netWorth: "Net Worth"
+      netWorthTooltip: "Your total net worth (sum of all assets)"
+  graphs:
+    graph: "Graph"
+    cashflow: "Cashflow"
+    assets: "Assets"
+  visualizations:
+    settings: "Visualisation Settings"
+    default: "Default"
+    colorScheme: "Color Scheme"
+  tooltips:
+    simModeSingle: "Single person mode"
+    simModeCouple: "Couple/partnership mode"
+    ageYearModeAge: "Show time in terms of age"
+    ageYearModeYear: "Show time in terms of year"
+    economyModeDeterministic: "Linear growth (no volatility)"
+    economyModeMonteCarlo: "Volatility mode (Monte Carlo)"
+    eventWizardToggle: "Toggle the Event Wizard for creating events."
+    introWindowToggle: "Toggle to always show the intro window on start-up or only through the Help button."
+    presentValueCurrency: "Show all values in today's {currency} (adjusted for inflation)"
+  navigation:
+    unsavedTitle: "Unsaved Changes"
+    unsavedMessage: "You have unsaved changes. Are you sure you want to navigate away and lose them?"
+  checkout:
+    canceled: "Checkout was canceled."
+    toastTitle: ""
+  welcome:
+    title: "Welcome to Your Personal Finance Lab"
+    close: "Close"
+    loadingTitle: "Welcome"
+    loadingDescription: "Loading welcome information..."
+    renderErrors:
+      missingContent: "Content is unavailable."
+      failed: "Could not render {type} content."
+      workflow: "Workflow content is unavailable."
+      bullets: "Bullet content is unavailable."
+      list: "List content is unavailable."
+      accordion: "Accordion content is unavailable."
+      tutorials: "Tutorial content is unavailable."
+      text: "Text content is unavailable."
+  errors:
+    applicationTitle: "Application Error"
+    applicationMessage: "Could not initialize application configuration. Please try again later."
+    errorTitle: "Error"
+    countryAccess: "Country access is temporarily unavailable. Please try again."
+  titles:
+    countries: "Countries"
+  validation:
+    validAges: "Please enter valid ages"
+    endBeforeStart: "End age cannot be before start age"
+    required: "{field} is required"
+    validNumber: "Please enter a valid number"
+    minimum: "{field} cannot be less than {value}{unit}"
+    maximum: "{field} cannot be greater than {value}{unit}"
+  wizard:
+    actions:
+      back: "Back"
+      next: "Next"
+      create: "Create Event"
+      cancel: "Cancel"
+    validation:
+      required: "This field is required"
+      validAmount: "Please enter a valid amount"
+      validPercentage: "Please enter a valid percentage"
+      validAge: "Please enter a valid age"
+      validNumber: "Please enter a valid number"
+      positive: "Value must be positive"
+      comparison: "Value must be {comparator} {field}"
+      comparators:
+        lt: "less than"
+        lte: "less than or equal to"
+        gt: "greater than"
+        gte: "greater than or equal to"
+    progress: "Step {current} of {total}"
+  notifications:
+    simulationFailed: "Simulation failed. See the browser console for technical details."
+    errorStatus: "Error"
+    changeLog:
+      title: "Change log"
+      seen: "seen"
+      new: "new"
+    errorTitle: "Error"
+    warningTitle: "Warning"
+    noChanges: "No changes have been recorded yet."
+    changeLogTitle: "Change log"
+    version: " (v{version})"
+    countryTaxUpdated: "{country} tax model updated{version}: {message}"
+  currencyControls:
+    local: "Local"
+    label: "Currency "
+  visualizationPresets:
+    default:
+      name: "Plain"
+      description: "No color highlighting."
+    cashflow:
+      name: "Cashflow"
+      description: |
+        ### Cashflow Health
+
+        Shows the cashflow pinch points in your plan.
+
+        - **Green**: Income covers expenses without asset sales.
+        - **Red**: Assets need to be sold to cover expenses.
+        - **Color intensity**: The size of the surplus / deficit.
+    failure:
+      name: "Failure"
+      description: |
+        ### Failure Rate
+
+        Shows where your plan is most likely to fail.
+
+        - **Green**: You're likely not running out of money this year.
+        - **Red**: You're more likely to run out of money this year.
+    survival:
+      name: "Survival"
+      description: |
+        ### Survival Rate
+
+        Shows the overall success likelihood of your plan year by year.
+
+        - **Green**: Your plan is more likely to survive up to this year.
+        - **Red**: Your plan is more likely to have failed by this year.
+  charts:
+    datasets:
+      inflows: "Inflows"
+      outflows: "Outflows"
+      salaries: "Salaries"
+      rental: "Rental"
+      rsus: "RSUs"
+      privatePension: "P.Pension"
+      statePension: "S.Pension"
+      definedBenefit: "D.Benefit"
+      taxFree: "Tax-Free"
+      cash: "Cash"
+      realEstate: "R.Estate"
+      pension: "Pension"
+    relocated: "Relocated from {fromCountry} to {toCountry}"
+  dynamicTable:
+    investmentIncomeTooltip: "Income from {label}"
+    investmentCapitalTooltip: "Total value of your {label} investments"
+    columns:
+      incomeSalaries: { label: "Salaries", tooltip: "Total salary income received this year" }
+      incomeRentals: { label: "Rentals", tooltip: "Rental income from real estate properties" }
+      incomeRsus: { label: "RSUs", tooltip: "Income from Restricted Stock Units (RSUs) vesting" }
+      incomePrivatePension: { label: "P.Pension", tooltip: "Withdrawals from private pension funds" }
+      incomeStatePension: { label: "S.Pension", tooltip: "State pension payments received" }
+      incomeDefinedBenefit: { label: "DBI", tooltip: "Defined Benefit pension income" }
+      incomeTaxFree: { label: "Tax Free", tooltip: "Tax-free income" }
+      incomeCash: { label: "Cash", tooltip: "Withdrawals from cash savings" }
+      pensionFund: { label: "Pension", tooltip: "Total value of private pension funds" }
+      cash: { label: "Cash", tooltip: "Total cash savings" }
+      realEstate: { label: "R.Estate", tooltip: "Total value of your owned real estate" }
+  feedback:
+    title: "Feedback"
+    messagePlaceholder: "What would make FinSimLab more useful for you?"
+    messageLabel: "Feedback message"
+    emailPlaceholder: "Enter your email if you would like a reply"
+    emailLabel: "Email for reply (optional)"
+    success: "Thanks. Your feedback was received."
+    actions:
+      close: "Close"
+      cancel: "Cancel"
+      submit: "Submit"
+      submitting: "Submitting..."
+      ok: "OK"
+    errors:
+      messageRequired: "Enter a message."
+      submitFailed: "Feedback was not submitted."
+    verification:
+      success:
+        title: "Email address verified"
+        message: "We can now reply to the email address you provided."
+      failure:
+        title: "Email verification failed"
+        message: "The feedback verification link is invalid, expired, or already used."
+  events:
+    invalidEvent: "Invalid event data"
+    tableView: "Table view"
+    accordionView: "Accordion view"
+    age: "Age"
+    year: "Year"
+    selectCountry: "Select country"
+    selectMortgage: "Select Mortgage"
+    selectProperty: "Select Property"
+    emptyState: "No events yet. Add events with the wizard or using the Add Event button."
+    noDetails: "No details"
+    inflationPlaceholder: "inflation"
+    relocationUnavailableTitle: "Relocation Unavailable"
+    relocationUnavailableMessage: "Relocation is not available while Sandbox is the current country."
+    sandboxDestination: "Sandbox cannot be used as a relocation destination."
+    relocationImpact: "Relocation impact"
+    headers:
+      type: "Event Type"
+      eventType: "Event Type"
+      name: "Name"
+      amount: "Amount"
+      rate: "Rate"
+      match: "Match"
+      year: "Year"
+      period: "Period"
+      age: "Age"
+      fromAge: "From Age"
+      toAge: "To Age"
+      fromYear: "From Year"
+      toYear: "To Year"
+    economicComparison:
+      title: "Economic Context"
+      metric: "Metric"
+      from: "From"
+      to: "To"
+      currency: "Currency"
+      inflation: "Inflation (%)"
+      fxRate: "FX Rate"
+      pppRate: "PPP Cross-Rate"
+      costOfLiving: "Cost of Living (PPP/FX)"
+      unavailable: "N/A"
+      conversionsFor: "Conversions for {amount} {currency}:"
+    splitTooltip:
+      latest: "latest"
+      summary: "{amount} in {currency} is {fxAmount} as of {date}.\nAdjusting for purchasing power it's ≈ {pppAmount}."
+    actions:
+      add: "Add Event"
+      expand: "Expand"
+      collapse: "Collapse"
+      delete: "Delete"
+      launchWizard: "Launch wizard to create event"
+    view:
+      tableTooltip: "Table view is ideal for larger screens and when you know your way around these events."
+      cardsTooltip: "Cards view is best for smaller screens and while you're learning the ropes."
+    yearMode:
+      currentAgeTitle: "Current Age Needed"
+      currentAgeMessage: "Please enter your current age in order to switch to year mode."
+      currentAgeRequired: "Current age is required"
+    eventTypes:
+      salary:
+        - { code: "SI", singleLabel: "Salary Income", jointLabel: "Your Salary" }
+        - { code: "SInp", singleLabel: "Salary (no pension)", jointLabel: "Your Salary (no pension)" }
+        - { code: "SI2", singleLabel: null, jointLabel: "Their Salary" }
+        - { code: "SI2np", singleLabel: null, jointLabel: "Their Salary (no pension)" }
+      labels: { NOP: "No Operation", UI: "RSU Income", RI: "Rental Income", DBI: "Defined Benefit Income", FI: "Tax-free Income", E: "Expense", R: "Real Estate", M: "Mortgage", MO: "Mortgage Overpay", MP: "Mortgage Payoff", MR: "Reverse Mortgage", SM: "Stock Market", MV: "Relocation" }
+      relocationDescription: "Move to another country"
+    picker:
+      title: "Choose Event Type"
+      subtitle: "Select the type of event you want to create:"
+      property: "Property"
+      propertyTitle: "Property Events"
+      propertySubtitle: "Select the property event you want to create:"
+      back: "Back"
+      cancel: "Cancel"
+    validation:
+      validAmount: "Please enter a valid amount"
+      validAge: "Please enter a valid age"
+      validPercentage: "Please enter a valid percentage"
+    period:
+      from: "from {unit} {value}"
+      at: "at {unit} {value}"
+      range: "{unit} {from}-{to}"
+      units: { age: "age", year: "year" }
+      pluralUnits: { age: "ages", year: "years" }
+  eventsWizard:
+    sandboxDestination: "Sandbox cannot be used as a relocation destination."
+    summaryUnavailable: "Event details will be shown here."
+    unnamedEvent: "Unnamed Event"
+    fields:
+      destinationCountry: "Destination country"
+      eventName: "Event name"
+      relocationCost: "Relocation cost (enter 0 if none)"
+      amount: "Amount"
+      startAge: "Starting age/year"
+    validation:
+      relocationCost: "Please enter a valid relocation cost (enter 0 if none)."
+      amount: "Please enter a valid amount"
+      startAge: "Please enter a valid starting age/year"
+      endAge: "Please enter a valid ending age/year"
+      rate: "Please enter a valid rate"
+      marketGrowth: "Market growth value is required"
+      match: "Please enter a valid match percentage"
+      definedBenefitUnsupported: "Defined Benefit income is not supported in the residence country at the selected starting age."
+    mortgage:
+      termYears: "Term (years)"
+      interestRate: "Interest Rate (%)"
+      propertyValue: "Property Value:"
+      downPayment: "Down Payment:"
+      loanAmount: "Loan Amount:"
+      monthlyPayment: "Monthly Payment:"
+      annualPayment: "Annual Payment:"
+    summary:
+      frequencies: { oneoff: "one-off", weekly: "weekly", monthly: "monthly", yearly: "annual" }
+      inflationGrowth: { property: ", appreciating at the inflation rate", other: ", growing at the inflation rate" }
+      annualGrowth: { propertyUp: ", appreciating at {rate}% per year", propertyDown: ", depreciating at {rate}% per year", otherUp: ", growing at {rate}% per year", otherDown: ", shrinking at {rate}% per year" }
+      employerMatch: ", employer matches up to {match}%"
+      period:
+        from: "from {unit} {from}"
+        at: "at {unit} {from}"
+        range: "from {unit} {from} to {unit} {to}"
+        units: { age: "age", year: "year" }
+      labels:
+        startAge: "{prefix} Age"
+        startYear: "{prefix} Year"
+        prefixes: { from: "From", to: "To" }
+  dataTable:
+    defaultScenarioName: "scenario"
+    exportFilename: "{scenario}_simulation-data.csv"
+    csvDescription: "CSV Files"
+    noData: "No data to export. Please run a simulation first."
+    exportFailed: "The data table could not be exported."
+    errorTitle: "Error"
+  files:
+    defaultScenarioName: "my scenario"
+    demoScenarioName: "demo"
+    autosaveName: "Autosave"
+    savePrompt: "Save scenario as (file name):"
+    shareText: "FinSim scenario"
+    csvDescription: "CSV Files"
+    ready: "Ready"
+    confirmLoad:
+      title: "Confirm Load"
+      message: "Loading a new scenario will overwrite any unsaved changes. Are you sure you want to proceed?"
+    iosSave:
+      title: "Save Scenario"
+      instructions: "Choose a filename, then tap Save."
+    actions:
+      close: "Close"
+      cancel: "Cancel"
+      save: "Save"
+    errors:
+      title: "Error"
+      save: "The scenario could not be saved."
+      load: "Error loading file: Please make sure this is a valid simulation save file."
+      demo: "Error loading demo scenario '{name}'. Please check the browser console for details."
+    access:
+      expired: "Your previous country access bundle expired. Renew access to load this scenario."
+      expiredTitle: "Country Access Expired"
+      requiredTitle: "Country Plan Required"
+      lockedCountries: "This scenario requires countries that are not unlocked: {countries}."
+    relocation:
+      unresolvedEvent: "This event is marked as unresolved. Resolve the relocation impact warnings before running."
+      missingStartCountry: "This scenario uses relocation but does not define StartCountry."
+      sandboxStart: "Sandbox cannot be used as the starting country for relocation scenarios."
+      sandboxDestination: "Sandbox cannot be used as a relocation destination."
+      unlockTwo: "This scenario uses relocation. Unlock at least two countries to load relocation scenarios."
+  relocation:
+    reviewTitle: "Events Need Review"
+    reviewMessage: "Click the warning badges (⚠️) on affected events to resolve them."
+    ageChanged: "Relocation age changed from {fromAge} to {toAge}."
+    ageChangedUpdate: "Relocation age changed from {fromAge} to {toAge}. Do you want to update the events?"
+    orphanSplit: "This split no longer matches any relocation boundary."
+    orphanRental: "This rental income was created for a relocation that no longer exists."
+    orphanSalePlan: "This sale or payoff plan was tied to a relocation that no longer exists."
+    orphanSaleTiming: "This sale timing was tied to a relocation that no longer exists."
+    part2Suggestion: "Part 1 amount changed. Suggested Part 2 value: {value}."
+    suggestionDrifted: "You decided to leave the original Part 2 value last time, but the suggested value has drifted further now."
+    suggestionFormulaChanged: "The suggested Part 2 value changed because the suggestion formula changed."
+    suggestionEconomicDataChanged: "The suggested Part 2 value changed due to updated economic data."
+    pensionConflict: "This salary is in {destinationCountry}, which has no private pension system."
+    dbiConflictWithOrigin: "This defined benefit income is in {destinationCountry}, which does not support DBI. It can continue only if linked to the immediate origin country ({originCountry}) and that origin supports DBI."
+    dbiConflict: "This defined benefit income is in {destinationCountry}, which does not support DBI."
+    boundaryQuestion: "What should happen with this {noun} after your move to {destinationCountry}?"
+    jurisdictionChange: "This {noun} moved from {originCountry} to {destinationCountry}. Keep as {originCurrency} or change to {destinationCurrency}?"
+    nonPensionableSalary: "Are you converting this salary to a non-pensionable salary after your move to {destinationCountry}?"
+    propertyRelevant: "Is this {noun} in {country} still relevant?"
+    eventRelevant: "Is this {noun} still relevant after your move to {destinationCountry}?"
+    impactDetected: "Relocation impact detected for this event."
+    nouns:
+      expense: "expense"
+      property: "property"
+      mortgage: "mortgage"
+      income: "income"
+  relocationAssistant:
+    beforeMove: "Before move"
+    afterMove: "After move"
+    inCountry: "In {country}"
+    destinationCountry: "destination country"
+    firstHalfAmount: "the first-half amount"
+    impactDetected: "Relocation impact detected for this event."
+    resolutionActionsLabel: "Resolution actions"
+    conversion:
+      latest: "latest"
+      detailsTitle: "Conversion details:"
+      fxSeries: "• FX uses year-specific rates (step function). Falls back to base FX (data as of {date}) when year data is unavailable."
+      fxBase: "• FX uses the base rate (data as of {date}) because no year-specific series is available."
+      pppSeries: "• PPP uses year-specific values when available; otherwise it extrapolates from base PPP using CPI differentials."
+      pppBase: "• PPP uses the base value adjusted by CPI differentials."
+      projection: "• Forward projections beyond available data use a {years}-year weighted average."
+      summary: "{amount} in {currency} is {fxAmount} (data as of {date}).\nAdjusting for purchasing power it's ≈ {pppAmount}."
+    actions:
+      keepProperty: { label: "Keep property", tooltip: "Keep this property after relocation." }
+      rentOut: { label: "Rent out", tooltip: "Keep the property and start renting it out after the relocation. Estimated rental income: {amount} {currency}." }
+      sellProperty: { label: "Sell property", tooltip: "Sell the property when relocating." }
+      keepDebt: { label: "Keep debt", tooltip: "Continue paying the mortgage in {currency}. You will be subject to exchange rate fluctuations." }
+      payOff: { label: "Pay off", tooltip: "Fully repay the remaining balance of the mortgage at the time of relocation." }
+      splitEvent: { label: "Split event", tooltip: "Splits this event at the move. The second half will start with a PPP-adjusted value of {amount} {currency}." }
+      cutShort: { label: "Cut short", tooltip: "End this event before relocation." }
+      keepEvent: { label: "Keep as is", tooltip: "Let this event continue unchanged after the relocation (keeping its current value of {amount} {currency})." }
+      convertSalary: { label: 'Convert to "Salary (no pension)"', tooltip: "Converts this to a non-pensionable salary event." }
+      removeEvent: { label: "Remove", tooltip: "Delete this event." }
+      linkOrigin: { label: "Link to origin country", tooltip: "Links this defined benefit income to {country} so it can continue as origin-country DBI." }
+      keepRenting: { label: "Keep renting", tooltip: "Keep this rental income event unchanged." }
+      removeRental: { label: "Remove", tooltip: "Delete this rental income event." }
+      keepReviewed: { label: "Keep as is", tooltip: "Ignore this impact and keep the event as it is." }
+      changePropertyCountry: { label: "Change to {country}", tooltip: "Changes the jurisdiction to {country} and updates the value to {amount} {currency} using average housing price-per-square-meter data." }
+      changePropertyCountryNoData: { label: "Change to {country}", tooltip: "Changes the jurisdiction to {country}. The amount stays unchanged because housing price data is unavailable." }
+      linkIncome: { label: "Link to {country}", tooltip: "Links this income stream to {country} for source-country taxation. Amount stays unchanged." }
+      applySuggested: { label: "Apply suggested amount", tooltip: "Updates the amount to {amount} ({currency}) so it reflects purchasing power in {country}." }
+      keepCurrentValue: { label: "Keep as is", tooltip: "Keeps the current value ({amount}) in {currency}. No conversion will occur." }
+      keepCurrency: { label: "Keep as {currency}", tooltip: "Maintains {currency} for this event, linked to {country}." }
+      joinPrevious: { label: "Join with previous", tooltip: "Rejoins this segment with the previous one while keeping later segments linked." }
+      changeCurrency: { label: "Change to {currency}", tooltip: "Changes currency to {currency} and links to {country}." }
+      updateSplitFormula: { label: "Update value", tooltip: "Updates Part 2 to {amount} {currency} using the latest split-suggestion formula." }
+      updateSplitPpp: { label: "Update value", tooltip: "Updates the Part 2 value to {amount} {currency} based on current PPP data." }
+      leaveSplitValue: { label: "Leave as is", tooltip: "Keep Part 2 at its current value." }
+      adaptSplitAge: { label: "Adapt split age", tooltip: "Updates Part 1 to end at age {part1Age} and Part 2 to start at age {part2Age}." }
+      leaveSplitAge: { label: "Leave as is", tooltip: "Keep both halves at their current ages. The split remains linked and will be marked as reviewed." }
+      adaptSaleAge: { label: "Adapt sale age", tooltip: "Aligns the sale with relocation by setting To Age to {age}." }
+      leaveSaleAge: { label: "Leave as is", tooltip: "Keep the current sale timing and mark this impact as reviewed." }
+      keepSaleTiming: { label: "Keep current timing", tooltip: "Keep the current timing and detach this real-estate workflow from the deleted relocation." }
+      restoreMortgage: { label: "Restore mortgage plan", tooltip: "Restores the base mortgage timing and removes relocation-linked payoff rows when possible." }
+      joinHalves: { label: "Join halves", tooltip: "Restores a single event from age {fromAge} to {toAge} using {amount}." }
 
 WelcomeTabs:
 
@@ -45,6 +571,8 @@ WelcomeTabs:
     contentType: start
     content:
       intro: "See how your money could play out over a lifetime."
+      contextPrefix: ", using "
+      contextSuffix: "."
       quick:
         title: "Quick setup"
         subtitle: "Create a rough sketch of a plan to get a feel for how it all works."
@@ -308,6 +836,7 @@ CountryAccessCheckout:
 
   modal:
     title: "Country Tax Model Plans"
+    active: "Active"
     disclaimer: "**DISCLAIMER:** For educational use only. Tax rules are simplified. Not financial, tax, investment or legal advice."
     normalPricingBanner: "Paid plans grant one year of access, no auto-renewal. Renew any time at {renewalDiscountPercent}% off."
     normalPricingWhyLabel: "Why?"
@@ -320,6 +849,9 @@ CountryAccessCheckout:
       </ol>
       <p>None of them seems fair.</p>
     foundingPricingBanner: "Founders offer: pay once for lifetime access. Every update included."
+    pricing:
+      oneTimeSuffix: " once"
+      returningDiscount: "returning customer −{percent}%"
     recoveryNudgeEnabled: true
     recoveryNudgeTitle: "Recover Existing License"
     recoveryNudge: "Already purchased? Recover your license before checkout to avoid creating a duplicate license on a new device."
@@ -353,12 +885,14 @@ CountryAccessCheckout:
           openingStripe: "Opening Stripe..."
     recovery:
       title: "Recover license"
+      errorTitle: "License Recovery Failed"
       copy: "Enter the same email you used with Stripe and we'll send a recovery link if it matches a valid license."
       emailLabel: "Stripe email"
       emailPlaceholder: "name@example.com"
       validationError: "Enter the email you used at checkout."
       sentToast: "If we found a matching license, a recovery link is on its way."
       rateLimited: "A recovery link was sent recently. Please wait a few minutes before requesting another one."
+      requestFailed: "The recovery request could not be completed. Please try again."
       tokenExpired: "This recovery link has expired. Open the (☰) menu and choose Recover license to request a new recovery link."
       tokenUsed: "This recovery link has already been used. Open the (☰) menu and choose Recover license to request a new recovery link."
       cooldownActive: "This license was recently restored on another browser or device. Try again after {date}."
@@ -367,6 +901,9 @@ CountryAccessCheckout:
         cancel: "Cancel"
         send: "Send link"
         sending: "Sending..."
+    currentAccess:
+      founding: "Founding lifetime access"
+      expires: "Expires: {date}"
     gift:
       title: "Redeem promo code"
       copyAbove: "Enter your email and we'll send a secure link to finish redeeming this promo code."
@@ -394,6 +931,12 @@ CountryAccessCheckout:
       countryUpdate: "Country Update Failed"
       billingPortal: "Billing Portal Unavailable"
       cancelRefund: "Cancellation Failed"
+    errorMessages:
+      checkout: "Checkout is temporarily unavailable. Please try again."
+      tierChange: "The tier change could not be completed. Please try again."
+      countryUpdate: "The country selection could not be updated. Please try again."
+      billingPortal: "Billing details are temporarily unavailable. Please try again."
+      cancelRefund: "The cancellation could not be completed. Please try again."
     success:
       eyebrow: "Checkout complete"
       message: "Your selected countries are ready. To use this license on another device, open the (☰) menu there, choose [Recover license], and enter your email."
@@ -419,6 +962,25 @@ CountryAccessCheckout:
         activation:
           eyebrow: "Activating your promo"
           message: "Waiting for promo confirmation. This usually takes a few seconds."
+
+  countryList:
+    empty: "No countries match your filters."
+    sortSelected: "Move selected countries to the top"
+    pendingRenewal: "Pending renewal"
+    hideNotes: "Hide {country} model notes"
+    showNotes: "Show {country} model notes"
+    readArticle: "Read full article"
+    bulk:
+      all: "All listed countries selected; click to deselect all"
+      none: "No listed countries selected; click for individual selection"
+      individual: "Select countries individually; click to select all listed countries"
+    aria:
+      selected: "selected"
+      changesAtRenewal: "changes apply at renewal"
+      pendingRenewal: "pending renewal"
+      selectionLimit: "selection limit reached"
+      notesExpanded: "model notes expanded"
+      notesAvailable: "model notes available"
 
   tiers:
     free:
@@ -487,6 +1049,10 @@ PensionContributionTooltip:
   noRelief: "No tax relief on contributions; growth is tax-free."
   unlimitedRelief: "No contribution limit. Contributions are tax-deductible up to ${maxAmount} per year."
   reliefFloor: "The deduction is calculated on at least ${floor} of income."
+  tableHeaders:
+    maximum: ["Age", "Contrib"]
+    entered: ["Age", "Max", "You"]
+    available: ["Age", "Max"]
 
 TourControls:
   previous: "Prev"
@@ -2193,3 +2759,214 @@ WizardSteps:
       prevBtnText: ["Back"]
       nextBtnText: ["Done"]
       nextBtnClass: ["done"]
+
+CoreCopy:
+  common:
+    unknown: "Unknown"
+    unknownCountry: "Unknown country"
+  status:
+    running: "Running"
+    runningProgress: "Running..."
+    success: "Success!"
+    monteCarloSuccess: "Success {percent}%"
+    madeItTo: "Made it to {age}"
+    failedAtAge: "Failed at age {age}"
+    checkErrors: "Check errors"
+    initializing: "Initializing"
+    preparingToSave: "Preparing to save"
+  errors:
+    configurationLoad: "Can't load configuration file"
+    globalTaxModelLoad: "Can't load global tax model configuration file"
+    missingRulesetCurrency: "Missing ruleset currency for country: {country}"
+    currencyCountryMismatch: "Currency/country mismatch: {currency} does not match {country} ({expectedCurrency})"
+    currencyConversion: "Currency conversion failed - check economic data for {sourceCurrency} to {targetCurrency}"
+    noCachedRulesetCountry: "No cached ruleset country found for currency {currency} (preferred country: {preferredCountry})"
+    startCountryRequired: "StartCountry is required"
+    unknownRelocationCountry: "Unknown relocation country: {countries}"
+    missingCountryInputs: "Missing per-country inputs ({details})"
+    missingCountryAllocations: "allocations: {countries}"
+    missingCountryPensionContributions: "pension contributions: {countries}"
+    economicRegimeConfiguration: "The economic regime configuration could not be loaded."
+    definedBenefitTaxModelUnsupported: "Tax model error: Defined Benefit behaviour is not supported in {country}."
+    definedBenefitTaxTreatmentUnknown: "Tax model error: Unknown DBI treatment '{treatment}'."
+  notifications:
+    taxModelUpdatedTitle: "Tax model updated for {country}:"
+  modes:
+    age: "age"
+    year: "year"
+  fields:
+    pensionContributionPercentage: "Pension Contribution Percentage"
+    partnerPensionContributionPercentage: "Partner Pension Contribution Percentage"
+    wrapperFee: "Wrapper Fee"
+  eventTypes:
+    noOperation: "Non-operation: make the simulation ignore an event without needing to remove the line"
+    salarySingle: "Salary Income"
+    salaryP1: "Salary Income (You)"
+    salaryNoPensionSingle: "Salary Income (no pension)"
+    salaryNoPensionP1: "Your Salary (no pension)"
+    salaryP2: "Salary Income (Them, Pensionable)"
+    salaryNoPensionP2: "Salary Income (Them, no pension)"
+    rsuIncome: "RSU Income"
+    rentalIncome: "Rental Income"
+    definedBenefitIncome: "Defined Benefit Pension Income"
+    taxFreeIncome: "Tax-free Income"
+    expense: "Expense"
+    realEstate: "Real Estate"
+    mortgage: "Mortgage"
+    mortgageOverpay: "Mortgage Overpay"
+    mortgagePayoff: "Mortgage Payoff"
+    reverseMortgage: "Reverse Mortgage"
+    stockMarket: "Stock Market"
+    relocation: "Relocation"
+  validation:
+    requiredField: "Required field"
+    occupationalPensionMinimumAge: "Only occupational pension schemes allow retirement before age {age}."
+    privatePensionMinimumAge: "Private pensions don't normally allow retirement before age {age}."
+    p1RetirementAgeRequired: "Person 1 Retirement Age is required if Person 1 Current Age is provided."
+    p1CurrentAgeRequired: "Person 1 Current Age is required if Person 1 Retirement Age is provided."
+    p2CurrentAgeRequired: "Person 2 Current Age is required if any Person 2 detail is provided."
+    p2RetirementAgeRequired: "Person 2 Retirement Age is required if any Person 2 detail is provided."
+    allocationsMaximum: "{labels} allocations can't exceed 100%"
+    volatilityRequired: "At least one volatility rate must be greater than 0% in variable growth mode"
+    volatilityRequiredForAssets: "At least one of Pension, {labels} volatility must be > 0% in variable growth mode"
+    eventMissingColon: "Invalid event format: missing colon."
+    invalidEventType: "Invalid event type. Valid types are: {validTypes}"
+    relocationDestinationRequired: "Relocation destination country is required."
+    propertyNameDuplicate: "The property name '{property}' is already in use. Each property must have a unique name."
+    propertyPurchaseMissing: "No property purchase event was found for '{property}'."
+    propertyPurchaseMultiple: "There are multiple property purchase events named '{property}'. Keep exactly one."
+    mortgageStartAge: "The mortgage and property purchase must start at the same age."
+    mortgageEndAge: "The mortgage end age cannot be later than the property sale age."
+    mortgageDuplicate: "Only one mortgage event is allowed for '{property}'."
+    mortgageOverpayRequiresMortgage: "A mortgage overpayment requires exactly one mortgage event for '{property}'."
+    mortgageOverpayStart: "Mortgage overpay cannot start before the mortgage starts."
+    mortgageOverpayEnd: "Mortgage overpay cannot extend beyond the mortgage end."
+    mortgagePayoffRequiresMortgage: "A mortgage payoff requires exactly one mortgage event for '{property}'."
+    mortgagePayoffOneOff: "Mortgage payoff must be a one-off event (from/to age must match)."
+    mortgagePayoffAge: "The mortgage payoff age must match the mortgage end age."
+    mortgagePayoffDuplicate: "Only one mortgage payoff event is allowed for '{property}'."
+    reverseMortgageRequiresProperty: "A reverse mortgage requires exactly one property purchase event for '{property}'."
+    reverseMortgageStart: "Reverse mortgage cannot start before the property is purchased."
+    reverseMortgageEnd: "Reverse mortgage cannot extend beyond the property sale."
+    reverseMortgageOverlap: "Reverse mortgage starts before the regular mortgage is fully paid off."
+    reverseMortgageDuplicate: "Only one reverse mortgage event is allowed for '{property}'."
+    rentalPropertyMissing: "Couldn't find a property event for rental income '{property}'."
+    rentalPropertyMultiple: "Found multiple property events with the name '{property}'."
+    rentalIncomeStart: "Rental income cannot start before the property purchase."
+    rentalIncomeEnd: "Rental income cannot extend beyond the property sale."
+    rentalIncomeDuplicate: "A property can only have one rental income event. Property '{property}' already has one."
+    eventEndBeforeStart: "End {mode} can't be before start {mode}"
+    nonNegativeNumber: "Please enter a valid non-negative number"
+    eventTimeFarFuture: "{mode} seems very far in the future ({years} years from now)"
+    eventTimeFarPast: "{mode} seems very far in the past ({years} years ago)"
+    targetAfterCurrentAge: "Target age must be greater than current age"
+    p1PensionContributionOverMaximum: "You can contribute more than 100% but you won't get tax relief on the excess"
+    p2PensionContributionOverMaximum: "They can contribute more than 100% but they won't get tax relief on the excess"
+    number: "Please enter a valid number"
+    percentageMinimum: "{field} cannot be less than {value}{unit}"
+    percentageMaximum: "{field} cannot be greater than {value}{unit}"
+    eventRequired: "At least one event is required (e.g., salary income or expenses)"
+    definedBenefitLinkedCountryUnsupported: 'Defined Benefit Income event "{event}" links to {linkedCountry}, which does not support DBI.'
+    definedBenefitMissingOrigin: 'Defined Benefit Income event "{event}" is not supported in {residenceCountry} and has no immediate relocation-origin country link.'
+    definedBenefitStaleOrigin: 'Defined Benefit Income event "{event}" links to {linkedCountry}, but only the immediate origin country ({originCountry}) can continue DBI in {residenceCountry}.'
+    definedBenefitResidenceUnsupported: 'Defined Benefit Income event "{event}" is not supported in {residenceCountry}, which does not support DBI.'
+  table:
+    pensionContributionShort: "P.Contrib"
+    pensionContributionTooltip: "Amount contributed to private pensions (excluding employer match)"
+    foreignTaxLabel: "{label} ({country})"
+    foreignTaxTooltip: "{tooltip} paid to {country}"
+    taxPaidToCountry: "Tax paid to {country}"
+  attribution:
+    people:
+      you: "You"
+      partner: "Your Partner"
+    descriptors:
+      salary: "salary"
+      rsuIncome: "RSU income"
+      rentalIncome: "rental income"
+      privatePensionIncome: "private pension income"
+      statePensionIncome: "state pension income"
+      cashWithdrawal: "cash withdrawal"
+      definedBenefitIncome: "defined benefit income"
+      pensionContribution: "pension contribution"
+      sharedHouseholdIncome: "shared household income"
+      sourceForPerson: "{source} (P{person})"
+    income:
+      salary: "Salary"
+      rental: "Rental"
+      sharedHousehold: "Shared household income"
+      cashWithdrawal: "Cash Withdrawal"
+    pension:
+      private: "Private Pension"
+      privateForPerson: "Private Pension P{person}"
+      state: "State Pension"
+      yourPrivate: "Your Private Pension"
+      partnerPrivate: "Their Private Pension"
+      yourState: "Your State Pension"
+      partnerState: "Their State Pension"
+      yourRelief: "Your Pension Relief"
+      partnerRelief: "Their Pension Relief"
+      lumpSum: "Pension Lump Sum P{person}"
+      lumpSumExcess: "Pension Lump Sum Excess P{person}"
+      drawdown: "Pension Drawdown P{person}"
+      withdrawal: "Pension Withdrawal P{person}"
+    investment:
+      income: "{label} Income"
+      disposalGain: "{label} Disposal Gain"
+      sale: "{label} Sale"
+      simulation: "{label} Sim"
+      deemedIncome: "{label} Deemed Income"
+      accrual: "{label} Accrual"
+      interest: "{label} Interest"
+      dividend: "{label} Dividend"
+      deemedDisposal: "Deemed Disposal"
+    realEstate:
+      sale: "Sale ({property})"
+      mortgageSettlement: "Mortgage Settlement ({property})"
+      reverseMortgageSettlement: "Reverse Mortgage Settlement ({property})"
+      reverseMortgageWriteOff: "Reverse Mortgage Write-off ({property})"
+      propertySale: "Property Sale ({property})"
+      propertySaleTax: "Property Sale Tax ({property})"
+      cashPurchase: "Cash Purchase ({property})"
+      downpayment: "Downpayment ({property})"
+      purchase: "Purchase ({property})"
+      relocation: "Relocation ({event})"
+      mortgage: "Mortgage ({property})"
+      mortgagePayoff: "Mortgage Payoff ({property})"
+      mortgageOverpay: "Mortgage Overpay ({property})"
+      reverseMortgage: "Reverse Mortgage ({property})"
+    tax:
+      generic: "Tax"
+      incomeTax: "Income Tax"
+      incomeTaxForSource: "{source} Income Tax"
+      program: "{program} Tax"
+      programForSource: "{program} {source} Tax"
+      label: "{label} tax"
+      describedLabel: "{label} {descriptor} tax"
+      interestWithholding: "Interest Withholding"
+      dividendWithholding: "Dividend Withholding"
+      capitalGainsWithholding: "Capital Gains Withholding"
+      externalTax: "External Tax"
+      withholding: "Withholding"
+      annualWrapperTax: "Annual Wrapper Tax"
+      foreignTaxCredit: "Foreign Tax Credit"
+      taxCredit: "Tax Credit"
+      returnClawback: "Return Clawback"
+      capitalGainsTax: "Capital Gains Tax"
+      cgtRelief: "CGT Relief"
+      emigrationExitTax: "Emigration Exit Tax"
+    capital:
+      bought: "Bought"
+      sold: "Sold"
+      principal: "Principal"
+      profitLoss: "P/L"
+      gains: "{label} Gains"
+      cash: "Cash"
+      pensions: "Pensions"
+      realEstate: "Real Estate"
+      realEstateCountry: "Real Estate {country}"
+      investment: "Investment {investment}"
+    netIncome:
+      grossIncome: "Gross income"
+      cashWithdrawals: "Cash withdrawals"
+      deductions: "Deductions"

@@ -57,7 +57,7 @@
     },
     "cy": {
       "name": "Cyprus",
-      "taxLabels": [ "Εισόδημα", "Social Contributions", "Άμυνα", "Κεφαλαιουχικά" ],
+      "taxLabels": [ "Εισόδημα", "Κοινωνικές εισφορές", "Άμυνα", "Κεφαλαιουχικά" ],
       "investmentLabels": [ "Τίτλοι", "Καινοτόμες" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -68,7 +68,7 @@
     },
     "cz": {
       "name": "Czechia",
-      "taxLabels": [ "Příjmy", "Social Contributions", "Prodej" ],
+      "taxLabels": [ "Příjmy", "Sociální a zdravotní pojištění", "Prodej" ],
       "investmentLabels": [ "DIP", "Cenné papíry", "Krypto", "Stavebko" ],
       "currencyCode": "CZK",
       "economicData": {
@@ -79,7 +79,7 @@
     },
     "de": {
       "name": "Germany",
-      "taxLabels": [ "ESt", "Social Contributions", "Abgeltungsteuer" ],
+      "taxLabels": [ "ESt", "Sozialversicherung", "Abgeltungsteuer" ],
       "investmentLabels": [ "Depot" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -101,7 +101,7 @@
     },
     "ee": {
       "name": "Estonia",
-      "taxLabels": [ "Tulumaks", "Social Contributions", "II/III sammas", "Kapitalikasum" ],
+      "taxLabels": [ "Tulumaks", "Sotsiaalmaksed", "II/III sammas", "Kapitalikasum" ],
       "investmentLabels": [ "Tavakonto", "Investeerimiskonto" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -112,7 +112,7 @@
     },
     "fi": {
       "name": "Finland",
-      "taxLabels": [ "valtionvero", "Social Contributions", "kunnallisvero", "Additional Taxes", "pääomatulo" ],
+      "taxLabels": [ "valtionvero", "Sosiaalivakuutusmaksut", "kunnallisvero", "Muut verot", "pääomatulo" ],
       "investmentLabels": [ "suorat sijoitukset", "osakesäästötili", "PS / eläkevakuutus", "sijoitusvakuutus / kapitalisaatio" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -123,7 +123,7 @@
     },
     "fr": {
       "name": "France",
-      "taxLabels": [ "IR", "Social Contributions", "CEHR", "PFU", "IFI" ],
+      "taxLabels": [ "IR", "Cotisations sociales", "CEHR", "PFU", "IFI" ],
       "investmentLabels": [ "Livrets", "PEA", "Assurance-vie", "PEE/Pereco", "Hors enveloppe" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -134,7 +134,7 @@
     },
     "hr": {
       "name": "Croatia",
-      "taxLabels": [ "Porez na dohodak", "Social Contributions", "Kapitalni dobici", "Kamate", "Dividende" ],
+      "taxLabels": [ "Porez na dohodak", "Doprinosi", "Kapitalni dobici", "Kamate", "Dividende" ],
       "investmentLabels": [ "III. stup", "Fondovi", "Štednja" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -167,7 +167,7 @@
     },
     "lu": {
       "name": "Luxembourg",
-      "taxLabels": [ "barème", "Social Contributions", "plus-values", "intérêts" ],
+      "taxLabels": [ "barème", "Cotisations sociales", "plus-values", "intérêts" ],
       "investmentLabels": [ "compte-titres", "compte à intérêts", "Épargne-logement" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -203,7 +203,7 @@
     },
     "es": {
       "name": "Spain",
-      "taxLabels": [ "IRPF", "Social Contributions", "Dividendos", "Intereses", "Ahorro", "Patrimonio" ],
+      "taxLabels": [ "IRPF", "Cotizaciones sociales", "Dividendos", "Intereses", "Ahorro", "Patrimonio" ],
       "investmentLabels": [ "Fondos", "PIAS", "Valores" ],
       "currencyCode": "EUR",
       "economicData": {
@@ -228,7 +228,7 @@
     },
     "pl": {
       "name": "Poland",
-      "taxLabels": [ "PIT", "Social Contributions", "danina solidarnościowa", "PIT-38", "kapitały pieniężne" ],
+      "taxLabels": [ "PIT", "Składki społeczne", "danina solidarnościowa", "PIT-38", "kapitały pieniężne" ],
       "investmentLabels": [ "PIT-38", "kapitały pieniężne", "IKE", "OIPE", "IKZE", "PPE", "PPK" ],
       "currencyCode": "PLN",
       "economicData": {
@@ -239,7 +239,7 @@
     },
     "se": {
       "name": "Sweden",
-      "taxLabels": [ "kommunal/statlig", "allmän pensionsavgift", "Additional Taxes", "kapital" ],
+      "taxLabels": [ "kommunal/statlig", "allmän pensionsavgift", "Avgifter", "kapital" ],
       "investmentLabels": [ "ISK", "KF", "Depå", "Fondkonto" ],
       "currencyCode": "SEK",
       "economicData": {
@@ -250,7 +250,7 @@
     },
     "us": {
       "name": "United States",
-      "taxLabels": [ "Federal Income Tax", "Social Contributions", "Capital Gains" ],
+      "taxLabels": [ "Federal Income Tax", "Payroll Taxes", "Capital Gains" ],
       "investmentLabels": [ "Equity Brokerage", "Bond Brokerage" ],
       "currencyCode": "USD",
       "economicData": {

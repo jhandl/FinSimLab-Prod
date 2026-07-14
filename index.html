@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><!-- Generated page template: copy comes from landing.yml. Run npm run render:pages after template or copy changes. --><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -19,8 +19,8 @@
   </script>
   <title>FinSimLab | Finance Simulation Lab</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
-  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260711-blog-merge1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preload" href="/src/frontend/web/landing/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260714-copy1">
   <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
 
   
@@ -28,6 +28,19 @@
 
 </head>
 <body>
+  <svg class="landing-icon-sprite" aria-hidden="true">
+    <symbol id="landing-icon-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M7 15l4-4 3 2 5-6"></path></symbol>
+    <symbol id="landing-icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"></path></symbol>
+    <symbol id="landing-icon-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3zM9 12l2 2 4-5"></path></symbol>
+    <symbol id="landing-icon-bolt" viewBox="0 0 24 24"><path d="M13 2L5 14h6l-1 8 9-13h-6V2z"></path></symbol>
+    <symbol id="landing-icon-shuffle" viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M17 4l3 3-3 3M4 17h3c2 0 3-2 4-4M16 7h4M17 14l3 3-3 3"></path></symbol>
+    <symbol id="landing-icon-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 9h18M9 4v16M15 4v16"></path></symbol>
+    <symbol id="landing-icon-code" viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6M14 3l-4 18"></path></symbol>
+    <symbol id="landing-icon-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 15c-2-2-3-4-2-7a6 6 0 0112 0c1 3 0 5-2 7l-1 1H9l-1-1z"></path></symbol>
+    <symbol id="landing-icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20c0-4 2-7 6-7s6 3 6 7M15 14c4 0 6 2 6 6"></path></symbol>
+    <symbol id="landing-icon-heart" viewBox="0 0 24 24"><path d="M12 20S4 16 4 9a4 4 0 018-2 4 4 0 018 2c0 7-8 11-8 11z"></path></symbol>
+    <symbol id="landing-icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></symbol>
+  </svg>
   <header>
     <div class="container">
       <div class="logo">
@@ -53,13 +66,7 @@
         </div>
         <h3 class="hero-what-if-line" data-landing-what-if-line="" data-ready="false" aria-live="polite"></h3>
         <h2>Your Personal Finance Lab</h2>
-        <p>A private sandbox for exploring life, investing, and retirement scenarios across countries, all in your browser. Start free, then unlock real-country tax models when needed.
-
-
-
-
-
-        </p>
+        <p>A private sandbox for exploring life, investing, and retirement scenarios across countries, all in your browser. Start free, then unlock real-country tax models when needed.</p>
         <a href="/lab/" class="cta-button">Start Planning</a>
       </div>
       <div class="hero-image">
@@ -78,32 +85,32 @@
       <h2>Key Features</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-chart"></use></svg></div>
           <h3>Scenario Planning</h3>
           <p>Model your financial future with customisable life events and economic conditions.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-globe"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-globe"></use></svg></div>
           <h3>Multi-Country Tax Engine</h3>
           <p>Local taxes for multiple countries are modeled. See what happens when you move to another country.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-shield"></use></svg></div>
           <h3>Private by Design</h3>
           <p>Your scenario data stays on your device. We don't ask you to connect your bank account. We only get your email if you buy a license.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-bolt"></use></svg></div>
           <h3>Stress Testing</h3>
           <p>Test your financial plan against market crashes and adverse economic conditions.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-random"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-shuffle"></use></svg></div>
           <h3>Success Likelihood</h3>
           <p>Understand the probability of success with volatility-based simulations.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-table"></i></div>
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-table"></use></svg></div>
           <h3>Data Deep Dive</h3>
           <p>See a detailed year-by-year breakdown of the numbers. Hover to see where each number comes from.</p>
         </div>
@@ -160,11 +167,11 @@
       <h2>About</h2>
       <div class="about-content">
         <div class="about-text">
-          <p><i class="fas fa-code"></i><span>I'm a software developer with a passion for financial literacy and an itch I needed to scratch.</span></p>
-          <p><i class="fas fa-lightbulb"></i><span>When I started my investment journey I hired a financial advisor who gave me sound advice and a view of my financial future with nice charts and data. But the engineer in me wanted to play with the numbers and see how they impacted the outcome.</span></p>
-          <p><i class="fas fa-table"></i><span>I first built a google sheet and <a href="https://www.reddit.com/r/irishpersonalfinance/comments/hl59bt/im_sharing_my_ireland_retirement_simulator/" target="_blank" rel="noopener noreferrer">shared it on reddit</a>, but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website.</span></p>
-          <p><i class="fas fa-users"></i><span>I believe that everyone should have access to tools that help them improve their financial understanding for more productive conversations with professional advisors.</span></p>
-          <p><i class="fas fa-heart"></i><span>I hope this tool helps you as much as it helped me.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-code"></use></svg><span>I'm a software developer with a passion for financial literacy and an itch I needed to scratch.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-bulb"></use></svg><span>When I started my investment journey I hired a financial advisor who gave me sound advice and a view of my financial future with nice charts and data. But the engineer in me wanted to play with the numbers and see how they impacted the outcome.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-table"></use></svg><span>I first built a google sheet and <a href="https://www.reddit.com/r/irishpersonalfinance/comments/hl59bt/im_sharing_my_ireland_retirement_simulator/" target="_blank" rel="noopener noreferrer">shared it on reddit</a>, but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-users"></use></svg><span>I believe that everyone should have access to tools that help them improve their financial understanding for more productive conversations with professional advisors.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-heart"></use></svg><span>I hope this tool helps you as much as it helped me.</span></p>
         </div>
       </div>
     </div>
@@ -213,7 +220,7 @@
   <section id="disclaimer" class="disclaimer disclaimer-bottom">
     <div class="container">
       <div class="disclaimer-simple">
-        <p><i class="fas fa-info-circle"></i> <strong>Educational Purpose Only:</strong> This is not a budgeting tool nor financial, investment, tax, or legal advice. Don't make serious life decisions based on this. It's not a substitute for a good financial advisor.</p>
+        <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-info"></use></svg> <strong>Educational Purpose Only:</strong> This is not a budgeting tool nor financial, investment, tax, or legal advice. Don't make serious life decisions based on this. It's not a substitute for a good financial advisor.</p>
       </div>
     </div>
   </section>
@@ -224,7 +231,8 @@
     </div>
   </footer>
 
-  <script src="/bundle.1784051519441.js" defer=""></script>
+  <script id="landing-runtime-config" type="application/json">{"prompts":["inflation increases","I retire earlier","I retire later","we move to \u003ccountry>","the market crashes","I put more in the pension","we increase bond allocation","we buy a smaller house","we delay the house purchase","I buy a rental property","I take a career break","I get promoted","I lose my job","one of us stops working","I pay off my mortgage","I overpay my mortgage","we take a larger mortgage","my partner retires earlier","I live to 100","I max out pension contributions","the market is flat for 5 years","we hold more cash","we reduce spending","we have a child","we have another child","mortgage rates rise","we rent permanently","we downsize in retirement"],"countriesByCode":{"xx":"Sandbox","at":"Austria","be":"Belgium","bg":"Bulgaria","cy":"Cyprus","cz":"Czechia","de":"Germany","dk":"Denmark","ee":"Estonia","fi":"Finland","fr":"France","hr":"Croatia","ie":"Ireland","it":"Italy","lu":"Luxembourg","nl":"The Netherlands","ch":"Switzerland","es":"Spain","pt":"Portugal","pl":"Poland","se":"Sweden","us":"United States","ar":"Argentina"},"blogEnabled":false,"backgrounds":["/src/frontend/web/landing/backgrounds/ar01.png","/src/frontend/web/landing/backgrounds/ar02.png","/src/frontend/web/landing/backgrounds/ar05.png","/src/frontend/web/landing/backgrounds/at01.png","/src/frontend/web/landing/backgrounds/ch01.png","/src/frontend/web/landing/backgrounds/cz01.png","/src/frontend/web/landing/backgrounds/de01.jpg","/src/frontend/web/landing/backgrounds/es01.png","/src/frontend/web/landing/backgrounds/fr01.png","/src/frontend/web/landing/backgrounds/fr02.png","/src/frontend/web/landing/backgrounds/gb01.png","/src/frontend/web/landing/backgrounds/gr01.png","/src/frontend/web/landing/backgrounds/ie01.png","/src/frontend/web/landing/backgrounds/ie03.png","/src/frontend/web/landing/backgrounds/ie04.png","/src/frontend/web/landing/backgrounds/it01.png","/src/frontend/web/landing/backgrounds/nl01.jpg","/src/frontend/web/landing/backgrounds/pt01.png","/src/frontend/web/landing/backgrounds/xx01.png","/src/frontend/web/landing/backgrounds/xx02.png","/src/frontend/web/landing/backgrounds/xx03.png","/src/frontend/web/landing/backgrounds/xx04.png","/src/frontend/web/landing/backgrounds/xx05.png","/src/frontend/web/landing/backgrounds/xx06.png"],"backgroundSettings":{"_startImage":"xx01.png","ar01.png":{"position":{"x":52.19,"y":0},"zoom":1.05},"ar02.png":{"position":{"x":0,"y":100},"zoom":1},"ar05.png":{"position":{"x":50,"y":66.63},"zoom":1},"at01.png":{"position":{"x":50,"y":34.35},"zoom":1},"ch01.png":{"position":{"x":0,"y":43.39},"zoom":1.2},"cz01.png":{"position":{"x":50,"y":100},"zoom":1},"de01.jpg":{"position":{"x":50,"y":9.46},"zoom":1},"es01.png":{"position":{"x":0,"y":51.89},"zoom":1.1},"fr01.png":{"position":{"x":50,"y":100},"zoom":1},"fr02.png":{"position":{"x":50,"y":0},"zoom":1},"gb01.png":{"position":{"x":50,"y":100},"zoom":1},"gr01.png":{"position":{"x":50,"y":100},"zoom":1},"ie01.png":{"position":{"x":77.54,"y":85.41},"zoom":1.85},"ie03.png":{"position":{"x":100,"y":73.77},"zoom":1.2},"ie04.png":{"position":{"x":50.64,"y":50},"zoom":1},"it01.png":{"position":{"x":50,"y":100},"zoom":1},"nl01.jpg":{"position":{"x":50,"y":0},"zoom":1},"pt01.png":{"position":{"x":50,"y":36.48},"zoom":1},"xx01.png":{"position":{"x":23.25,"y":100},"zoom":1.2},"xx02.png":{"position":{"x":0,"y":100},"zoom":1.2},"xx03.png":{"position":{"x":50,"y":100},"zoom":1},"xx04.png":{"position":{"x":50,"y":100},"zoom":1},"xx05.png":{"position":{"x":0,"y":100},"zoom":1.4},"xx06.png":{"position":{"x":100,"y":100},"zoom":1.15}}}</script>
+  <script src="/bundle.1784062437485.js" defer=""></script>
 
 
 </body></html>

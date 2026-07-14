@@ -11,6 +11,25 @@ window.addEventListener('error', function (event) {
   console.error('Global error handler:', event.error ? event.error.stack : event.message);
 });
 
+function getLabCopy() {
+  return window.driver.js.getHelpData().Simulator;
+}
+
+function interpolateLabCopy(template, values) {
+  return String(template).replace(/\{([^}]+)\}/g, function (_, key) {
+    if (!Object.prototype.hasOwnProperty.call(values, key)) throw new Error('Missing copy substitution: ' + key);
+    return String(values[key]);
+  });
+}
+
+function updateTooltipToggleText(textSpan, state) {
+  const copy = getLabCopy();
+  textSpan.textContent = copy.shell.tooltipsLabel + ' ';
+  const strong = document.createElement('strong');
+  strong.textContent = copy.options[state];
+  textSpan.appendChild(strong);
+}
+
 // Application Identity Initialization
 (function () {
   async function applyAppName() {
@@ -438,12 +457,11 @@ class MobileBurgerMenu {
     if (newState === 'on') {
       icon.classList.remove('fa-toggle-off');
       icon.classList.add('fa-toggle-on');
-      textSpan.innerHTML = 'Tooltips: <strong>on</strong>';
     } else {
       icon.classList.remove('fa-toggle-on');
       icon.classList.add('fa-toggle-off');
-      textSpan.innerHTML = 'Tooltips: <strong>off</strong>';
     }
+    updateTooltipToggleText(textSpan, newState);
 
     // Store the state in localStorage for persistence
     localStorage.setItem('experimentalFeatureState', newState);
@@ -538,12 +556,11 @@ class MobileBurgerMenu {
       if (savedState === 'on') {
         icon.classList.remove('fa-toggle-off');
         icon.classList.add('fa-toggle-on');
-        textSpan.innerHTML = 'Tooltips: <strong>on</strong>';
       } else {
         icon.classList.remove('fa-toggle-on');
         icon.classList.add('fa-toggle-off');
-        textSpan.innerHTML = 'Tooltips: <strong>off</strong>';
       }
+      updateTooltipToggleText(textSpan, savedState);
 
       // Dispatch initial event for any listeners
       window.dispatchEvent(new CustomEvent('experimentalFeatureToggle', {
@@ -646,7 +663,8 @@ function applyHeaderResponsiveAttributes(mode, brand, run) {
   }
   const runLabel = document.querySelector('#runSimulation span');
   if (runLabel) {
-    const nextLabel = run === 'short' ? 'Run' : 'Run Simulation';
+    const copy = getLabCopy();
+    const nextLabel = run === 'short' ? copy.shell.runSimulationShort : copy.actions.runSimulation;
     if (runLabel.textContent !== nextLabel) runLabel.textContent = nextLabel;
   }
 }
@@ -1123,7 +1141,8 @@ function initializeAdaptiveLayoutObservers() {
 
 window.updateLabAdaptiveLayout = updateLabAdaptiveLayout;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await window.driver.js.loadHelpData();
   generateHeaderResponsiveCSS();
   updateLabAdaptiveLayout();
   initializeAdaptiveLayoutObservers();
@@ -1393,7 +1412,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Welcome Modal & Global Toggle Manager
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+  await window.driver.js.loadHelpData();
   const toggle = document.getElementById('welcomeModalToggleMobile');
   if (!toggle) return;
 
@@ -1420,7 +1440,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
           tooltipText = (typeof textOrProvider === 'function') ? textOrProvider() : textOrProvider;
         } catch (_) {
-          tooltipText = (typeof textOrProvider === 'string') ? textOrProvider : "Show all values in today's currency (adjusted for inflation)";
+          throw new Error('Toggle tooltip provider failed');
         }
         const tt = TooltipUtils.showTooltip(tooltipText, el, { isMobile: true });
         setTimeout(() => TooltipUtils.hideTooltip(tt), 2000);
@@ -1433,7 +1453,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const presentValueToggle = document.getElementById('presentValueToggleMobile');
   if (typeof TooltipUtils !== 'undefined') {
     if (eventsToggle) {
-      attachToggleTooltip(eventsToggle, 'Toggle the Event Wizard for creating events.');
+      attachToggleTooltip(eventsToggle, getLabCopy().tooltips.eventWizardToggle);
     }
     if (presentValueToggle) {
       attachToggleTooltip(presentValueToggle, function () {
@@ -1465,14 +1485,14 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (_) { }
           }
 
-          const cc = currencyCode || 'currency';
-          return "Show all values in today's " + cc + " (adjusted for inflation)";
-        } catch (_) {
-          return "Show all values in today's currency (adjusted for inflation)";
+          return interpolateLabCopy(getLabCopy().tooltips.presentValueCurrency, { currency: currencyCode });
+        } catch (error) {
+          console.error('Present-value tooltip failed:', error);
+          throw error;
         }
       });
     }
-    attachToggleTooltip(toggle, 'Toggle to always show the intro window on start-up or only through the Help button.');
+    attachToggleTooltip(toggle, getLabCopy().tooltips.introWindowToggle);
   }
 
   window.dispatchEvent(new CustomEvent('welcomeModalToggle', {

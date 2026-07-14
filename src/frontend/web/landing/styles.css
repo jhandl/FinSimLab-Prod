@@ -1,7 +1,13 @@
 /* Shared design tokens (colors, shadows, radii, gradients) */
 @import '../common.css';
-/* Import refined typography */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('./fonts/inter-latin-variable.woff2') format('woff2');
+}
 
 /* Landing-page color palette, surfaces, and scales */
 :root {
@@ -170,6 +176,20 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.landing-icon-sprite {
+  display: none;
+}
+
+.landing-icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* Section base - consistent cohesive background */
@@ -559,8 +579,12 @@ nav ul li a:hover {
   line-height: 1.6;
 }
 
-.disclaimer-simple i {
+.disclaimer-simple .landing-icon {
   color: var(--primary-400);
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.12em;
   margin-right: var(--space-2);
 }
 
@@ -626,8 +650,9 @@ nav ul li a:hover {
   box-shadow: var(--shadow-cta);
 }
 
-.feature-icon i {
-  font-size: var(--text-2xl);
+.feature-icon .landing-icon {
+  width: 1.5rem;
+  height: 1.5rem;
   color: white;
 }
 
@@ -906,11 +931,11 @@ nav ul li a:hover {
   opacity: 1;
 }
 
-.about-text p i {
+.about-text p > .landing-icon {
   color: var(--primary-500);
-  font-size: var(--text-lg);
   flex-shrink: 0;
   width: 24px;
+  height: 24px;
   text-align: center;
   margin-top: 2px;
 }
