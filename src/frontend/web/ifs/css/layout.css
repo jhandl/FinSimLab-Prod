@@ -157,6 +157,11 @@ main[data-layout-mode="params-events"] .graph-container {
 }
 
 /* Make canvas responsive */
+.chart-canvas-frame {
+  position: absolute;
+  inset: 0;
+}
+
 .graph-container canvas {
   width: 100% !important;
   height: 100% !important;
@@ -167,11 +172,98 @@ main[data-layout-mode="params-events"] .graph-container {
 }
 
 /* Adjust canvas for graph containers with HTML titles */
+.graph-container.has-html-title .chart-canvas-frame {
+  top: 3.5rem;
+}
+
 .graph-container.has-html-title canvas {
-  top: 3.5rem !important;
-  height: calc(100% - 3.5rem) !important;
+  top: 0 !important;
+  height: 100% !important;
   padding-top: 0 !important;
   padding-bottom: 1.35rem !important;
+}
+
+.chart-html-legend {
+  display: none;
+}
+
+.graph-container.chart-compact-layout {
+  display: grid;
+  grid-template-rows: 3.5rem 230px auto;
+  min-height: 390px;
+  max-height: none;
+  padding: 0 0.75rem 0.65rem;
+}
+
+.graph-container.chart-compact-layout .chart-canvas-frame,
+.graph-container.chart-compact-layout.has-html-title .chart-canvas-frame {
+  position: relative;
+  inset: auto;
+  grid-row: 2;
+  min-width: 0;
+  min-height: 230px;
+}
+
+.graph-container.chart-compact-layout canvas,
+.graph-container.chart-compact-layout.has-html-title canvas {
+  top: 0 !important;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 0.5rem 0.35rem !important;
+}
+
+.graph-container.chart-compact-layout .chart-html-legend {
+  display: block;
+  grid-row: 3;
+  padding: 0.45rem calc(var(--chart-plot-right) + 0.5rem) 0 calc(var(--chart-plot-left) + 0.5rem);
+}
+
+.chart-html-legend ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(0.9rem, 4vw, 1.5rem);
+  row-gap: 0.4rem;
+  width: fit-content;
+  max-width: 100%;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.chart-html-legend li {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.4rem;
+  color: var(--text-color);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.chart-html-legend li > span:last-child {
+  overflow-wrap: anywhere;
+}
+
+.chart-html-legend-swatch {
+  width: 1.4rem;
+  height: 0.72rem;
+  flex: 0 0 auto;
+  border: 2px solid;
+}
+
+.chart-html-legend-swatch.line {
+  height: var(--legend-line-width);
+  border-width: 0;
+  background: var(--legend-line-color) !important;
+}
+
+.chart-html-legend-swatch.line.dashed {
+  background: repeating-linear-gradient(
+    to right,
+    var(--legend-line-color) 0 var(--legend-dash-length),
+    transparent var(--legend-dash-length) calc(var(--legend-dash-length) + var(--legend-gap-length))
+  ) !important;
 }
 
 

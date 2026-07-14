@@ -13,7 +13,7 @@ GuidedCopy:
   mortgageDownPaymentShareDefault: 20
   mortgageRateDefault: 3.5
   interviewOpeners:
-    free: "Rough or even made-up numbers work fine. The Demo Country is a sandbox."
+    free: "Rough or even made-up numbers work fine. This sandbox uses fictional tax rules."
     entitled: "Ballpark figures are fine. You can refine everything later."
   events:
     singleSalaryName: "Salary"

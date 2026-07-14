@@ -1,4 +1,4 @@
-/* cache-version: 20260713-welcome-tour4 */
+/* cache-version: 20260714-fit-parameter-labels */
 @import '../../common.css';
 @import 'wizard.css';
 
@@ -31,8 +31,8 @@
   --input-field-border: 1px;
   --events-line-divider: 0px;
   --card-header-border-width: 1px;
-  --parameters-panel-field-width: 115px;
-  --starting-position-field-width: var(--parameters-panel-field-width);
+  --parameters-panel-field-width: 100px;
+  --alloc-holds-toggle-max-width: var(--parameters-panel-field-width);
 
   /* Header positioning control */
   --header-height: 60px;
@@ -772,8 +772,8 @@ header.header-hidden {
 .welcome-start {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 18px 20px 14px;
+  gap: 20px;
+  padding: 18px 10px 14px;
 }
 
 .welcome-start-intro {
@@ -1542,8 +1542,20 @@ body.modal-open {
   }
 }
 
+@media (min-width: 769px) {
+  .welcome-tab-content[data-tab="notes"] {
+    padding-top: 30px;
+  }
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
+  .welcome-modal-content:not(.tutorial-mode) {
+    position: absolute;
+    top: max(7.5vh, calc((100vh - var(--welcome-modal-standard-height)) / 2));
+    top: max(7.5dvh, calc((100dvh - var(--welcome-modal-standard-height)) / 2));
+  }
+
   .welcome-modal-content {
     border-radius: 8px;
     max-height: 85dvh;
@@ -1595,7 +1607,7 @@ body.modal-open {
 
   .welcome-start {
     gap: 10px;
-    padding: 10px 12px 8px;
+    padding: 5px 5px 8px;
   }
 
   .welcome-start-intro {
@@ -1629,6 +1641,7 @@ body.modal-open {
 
   .welcome-start-tours-label {
     font-size: 0.84rem;
+    margin-inline: -5px;
   }
 
   .welcome-orientation-actions {
@@ -1830,6 +1843,17 @@ label {
 #personalCircumstances .input-wrapper > label {
   white-space: normal;
   line-height: 1.15;
+}
+
+@media (max-width: 768px) {
+  #startingPosition .input-wrapper[data-fit-label-row="true"] > label,
+  #personalCircumstances .input-wrapper[data-fit-label-row="true"] > label,
+  #Targets .input-wrapper[data-fit-label-row="true"] > label {
+    flex: 1 1 var(--label-width);
+    min-width: 0;
+    overflow: visible;
+    text-overflow: clip;
+  }
 }
 
 #startingPosition .input-wrapper input:not([type="hidden"]),
@@ -2305,21 +2329,19 @@ th {
   text-overflow: clip;
 }
 
-#Allocations .input-wrapper[data-allocations-row="true"] > label .alloc-label-text {
+/* Shared overflow-driven label wrapping for compact form rows. */
+.fit-label-text {
   min-width: 0;
-  /* Prefer staying on one line; JS flips to wrap only when needed */
   white-space: nowrap;
   display: block;
   overflow: hidden;
   text-overflow: clip;
 }
 
-#Allocations .input-wrapper[data-allocations-row="true"] > label .alloc-label-text.alloc-wrap {
+.fit-label-text.fit-label-wrap {
   white-space: normal;
-  /* Slight reduction only (must still wrap when triggered) */
   font-size: 0.82rem;
   line-height: 1.0rem;
-  /* Show up to 2 lines; JS inserts a hard break to guarantee wrapping */
   display: block;
   max-height: 2.0rem;
   overflow: hidden;
@@ -2408,7 +2430,7 @@ th {
 #Allocations .alloc-holds-toggle.pseudo-select {
   width: auto !important;
   min-width: 72px;
-  max-width: var(--starting-position-field-width);
+  max-width: var(--alloc-holds-toggle-max-width);
   font-size: 0.75rem !important;
   padding: 0.15rem 1.0rem 0.15rem 6px;
   line-height: 1.05rem;

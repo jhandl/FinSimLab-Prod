@@ -1164,6 +1164,7 @@ function initializeAdaptiveLayoutObservers() {
   if (header) observer.observe(header, { childList: true, subtree: true, characterData: true, attributes: true });
   if (parameters) observer.observe(parameters, { childList: true, subtree: true });
   window.addEventListener('resize', scheduleLabAdaptiveLayout);
+  document.addEventListener('welcome-modal-hidden', scheduleLabAdaptiveLayout);
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', scheduleLabAdaptiveLayout);
   }

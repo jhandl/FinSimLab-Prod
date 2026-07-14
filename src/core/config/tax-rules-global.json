@@ -3,7 +3,7 @@
 
   "countries": {
     "xx": {
-      "name": "Demo Country",
+      "name": "Sandbox",
       "taxLabels": [ "Income Tax", "Social Insurance", "Capital Gains Tax" ],
       "investmentLabels": [ "Index Funds", "Shares" ],
       "currencyCode": "XXX",

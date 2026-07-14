@@ -12,7 +12,7 @@
     "incomeCash"
   ],
   "availableCountries": [
-    { "code": "xx", "name": "Demo Country"},
+    { "code": "xx", "name": "Sandbox"},
     { "code": "at", "name": "Austria", "region": "Europe" },
     { "code": "be", "name": "Belgium", "region": "Europe" },
     { "code": "bg", "name": "Bulgaria", "region": "Europe" },

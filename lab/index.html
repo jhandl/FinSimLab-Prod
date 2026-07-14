@@ -7,8 +7,8 @@
   <title>Financial Simulator</title>
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260626-adaptive3">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260713-welcome-tour4">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260714-mobile-charts5">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260714-welcome-adaptive-height3">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260711-blog-merge1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260712-guided-pair-align1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/guided-setup.css?v=20260713-priority-cursor1">
@@ -21,7 +21,7 @@
 
   
     
-  <script src="/lab/bundle.1784013237347.js" defer=""></script>
+  <script src="/lab/bundle.1784037627703.js" defer=""></script>
   
   
   
@@ -343,10 +343,16 @@
 
     <div class="graphs-section">
       <div class="graph-container">
-        <canvas id="cashflowGraph"></canvas>
+        <div class="chart-canvas-frame">
+          <canvas id="cashflowGraph"></canvas>
+        </div>
+        <div class="chart-html-legend"></div>
       </div>
       <div class="graph-container">
-        <canvas id="assetsGraph"></canvas>
+        <div class="chart-canvas-frame">
+          <canvas id="assetsGraph"></canvas>
+        </div>
+        <div class="chart-html-legend"></div>
       </div>
     </div>
 
