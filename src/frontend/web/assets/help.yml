@@ -164,110 +164,132 @@ WelcomeTabs:
     contentType: accordion
     content:
       items:
+        - question: "What is the fastest way to get familiar with the simulator?"
+          answer:
+            - "Do the <a href=\"#quick-tour\" data-orientation-action=\"quick-tour\">quick tour</a> first. It will load a demo scenario and run it (if there's no scenario already entered), and it will explain the main areas of the user interface."
+            - "Feel free to explore the demo scenario, make changes to the data and run it to see what happens. Also, check the tutorials."
+            - "I then recommend using the <a href=\"#quick-setup\" data-tier=\"quick\">quick setup</a> for a guided introduction to creating a very simple scenario."
+            - "Once you're ready, you can use the <a href=\"#full-setup\" data-tier=\"full\">Full setup</a> for a guided step-by-step full scenario creation. Or use the UI directly to enter all your numbers."
+        - question: "Is this financial, investment, tax, or legal advice?"
+          answer:
+            - "No. FinSim is an educational sandbox for exploring scenarios and understanding how different assumptions can affect a long-term plan."
+            - "Don't make serious financial, investment, tax, or legal decisions based on a simulation alone. Check important decisions with an appropriately qualified professional."
+        - question: "Is my financial data secure?"
+          answer:
+            - "Yes, your scenarios stay on your device. They're not sent to any server or stored online."
+            - "You can close this browser tab, your data will still show up when you open it again unless you clear your browser storage."
+            - "To be safe, it's best to save your scenario to a file on disk. Use the [Save] button for that."
+        - question: "What do you store in your servers?"
+          answer:
+            - "If you only use the free tier, I only get your public IP address."
+            - "If you purchase a Country Plan, your license and the email you gave Stripe are stored in my servers. I store your email so I can identify your license and send it to you in case you need to recover it."
+            - "If you send me feedback, I store that feedback in my servers. I will also store your email if you decide to share it with me so that I can respond to you."
+            - "I promise I won't spam your email. I encourage you to use a free disposable email address service (like 33mail.com) so you can block me if I ever break my promise."
+        - question: "Is the free tier based on a real country?"
+          answer:
+            - "No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without purchasing a Country Plan."
+            - "Only paid tiers unlock a model of country-specific tax rules and investment wrappers. Relocation needs at least two unlocked real countries."
+        - question: "How long does a Country Plan last, and what happens when it expires?"
+          answer:
+            - "A Country Plan provides one year of access and doesn't renew automatically. You can renew at a discount (see <a href=\"#country-plans\" data-country-plans-action>Country Plans</a> for details); renewing while access is active extends it from the current expiry date."
+            - "When access expires, you can still use the free playground. You won't be able to load scenarios that require locked real-country models until you renew the required access."
+        - question: "Can I change countries, upgrade my plan, or get a refund?"
+          answer:
+            - "During your plan's grace period, you can change the selected countries or cancel the purchase and request a refund from <a href=\"#country-plans\" data-country-plans-action>Country Plans</a>. After that period, the countries in a Home Country or Relocation plan stay fixed until the access period ends."
+            - "You can upgrade an active plan at any time; the upgrade price is prorated for the remaining access period. Active plans can't be downgraded mid-period, but you can choose a different plan after the current access expires."
+            - "The World plan unlocks every supported country, so its country selection only controls which countries appear in the simulator and can be changed at any time."
+        - question: "How accurate are the projections with real-country tax models?"
+          answer:
+            - "Tax models for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations."
+            - "The projections are estimates based on your inputs and your assumptions about future economic conditions. They are not a prediction of the future."
+        - question: "How do I use the Events table?"
+          answer:
+            - "Things that have a start date and an end date, like your income, your expenses or a mortgage, go into the events table."
+            - "Use the Events Wizard by clicking [🌟 Add Event 🌟]. It will guide you step by step. Or, if you're already familiar with the events, you can toggle the wizard off in the ☰ menu."
+            - "You can sort the events by clicking on a column title. You can see the events as a table ({icon:table}) or as collapsible cards ({icon:rectangle-list}), and you can see the timeline in terms of ages or years."
+        - question: "How do I plan for a couple instead of one person?"
+          answer:
+            - "Use the person toggle at the top of the Starting Position panel to switch between individual ({icon:user}) and two-person ({icon:user-friends}) modes. Two-person mode adds separate ages, pension contributions, and state pension settings for the second person, while household income and expenses stay shared."
+        - question: "Can I work with years instead of ages in the Events table?"
+          answer:
+            - "Yes. The Events table has a toggle to switch between age-based and year-based planning."
+            - "Keep in mind that in two-person mode the ages refer to each person separately, so the same age may refer to different years depending on who's event it is. Switch between age and year modes to disambiguate."
+        - question: "How do I model property purchases?"
+          answer:
+            - "Use the \"Real Estate\" event type. You can enter it directly or use the Event Wizard to guide you."
+            - "If you enter it directly, enter a name for the property, the price (or the down payment if using a mortgage), purchase date (which can be in the past), expected sale date (leave it blank if you won't sell it), and the expected appreciation rate. You can then create a \"Mortgage\" event for it, with the same start date, then enter the yearly mortgage repayment, end date and the interest rate."
+            - "You can add multiple properties to your plan."
         - question: "Why are the numbers much larger than I expected?"
           answer:
             - "Unless you specify 0 inflation, the numbers will grow year after year at the rate of inflation."
-            - "The values you enter into the different fields have to be in terms of present value though. For example, for a property that you expect to purchase 10 years from now, you should enter the current value of the property, not the value you expect it to be worth in 10 years time."
-            - "If you prefer to see all values in today's terms without the inflation growth, enable the Present Value toggle in the (☰) menu. This will automatically adjust all displayed amounts for inflation, making them easier to understand and compare."
-        - question: "Why are tax credits and limits also inflation adjusted?"
-          answer:
-            - "Even though some of the tax numbers don't change every year, many generally do, usually the income tax brackets, although that changes from country to country."
-            - "I have to assume some periodic adjustment, and inflation is the best proxy I can think of. I'm open to suggestions on how to do this better."
+            - "But the values you enter into the different fields have to be in terms of present value. For example, if you expect to purchase a property 10 years from now, you should enter the current value of the property, not the value you expect it to be worth in 10 years time."
+            - "If you prefer to see all values in today's terms without the inflation growth (while still keeping inflation realistic), enable the Present Value toggle in the (☰) menu. This will automatically adjust all displayed amounts for inflation, making them easier to understand and compare."
         - question: "What is Present Value display and how do I use it?"
           answer:
-            - "Present Value display shows all projected amounts (income, expenses, investments, taxes, etc.) in today's currency terms by adjusting for inflation. This makes it easier to understand what future amounts will actually be worth in real purchasing power."
+            - "Present Value display shows all projected amounts (income, expenses, investments, taxes, etc.) in today's currency terms."
             - "Instead of seeing inflated nominal amounts (e.g., €500,000 salary in 30 years), you see what that amount is worth in today's terms. This helps you compare values across different years and understand the true impact of your financial decisions."
-            - "You can enable Present Value display using the toggle in the (☰) menu. When enabled, all values in the data table and charts are automatically deflated to show their present-value equivalents. Toggle it off to see the original nominal (inflated) values."
+            - "You can enable Present Value display using the toggle in the ☰ menu. When enabled, all values in the data table and charts are automatically deflated to show their present-value equivalents. Toggle it off to see the original nominal (inflated) values."
             - "Note that the simulation calculations remain the same - only the display changes. Data table CSV export will contain the values currently displayed."
+        - question: "Why are tax credits and limits also inflation adjusted?"
+          answer:
+            - "Even though some of the tax numbers don't change every year, many generally do, although that changes from country to country."
+            - "I have to assume some periodic adjustment, and inflation is the best proxy I can think of. I'm open to suggestions on how to do this better."
         - question: "Why do I see this unexpected number in the simulation data table?"
           answer:
-            - "Many of the table cells have a little 'i' on the lower right corner. That means that the cell has a tooltip attached to it." 
+            - "Many of the table cells have a little 'i' on the lower right corner. That means that the cell has a tooltip attached to it."
             - "You can hover, click or long-press the cell to see where the number comes from."
-        - question: "How do I use the Events table?"
+        - question: "Are investment growth rates before or after inflation and fees?"
           answer:
-            - "Things that have a start date and an end date, like your income, your expenses or buying a property, go into the events table."
-            - "Click \"Add Event\" and choose the type. You can hover (or long-press) on any type in the dropdown menu to see a description of what it does."
-        - question: "How do I model property purchases?"
+            - "The investment growth rates in the Economy panel are nominal (before inflation) and before fees."
+            - "Present Value changes how results are displayed; it doesn't change the growth, fee, or tax calculations."
+        - question: "What is the difference between fixed and variable growth, and what is Monte Carlo simulation?"
           answer:
-            - "Use the \"Real Estate\" event type. As is the case with all the event types, you can enter it directly or use the Event Wizard to guide you."
-            - "If you enter it directly, enter a name for the property, the price (or the down payment if using a mortgage), purchase date (which can be in the past), expected sale date (leave it blank if you won't sell it), and the expected appreciation rate."
-            - "You can then create a \"Mortgage\" event for it, with the same start date, then enter the yearly mortgage repayment, end date and the interest rate."
-            - "Or, if you use the Event Wizard and you choose mortgage financing, the wizard creates the linked Mortgage event for you."
-            - "You can add multiple properties to your plan."
-        - question: "What if I want to buy a property in cash?"
+            - "Fixed Growth uses your annual growth assumptions to produce a repeatable projection that either succeeds or fails."
+            - "When in Variable Growth mode, your scenario runs hundreds of times with random variations in investment returns."
+            - "The simulator then counts what percentage of those runs reached your target age without running out of money."
+            - "The result shows the probability of success of your scenario under the conditions you defined."
+        - question: "How does the simulator model equities and bonds?"
           answer:
-            - "Choose cash purchase in the wizard, or enter the full purchase price in the Real Estate row and don't add a mortgage event for that property."
-        - question: "Can couples use this together?"
+            - "In Variable Growth mode, each simulated year has a shared economic environment (growth, recession, stagnation) which can persist for several years, calibrated to preserve the long-term growth and volatility assumptions you entered."
+            - "That environment affects them differently: equities tend to do better during growth and worse during recessions, while bonds tend to provide some offset."
+            - "Both still have their own random ups and downs, so they will not always move in opposite directions."
+        - question: "What happens to spare cash, and what happens when income doesn't cover spending?"
           answer:
-            - "Yes! Toggle to \"Two-Person Mode\" using the {icon:user-friends} icon. This allows separate incomes, pensions, and retirement ages."
-            - "The simulator models the active country's couple or partner tax rules while keeping each person's income, pensions, and retirement timing separate."
-        - question: "What is Monte Carlo simulation?"
+            - "When income exceeds expenses, the simulator first builds cash up to your inflation-adjusted emergency stash. Cash above that target is invested using the percentages in the Allocations panel; if those percentages add up to less than 100%, the remainder stays in cash."
+            - "When income doesn't cover expenses, the simulator uses cash and investments in the order set in the Drawdown Priorities panel."
+            - "If the available income and accessible assets still can't cover spending, the simulation marks the plan as failed."
+        - question: "How do I stress-test my plan?"
           answer:
-            - "When in Variable Growth mode, your scenario runs thousands of times with random variations in investment returns."
-            - "The simulator then counts what percentage of those runs were successful (i.e. reached your target age without running out of money)."
-            - "The result shows the probability of success of your scenario and gives you an idea of the range of possible outcomes."
-        - question: "How do I find the critical points in my plan?"
+            - "Try harsher economic assumptions: raise inflation, lower investment growth, or add market crash events to the timeline, and see how robust your plan is."
+        - question: "How do I find the weak points in my plan?"
           answer:
-            - "Use the color schemes ({icon:palette}) in the simulation data table to understand where your plan tends to fail." 
+            - "After a simulation run, use the color scheme dropdown in the data table ({icon:palette}) to highlight critical periods. The coloring shows where cashflow gets tight or savings run low."
+            - "• <b>Cashflow:</b>  shows the cashflow pinchpoints in your plan, when income doesn't cover expenses and you have to use cash or sell investments."
+            - "• <b>Failure:</b> shows the years where your plan is more likely to fail (run out of money)."
+            - "• <b>Survival:</b> shows how likely your plan is to succeed up to that point in time."
         - question: "How do relocation events work?"
           answer:
             - "A Relocation event changes your country of residence from a specific point in time, so the simulator can apply the new country's tax model and economic conditions."
-            - "After you add a relocation event, some events may be impacted and show warning badges. Use the inline suggestions to resolve the issues: split events, keep original currencies, link events to a country, or convert values."
+            - "After you add a relocation event, some events may be impacted and show warning badges ({icon:triangle-exclamation}). Use the inline suggestions to resolve the issues: split events, keep original currencies, link events to a country, convert values, etc."
             - "Multi-country scenarios show country flags in the input areas for country-specific inputs, and may add currency selectors for the charts and the data table."
         - question: "How does currency conversion work in charts and tables?"
           answer:
             - "In multi-currency scenarios, you can choose to have the charts and tables show local currencies or convert everything into one reporting currency."
             - “The simulator starts from exchange-rate anchors (updated monthly) and projects them into the future using relative inflation between countries.”
             - "Purchasing Power Parity (PPP) is used for suggesting equivalent values when resolving events impacted by a relocation."
-        - question: "Is the free tier based on a real country?"
-          answer:
-            - "No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without purchasing a Country Plan."
-            - "Only paid tiers unlock a model of country-specific tax rules and investment wrappers. Relocation needs at least two unlocked real countries." 
-        - question: "How accurate are the projections with real-country tax models?"
-          answer:
-            - "Tax models for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations."
-            - "The projections are estimates based on your inputs and assumptions about future economic conditions. Not a prediction of the future."
-        - question: "Is my financial data secure?"
-          answer:
-            - "Yes, your scenarios stay on your computer or phone. They're not sent to any server or stored online."
-            - "If you don't save your scenario before closing this browser tab, it will be lost."
-        - question: "What do you store in your servers?"
-          answer:
-            - "If you only use the free tier, I only get your public IP address."
-            - "If you subscribe to a paid tier, your license and the email you gave Stripe are stored in my servers. I store your email so I can identify your license and send it to you in case you need to recover it."
-            - "If you send me feedback, I store that feedback in my servers. I will also store your email if you decide to share it with me so that I can respond to you."
-            - "I promise I won't spam your email. I encourage you to use a disposable email address service (like 33mail.com) so you can block me if I ever break my promise."
         - question: "Why would I need to recover my license?"
           answer:
             - "You hold a copy of your license in your browser's local storage."
             - "If you clear your browser storage, you lose access to your license."
             - "Also, if you access this website from another browser or device, it won't have a copy of your license."
-            - "In those cases, use the [recover license] in the (☰) menu and the system will restore it by looking up your email address in my servers." 
-        - question: "Can I use my paid license on more than one device?"
+            - "In those cases, use the [recover license] button in the (☰) menu and the system will restore it by looking up your email address in my servers." 
+        - question: "Can I use my license on more than one device?"
           answer:
             - "Yes: use the [recover license] button in the (☰) menu, enter the email you use with Stripe, and you'll get an email with a recovery link." 
         - question: "Can I access my saved scenarios from another device?"
           answer:
             - "Yes, but you have to copy the scenario files to the other device."
-            - "Your saved scenarios are only in the devices you saved them to."
-        - question: "How do I plan for a couple instead of one person?"
-          answer:
-            - "Use the person toggle at the top of the parameters to switch between individual and two-person mode. Two-person mode adds separate ages, pension contributions, and state pension settings for the second person, while household income and expenses stay shared."
-        - question: "What is the difference between fixed and variable growth?"
-          answer:
-            - "The growth mode toggle switches between a fixed annual growth rate and variable growth with volatility. With volatility values set, the simulator runs thousands of Monte Carlo simulations under different market conditions and reports the likelihood that your plan succeeds."
-        - question: "Can I work with years instead of ages in the Events table?"
-          answer:
-            - "Yes. The Events table has a toggle to switch between age-based and year-based planning. There is also a cards view that presents each event as a collapsible card, which works better on smaller screens."
-        - question: "What is the fastest way to get familiar with the simulator?"
-          answer:
-            - "Load the demo scenario from the Demo button in the header, run it, and explore the charts and data table. The tours on the Start tab and the Tutorials tab go deeper."
-        - question: "How do I stress-test my plan?"
-          answer:
-            - "Try harsher economic assumptions: raise inflation, lower investment growth, or add market crash events to the timeline, and see how robust your plan is."
-        - question: "How do I find the weak points in my plan?"
-          answer:
-            - "After a simulation run, use the color scheme dropdown in the data table to highlight critical periods. The coloring shows where cashflow gets tight or savings run low."
+            - "Your saved scenarios are only in the devices you saved them to. If you lose them, they're gone. I don't have a copy."
 
   - id: notes
     title: Notes
@@ -275,9 +297,9 @@ WelcomeTabs:
     content:
       items:
         - title: "Privacy notice"
-          description: "Your financial data never leaves your computer or phone. It's all processed in your browser."
+          description: "The information you enter never leaves your device. It's all processed in your browser."
         - title: "Use of AI"
-          description: "This product was partially developed with AI, by a seasoned software engineer who obsesses about every little detail (me). But keep in mind that I'm not an accountant or financial advisor, nor am I able to vouch for the precision of every number used in modelling real countries. Approximations and simplifications were made, and mistakes happen. Send me feedback if you find an issue and I will do my best to correct it."
+          description: "This product was partially developed with AI, by a seasoned software engineer who obsesses about every little detail. But keep in mind that I'm not an accountant or financial advisor, nor am I able to vouch for the precision of every number used in modelling real countries. Tax models include approximations and simplifications, and mistakes happen. Send me feedback if you find an issue and I will do my best to correct it."
         - title: "Disclaimer"
           description: "This is not financial, investment, tax, or legal advice. It's a tool to help you understand how different decisions and scenarios can affect your long term financial future. Don't make serious financial decisions without talking to a financial advisor."
 
@@ -486,7 +508,7 @@ WizardSteps:
         items:
           - title: "Run"
             description: "calculate projections"
-          - title: "Result"
+          - title: "Progress / Result"
             description: "get plain-English insights"
           - title: "Save"
             description: "store your scenario to a file"
@@ -827,7 +849,7 @@ WizardSteps:
     tours: [full, mini]
     card: growthRates
     popover:
-      description: "<p>Variable growth mode.</p><p>In this mode, the simulator runs thousands of times with varying growth rates according to the volatility you specify. This provides a probability of success rather than a single outcome, accounting for market uncertainty and fluctuations. At least one of the volatility rates must be greater than 0%.</p>"
+      description: "<p>Variable growth mode.</p><p>In this mode, the simulator runs hundreds of times with varying growth rates according to the volatility you specify. This provides a probability of success rather than a single outcome, accounting for market uncertainty and fluctuations. At least one of the volatility rates must be greater than 0%.</p>"
       side: "right"
       align: "center"
 

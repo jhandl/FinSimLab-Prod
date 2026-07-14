@@ -684,6 +684,7 @@ header.header-hidden {
 
 .welcome-tabs {
   display: flex;
+  justify-content: center;
   border-bottom: none;
   background: #f8f9fa;
   flex-shrink: 0;
@@ -5783,9 +5784,17 @@ footer {
 
 /* Orange triangle icon for impact badges */
 .relocation-impact-badge i.fa-triangle-exclamation,
-.accordion-impact-badge i.fa-triangle-exclamation {
+.accordion-impact-badge i.fa-triangle-exclamation,
+.faq-answer i.fa-triangle-exclamation {
   color: #e67e22;
   /* orange */
+}
+
+.faq-answer i.fa-user,
+.faq-answer i.fa-user-friends,
+.faq-answer i.fa-table,
+.faq-answer i.fa-rectangle-list {
+  color: var(--primary-color, #007bff);
 }
 
 .relocation-impact-badge:hover {

@@ -5,6 +5,7 @@
   "showPriceJustification": false,
   "showPensionTooltip": true,
   "autoShiftOnRelocationAgeChange": true,
+  "linkCountryFlags": true,
   "pinnedIncomeTypes": [
     "incomeSalaries",
     "incomeStatePension",

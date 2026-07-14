@@ -198,7 +198,6 @@ class MobileBurgerMenu {
     const presentValueToggleButton = document.getElementById('presentValueToggleMobile');
     const customFeesToggleButton = document.getElementById('customFeesToggleMobile');
     const localTaxTermsToggleButton = document.getElementById('localTaxTermsToggleMobile');
-    const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
     const coffeeButton = document.getElementById('coffeeButton');
     const firstDivider = document.getElementById('mobileRunDivider');
     const secondDivider = document.getElementById('mobileSaveLoadDivider');
@@ -218,25 +217,13 @@ class MobileBurgerMenu {
     const SHOW_PRESENT_VALUE_TOGGLE = true;
     const SHOW_CUSTOM_FEES_TOGGLE = true;
     const SHOW_LOCAL_TAX_TERMS_TOGGLE = true;
-    // Show only when relocation is active and there is an effective relocation (MV to a different country).
-    let SHOW_COUNTRY_TABS_SYNC_TOGGLE = false;
-    try {
-      if (typeof Config !== 'undefined') {
-        const cfg = Config.getInstance();
-        const relocationEnabled = cfg && cfg.isRelocationEnabled && cfg.isRelocationEnabled();
-        if (relocationEnabled && typeof WebUI !== 'undefined') {
-          const webUI = WebUI.getInstance();
-          SHOW_COUNTRY_TABS_SYNC_TOGGLE = !!(webUI && typeof webUI.hasEffectiveRelocationEvents === 'function' && webUI.hasEffectiveRelocationEvents());
-        }
-      }
-    } catch (_) { /* no-op */ }
 
     // Track which sections have visible content
     let hasRunSection = false;
     let hasSaveLoadSection = false;
     let hasHelpSection = false;
     let hasCountriesSection = false;
-    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_LOCAL_TAX_TERMS_TOGGLE || SHOW_COUNTRY_TABS_SYNC_TOGGLE;
+    let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_LOCAL_TAX_TERMS_TOGGLE;
 
     const showRunInMenu = visible.run === false;
     const showStatusInMenu = false;
@@ -300,9 +287,6 @@ class MobileBurgerMenu {
     }
     if (localTaxTermsToggleButton) {
       localTaxTermsToggleButton.style.display = SHOW_LOCAL_TAX_TERMS_TOGGLE ? 'flex' : 'none';
-    }
-    if (countryTabsSyncToggleButton) {
-      countryTabsSyncToggleButton.style.display = SHOW_COUNTRY_TABS_SYNC_TOGGLE ? 'flex' : 'none';
     }
 
     // Third divider: between Change log and toggles
@@ -409,13 +393,6 @@ class MobileBurgerMenu {
       });
     }
 
-    // Country Tabs Sync Toggle
-    const countryTabsSyncToggleMobile = document.getElementById('countryTabsSyncToggleMobile');
-    if (countryTabsSyncToggleMobile) {
-      countryTabsSyncToggleMobile.addEventListener('click', () => {
-        this.handleCountryTabsSyncToggle(countryTabsSyncToggleMobile);
-      });
-    }
   }
 
   syncStatusIndicator() {
@@ -541,22 +518,6 @@ class MobileBurgerMenu {
     }, 0);
   }
 
-  handleCountryTabsSyncToggle(toggleButton) {
-    const currentState = toggleButton.getAttribute('data-toggle-state');
-    const newState = currentState === 'off' ? 'on' : 'off';
-    const toggleSwitch = toggleButton.querySelector('.toggle-switch');
-
-    toggleButton.setAttribute('data-toggle-state', newState);
-    if (toggleSwitch) {
-      if (newState === 'on') toggleSwitch.classList.add('active');
-      else toggleSwitch.classList.remove('active');
-    }
-
-    const enabled = newState === 'on';
-    localStorage.setItem('countryTabsSynced', enabled ? 'true' : 'false');
-    CountryTabSyncManager.getInstance().setSyncState(enabled);
-  }
-
   handleCustomFeesToggle() {
     WebUI.getInstance().toggleCustomFees();
   }
@@ -655,21 +616,6 @@ class MobileBurgerMenu {
       WebUI.getInstance().syncCustomFeesMenuToggle();
     }
 
-    // Initialize Country Tabs Sync toggle (default to 'on')
-    const countryTabsSyncToggleButton = document.getElementById('countryTabsSyncToggleMobile');
-    if (countryTabsSyncToggleButton) {
-      const savedRaw = localStorage.getItem('countryTabsSynced');
-      const enabled = (savedRaw === null) ? true : (savedRaw === 'true');
-      const savedState = enabled ? 'on' : 'off';
-      const toggleSwitch = countryTabsSyncToggleButton.querySelector('.toggle-switch');
-
-      countryTabsSyncToggleButton.setAttribute('data-toggle-state', savedState);
-      if (toggleSwitch) {
-        if (enabled) toggleSwitch.classList.add('active');
-        else toggleSwitch.classList.remove('active');
-      }
-      CountryTabSyncManager.getInstance().setSyncState(enabled);
-    }
   }
 }
 
