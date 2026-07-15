@@ -518,7 +518,7 @@
   font-weight: 750;
 }
 
-#countryAccessOverlay .country-access-tier-discount-tag {
+#countryAccessOverlay .country-access-tier-active-tag {
   background: #e9f6ee;
   border: 1px solid #badbc6;
   border-radius: 999px;
@@ -531,8 +531,7 @@
   white-space: nowrap;
 }
 
-#countryAccessOverlay .country-access-tier-count,
-#countryAccessOverlay .country-access-tier-active-tag {
+#countryAccessOverlay .country-access-tier-count {
   align-self: start;
   background: rgba(72, 126, 204, 0.12);
   border: 1px solid rgba(72, 126, 204, 0.35);

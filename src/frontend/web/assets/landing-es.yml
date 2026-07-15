@@ -1,0 +1,178 @@
+LanguageSelector:
+  label: Idioma
+  auto: Automático
+  loadError: No se pudo cargar el idioma seleccionado. Tu idioma actual no ha cambiado.
+LanguageNames:
+  en: Inglés
+  es: Español
+CountryNames:
+  xx: Entorno de pruebas
+  at: Austria
+  be: Bélgica
+  bg: Bulgaria
+  cy: Chipre
+  cz: Chequia
+  de: Alemania
+  dk: Dinamarca
+  ee: Estonia
+  fi: Finlandia
+  fr: Francia
+  hr: Croacia
+  ie: Irlanda
+  it: Italia
+  lu: Luxemburgo
+  nl: Países Bajos
+  ch: Suiza
+  es: España
+  pt: Portugal
+  pl: Polonia
+  se: Suecia
+  us: Estados Unidos
+  ar: Argentina
+page:
+  title: FinSimLab | Laboratorio de simulación financiera
+  brand:
+    name: FinSimLab
+    separator: ' - '
+    tagline: Laboratorio de simulación financiera
+  navigation:
+    features: Prestaciones
+    howItWorks: Cómo usar
+    about: Autor
+    blog: Blog
+  hero:
+    eyebrow: ¿Qué pasa si...
+    title: Tu laboratorio de finanzas personales
+    description: Un entorno privado para explorar escenarios de vida, inversión y jubilación en distintos países, todo en tu navegador. Empieza gratis y desbloquea modelos fiscales de países reales cuando los necesites.
+    action: Empezar a planificar
+    imageAlt: Planifica tu vida y tu jubilación con FinSim
+    prompts:
+      - i18nId: prompt-01
+        text: aumenta la inflación
+      - i18nId: prompt-02
+        text: me jubilo antes
+      - i18nId: prompt-03
+        text: me jubilo más tarde
+      - i18nId: prompt-04
+        text: nos mudamos a <country>
+      - i18nId: prompt-05
+        text: el mercado se desploma
+      - i18nId: prompt-06
+        text: aporto más al fondo de pensión
+      - i18nId: prompt-07
+        text: aumentamos la asignación a bonos
+      - i18nId: prompt-08
+        text: compramos una vivienda más pequeña
+      - i18nId: prompt-09
+        text: retrasamos la compra de la vivienda
+      - i18nId: prompt-10
+        text: compro una propiedad para alquilar
+      - i18nId: prompt-11
+        text: hago una pausa profesional
+      - i18nId: prompt-12
+        text: consigo un ascenso
+      - i18nId: prompt-13
+        text: pierdo mi empleo
+      - i18nId: prompt-14
+        text: uno de nosotros deja de trabajar
+      - i18nId: prompt-15
+        text: liquido mi hipoteca
+      - i18nId: prompt-16
+        text: hago pagos anticipados de mi hipoteca
+      - i18nId: prompt-17
+        text: contratamos una hipoteca mayor
+      - i18nId: prompt-18
+        text: mi pareja se retira antes
+      - i18nId: prompt-19
+        text: vivo hasta los 100 años
+      - i18nId: prompt-20
+        text: maximizo las aportaciones al fondo de pensión
+      - i18nId: prompt-21
+        text: el mercado queda plano durante 5 años
+      - i18nId: prompt-22
+        text: guardamos más efectivo
+      - i18nId: prompt-23
+        text: reducimos el gasto
+      - i18nId: prompt-24
+        text: tenemos un hijo
+      - i18nId: prompt-25
+        text: tenemos otro hijo
+      - i18nId: prompt-26
+        text: suben los intereses hipotecarios
+      - i18nId: prompt-27
+        text: alquilamos de forma permanente
+      - i18nId: prompt-28
+        text: nos mudamos a una vivienda más pequeña durante la jubilación
+  features:
+    title: Prestaciones
+    scenario:
+      title: Planificación de escenarios
+      description: Modela tu futuro financiero con eventos de vida y condiciones económicas personalizables.
+    countries:
+      title: Motor fiscal multipaís
+      description: Se modelan impuestos locales para varios países. Mira qué ocurre si te mudas a otro país.
+    privacy:
+      title: Privado por diseño
+      description: Los datos de tu escenario permanecen en tu dispositivo. No te pedimos que conectes tu cuenta bancaria. Solo recibimos tu correo electrónico si compras una licencia.
+    stress:
+      title: Pruebas de estrés
+      description: Pon a prueba tu plan financiero frente a caídas del mercado y condiciones económicas adversas.
+    likelihood:
+      title: Probabilidad de éxito
+      description: Comprende la probabilidad de éxito con simulaciones basadas en volatilidad.
+    data:
+      title: Análisis detallado de datos
+      description: Explora en detalle las cifras año por año. Analiza de dónde viene cada número.
+  howItWorks:
+    title: Cómo usarlo
+    input:
+      number: '1'
+      title: Introduce tus datos financieros
+      description: Introduce tu situación financiera actual, tus objetivos y las tu estimación de las condiciones económicas futuras. Recibe ayuda detallada para cada campo. Todo permanece en tu navegador. Una guía interactiva te ayuda a empezar.
+    events:
+      number: '2'
+      title: Añade eventos de vida
+      description: Crea eventos de ingresos, gastos y cambios importantes de vida, como comprar una vivienda o cambiar de empleo. Hay un asistente para ayudarte a crearlos.
+    simulate:
+      number: '3'
+      title: Ejecuta la simulación
+      description: Mira cómo podría evolucionar tu futuro financiero mediante gráficos detallados y desgloses año por año. Obtén una vista general o profundiza en los números.
+    compare:
+      number: '4'
+      title: Cambia una cosa y compara
+      description: Ajusta supuestos, guarda versiones, ve dónde es más probable que falle tu plan y aprende qué decisiones realmente cambian el resultado.
+  about:
+    title: Autor
+    developer: Soy desarrollador de software, con pasión por la educación financiera y una inquietud personal que necesitaba resolver.
+    motivation: Cuando empecé mi camino como inversor, contraté a un asesor financiero que me dio buenos consejos y una visión de mi futuro financiero con buenos gráficos y datos. Pero el ingeniero que llevo dentro quería jugar con los números y ver cómo afectaban al resultado.
+    historyBeforeLink: Primero creé una hoja de cálculo de Google y
+    historyLink: la compartí en reddit
+    historyAfterLink: ', pero cada vez que hacía un cambio obligaba a los usuarios a crear una copia nueva y volver a introducir sus datos. Así que la convertí en este sitio web.'
+    access: Creo que todo el mundo debería tener acceso a herramientas que le ayuden a mejorar su comprensión financiera para mantener conversaciones más productivas con asesores profesionales.
+    hope: Espero que esta herramienta te ayude tanto como me ayudó a mí.
+  blog:
+    title: Blog
+    workflow:
+      label: Flujo de trabajo
+      title: Cómo FinSimLab crea modelos fiscales por país
+      description: El proceso basado en fuentes detrás de los modelos por país, las revisiones, las comprobaciones de implementación y las limitaciones documentadas.
+    planning:
+      label: Planificación
+      title: Qué puede responder un simulador de finanzas personales
+      description: Cómo usar escenarios para comparar decisiones, poner a prueba supuestos y mantener las decisiones de planificación bien fundamentadas.
+    product:
+      label: Producto
+      title: Por qué FinSimLab mantiene tus datos en local
+      description: Una mirada a las compensaciones de privacidad detrás de los archivos de escenarios solo en navegador y los cálculos transparentes.
+    countries:
+      label: Notas de país
+      title: Notas de país
+      description: Actualizaciones breves cuando se incorpora un modelo de país o cuando una aproximación del modelo fiscal merece una explicación adicional.
+    viewAll: Ver todos los artículos
+  callToAction:
+    title: ¿Listo para explorar tu futuro financiero?
+    action: Abrir simulador
+  disclaimer:
+    label: 'Solo con fines educativos:'
+    text: Esto no es una herramienta de presupuesto ni asesoramiento financiero, de inversión, fiscal o legal. No tomes decisiones importantes de vida basándote en esto. No sustituye a un buen asesor financiero.
+  footer: © 2026 FinSimLab

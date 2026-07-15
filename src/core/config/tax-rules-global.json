@@ -4,6 +4,7 @@
   "countries": {
     "xx": {
       "name": "Sandbox",
+      "language": "en",
       "taxLabels": [ "Income Tax", "Social Insurance", "Capital Gains Tax" ],
       "investmentLabels": [ "Index Funds", "Shares" ],
       "currencyCode": "XXX",
@@ -15,6 +16,7 @@
     },
     "at": {
       "name": "Austria",
+      "language": "de",
       "taxLabels": [ "Einkommensteuer", "Sozialversicherung", "Kapitalertragsteuer" ],
       "investmentLabels": [ "Depot/ETFs", "Krypto", "Fondspolizze" ],
       "translations": {
@@ -29,6 +31,7 @@
     },
     "be": {
       "name": "Belgium",
+      "language": "nl",
       "taxLabels": [ "Personenbelasting", "RSZ", "Meerwaarden", "Dividenden", "Roerende inkomsten" ],
       "investmentLabels": [ "Securities" ],
       "translations": {
@@ -43,6 +46,7 @@
     },
     "bg": {
       "name": "Bulgaria",
+      "language": "bg",
       "taxLabels": [ "Данък доход", "Осигуровки", "Капиталови", "Дивиденти" ],
       "investmentLabels": [ "Рег. пазар", "Обл. активи" ],
       "translations": {
@@ -57,6 +61,7 @@
     },
     "cy": {
       "name": "Cyprus",
+      "language": "el",
       "taxLabels": [ "Εισόδημα", "Κοινωνικές εισφορές", "Άμυνα", "Κεφαλαιουχικά" ],
       "investmentLabels": [ "Τίτλοι", "Καινοτόμες" ],
       "currencyCode": "EUR",
@@ -68,6 +73,7 @@
     },
     "cz": {
       "name": "Czechia",
+      "language": "cs",
       "taxLabels": [ "Příjmy", "Sociální a zdravotní pojištění", "Prodej" ],
       "investmentLabels": [ "DIP", "Cenné papíry", "Krypto", "Stavebko" ],
       "currencyCode": "CZK",
@@ -79,6 +85,7 @@
     },
     "de": {
       "name": "Germany",
+      "language": "de",
       "taxLabels": [ "ESt", "Sozialversicherung", "Abgeltungsteuer" ],
       "investmentLabels": [ "Depot" ],
       "currencyCode": "EUR",
@@ -90,6 +97,7 @@
     },
     "dk": {
       "name": "Denmark",
+      "language": "da",
       "taxLabels": [ "Statsskat", "am-bidrag", "Kommuneskat", "Kirkeskat", "Aktieindkomst", "Ejendomsværdiskat" ],
       "investmentLabels": [ "Depot", "ASK", "Lagerdepot", "Obligationer" ],
       "currencyCode": "DKK",
@@ -101,6 +109,7 @@
     },
     "ee": {
       "name": "Estonia",
+      "language": "et",
       "taxLabels": [ "Tulumaks", "Sotsiaalmaksed", "II/III sammas", "Kapitalikasum" ],
       "investmentLabels": [ "Tavakonto", "Investeerimiskonto" ],
       "currencyCode": "EUR",
@@ -112,6 +121,7 @@
     },
     "fi": {
       "name": "Finland",
+      "language": "fi",
       "taxLabels": [ "valtionvero", "Sosiaalivakuutusmaksut", "kunnallisvero", "Muut verot", "pääomatulo" ],
       "investmentLabels": [ "suorat sijoitukset", "osakesäästötili", "PS / eläkevakuutus", "sijoitusvakuutus / kapitalisaatio" ],
       "currencyCode": "EUR",
@@ -123,6 +133,7 @@
     },
     "fr": {
       "name": "France",
+      "language": "fr",
       "taxLabels": [ "IR", "Cotisations sociales", "CEHR", "PFU", "IFI" ],
       "investmentLabels": [ "Livrets", "PEA", "Assurance-vie", "PEE/Pereco", "Hors enveloppe" ],
       "currencyCode": "EUR",
@@ -134,6 +145,7 @@
     },
     "hr": {
       "name": "Croatia",
+      "language": "hr",
       "taxLabels": [ "Porez na dohodak", "Doprinosi", "Kapitalni dobici", "Kamate", "Dividende" ],
       "investmentLabels": [ "III. stup", "Fondovi", "Štednja" ],
       "currencyCode": "EUR",
@@ -145,6 +157,7 @@
     },
     "ie": {
       "name": "Ireland",
+      "language": "en",
       "taxLabels": [ "Income Tax", "PRSI", "USC", "CGT" ],
       "investmentLabels": [ "Funds / ETFs", "Shares" ],
       "currencyCode": "EUR",
@@ -156,6 +169,7 @@
     },
     "it": {
       "name": "Italy",
+      "language": "it",
       "taxLabels": [ "IRPEF", "addizionale regionale", "IVS", "plusvalenze" ],
       "investmentLabels": [ "conto titoli", "PIR" ],
       "currencyCode": "EUR",
@@ -167,6 +181,7 @@
     },
     "lu": {
       "name": "Luxembourg",
+      "language": "fr",
       "taxLabels": [ "barème", "Cotisations sociales", "plus-values", "intérêts" ],
       "investmentLabels": [ "compte-titres", "compte à intérêts", "Épargne-logement" ],
       "currencyCode": "EUR",
@@ -178,6 +193,7 @@
     },
     "nl": {
       "name": "Netherlands",
+      "language": "nl",
       "taxLabels": [ "Box 1", "Zvw", "Box 2", "Box 3" ],
       "investmentLabels": [ "Box 3", "Groen", "AB" ],
       "currencyCode": "EUR",
@@ -189,6 +205,7 @@
     },
     "ch": {
       "name": "Switzerland",
+      "language": "de",
       "taxLabels": [ "Bundessteuer", "Sozialabgaben", "Kapitalgewinn" ],
       "investmentLabels": [ "Wertschriften", "Lebensversicherung" ],
       "translations": {
@@ -203,6 +220,7 @@
     },
     "es": {
       "name": "Spain",
+      "language": "es",
       "taxLabels": [ "IRPF", "Cotizaciones sociales", "Dividendos", "Intereses", "Ahorro", "Patrimonio" ],
       "investmentLabels": [ "Fondos", "PIAS", "Valores" ],
       "currencyCode": "EUR",
@@ -214,6 +232,7 @@
     },
     "pt": {
       "name": "Portugal",
+      "language": "pt",
       "taxLabels": [ "IRS", "Segurança Social", "Taxa solidariedade", "Mais-valias" ],
       "investmentLabels": [ "Ações/ETF", "Seguros", "Cripto" ],
       "translations": {
@@ -228,6 +247,7 @@
     },
     "pl": {
       "name": "Poland",
+      "language": "pl",
       "taxLabels": [ "PIT", "Składki społeczne", "danina solidarnościowa", "PIT-38", "kapitały pieniężne" ],
       "investmentLabels": [ "PIT-38", "kapitały pieniężne", "IKE", "OIPE", "IKZE", "PPE", "PPK" ],
       "currencyCode": "PLN",
@@ -239,6 +259,7 @@
     },
     "se": {
       "name": "Sweden",
+      "language": "sv",
       "taxLabels": [ "kommunal/statlig", "allmän pensionsavgift", "Avgifter", "kapital" ],
       "investmentLabels": [ "ISK", "KF", "Depå", "Fondkonto" ],
       "currencyCode": "SEK",
@@ -250,6 +271,7 @@
     },
     "us": {
       "name": "United States",
+      "language": "en",
       "taxLabels": [ "Federal Income Tax", "Payroll Taxes", "Capital Gains" ],
       "investmentLabels": [ "Equity Brokerage", "Bond Brokerage" ],
       "currencyCode": "USD",
@@ -261,6 +283,7 @@
     },
     "ar": {
       "name": "Argentina",
+      "language": "es",
       "taxLabels": [ "Ganancias", "Aportes", "Cedular", "Dividendos", "Intereses" ],
       "investmentLabels": [ "Valores CNV", "CEDEARs", "Cripto" ],
       "translations": {

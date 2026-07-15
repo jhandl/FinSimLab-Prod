@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "assetVersion": "20260715-1",
+  "languages": [
+    {
+      "code": "en",
+      "dir": "ltr",
+      "bundles": {
+        "landing": "/src/frontend/web/assets/landing-en.yml",
+        "app": "/src/frontend/web/assets/text-app-en.yml"
+      }
+    },
+    {
+      "code": "es",
+      "dir": "ltr",
+      "bundles": {
+        "landing": "/src/frontend/web/assets/landing-es.yml",
+        "app": "/src/frontend/web/assets/text-app-es.yml"
+      }
+    }
+  ]
+}

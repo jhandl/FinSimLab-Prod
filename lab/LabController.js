@@ -245,7 +245,7 @@ class MobileBurgerMenu {
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_LOCAL_TAX_TERMS_TOGGLE;
 
     const showRunInMenu = visible.run === false;
-    const showStatusInMenu = false;
+    const showStatusInMenu = visible.status === false;
     const showSaveLoadInMenu = visible.saveLoadNew === false;
     const showHelpInMenu = visible.demoHelp === false;
     const showCountriesInMenu = !!countriesButton && hasCountryAction && visible.countries === false;
@@ -615,8 +615,8 @@ class MobileBurgerMenu {
 
       // Apply initial state to managers
       try {
-        if (typeof WebUI !== 'undefined') {
-          const webUI = WebUI.getInstance();
+        const webUI = (typeof window !== 'undefined' && window.WebUI_instance) ? window.WebUI_instance : null;
+        if (webUI) {
           const enabled = (savedState === 'on');
           if (webUI && webUI.tableManager && typeof webUI.tableManager.setPresentValueMode === 'function') {
             webUI.tableManager.setPresentValueMode(enabled);
@@ -630,7 +630,8 @@ class MobileBurgerMenu {
 
     const customFeesToggleButton = document.getElementById('customFeesToggleMobile');
     if (customFeesToggleButton) {
-      WebUI.getInstance().syncCustomFeesMenuToggle();
+      const webUI = (typeof window !== 'undefined' && window.WebUI_instance) ? window.WebUI_instance : null;
+      if (webUI && typeof webUI.syncCustomFeesMenuToggle === 'function') webUI.syncCustomFeesMenuToggle();
     }
 
   }
@@ -643,15 +644,17 @@ let headerMeasurementInProgress = false;
 const HEADER_COMFORT_MARGIN_PX = 24;
 const HEADER_FIT_TOLERANCE_PX = 0.5;
 const HEADER_CANDIDATES = [
-  { mode: 'full', brand: 'full', run: 'full' },
-  { mode: 'full', brand: 'icon', run: 'full' },
-  { mode: 'country-menu', brand: 'full', run: 'full' },
-  { mode: 'country-menu', brand: 'icon', run: 'full' },
-  { mode: 'secondary-menu', brand: 'icon', run: 'short' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'short' }
+  { mode: 'full', brand: 'full', run: 'full', language: 'full' },
+  { mode: 'full', brand: 'icon', run: 'full', language: 'full' },
+  { mode: 'country-menu', brand: 'full', run: 'full', language: 'full' },
+  { mode: 'country-menu', brand: 'icon', run: 'full', language: 'full' },
+  { mode: 'secondary-menu', brand: 'icon', run: 'icon', language: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', language: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', language: 'compact' },
+  { mode: 'status-menu', brand: 'icon', run: 'icon', language: 'compact' }
 ];
 
-function applyHeaderResponsiveAttributes(mode, brand, run) {
+function applyHeaderResponsiveAttributes(mode, brand, run, language) {
   if (document.body.getAttribute('data-header-mode') !== mode) {
     document.body.setAttribute('data-header-mode', mode);
   }
@@ -661,11 +664,8 @@ function applyHeaderResponsiveAttributes(mode, brand, run) {
   if (document.body.getAttribute('data-header-run') !== run) {
     document.body.setAttribute('data-header-run', run);
   }
-  const runLabel = document.querySelector('#runSimulation span');
-  if (runLabel) {
-    const copy = getLabCopy();
-    const nextLabel = run === 'short' ? copy.shell.runSimulationShort : copy.actions.runSimulation;
-    if (runLabel.textContent !== nextLabel) runLabel.textContent = nextLabel;
+  if (document.body.getAttribute('data-header-language') !== language) {
+    document.body.setAttribute('data-header-language', language);
   }
 }
 
@@ -714,7 +714,7 @@ function buildHeaderVisibleState(mode, hasCountryAction) {
   const showDemoHelp = mode === 'full' || mode === 'country-menu';
   return {
     run: true,
-    status: true,
+    status: mode !== 'status-menu',
     saveLoadNew: showSaveLoad,
     demoHelp: showDemoHelp,
     countries: hasCountryAction && mode === 'full'
@@ -763,6 +763,7 @@ function measureHeaderCandidate(candidate, elements, hasCountryAction) {
     mode: candidate.mode,
     brand: candidate.brand,
     run: candidate.run,
+    language: candidate.language,
     requiredWidth: requiredWidth,
     availableWidth: Math.max(0, headerWidth - paddingLeft - paddingRight - HEADER_COMFORT_MARGIN_PX),
     headerWidth: headerWidth,
@@ -794,7 +795,7 @@ function selectHeaderResponsiveCandidate() {
   try {
     for (let i = 0; i < candidates.length; i++) {
       const candidate = candidates[i];
-      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run);
+      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run, candidate.language);
       const measured = measureHeaderCandidate(candidate, elements, hasCountryAction);
       fallback = measured;
       if (measured.requiredWidth <= measured.headerWidth + HEADER_FIT_TOLERANCE_PX) {
@@ -803,7 +804,7 @@ function selectHeaderResponsiveCandidate() {
       }
     }
     selected = selected || fallback;
-    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run);
+    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run, selected.language);
   } finally {
     headerMeasurementInProgress = false;
   }
@@ -897,12 +898,55 @@ function generateHeaderResponsiveCSS() {
       flex: 0 0 auto !important;
     }
 
+    #runSimulation .run-simulation-icon {
+      display: none;
+    }
+
     #progress {
-      flex: 1 1 auto !important;
-      min-width: 0 !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
+      flex: 0 0 auto !important;
+      min-width: max-content !important;
+      width: 135px;
       white-space: nowrap !important;
+    }
+
+    body[data-header-run="icon"] #runSimulation {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 2.25rem;
+      padding: 0 !important;
+    }
+
+    body[data-header-run="icon"] #runSimulation .run-simulation-icon {
+      display: inline-block;
+    }
+
+    body[data-header-run="icon"] #runSimulation span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body[data-header-run="icon"] #progress {
+      width: auto;
+    }
+
+    body[data-header-language="compact"] .app-language-selector .language-selector-trigger {
+      min-width: 2.25rem;
+      padding: 0 0.35rem;
+    }
+
+    body[data-header-language="compact"] .app-language-selector .language-selector-icon,
+    body[data-header-language="compact"] .app-language-selector .language-selector-trigger::after {
+      display: none;
     }
 
     .button-group-secondary {
@@ -945,13 +989,18 @@ function generateHeaderResponsiveCSS() {
     }
 
     body[data-header-mode="secondary-menu"] .button-group-secondary,
-    body[data-header-mode="save-load-menu"] .button-group-secondary {
+    body[data-header-mode="save-load-menu"] .button-group-secondary,
+    body[data-header-mode="status-menu"] .button-group-secondary {
       display: none !important;
     }
 
     body[data-header-mode="save-load-menu"] #saveSimulation,
     body[data-header-mode="save-load-menu"] #loadSimulation,
-    body[data-header-mode="save-load-menu"] #newSimulation {
+    body[data-header-mode="save-load-menu"] #newSimulation,
+    body[data-header-mode="status-menu"] #saveSimulation,
+    body[data-header-mode="status-menu"] #loadSimulation,
+    body[data-header-mode="status-menu"] #newSimulation,
+    body[data-header-mode="status-menu"] #progress {
       display: none !important;
     }
   `;
@@ -1142,6 +1191,9 @@ function initializeAdaptiveLayoutObservers() {
 window.updateLabAdaptiveLayout = updateLabAdaptiveLayout;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  updateMainAdaptiveLayout();
+  initializeResponsiveHeader();
+  await new Promise(function (resolve) { setTimeout(resolve, 0); });
   await window.driver.js.loadHelpData();
   generateHeaderResponsiveCSS();
   updateLabAdaptiveLayout();
@@ -1413,6 +1465,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Welcome Modal & Global Toggle Manager
 document.addEventListener('DOMContentLoaded', async function () {
+  await new Promise(function (resolve) { setTimeout(resolve, 0); });
   await window.driver.js.loadHelpData();
   const toggle = document.getElementById('welcomeModalToggleMobile');
   if (!toggle) return;

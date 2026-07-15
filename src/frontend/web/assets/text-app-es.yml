@@ -1,0 +1,2767 @@
+LanguageSelector:
+  label: Idioma
+  auto: Automático
+  loadError: No se pudo cargar el idioma seleccionado. Tu idioma actual no ha cambiado.
+LanguageNames:
+  en: Inglés
+  es: Español
+CountryNames:
+  xx: Entorno de pruebas
+  at: Austria
+  be: Bélgica
+  bg: Bulgaria
+  cy: Chipre
+  cz: Chequia
+  de: Alemania
+  dk: Dinamarca
+  ee: Estonia
+  fi: Finlandia
+  fr: Francia
+  hr: Croacia
+  ie: Irlanda
+  it: Italia
+  lu: Luxemburgo
+  nl: Países Bajos
+  ch: Suiza
+  es: España
+  pt: Portugal
+  pl: Polonia
+  se: Suecia
+  us: Estados Unidos
+  ar: Argentina
+AppShell:
+  localTaxTerms: Términos locales
+Simulator:
+  common:
+    'true': Sí
+    'false': 'No'
+    max: Máx.
+    maxButton: MÁX
+    maxContributionLabel: Aportar el máximo permitido
+    inflation: inflación
+    version: Versión {version}
+    warningTitle: Advertencia
+    information: Información
+  pageTitle: Simulador financiero
+  accessibility:
+    toggleMobileMenu: Alternar menú móvil
+    coffeeButton: Invitarme a un café
+  status:
+    ready: Listo
+    running: Ejecutando...
+    successPrefix: 'Correcto '
+    runs: '{runs} ejecuciones'
+  actions:
+    runSimulation: Simular
+    save: Guardar
+    load: Cargar
+    new: Nuevo
+    saveScenario: Guardar escenario
+    loadScenario: Cargar escenario
+    newScenario: Nuevo escenario
+    help: Ayuda
+    changeLog: Registro de cambios
+    feedback: Comentarios
+    countryPlans: Planes
+    recoverLicense: Recuperar licencia
+    demo: Demo
+    addEvent: Añadir evento
+    showAnyway: Mostrar de todos modos
+    cancel: Cancelar
+    apply: Aplicar
+    ok: OK
+  options:
+    'Yes': Sí
+    'No': 'No'
+    Match: Coincidir
+    'on': activado
+    'off': desactivado
+  shell:
+    tooltipsLabel: 'Ayudas:'
+    runSimulationShort: Simular
+    eventWizard: Asistente de eventos
+    introWindow: Ventana de intro
+    presentValue: Valor actual
+    customFees: Comisiones
+  sections:
+    startingPosition: Posición inicial
+    personalCircumstances: Circunstancias personales
+    targets: Objetivos
+    allocations: Asignaciones
+    drawdownPriorities: Prioridades de disposición
+    economy: Economía
+    events: Eventos
+    simulationData: Datos de simulación
+  parameters:
+    currentCountry: País actual
+    selectCountry: Seleccionar país
+    theirCurrentAge: Edad actual de la otra persona
+    theirPensionFund: Fondo de pensión de la otra persona
+    theirRetirementAge: Edad de jubilación de la otra persona
+    marriageYear: Año de matrimonio
+    oldestChildBirthYear: Año de nacimiento del hijo mayor
+    youngestChildBirthYear: Año de nacimiento del hijo menor
+    finalAge: Edad final
+    emergencyFund: Fondo de emergencia
+    labels:
+      startingAge:
+        neutral: Edad actual
+        your: Tu edad actual
+      initialPension:
+        neutral: Fondo de pensión
+        your: Tu fondo de pensión
+      retirementAge:
+        neutral: Edad de jubilación
+        your: Tu edad de jubilación
+      initialSavings:
+        neutral: Ahorros actuales
+        your: Ahorros actuales (conjuntos)
+    ageTooltips:
+      bornIn: Nacido en {year}
+      retireIn: Jubilación en {year}
+      targetYear: Año {year}
+  allocations:
+    columns:
+      allocation: Asign.
+      holding: Posición
+      fees: Comis.
+    feeTooltip: 'La comisión anual reduce el crecimiento esperado. Predeterminado: {default}.'
+    wrapperFeeLabel: Comisión del producto {label}
+    mix:
+      optionLabel: Mezcla...
+      optionDescription: Configura una mezcla fija o con trayectoria de asignación.
+      title: Estrategia de mezcla
+      fixed: Fija
+      glidePath: Trayectoria de asignación
+      asset1: 'Activo 1:'
+      asset2: 'Activo 2:'
+      agePlaceholder: Edad
+  economy:
+    growthRate: Tasa de crecimiento
+    volatility: Volatilidad
+    bondGrowthHint: Rendimiento anual esperado de bonos
+    equityGrowthHint: Crecimiento anual esperado de acciones
+    growthHint: Crecimiento anual esperado
+    inflation: Inflación
+    inflationCountry: Inflación ({country})
+  pensions:
+    pension: Pensión
+    yourPension: Tu pensión
+    theirPension: Pensión de la otra persona
+    contributionCapped: Aport. pensión limitadas
+    statePension: Pensión estatal ({period})
+    yourStatePension: Tu pensión estatal ({period})
+    theirStatePension: Pensión estatal de la otra persona ({period})
+    periods:
+      weekly: Semanal
+      monthly: Mensual
+      annual: Anual
+    capOptions:
+      'Yes': Las aportes están limitadas al límite anual configurado.
+      'No': Las aportes no están limitadas al límite anual configurado.
+      Match: Usar la configuración de límite de pensión de la aporte vinculada.
+  tables:
+    exportDescription: Exportar tabla de datos como CSV
+    rendering: Renderizando tabla
+    mobileMessage: 📊 La tabla de datos detallada está disponible en pantallas más anchas.
+    withdrawalRateTooltip: Porcentaje de tus activos líquidos ({assets} + pensión) que estás retirando para cubrir tus gastos.
+    groups:
+      grossIncome: Ingresos brutos
+      deductions: Deducciones
+      netCashflow: Flujo de caja neto
+      assets: Activos
+    columns:
+      age: Edad
+      ageTooltip: Tu edad en este año de simulación
+      year: Año
+      yearTooltip: Año calendario de la simulación
+      grossIncome: Ingresos brutos
+      grossIncomeTooltip: Columnas de ingresos brutos (dinámicas)
+      pensionContribution: Aport. pensión
+      pensionContributionTooltip: Importe aportado a pensiones privadas (sin incluir aporte del empleador)
+      inflows: Entradas
+      inflowsTooltip: Entradas de efectivo después de impuestos (excluye aportes a pensión)
+      outflows: Salidas
+      outflowsTooltip: Gastos anuales totales
+      realEstate: Inmuebles
+      realEstateTooltip: Valor total de los inmuebles en propiedad
+      withdrawalRate: Retiro%
+      withdrawalRateTooltip: Porcentaje de activos líquidos retirado para cubrir gastos
+      netWorth: Patrimonio neto
+      netWorthTooltip: Tu patrimonio neto total (suma de todos los activos)
+  graphs:
+    graph: Gráfico
+    cashflow: Flujo de caja
+    assets: Activos
+  visualizations:
+    settings: Ajustes de visualización
+    default: Predeterminado
+    colorScheme: Esquema de color
+  tooltips:
+    simModeSingle: Modo de una persona
+    simModeCouple: Modo pareja
+    ageYearModeAge: Mostrar el tiempo en edad
+    ageYearModeYear: Mostrar el tiempo en años
+    economyModeDeterministic: Crecimiento lineal (sin volatilidad)
+    economyModeMonteCarlo: Modo volatilidad (Monte Carlo)
+    eventWizardToggle: Activar/desactivar el asistente de eventos para crear eventos.
+    introWindowToggle: Activar/desactivar que la ventana de introducción se muestre siempre al inicio o solo mediante el botón Ayuda.
+    presentValueCurrency: Mostrar todos los valores en {currency} de hoy (ajustados por inflación)
+  navigation:
+    unsavedTitle: Cambios sin guardar
+    unsavedMessage: Tienes cambios sin guardar. ¿Seguro que quieres salir y perderlos?
+  checkout:
+    canceled: El pago se canceló.
+  welcome:
+    title: Bienvenido a tu laboratorio de finanzas personales
+    close: Cerrar
+    loadingTitle: Bienvenido
+    loadingDescription: Cargando información de bienvenida...
+    renderErrors:
+      missingContent: El contenido no está disponible.
+      failed: No se pudo mostrar el contenido de tipo {type}.
+      workflow: El contenido del flujo de trabajo no está disponible.
+      bullets: El contenido de viñetas no está disponible.
+      list: El contenido de lista no está disponible.
+      accordion: El contenido de acordeón no está disponible.
+      tutorials: El contenido de tutorial no está disponible.
+      text: El contenido de texto no está disponible.
+  errors:
+    applicationTitle: Error de aplicación
+    applicationMessage: No se pudo inicializar la configuración de la aplicación. Inténtalo de nuevo más tarde.
+    errorTitle: Error
+    countryAccess: El acceso por país no está disponible temporalmente. Inténtalo de nuevo.
+  titles:
+    countries: Países
+  validation:
+    validAges: Introduce edades válidas
+    endBeforeStart: La edad final no puede ser anterior a la edad inicial
+    required: '{field} es obligatorio'
+    validNumber: Introduce un número válido
+    minimum: '{field} no puede ser menor que {value}{unit}'
+    maximum: '{field} no puede ser mayor que {value}{unit}'
+  wizard:
+    actions:
+      back: Atrás
+      next: Siguiente
+      create: Crear evento
+      cancel: Cancelar
+    validation:
+      required: Este campo es obligatorio
+      validAmount: Introduce un importe válido
+      validPercentage: Introduce un porcentaje válido
+      validAge: Introduce una edad válida
+      validNumber: Introduce un número válido
+      positive: El valor debe ser positivo
+      comparison: El valor debe ser {comparator} {field}
+      comparators:
+        lt: menor que
+        lte: menor o igual que
+        gt: mayor que
+        gte: mayor o igual que
+    progress: Paso {current} de {total}
+  notifications:
+    simulationFailed: La simulación falló. Consulta la consola del navegador para ver los detalles técnicos.
+    errorStatus: Error
+    changeLog:
+      title: Registro de cambios
+      seen: vistos
+      new: nuevos
+    errorTitle: Error
+    warningTitle: Advertencia
+    noChanges: Todavía no se ha registrado ningún cambio.
+    changeLogTitle: Registro de cambios
+    version: ' (v{version})'
+    countryTaxUpdated: 'Modelo fiscal de {country} actualizado{version}: {message}'
+  currencyControls:
+    local: Local
+    label: 'Moneda '
+  visualizationPresets:
+    default:
+      name: Simple
+      description: Sin resaltado de color.
+    cashflow:
+      name: Flujo de caja
+      description: |
+        ### Salud del flujo de caja
+
+        Muestra los puntos críticos del flujo de caja en tu plan.
+
+        - **Verde**: Los ingresos cubren los gastos sin ventas de activos.
+        - **Rojo**: Es necesario vender activos para cubrir los gastos.
+        - **Intensidad del color**: El tamaño del excedente / déficit.
+    failure:
+      name: Fallo
+      description: |
+        ### Tasa de fallo
+
+        Muestra dónde es más probable que falle tu plan.
+
+        - **Verde**: Es probable que no te quedes sin dinero este año.
+        - **Rojo**: Es más probable que te quedes sin dinero este año.
+    survival:
+      name: Supervivencia
+      description: |
+        ### Tasa de supervivencia
+
+        Muestra la probabilidad general de éxito de tu plan año a año.
+
+        - **Verde**: Es más probable que tu plan sobreviva hasta este año.
+        - **Rojo**: Es más probable que tu plan haya fallado para este año.
+  charts:
+    datasets:
+      inflows: Entradas
+      outflows: Salidas
+      salaries: Salarios
+      rental: Alquileres
+      rsus: RSUs
+      privatePension: P. privada
+      statePension: P. estatal
+      definedBenefit: Prest. definida
+      taxFree: Exento
+      cash: Efectivo
+      realEstate: B. inmuebles
+      pension: Pensión
+    relocated: Traslado de {fromCountry} a {toCountry}
+  dynamicTable:
+    investmentIncomeTooltip: Ingresos de {label}
+    investmentCapitalTooltip: Valor total de tus inversiones en {label}
+    columns:
+      incomeSalaries:
+        label: Salarios
+        tooltip: Total de ingresos salariales recibidos este año
+      incomeRentals:
+        label: Alquileres
+        tooltip: Ingresos por alquiler procedentes de propiedades inmobiliarias
+      incomeRsus:
+        label: RSUs
+        tooltip: Ingresos por la consolidación de unidades de acciones restringidas (RSUs)
+      incomePrivatePension:
+        label: P. privada
+        tooltip: Retiros de fondos de pensión privada
+      incomeStatePension:
+        label: P. estatal
+        tooltip: Pagos de pensión estatal recibidos
+      incomeDefinedBenefit:
+        label: Prest. definida
+        tooltip: Ingresos de pensión de prestación definida
+      incomeTaxFree:
+        label: Exento
+        tooltip: Ingresos exentos de impuestos
+      incomeCash:
+        label: Efectivo
+        tooltip: Retiros de ahorros en efectivo
+      pensionFund:
+        label: Pensión
+        tooltip: Valor total de los fondos de pensión privada
+      cash:
+        label: Efectivo
+        tooltip: Total de ahorros en efectivo
+      realEstate:
+        label: B. inmuebles
+        tooltip: Valor total de los bienes inmuebles que posees
+  feedback:
+    title: Comentarios
+    messagePlaceholder: ¿Qué haría que FinSimLab te resultara más útil?
+    messageLabel: Mensaje de comentarios
+    emailPlaceholder: Introduce tu correo electrónico si quieres recibir una respuesta
+    emailLabel: Correo electrónico para la respuesta (opcional)
+    success: Gracias. Hemos recibido tus comentarios.
+    actions:
+      close: Cerrar
+      cancel: Cancelar
+      submit: Enviar
+      submitting: Enviando...
+      ok: Aceptar
+    errors:
+      messageRequired: Introduce un mensaje.
+      submitFailed: No se han enviado los comentarios.
+    verification:
+      success:
+        title: Dirección de correo electrónico verificada
+        message: Ahora podemos responder a la dirección de correo electrónico que proporcionaste.
+      failure:
+        title: Error al verificar el correo electrónico
+        message: El enlace de verificación de comentarios no es válido, ha caducado o ya se ha usado.
+  events:
+    invalidEvent: Datos de evento no válidos
+    tableView: Vista de tabla
+    accordionView: Vista de acordeón
+    age: Edad
+    year: Año
+    selectCountry: Seleccionar país
+    selectMortgage: Seleccionar hipoteca
+    selectProperty: Seleccionar propiedad
+    emptyState: Aún no hay eventos. Añade eventos con el asistente o usando el botón Añadir evento.
+    noDetails: Sin detalles
+    inflationPlaceholder: inflación
+    relocationUnavailableTitle: Traslado no disponible
+    relocationUnavailableMessage: El traslado no está disponible mientras el entorno de pruebas sea el país actual.
+    sandboxDestination: El entorno de pruebas no puede usarse como destino de traslado.
+    relocationImpact: Impacto del traslado
+    headers:
+      type: Tipo de evento
+      eventType: Tipo de evento
+      name: Nombre
+      amount: Importe
+      rate: Tasa
+      match: Aporte
+      year: Año
+      period: Periodo
+      age: Edad
+      fromAge: Desde
+      toAge: Hasta
+      fromYear: Desde
+      toYear: Hasta
+    economicComparison:
+      title: Contexto económico
+      metric: Métrica
+      from: Desde
+      to: Hasta
+      currency: Moneda
+      inflation: Inflación (%)
+      fxRate: Tipo de cambio FX
+      pppRate: Tipo cruzado PPP
+      costOfLiving: Costo de vida (PPP/FX)
+      unavailable: N/D
+      conversionsFor: 'Conversiones para {amount} {currency}:'
+    splitTooltip:
+      latest: más reciente
+      summary: |-
+        {amount} en {currency} equivale a {fxAmount} a fecha de {date}.
+        Ajustado por poder adquisitivo, equivale a ≈ {pppAmount}.
+    actions:
+      add: Añadir evento
+      expand: Expandir
+      collapse: Contraer
+      delete: Eliminar
+      launchWizard: Abrir el asistente para crear un evento
+    view:
+      tableTooltip: La vista de tabla es ideal para pantallas grandes y cuando ya conoces estos eventos.
+      cardsTooltip: La vista de tarjetas es mejor para pantallas pequeñas y mientras te familiarizas.
+    yearMode:
+      currentAgeTitle: Edad actual necesaria
+      currentAgeMessage: Introduce tu edad actual para cambiar al modo de año.
+      currentAgeRequired: La edad actual es obligatoria
+    eventTypes:
+      salary:
+        - code: SI
+          singleLabel: Ingresos salariales
+          jointLabel: Tu salario
+        - code: SInp
+          singleLabel: Salario (sin pensión)
+          jointLabel: Tu salario (sin pensión)
+        - code: SI2
+          jointLabel: Salario de la otra persona
+        - code: SI2np
+          jointLabel: Salario de la otra persona (sin pensión)
+      labels:
+        NOP: Sin operación
+        UI: Ingresos de RSU
+        RI: Ingresos por alquiler
+        DBI: Ingresos de prestación definida
+        FI: Ingresos exentos
+        E: Gasto
+        R: Bienes inmuebles
+        M: Hipoteca
+        MO: Pago anticipado de hipoteca
+        MP: Liquidación de hipoteca
+        MR: Hipoteca inversa
+        SM: Mercado bursátil
+        MV: Traslado
+      relocationDescription: Traslado a otro país
+    picker:
+      title: Elegir tipo de evento
+      subtitle: 'Selecciona el tipo de evento que quieres crear:'
+      property: Propiedad
+      propertyTitle: Eventos de propiedad
+      propertySubtitle: 'Selecciona el evento de propiedad que quieres crear:'
+      back: Atrás
+      cancel: Cancelar
+    validation:
+      validAmount: Introduce un importe válido
+      validAge: Introduce una edad válida
+      validPercentage: Introduce un porcentaje válido
+    period:
+      from: desde {unit} {value}
+      at: a {unit} {value}
+      range: '{unit} {from}-{to}'
+      units:
+        age: edad
+        year: año
+      pluralUnits:
+        age: edades
+        year: años
+  eventsWizard:
+    sandboxDestination: El entorno de pruebas no se puede usar como destino de traslado.
+    summaryUnavailable: Los detalles del evento se mostrarán aquí.
+    unnamedEvent: Evento sin nombre
+    fields:
+      destinationCountry: País de destino
+      eventName: Nombre del evento
+      relocationCost: Costo de traslado (introduce 0 si no hay ninguno)
+      amount: Importe
+      startAge: Edad/año inicial
+    validation:
+      relocationCost: Introduce un costo de traslado válido (introduce 0 si no hay ninguno).
+      amount: Introduce un importe válido
+      startAge: Introduce una edad/año inicial válido
+      endAge: Introduce una edad/año final válido
+      rate: Introduce una tasa válida
+      marketGrowth: El valor de crecimiento del mercado es obligatorio
+      match: Introduce un porcentaje de igualación válido
+      definedBenefitUnsupported: Los ingresos de prestación definida no están admitidos en el país de residencia a la edad inicial seleccionada.
+    mortgage:
+      termYears: Plazo (años)
+      interestRate: Tasa de interés (%)
+      propertyValue: 'Valor de la propiedad:'
+      downPayment: 'Pago inicial:'
+      loanAmount: 'Importe del préstamo:'
+      monthlyPayment: 'Pago mensual:'
+      annualPayment: 'Pago anual:'
+    summary:
+      frequencies:
+        oneoff: puntual
+        weekly: semanal
+        monthly: mensual
+        yearly: anual
+      inflationGrowth:
+        property: ', con apreciación a la tasa de inflación'
+        other: ', creciendo a la tasa de inflación'
+      annualGrowth:
+        propertyUp: ', con apreciación del {rate}% al año'
+        propertyDown: ', con depreciación del {rate}% al año'
+        otherUp: ', creciendo un {rate}% al año'
+        otherDown: ', disminuyendo un {rate}% al año'
+      employerMatch: ', el empleador iguala hasta el {match}%'
+      period:
+        from: desde {unit} {from}
+        at: en {unit} {from}
+        range: desde {unit} {from} hasta {unit} {to}
+        units:
+          age: edad
+          year: año
+      labels:
+        startAge: Edad {prefix}
+        startYear: Año {prefix}
+        prefixes:
+          from: inicial
+          to: final
+  dataTable:
+    defaultScenarioName: escenario
+    exportFilename: '{scenario}_datos-simulacion.csv'
+    csvDescription: Archivos CSV
+    noData: No hay datos para exportar. Ejecuta primero una simulación.
+    exportFailed: No se pudo exportar la tabla de datos.
+    errorTitle: Error
+  files:
+    defaultScenarioName: mi escenario
+    demoScenarioName: demo
+    autosaveName: Autoguardado
+    savePrompt: 'Guardar escenario como (nombre de archivo):'
+    shareText: Escenario de FinSim
+    csvDescription: Archivos CSV
+    ready: Listo
+    confirmLoad:
+      title: Confirmar carga
+      message: Cargar un escenario nuevo sobrescribirá cualquier cambio sin guardar. ¿Seguro que quieres continuar?
+    iosSave:
+      title: Guardar escenario
+      instructions: Elige un nombre de archivo y luego toca Guardar.
+    actions:
+      close: Cerrar
+      cancel: Cancelar
+      save: Guardar
+    errors:
+      title: Error
+      save: No se pudo guardar el escenario.
+      load: 'Error al cargar el archivo: asegúrate de que sea un archivo de guardado de simulación válido.'
+      demo: No se pudo cargar el escenario demo '{name}'. Revisa la consola del navegador para ver los detalles.
+    access:
+      expired: Tu paquete anterior de acceso por país ha caducado. Renueva el acceso para cargar este escenario.
+      expiredTitle: Acceso por país caducado
+      requiredTitle: Se requiere un plan por país
+      lockedCountries: 'Este escenario requiere países que no están desbloqueados: {countries}.'
+    relocation:
+      unresolvedEvent: Este evento está marcado como no resuelto. Resuelve las advertencias de impacto del traslado antes de ejecutar la simulación.
+      missingStartCountry: Este escenario usa traslado, pero no define StartCountry.
+      sandboxStart: El entorno de pruebas no se puede usar como país inicial en escenarios de traslado.
+      sandboxDestination: El entorno de pruebas no se puede usar como destino de traslado.
+      unlockTwo: Este escenario usa traslado. Desbloquea al menos dos países para cargar escenarios de traslado.
+  relocation:
+    reviewTitle: Eventos que necesitan revisión
+    reviewMessage: Haz clic en las insignias de advertencia (⚠️) de los eventos afectados para resolverlos.
+    ageChanged: La edad de traslado cambió de {fromAge} a {toAge}.
+    ageChangedUpdate: La edad de traslado cambió de {fromAge} a {toAge}. ¿Quieres actualizar los eventos?
+    orphanSplit: Esta división ya no coincide con ningún límite de traslado.
+    orphanRental: Estos ingresos por alquiler se crearon para un traslado que ya no existe.
+    orphanSalePlan: Este plan de venta o liquidación estaba vinculado a un traslado que ya no existe.
+    orphanSaleTiming: Este momento de venta estaba vinculado a un traslado que ya no existe.
+    part2Suggestion: 'El importe de la Parte 1 cambió. Valor sugerido para la Parte 2: {value}.'
+    suggestionDrifted: Decidiste dejar el valor original de la Parte 2 la última vez, pero el valor sugerido se ha desviado más ahora.
+    suggestionFormulaChanged: El valor sugerido para la Parte 2 cambió porque cambió la fórmula de sugerencia.
+    suggestionEconomicDataChanged: El valor sugerido para la Parte 2 cambió debido a datos económicos actualizados.
+    pensionConflict: Este salario está en {destinationCountry}, que no tiene sistema de pensión privada.
+    dbiConflictWithOrigin: Estos ingresos de prestación definida están en {destinationCountry}, que no admite DBI. Solo pueden continuar si están vinculados al país de origen inmediato ({originCountry}) y ese origen admite DBI.
+    dbiConflict: Estos ingresos de prestación definida están en {destinationCountry}, que no admite DBI.
+    boundaryQuestion: ¿Qué debería pasar con este elemento ({noun}) después de tu traslado a {destinationCountry}?
+    jurisdictionChange: Este elemento ({noun}) pasó de {originCountry} a {destinationCountry}. ¿Mantenerlo en {originCurrency} o cambiarlo a {destinationCurrency}?
+    nonPensionableSalary: ¿Estás convirtiendo este salario en un salario no pensionable después de tu traslado a {destinationCountry}?
+    propertyRelevant: ¿Sigue siendo relevante este elemento ({noun}) en {country}?
+    eventRelevant: ¿Sigue siendo relevante este elemento ({noun}) después de tu traslado a {destinationCountry}?
+    impactDetected: Se detectó impacto de traslado en este evento.
+    nouns:
+      expense: gasto
+      property: propiedad
+      mortgage: hipoteca
+      income: ingresos
+  relocationAssistant:
+    beforeMove: Antes del traslado
+    afterMove: Después del traslado
+    inCountry: En {country}
+    destinationCountry: país de destino
+    firstHalfAmount: el importe de la primera mitad
+    impactDetected: Se detectó impacto del traslado en este evento.
+    resolutionActionsLabel: Acciones de resolución
+    conversion:
+      latest: más reciente
+      detailsTitle: 'Detalles de conversión:'
+      fxSeries: • FX usa tipos específicos por año (función escalonada). Usa como alternativa el FX base (datos a fecha de {date}) cuando no hay datos anuales disponibles.
+      fxBase: • FX usa el tipo base (datos a fecha de {date}) porque no hay series específicas por año disponibles.
+      pppSeries: • PPP usa valores específicos por año cuando están disponibles; de lo contrario, extrapola desde la PPP base usando diferenciales de CPI.
+      pppBase: • PPP usa el valor base ajustado por diferenciales de CPI.
+      projection: • Las proyecciones futuras más allá de los datos disponibles usan una media ponderada de {years} años.
+      summary: |-
+        {amount} en {currency} equivale a {fxAmount} (datos a fecha de {date}).
+        Ajustado por poder adquisitivo, es ≈ {pppAmount}.
+    actions:
+      keepProperty:
+        label: Mantener propiedad
+        tooltip: Mantén esta propiedad después del traslado.
+      rentOut:
+        label: Poner en alquiler
+        tooltip: 'Mantén la propiedad y empieza a ponerla en alquiler después del traslado. Ingresos por alquiler estimados: {amount} {currency}.'
+      sellProperty:
+        label: Vender propiedad
+        tooltip: Vende la propiedad al trasladarte.
+      keepDebt:
+        label: Mantener deuda
+        tooltip: Sigue pagando la hipoteca en {currency}. Estarás sujeto a fluctuaciones del tipo de cambio.
+      payOff:
+        label: Liquidar
+        tooltip: Liquida por completo el saldo restante de la hipoteca en el momento del traslado.
+      splitEvent:
+        label: Dividir evento
+        tooltip: Divide este evento en el traslado. La segunda mitad empezará con un valor ajustado por PPP de {amount} {currency}.
+      cutShort:
+        label: Acortar
+        tooltip: Termina este evento antes del traslado.
+      keepEvent:
+        label: Mantener como está
+        tooltip: Deja que este evento continúe sin cambios después del traslado (manteniendo su valor actual de {amount} {currency}).
+      convertSalary:
+        label: Convertir a "Salario (sin pensión)"
+        tooltip: Convierte esto en un evento de salario no pensionable.
+      removeEvent:
+        label: Quitar
+        tooltip: Elimina este evento.
+      linkOrigin:
+        label: Vincular al país de origen
+        tooltip: Vincula estos ingresos de prestación definida a {country} para que puedan continuar como DBI del país de origen.
+      keepRenting:
+        label: Mantener ingresos por alquiler
+        tooltip: Mantén este evento de ingresos por alquiler sin cambios.
+      removeRental:
+        label: Quitar alquiler
+        tooltip: Elimina este evento de ingresos por alquiler.
+      keepReviewed:
+        label: Mantener como está
+        tooltip: Ignora este impacto y mantén el evento como está.
+      changePropertyCountry:
+        label: Cambiar a {country}
+        tooltip: Cambia la jurisdicción a {country} y actualiza el valor a {amount} {currency} usando datos medios de precio de vivienda por metro cuadrado.
+      changePropertyCountryNoData:
+        label: Cambiar a {country}
+        tooltip: Cambia la jurisdicción a {country}. El importe permanece sin cambios porque no hay datos de precios de vivienda disponibles.
+      linkIncome:
+        label: Vincular a {country}
+        tooltip: Vincula este flujo de ingresos a {country} para la tributación en el país de origen. El importe permanece sin cambios.
+      applySuggested:
+        label: Aplicar importe sugerido
+        tooltip: Actualiza el importe a {amount} ({currency}) para que refleje el poder adquisitivo en {country}.
+      keepCurrentValue:
+        label: Mantener como está
+        tooltip: Mantiene el valor actual ({amount}) en {currency}. No se realizará ninguna conversión.
+      keepCurrency:
+        label: Mantener como {currency}
+        tooltip: Mantiene {currency} para este evento, vinculado a {country}.
+      joinPrevious:
+        label: Unir con anterior
+        tooltip: Vuelve a unir este segmento con el anterior manteniendo vinculados los segmentos posteriores.
+      changeCurrency:
+        label: Cambiar a {currency}
+        tooltip: Cambia la moneda a {currency} y vincula a {country}.
+      updateSplitFormula:
+        label: Actualizar valor
+        tooltip: Actualiza la Parte 2 a {amount} {currency} usando la fórmula de sugerencia de división más reciente.
+      updateSplitPpp:
+        label: Actualizar valor
+        tooltip: Actualiza el valor de la Parte 2 a {amount} {currency} según los datos actuales de PPP.
+      leaveSplitValue:
+        label: Dejar como está
+        tooltip: Mantén la Parte 2 en su valor actual.
+      adaptSplitAge:
+        label: Adaptar edad de división
+        tooltip: Actualiza la Parte 1 para que termine a la edad {part1Age} y la Parte 2 para que empiece a la edad {part2Age}.
+      leaveSplitAge:
+        label: Dejar como está
+        tooltip: Mantén ambas mitades en sus edades actuales. La división permanece vinculada y se marcará como revisada.
+      adaptSaleAge:
+        label: Adaptar edad de venta
+        tooltip: Alinea la venta con el traslado estableciendo la edad final en {age}.
+      leaveSaleAge:
+        label: Dejar como está
+        tooltip: Mantén el momento actual de la venta y marca este impacto como revisado.
+      keepSaleTiming:
+        label: Mantener momento actual
+        tooltip: Mantén el momento actual y desvincula este flujo de trabajo de bienes inmuebles del traslado eliminado.
+      restoreMortgage:
+        label: Restaurar plan de hipoteca
+        tooltip: Restaura el calendario base de la hipoteca y elimina las filas de liquidación vinculadas al traslado cuando sea posible.
+      joinHalves:
+        label: Unir mitades
+        tooltip: Restaura un único evento desde la edad {fromAge} hasta la edad {toAge} usando {amount}.
+WelcomeTabs:
+  - id: start
+    title: Empieza aquí
+    content:
+      intro: Mira cómo podría evolucionar tu dinero a lo largo de toda la vida.
+      contextPrefix: ', usando '
+      contextSuffix: .
+      quick:
+        title: Configuración rápida
+        subtitle: Crea un boceto aproximado de un plan para hacerte una idea de cómo funciona todo.
+        badge: unos 5 min
+      full:
+        title: Configuración completa
+        subtitle: Crea un plan detallado con orientación en cada paso.
+        badge: unos 15 min
+      tours:
+        label: ¿No estás listo para introducir tus datos? Explora primero.
+        items:
+          - i18nId: item-01
+            id: quick-tour
+            title: Recorrido rápido
+            subtitle: las áreas principales · 2 min
+          - i18nId: item-02
+            id: full-tour
+            title: Recorrido completo
+            subtitle: cada campo · a tu ritmo
+      chipFree: reglas fiscales de muestra
+      chipSingle: modelo fiscal de {CountryName}
+      chipMulti: modelo de tus países desbloqueados
+  - id: tutorials
+    title: Tutoriales
+    content:
+      progressActionLabel: Cambiar progreso del tutorial
+      fullscreenPlayLabel: Reproducir en pantalla completa
+      fullscreenCloseLabel: Cerrar video
+      fullscreenDialogLabel: Video del tutorial
+      progressLabels:
+        notStarted: No iniciado
+        inProgress: En curso
+        completed: Completado
+      items:
+        - id: tour
+          title: Recorrido por el simulador
+          duration: 4 min
+          videoTitle: Recorrido por el simulador
+          description: |
+            - Para qué sirve cada área principal de la pantalla
+            - Cómo pasan los escenarios de datos de entrada a resultados
+        - id: starting-position
+          title: Ingresar tu posición inicial
+          duration: 5 min
+          videoTitle: Ingresar tu posición inicial
+          description: |
+            - Qué campos describen tu situación financiera actual
+            - Cómo las edades, los activos, las pensiones y los objetivos dan forma a cada ejecución
+        - id: adding-events
+          title: Añadir eventos
+          duration: 6 min
+          videoTitle: Añadir eventos
+          description: |
+            - Cuándo usar la tabla de eventos
+            - Cómo los salarios, los gastos, los ingresos extraordinarios y las perturbaciones afectan la cronología
+        - id: property-mortgages
+          title: Compra de propiedades e hipotecas
+          duration: 7 min
+          videoTitle: Compra de propiedades e hipotecas
+          description: |
+            - Cómo se conectan los eventos de compra e hipoteca
+            - Cómo aparecen las ventas de propiedad y las liquidaciones de hipoteca en los resultados
+        - id: investments-pensions
+          title: Inversiones, pensiones y asignaciones
+          duration: 6 min
+          videoTitle: Inversiones, pensiones y asignaciones
+          description: |
+            - Cómo se asigna el excedente de caja
+            - En qué se diferencian las aportes a pensiones y los vehículos de inversión
+        - id: charts-tables
+          title: Gráficos, tablas y valor actual
+          duration: 5 min
+          videoTitle: Gráficos, tablas y valor actual
+          description: |
+            - Cómo leer los gráficos y la tabla de datos detallada
+            - Cuándo usar valores nominales o la vista de valor actual
+        - id: monte-carlo
+          title: Monte Carlo y pruebas de estrés
+          duration: 6 min
+          videoTitle: Monte Carlo y pruebas de estrés
+          description: |
+            - Qué significa la probabilidad de éxito
+            - Cómo encontrar puntos débiles en un plan con rendimientos variables
+        - id: relocation
+          title: Traslado y escenarios de varios países
+          duration: 8 min
+          videoTitle: Traslado y escenarios de varios países
+          description: |
+            - Cómo los eventos de traslado definen la cronología de residencia fiscal
+            - Cuándo importan los vínculos con países, la moneda y los impuestos transfronterizos
+  - id: faq
+    title: Preguntas frecuentes
+    content:
+      items:
+        - i18nId: faq-01
+          question: ¿Cuál es la forma más rápida de familiarizarme con el simulador?
+          answer:
+            - i18nId: paragraph-01
+              text: Haz primero el <a href="#quick-tour" data-orientation-action="quick-tour">recorrido rápido</a>. Cargará un escenario de demostración y lo ejecutará (si no hay ya un escenario introducido), y explicará las áreas principales de la interfaz de usuario.
+            - i18nId: paragraph-02
+              text: Puedes explorar el escenario de demostración, hacer cambios en los datos y ejecutarlo para ver qué ocurre. Revisa también los tutoriales.
+            - i18nId: paragraph-03
+              text: Después recomiendo usar la <a href="#quick-setup" data-tier="quick">configuración rápida</a> para una introducción guiada a la creación de un escenario muy sencillo.
+            - i18nId: paragraph-04
+              text: Cuando estés listo, puedes usar la <a href="#full-setup" data-tier="full">configuración completa</a> para una creación guiada paso a paso de un escenario completo. O usa directamente la interfaz para introducir todos tus números.
+        - i18nId: faq-02
+          question: ¿Esto es asesoramiento financiero, de inversión, fiscal o legal?
+          answer:
+            - i18nId: paragraph-01
+              text: No. FinSim es un entorno de pruebas educativo para explorar escenarios y entender cómo distintas suposiciones pueden afectar a un plan a largo plazo.
+            - i18nId: paragraph-02
+              text: No tomes decisiones financieras, de inversión, fiscales o legales importantes basándote solo en una simulación. Consulta las decisiones importantes con un profesional debidamente cualificado.
+        - i18nId: faq-03
+          question: ¿Mis datos financieros están seguros?
+          answer:
+            - i18nId: paragraph-01
+              text: Sí, tus escenarios permanecen en tu dispositivo. No se envían a ningún servidor ni se almacenan en línea.
+            - i18nId: paragraph-02
+              text: Puedes cerrar esta pestaña del navegador; tus datos seguirán apareciendo cuando la abras de nuevo, salvo que borres el almacenamiento del navegador.
+            - i18nId: paragraph-03
+              text: Para mayor seguridad, lo mejor es guardar tu escenario en un archivo en disco. Usa el botón [Guardar] para hacerlo.
+        - i18nId: faq-04
+          question: ¿Qué almacenas en tus servidores?
+          answer:
+            - i18nId: paragraph-01
+              text: Si solo usas el nivel gratuito, solo recibo tu dirección IP pública.
+            - i18nId: paragraph-02
+              text: Si compras un plan por país, tu licencia y el correo electrónico que diste a Stripe se almacenan en mis servidores. Almaceno tu correo electrónico para poder identificar tu licencia y enviártela si necesitas recuperarla.
+            - i18nId: paragraph-03
+              text: Si me envías comentarios, almaceno esos comentarios en mis servidores. También almacenaré tu correo electrónico si decides compartirlo conmigo para que pueda responderte.
+            - i18nId: paragraph-04
+              text: Prometo que no enviaré spam a tu correo electrónico. Te recomiendo usar un servicio gratuito de direcciones de correo electrónico desechables (como 33mail.com) para que puedas bloquearme si alguna vez incumplo mi promesa.
+        - i18nId: faq-05
+          question: ¿El nivel gratuito se basa en un país real?
+          answer:
+            - i18nId: paragraph-01
+              text: No. El nivel gratuito usa reglas fiscales ficticias sencillas para que puedas aprender a usar el simulador o enseñar educación financiera sin comprar un plan por país.
+            - i18nId: paragraph-02
+              text: Solo los niveles de pago desbloquean un modelo de reglas fiscales y vehículos de inversión específicos de cada país. El traslado necesita al menos dos países reales desbloqueados.
+        - i18nId: faq-06
+          question: ¿Cuánto dura un plan por país y qué ocurre cuando vence?
+          answer:
+            - i18nId: paragraph-01
+              text: Un plan por país proporciona un año de acceso y no se renueva automáticamente. Puedes renovarlo con descuento (consulta <a href="#country-plans" data-country-plans-action>Planes</a> para ver los detalles); renovar mientras el acceso está activo lo extiende desde la fecha de vencimiento actual.
+            - i18nId: paragraph-02
+              text: Cuando el acceso vence, aún puedes usar el entorno de pruebas gratuito. No podrás cargar escenarios que requieran modelos bloqueados de países reales hasta que renueves el acceso necesario.
+        - i18nId: faq-07
+          question: ¿Puedo cambiar países, mejorar mi plan u obtener un reembolso?
+          answer:
+            - i18nId: paragraph-01
+              text: Durante el periodo de gracia de tu plan, puedes cambiar los países seleccionados o cancelar la compra y solicitar un reembolso desde <a href="#country-plans" data-country-plans-action>Planes</a>. Después de ese periodo, los países de un plan de país de residencia o de traslado permanecen fijos hasta que termine el periodo de acceso.
+            - i18nId: paragraph-02
+              text: Puedes mejorar un plan activo en cualquier momento; el precio de la mejora se prorratea por el periodo de acceso restante. Los planes activos no se pueden cambiar a un plan inferior a mitad de periodo, pero puedes elegir un plan diferente cuando venza el acceso actual.
+            - i18nId: paragraph-03
+              text: El plan mundial desbloquea todos los países admitidos, así que su selección de países solo controla qué países aparecen en el simulador y se puede cambiar en cualquier momento.
+        - i18nId: faq-08
+          question: ¿Qué precisión tienen las proyecciones con modelos fiscales de países reales?
+          answer:
+            - i18nId: paragraph-01
+              text: Los modelos fiscales de países reales son una representación lo más cuidadosa posible del sistema fiscal real de cada país modelado, pero habrá algunas simplificaciones y aproximaciones.
+            - i18nId: paragraph-02
+              text: Las proyecciones son estimaciones basadas en tus datos y en tus suposiciones sobre las condiciones económicas futuras. No son una predicción del futuro.
+        - i18nId: faq-09
+          question: ¿Cómo uso la tabla de eventos?
+          answer:
+            - i18nId: paragraph-01
+              text: Las cosas que tienen una fecha inicial y una fecha final, como tus ingresos, tus gastos o una hipoteca, van en la tabla de eventos.
+            - i18nId: paragraph-02
+              text: Usa el asistente de eventos haciendo clic en [🌟 Añadir evento 🌟]. Te guiará paso a paso. O, si ya conoces los eventos, puedes desactivar el asistente en el menú ☰.
+            - i18nId: paragraph-03
+              text: Puedes ordenar los eventos haciendo clic en el título de una columna. Puedes ver los eventos como una tabla ({icon:table}) o como tarjetas plegables ({icon:rectangle-list}), y puedes ver la cronología en términos de edades o años.
+        - i18nId: faq-10
+          question: ¿Cómo planifico para una pareja en lugar de una sola persona?
+          answer:
+            - i18nId: paragraph-01
+              text: Usa el selector de persona en la parte superior del panel de posición inicial para cambiar entre los modos individual ({icon:user}) y de dos personas ({icon:user-friends}). El modo de dos personas añade edades, aportes a pensiones y ajustes de pensión estatal separados para la segunda persona, mientras que los ingresos y gastos del hogar permanecen compartidos.
+        - i18nId: faq-11
+          question: ¿Puedo trabajar con años en lugar de edades en la tabla de eventos?
+          answer:
+            - i18nId: paragraph-01
+              text: Sí. La tabla de eventos tiene un selector para cambiar entre planificación basada en edades y planificación basada en años.
+            - i18nId: paragraph-02
+              text: Ten en cuenta que, en el modo de dos personas, las edades se refieren a cada persona por separado, así que la misma edad puede referirse a años diferentes según de quién sea el evento. Cambia entre los modos de edad y año para aclararlo.
+        - i18nId: faq-12
+          question: ¿Cómo modelo compras de propiedades?
+          answer:
+            - i18nId: paragraph-01
+              text: Usa el tipo de evento "Bienes inmuebles". Puedes introducirlo directamente o usar el asistente de eventos para guiarte.
+            - i18nId: paragraph-02
+              text: Si lo introduces directamente, introduce un nombre para la propiedad, el precio (o el pago inicial si usas una hipoteca), la fecha de compra (que puede estar en el pasado), la fecha de venta prevista (déjala en blanco si no la vas a vender) y la tasa de apreciación esperada. Después puedes crear un evento "Hipoteca" para ella, con la misma fecha inicial, y luego introducir el pago anual de la hipoteca, la fecha final y la tasa de interés.
+            - i18nId: paragraph-03
+              text: Puedes añadir varias propiedades a tu plan.
+        - i18nId: faq-13
+          question: ¿Por qué los números son mucho más grandes de lo que esperaba?
+          answer:
+            - i18nId: paragraph-01
+              text: Salvo que especifiques una inflación de 0, los números crecerán año tras año a la tasa de inflación.
+            - i18nId: paragraph-02
+              text: Pero los valores que introduces en los distintos campos tienen que estar en términos de valor actual. Por ejemplo, si esperas comprar una propiedad dentro de 10 años, debes introducir el valor actual de la propiedad, no el valor que esperas que tenga dentro de 10 años.
+            - i18nId: paragraph-03
+              text: Si prefieres ver todos los valores en términos actuales sin el crecimiento por inflación (manteniendo aun así una inflación realista), activa el selector de valor actual en el menú (☰). Esto ajustará automáticamente todos los importes mostrados por inflación, para que sean más fáciles de entender y comparar.
+        - i18nId: faq-14
+          question: ¿Qué es la visualización de valor actual y cómo la uso?
+          answer:
+            - i18nId: paragraph-01
+              text: La visualización de valor actual muestra todos los importes proyectados (ingresos, gastos, inversiones, impuestos, etc.) en términos actuales.
+            - i18nId: paragraph-02
+              text: En lugar de ver importes nominales inflados (por ejemplo, un salario de 500.000 € dentro de 30 años), ves cuánto vale ese importe en términos actuales. Esto te ayuda a comparar valores entre distintos años y a entender el impacto real de tus decisiones financieras.
+            - i18nId: paragraph-03
+              text: Puedes activar la visualización de valor actual usando el selector del menú ☰. Cuando está activada, todos los valores de la tabla de datos y los gráficos se deflactan automáticamente para mostrar sus equivalentes en valor actual. Desactívala para ver los valores nominales originales (inflados).
+            - i18nId: paragraph-04
+              text: 'Ten en cuenta que los cálculos de la simulación siguen siendo los mismos: solo cambia la visualización. La exportación CSV de la tabla de datos contendrá los valores mostrados en ese momento.'
+        - i18nId: faq-15
+          question: ¿Por qué los créditos fiscales y los límites también se ajustan por inflación?
+          answer:
+            - i18nId: paragraph-01
+              text: Aunque algunos de los números fiscales no cambian todos los años, muchos sí suelen hacerlo, aunque eso cambia de un país a otro.
+            - i18nId: paragraph-02
+              text: Tengo que asumir algún ajuste periódico, y la inflación es el mejor indicador aproximado que se me ocurre. Estoy abierto a sugerencias sobre cómo hacerlo mejor.
+        - i18nId: faq-16
+          question: ¿Por qué veo este número inesperado en la tabla de datos de la simulación?
+          answer:
+            - i18nId: paragraph-01
+              text: Muchas celdas de la tabla tienen una pequeña "i" en la esquina inferior derecha. Eso significa que la celda tiene una descripción emergente asociada.
+            - i18nId: paragraph-02
+              text: Puedes pasar el cursor, hacer clic o mantener pulsada la celda para ver de dónde viene el número.
+        - i18nId: faq-17
+          question: ¿Las tasas de crecimiento de las inversiones son antes o después de la inflación y las comisiones?
+          answer:
+            - i18nId: paragraph-01
+              text: Las tasas de crecimiento de las inversiones en el panel de economía son nominales (antes de la inflación) y antes de comisiones.
+            - i18nId: paragraph-02
+              text: El valor actual cambia cómo se muestran los resultados; no cambia los cálculos de crecimiento, comisiones ni impuestos.
+        - i18nId: faq-18
+          question: ¿Cuál es la diferencia entre crecimiento fijo y variable, y qué es la simulación Monte Carlo?
+          answer:
+            - i18nId: paragraph-01
+              text: El crecimiento fijo usa tus suposiciones de crecimiento anual para producir una proyección repetible que puede tener éxito o fracasar.
+            - i18nId: paragraph-02
+              text: En el modo de crecimiento variable, tu escenario se ejecuta cientos de veces con variaciones aleatorias en los rendimientos de las inversiones.
+            - i18nId: paragraph-03
+              text: Después, el simulador cuenta qué porcentaje de esas ejecuciones alcanzó tu edad objetivo sin quedarse sin dinero.
+            - i18nId: paragraph-04
+              text: El resultado muestra la probabilidad de éxito de tu escenario bajo las condiciones que definiste.
+        - i18nId: faq-19
+          question: ¿Cómo modela el simulador las acciones y los bonos?
+          answer:
+            - i18nId: paragraph-01
+              text: En el modo de crecimiento variable, cada año simulado tiene un entorno económico compartido (crecimiento, recesión, estancamiento) que puede persistir durante varios años, calibrado para conservar las suposiciones de crecimiento y volatilidad a largo plazo que introdujiste.
+            - i18nId: paragraph-02
+              text: 'Ese entorno les afecta de forma diferente: las acciones tienden a ir mejor durante el crecimiento y peor durante las recesiones, mientras que los bonos tienden a proporcionar cierta compensación.'
+            - i18nId: paragraph-03
+              text: Ambos siguen teniendo sus propios altibajos aleatorios, así que no siempre se moverán en direcciones opuestas.
+        - i18nId: faq-20
+          question: ¿Qué ocurre con el efectivo sobrante y qué ocurre cuando los ingresos no cubren los gastos?
+          answer:
+            - i18nId: paragraph-01
+              text: Cuando los ingresos superan los gastos, el simulador primero acumula efectivo hasta tu reserva de emergencia ajustada por inflación. El efectivo por encima de ese objetivo se invierte usando los porcentajes del panel de asignaciones; si esos porcentajes suman menos del 100%, el resto permanece en efectivo.
+            - i18nId: paragraph-02
+              text: Cuando los ingresos no cubren los gastos, el simulador usa efectivo e inversiones en el orden definido en el panel de prioridades de disposición.
+            - i18nId: paragraph-03
+              text: Si los ingresos disponibles y los activos accesibles aún no pueden cubrir los gastos, la simulación marca el plan como fallido.
+        - i18nId: faq-21
+          question: ¿Cómo hago una prueba de resistencia de mi plan?
+          answer:
+            - i18nId: paragraph-01
+              text: 'Prueba suposiciones económicas más duras: sube la inflación, reduce el crecimiento de las inversiones o añade eventos de caída del mercado a la cronología, y observa hasta qué punto es robusto tu plan.'
+        - i18nId: faq-22
+          question: ¿Cómo encuentro los puntos débiles de mi plan?
+          answer:
+            - i18nId: paragraph-01
+              text: Después de una ejecución de simulación, usa el menú desplegable de combinación de colores en la tabla de datos ({icon:palette}) para resaltar periodos críticos. Los colores muestran dónde el flujo de caja se estrecha o los ahorros bajan demasiado.
+            - i18nId: paragraph-02
+              text: • <b>Flujo de caja:</b> muestra los puntos de presión del flujo de caja en tu plan, cuando los ingresos no cubren los gastos y tienes que usar efectivo o vender inversiones.
+            - i18nId: paragraph-03
+              text: • <b>Fallo:</b> muestra los años en los que es más probable que tu plan falle (se quede sin dinero).
+            - i18nId: paragraph-04
+              text: • <b>Supervivencia:</b> muestra qué probabilidad tiene tu plan de tener éxito hasta ese momento.
+        - i18nId: faq-23
+          question: ¿Cómo funcionan los eventos de traslado?
+          answer:
+            - i18nId: paragraph-01
+              text: Un evento de traslado cambia tu país de residencia desde un momento específico, para que el simulador pueda aplicar el modelo fiscal y las condiciones económicas del nuevo país.
+            - i18nId: paragraph-02
+              text: 'Después de añadir un evento de traslado, algunos eventos pueden verse afectados y mostrar insignias de advertencia ({icon:triangle-exclamation}). Usa las sugerencias integradas para resolver los problemas: dividir eventos, mantener monedas originales, vincular eventos a un país, convertir valores, etc.'
+            - i18nId: paragraph-03
+              text: Los escenarios multinacionales muestran banderas de países en las áreas de entrada para datos específicos de cada país, y pueden añadir selectores de moneda para los gráficos y la tabla de datos.
+        - i18nId: faq-24
+          question: ¿Cómo funciona la conversión de moneda en gráficos y tablas?
+          answer:
+            - i18nId: paragraph-01
+              text: En escenarios multimoneda, puedes elegir que los gráficos y las tablas muestren monedas locales o conviertan todo a una moneda de presentación.
+            - i18nId: paragraph-02
+              text: “El simulador parte de anclajes de tipo de cambio (actualizados mensualmente) y los proyecta hacia el futuro usando la inflación relativa entre países.”
+            - i18nId: paragraph-03
+              text: La paridad de poder adquisitivo (PPP) se usa para sugerir valores equivalentes al resolver eventos afectados por un traslado.
+        - i18nId: faq-25
+          question: ¿Por qué tendría que recuperar mi licencia?
+          answer:
+            - i18nId: paragraph-01
+              text: Guardas una copia de tu licencia en el almacenamiento local de tu navegador.
+            - i18nId: paragraph-02
+              text: Si borras el almacenamiento de tu navegador, pierdes el acceso a tu licencia.
+            - i18nId: paragraph-03
+              text: Además, si accedes a este sitio web desde otro navegador o dispositivo, no tendrá una copia de tu licencia.
+            - i18nId: paragraph-04
+              text: En esos casos, usa el botón [recuperar licencia] en el menú (☰) y el sistema la restaurará buscando tu dirección de correo electrónico en mis servidores.
+        - i18nId: faq-26
+          question: ¿Puedo usar mi licencia en más de un dispositivo?
+          answer:
+            - i18nId: paragraph-01
+              text: 'Sí: usa el botón [recuperar licencia] en el menú (☰), introduce el correo electrónico que usas con Stripe y recibirás un correo electrónico con un enlace de recuperación.'
+        - i18nId: faq-27
+          question: ¿Puedo acceder a mis escenarios guardados desde otro dispositivo?
+          answer:
+            - i18nId: paragraph-01
+              text: Sí, pero tienes que copiar los archivos de escenario al otro dispositivo.
+            - i18nId: paragraph-02
+              text: Tus escenarios guardados están solo en los dispositivos donde los guardaste. Si los pierdes, desaparecen. No tengo una copia.
+  - id: notes
+    title: Notas
+    content:
+      items:
+        - i18nId: item-01
+          title: Aviso de privacidad
+          description: La información que introduces nunca sale de tu dispositivo. Todo se procesa en tu navegador.
+        - i18nId: item-02
+          title: Uso de IA
+          description: Este producto se desarrolló parcialmente con IA, por un ingeniero de software experimentado que se obsesiona con cada pequeño detalle. Pero ten en cuenta que no soy contable ni asesor financiero, ni puedo garantizar la precisión de cada número usado al modelar países reales. Los modelos fiscales incluyen aproximaciones y simplificaciones, y pueden ocurrir errores. Envíame comentarios si encuentras un problema y haré todo lo posible por corregirlo.
+        - i18nId: item-03
+          title: Descargo de responsabilidad
+          description: Esto no es asesoramiento financiero, de inversión, fiscal ni legal. Es una herramienta para ayudarte a entender cómo distintas decisiones y escenarios pueden afectar a tu futuro financiero a largo plazo. No tomes decisiones financieras importantes sin hablar con un asesor financiero.
+CountryAccessCheckout:
+  modal:
+    title: Planes de modelos fiscales por país
+    active: Activo
+    disclaimer: '**AVISO:** Solo para uso educativo. Las reglas fiscales están simplificadas. No es asesoramiento financiero, fiscal, de inversión ni legal.'
+    normalPricingBanner: Los planes otorgan un año de acceso, sin renovación automática. Renueva en cualquier momento con {renewalDiscountPercent}% de descuento.
+    normalPricingWhyLabel: ¿Por qué?
+    normalPricingWhyTitle: 'Otras opciones:'
+    normalPricingWhyDescription: |
+      <ol class="annual-access-options">
+        <li><b>Suscripción:</b> nadie quiere eso.</li>
+        <li><b>Acceso de por vida:</b> los modelos fiscales deben mantenerse.</li>
+        <li><b>Pagar por actualizaciones:</b> la app tiene que funcionar con modelos fiscales nuevos <i>y</i> antiguos.</li>
+      </ol>
+      <p>Ninguna parece justa.</p>
+    foundingPricingBanner: 'Oferta para fundadores: paga una vez y obtén acceso de por vida. Todas las actualizaciones incluidas.'
+    pricing:
+      oneTimeSuffix: ' una vez'
+    recoveryNudgeTitle: Recuperar licencia existente
+    recoveryNudge: ¿Ya compraste? Recupera tu licencia antes del pago para evitar crear una licencia duplicada en un dispositivo nuevo.
+    confirmCancelRefundTitle: ¿Cancelar y reembolsar?
+    confirmCancelRefund: ¿Cancelar esta compra y solicitar tu reembolso del periodo de gracia? El acceso terminará inmediatamente.
+    actions:
+      close: Cerrar
+      recoverLicense: Recuperar licencia
+      manageBilling: Datos de facturación
+      cancelRefund: Cancelar y reembolsar
+      canceling: Cancelando...
+      saveCountries: Guardar cambios
+      upgradeTier: Mejorar plan
+      changeTier: Mejorar plan
+      continueToStripe: Pagar
+      renewWithStripe: Renovar con Stripe
+      extendOneYearUntil: Ampliar 1 año → hasta {date}
+      continuePromoWithStripe: Continuar con Stripe
+      openingStripe: Abriendo Stripe...
+      disabledCheckoutTitle: Selecciona un plan de pago y los países requeridos para continuar.
+    promo:
+      expired:
+        title: Tu promoción de planes por país ha terminado
+        messageAllCountries: 'Tu acceso promocional a planes por país terminó el {date}. Continúa con Stripe para conservar el mismo plan: "{planName}".'
+        messageWithCountries: 'Tu acceso promocional a planes por país terminó el {date}. Continúa con Stripe para conservar el mismo plan "{planName}" y países: {countries}.'
+        errorTitle: Pago no disponible
+        actions:
+          close: Cerrar
+          continueWithStripe: Continuar con Stripe
+          openCountryPlans: Abrir planes por país
+          openingStripe: Abriendo Stripe...
+    recovery:
+      title: Recuperar licencia
+      errorTitle: Error al recuperar la licencia
+      copy: Introduce el mismo correo electrónico que usaste con Stripe y te enviaremos un enlace de recuperación si coincide con una licencia válida.
+      emailLabel: Correo electrónico de Stripe
+      emailPlaceholder: name@example.com
+      validationError: Introduce el correo electrónico que usaste en el pago.
+      sentToast: Si encontramos una licencia coincidente, recibirás pronto un enlace de recuperación.
+      rateLimited: Se envió un enlace de recuperación recientemente. Espera unos minutos antes de solicitar otro.
+      requestFailed: No se pudo completar la solicitud de recuperación. Inténtalo de nuevo.
+      tokenExpired: Este enlace de recuperación ha caducado. Abre el menú (☰) y elige Recuperar licencia para solicitar un enlace de recuperación nuevo.
+      tokenUsed: Este enlace de recuperación ya se ha usado. Abre el menú (☰) y elige Recuperar licencia para solicitar un enlace de recuperación nuevo.
+      cooldownActive: Esta licencia se restauró recientemente en otro navegador o dispositivo. Inténtalo de nuevo después de {date}.
+      failed: No pudimos restaurar tu licencia desde este enlace de recuperación.
+      actions:
+        cancel: Cancelar
+        send: Enviar
+        sending: Enviando...
+    currentAccess:
+      founding: Acceso vitalicio de fundador
+      expires: 'Caduca: {date}'
+    gift:
+      title: Aplicar código promocional
+      copyAbove: Introduce tu correo electrónico y te enviaremos un enlace seguro para activar este código promocional.
+      copyBelow: Lo necesitamos para identificar tu licencia en caso de que uses otro dispositivo o borres el almacenamiento del navegador.
+      emailLabel: Correo electrónico
+      emailPlaceholder: name@example.com
+      validationError: Introduce una dirección de correo electrónico válida.
+      sentToast: Revisa tu correo electrónico para obtener un enlace seguro con el que terminar de activar tu código promocional.
+      invalidCode: Este código promocional no es válido o ha caducado.
+      activeSubscriptionExists: Este navegador ya tiene un plan por país activo. Abre planes por país para gestionarlo, o usa otro navegador o dispositivo para esta promoción.
+      rateLimited: Se envió un enlace seguro recientemente. Espera unos minutos antes de solicitar otro.
+      actions:
+        cancel: Cancelar
+        continue: Enviar
+        redeeming: Enviando...
+    toasts:
+      countriesUpdated: Países actualizados
+      tierChangeSubmitted: Cambio de plan enviado
+      planCanceledAndRefunded: Compra cancelada y reembolso iniciado
+    errorTitles:
+      gift: Código promocional no disponible
+      checkout: Pago no disponible
+      tierChange: Error al cambiar de plan
+      countryUpdate: Error al actualizar países
+      billingPortal: Portal de facturación no disponible
+      cancelRefund: Error en la cancelación
+    errorMessages:
+      checkout: El pago no está disponible temporalmente. Inténtalo de nuevo.
+      tierChange: No se pudo completar el cambio de plan. Inténtalo de nuevo.
+      countryUpdate: No se pudo actualizar la selección de países. Inténtalo de nuevo.
+      billingPortal: Los datos de facturación no están disponibles temporalmente. Inténtalo de nuevo.
+      cancelRefund: No se pudo completar la cancelación. Inténtalo de nuevo.
+    success:
+      eyebrow: Pago completado
+      message: Tus países seleccionados están listos. Para usar esta licencia en otro dispositivo, abre allí el menú (☰), elige [Recuperar licencia] e introduce tu correo electrónico.
+      allCountries: Todos los países compatibles
+      availableCountry: disponible
+      unknownPlan: Planes
+      action: Empezar a planificar
+      videoTitle: Recorrido por el simulador
+      activation:
+        eyebrow: Activando...
+        message: Esperando la confirmación de Stripe. Esto suele tardar unos segundos.
+      recovery:
+        eyebrow: Licencia restaurada
+        message: Tus países vuelven a estar disponibles.
+        action: Continuar planificando
+      gift:
+        eyebrow: Promoción activada
+        message: Tu código promocional ha sido confirmado y tus países están listos.
+        action: Empezar a planificar
+        activation:
+          eyebrow: Activando tu promoción
+          message: Esperando la confirmación de la promoción. Esto suele tardar unos segundos.
+  countryList:
+    empty: Ningún país coincide con tus filtros.
+    sortSelected: Mover los países seleccionados al principio
+    pendingRenewal: Renovación pendiente
+    hideNotes: Ocultar notas del modelo de {country}
+    showNotes: Mostrar notas del modelo de {country}
+    readArticle: Leer artículo completo
+    bulk:
+      all: Todos los países listados están seleccionados; haz clic para deseleccionarlos todos
+      none: Ningún país listado está seleccionado; haz clic para selección individual
+      individual: Selecciona países individualmente; haz clic para seleccionar todos los países listados
+    aria:
+      selected: seleccionado
+      changesAtRenewal: los cambios se aplican en la renovación
+      pendingRenewal: renovación pendiente
+      selectionLimit: límite de selección alcanzado
+      notesExpanded: notas del modelo expandidas
+      notesAvailable: notas del modelo disponibles
+  tiers:
+    free:
+      label: Entorno de pruebas gratis
+      price: €0
+      lines: |
+        - Un país ficticio.
+        - Reglas fiscales simples.
+        - Ideal para aprender las bases.
+      description: |
+        #### Usa este plan:
+        - Para familiarizarte con el simulador.
+        - Como herramienta de enseñanza.
+        #### Limitaciones:
+        - Sin modelos fiscales de países reales.
+        - Sin movilidad global.
+        #### Paga un plan para:
+        - Hacer proyecciones usando modelos fiscales de países reales.
+        - Ver qué ocurre si te trasladas a otros países.
+        - Obtener actualizaciones de modelos fiscales mientras tu acceso esté activo.
+    country_1:
+      label: Mi País
+      lines: |
+        - Obtén el modelo fiscal de un país.
+        - Periodo de gracia de {countryAccessGracePeriodDays} días para:
+          - Probar distintos países.
+          - Cancelar y obtener un reembolso.
+      description: |
+        Elige un país para desbloquear su modelo fiscal (puedes cambiarlo durante el periodo de gracia)
+    country_2:
+      label: Traslado
+      lines: |
+        - Desbloquea dos países.
+        - Modela escenarios de traslado.
+        - El mismo periodo de gracia de {countryAccessGracePeriodDays} días.
+      description: |
+        Elige dos países para desbloquear sus modelos fiscales (puedes cambiarlos durante el periodo de gracia)
+    country_all:
+      label: El Mundo
+      lines: |
+        - Desbloquea los {countryCount} países modelados.
+        - Obtén países a medida que se añadan.
+        - ¡Trasládate por todo el mundo!
+        - Periodo de reembolso de {countryAccessGracePeriodDays} días.
+      description: |
+        Selecciona qué países quieres ver en los menús desplegables de selección de país (puedes cambiarlo en cualquier momento)
+LegacyScenarioMigrationModal:
+  title: Escenario actualizado
+  body: |
+    Este archivo de escenario se creó con una versión anterior de este software, y especificaba crecimiento y volatilidad para pensiones, acciones y fondos irlandeses. Tuve que convertir esos valores a la configuración de inversión actual para que tus resultados se mantengan lo más cerca posible. Puedes revisar las posiciones y comisiones generadas en el panel de asignaciones.<br>
+    Si guardas este escenario, se guardará con la nueva configuración. Te recomiendo hacerlo para dejar de ver este mensaje cada vez que cargues el escenario.
+  actions:
+    confirm: Entendido
+CustomFeesDisableWarningModal:
+  title: ¿Usar comisiones predeterminadas?
+  body: Este escenario tiene valores de comisiones personalizados. Desactivar las comisiones personalizadas cambiará los resultados.
+  actions:
+    cancel: Mantener comisiones personalizadas
+    confirm: Usar comisiones predeterminadas
+PensionContributionTooltip:
+  noRelief: No hay desgravación fiscal por las aportes; el crecimiento está libre de impuestos.
+  unlimitedRelief: Sin límite de aporte. Las aportes son deducibles de impuestos hasta ${maxAmount} al año.
+  reliefFloor: La deducción se calcula sobre al menos ${floor} de ingresos.
+  tableHeaders:
+    maximum:
+      - i18nId: header-01
+        text: Edad
+      - i18nId: header-02
+        text: Aport.
+    entered:
+      - i18nId: header-01
+        text: Edad
+      - i18nId: header-02
+        text: Máx.
+      - i18nId: header-03
+        text: Tú
+    available:
+      - i18nId: header-01
+        text: Edad
+      - i18nId: header-02
+        text: Máx.
+TourControls:
+  previous: Ant.
+  next: Sig.
+  close: Cerrar
+  done: Hecho
+WizardSteps:
+  - i18nId: tour-step-001
+    popover:
+      content:
+        description: 'Botones de acción principales:'
+        items:
+          - i18nId: item-01
+            title: Simular
+            description: calcular proyecciones
+          - i18nId: item-02
+            title: Progreso / resultado
+            description: obtener un análisis en lenguaje claro
+          - i18nId: item-03
+            title: Guardar
+            description: guardar tu escenario en un archivo
+          - i18nId: item-04
+            title: Cargar
+            description: volver a abrir un escenario guardado
+          - i18nId: item-05
+            title: Nuevo
+            description: iniciar un escenario nuevo
+          - i18nId: item-06
+            title: Ayuda
+            description: obtener ayuda o asistencia para un campo
+          - i18nId: item-07
+            title: Planes
+            description: obtener modelos fiscales de países reales
+  - i18nId: tour-step-002
+    popover:
+      content:
+        description: El resultado de la simulación se mostrará aquí.
+        items:
+          - i18nId: item-01
+            title: Crecimiento lineal
+            description: si especificaste tasas de crecimiento lineal ({icon:chart-line}), esto mostrará "Correcto" o la edad a la que te quedaste sin dinero
+          - i18nId: item-02
+            title: Con volatilidad
+            description: si especificaste algo de volatilidad ({icon:chart-variable}), mostrará la probabilidad de éxito de tu escenario
+          - i18nId: item-03
+            title: Hallazgos
+            description: Después de cada simulación, aparece una pequeña ⓘ en este recuadro. Haz clic en ella para ver observaciones en lenguaje claro sobre tus resultados
+  - i18nId: tour-step-003
+    popover:
+      content:
+        description: 'Paneles de parámetros:'
+        items:
+          - i18nId: item-01
+            title: Introducir información
+            description: introduce tu situación actual, objetivos, asignaciones de inversión y supuestos económicos
+          - i18nId: item-02
+            title: Obtener ayuda
+            description: haz clic en los iconos de información ({icon:info}) para obtener ayuda detallada sobre cualquier panel o campo
+  - i18nId: tour-step-004
+    popover:
+      content:
+        text: Aquí describes tu situación financiera actual. Es el punto de partida de la simulación.
+  - i18nId: tour-step-005
+    popover:
+      description: <p>Modo individual.</p><p>Usa este modo para la planificación financiera individual. En este modo, solo introducirás tu propia información financiera y el simulador planificará el futuro financiero de una persona.</p>
+  - i18nId: tour-step-006
+    popover:
+      description: <p>Modo pareja.</p><p>Esto te permite introducir fondos de pensión, edades de jubilación e información de pensión separados para una pareja.</p><p>Los eventos de ingresos pueden asignarse a cualquiera de las dos personas.</p>
+  - i18nId: tour-step-007
+    popover:
+      description: <p>Selecciona tu país de residencia actual.</p><p>Esto establece el modelo fiscal activo para los cálculos. Puedes añadir un evento de traslado para mudarte a otro país (si está disponible), y entonces se aplicará el modelo fiscal de ese país.</p>
+  - i18nId: tour-step-008
+    popover:
+      description: <p>Introduce tu edad actual.</p>
+  - i18nId: tour-step-009
+    popover:
+      description: <p>Introduce la edad actual de tu pareja.</p>
+  - i18nId: tour-step-010
+    popover:
+      description: <p>Introduce tus ahorros actuales.</p><p>Cualquier efectivo que tengas en tus cuentas bancarias o caja fuerte (o colchón), sin generar intereses significativos. En modo de dos personas, esto representa los ahorros combinados de ambas personas.</p>
+  - i18nId: tour-step-011
+    popover:
+      description: <p>El importe total en tus fondos de pensión privada.</p><p>Si aún no has aportado a uno, introduce '0' o déjalo en blanco. Si tienes más de un fondo de pensión, introduce aquí el importe total.</p>
+  - i18nId: tour-step-012
+    popover:
+      description: <p>El importe total en los fondos de pensión privada de tu pareja.</p><p>Si tu pareja aún no ha aportado a una pensión, introduce '0' o déjalo en blanco.</p>
+  - i18nId: tour-step-013
+    popover:
+      description: <p>El valor actual de tus inversiones en ${investmentType.label}, si tienes alguna.</p><p>${investmentType.helpText}</p>
+  - i18nId: tour-step-014
+    popover:
+      description: <p>Describe aquí tus circunstancias personales, ya que afectan a tus cálculos fiscales durante toda la simulación. Esto incluye datos actuales o planes futuros de matrimonio/unión civil e hijos, que pueden influir en los tramos y créditos fiscales.</p>
+  - i18nId: tour-step-015
+    popover:
+      description: <p>El año en que te casaste o formaste una unión civil, o en que planeas hacerlo (déjalo vacío si no aplica).</p><p>Los límites de tus tramos de impuesto sobre la renta pueden cambiar si estás casado o en una unión civil.</p>
+  - i18nId: tour-step-016
+    popover:
+      description: <p>El año en que nació tu hijo mayor, o en que se espera o se especula que nazca (déjalo vacío si no planeas tener hijos).</p><p>Los límites de tus tramos de impuesto sobre la renta pueden aumentar si tienes hijos dependientes, a partir del nacimiento de tu primer hijo.</p>
+  - i18nId: tour-step-017
+    popover:
+      description: <p>El año en que nació tu hijo menor, o en que se espera o se especula que nazca (déjalo vacío si no planeas tener hijos).</p><p>El aumento de los límites de tus tramos de impuesto sobre la renta por hijos dependientes puede continuar hasta que tu hijo menor tenga más de ${taxRules.incomeTax.dependentChildMaxAge} años.</p>
+  - i18nId: tour-step-018
+    popover:
+      description: <p>El importe del crédito fiscal personal al que tienes derecho según tus circunstancias personales (viudez, persona cuidadora, etc.).</p><p>Esto es independiente de los créditos fiscales relacionados con el empleo y no incluye a los hijos dependientes.</p><p>Usa [este recurso fiscal oficial](${taxRules.helpResources.personalTaxInputs.url}) para calcular el importe.</p>
+  - i18nId: tour-step-019
+    popover:
+      description: ${taxRules.pensionRules.helpText.statePensionDescriptionP1}
+  - i18nId: tour-step-020
+    popover:
+      description: ${taxRules.pensionRules.helpText.statePensionDescriptionP2}
+  - i18nId: tour-step-021
+    popover:
+      description: <p>Aquí describes lo que quieres conseguir.</p>
+  - i18nId: tour-step-022
+    popover:
+      description: <p>La edad a la que planeas retirarte.</p>
+  - i18nId: tour-step-023
+    popover:
+      description: <p>La edad a la que tu pareja planea retirarse.</p>
+  - i18nId: tour-step-024
+    popover:
+      description: <p>Esta es tu esperanza de vida.</p><p>La simulación terminará a esta edad y será correcta si alcanzas esta edad sin quedarte sin dinero.</p>
+  - i18nId: tour-step-025
+    popover:
+      description: <p>El importe de dinero que planeas tener en efectivo para cubrir gastos imprevistos.</p><p>Se ajustará por inflación.</p>
+  - i18nId: tour-step-026
+    popover:
+      description: <p>Aquí decides cuánto asignar a cada tipo de inversión.</p>
+  - i18nId: tour-step-027
+    popover:
+      description: <p>El porcentaje de tu cartera que planeas asignar a ${investmentType.label}.</p><p>${investmentType.helpText}</p><p>Todo el efectivo restante después de financiar tu reserva de emergencia se invertirá según estas proporciones. Si suman menos del 100%, ahorrarás el resto en efectivo.</p>
+  - i18nId: tour-step-028
+    popover:
+      description: <p>Selecciona en qué instrumento global invierte <b>${investmentType.label}</b>.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+  - i18nId: tour-step-029
+    popover:
+      description: '<p>La comisión anual que cobra tu banco o bróker por mantener tus inversiones. Valor predeterminado: ${investmentType.defaultFeeText}.</p>'
+  - i18nId: tour-step-030
+    popover:
+      description: <p>Selecciona en qué instrumento global se invierten tus aportes a pensión privada.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+  - i18nId: tour-step-031
+    popover:
+      description: <p>Selecciona en qué instrumento global se invierten las aportes a pensión privada de tu pareja.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+  - i18nId: tour-step-032
+    popover:
+      description: '<p>La comisión anual que cobra tu proveedor de pensión por mantener tu pensión. Valor predeterminado: ${investmentType.defaultFeeText}.</p>'
+  - i18nId: tour-step-033
+    popover:
+      description: '<p>La comisión anual que cobra el proveedor de pensión de tu pareja por mantener su pensión. Valor predeterminado: ${investmentType.defaultFeeText}.</p>'
+  - i18nId: tour-step-034
+    popover:
+      description: ${investmentType.contributionDescriptionP1}
+  - i18nId: tour-step-035
+    popover:
+      description: ${investmentType.contributionDescriptionP2}
+  - i18nId: tour-step-036
+    popover:
+      description: '<p>Límite de tu aporte a la pensión. La desgravación fiscal solo se aplica hasta el límite anual definido en el modelo fiscal actual.<ul><li><b>Sí</b>: detenerse en el límite de ${taxRules.pensionRules.contributionLimits.annualCap,currency} (ajustado por inflación).</li><li><b>No</b>: pagar impuestos sobre los importes que superen el límite de ${taxRules.pensionRules.contributionLimits.annualCap,currency}.</li><li><b>Igualar</b>: aportar solo lo que tu empleador iguale (p. ej., 4% tú + 4% empleador).</li></ul></p>'
+  - i18nId: tour-step-037
+    popover:
+      description: <p>Define el orden de retiro de tus activos:</p><ul><li>Arrastra elementos para reordenarlos; arriba = se usa primero.</li><li>Las prioridades importan al cubrir gastos cuando los ingresos no son suficientes (p. ej., retiros durante la etapa de jubilación).</li></ul>
+  - i18nId: tour-step-038
+    popover:
+      description: <p>Aquí estimas cómo se comportará la economía en promedio en el futuro.</p><p>Usa el selector de la parte superior derecha para cambiar entre modos de crecimiento fijo y variable.</p><p>Puede que quieras introducir cifras de crecimiento conservadoras para poner a prueba tu escenario.</p>
+  - i18nId: tour-step-039
+    popover:
+      description: <p>Modo de crecimiento fijo.</p><p>En este modo, la simulación usa tasas de crecimiento fijas sin volatilidad. Esto ofrece un único resultado predecible según las tasas de crecimiento que hayas especificado. Los campos de volatilidad están ocultos en este modo.</p>
+  - i18nId: tour-step-040
+    popover:
+      description: <p>Modo de crecimiento variable.</p><p>En este modo, el simulador se ejecuta cientos de veces con tasas de crecimiento variables según la volatilidad que especifiques. Esto ofrece una probabilidad de éxito en lugar de un único resultado, teniendo en cuenta la incertidumbre y las fluctuaciones del mercado. Al menos una de las tasas de volatilidad debe ser superior al 0%.</p>
+  - i18nId: tour-step-041
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de <b>${investmentType.label}</b>, independiente de la inflación.</p><p>${investmentType.helpText}</p>
+  - i18nId: tour-step-042
+    popover:
+      description: <p>La desviación estándar esperada de la tasa anual de crecimiento de <b>${investmentType.label}</b>.</p><p>Este campo solo se usa en el modo de simulación con tasa variable.</p><p>${investmentType.helpText}</p>
+  - i18nId: tour-step-043
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de <b>${investmentType.label}</b>, independiente de la inflación.</p><p>${investmentType.helpText}</p>
+  - i18nId: tour-step-044
+    popover:
+      description: <p>La desviación estándar esperada de la tasa anual de crecimiento de <b>${investmentType.label}</b>.</p><p>Este campo solo se usa en el modo de simulación con tasa variable.</p><p>${investmentType.helpText}</p>
+  - i18nId: tour-step-045
+    defaultTooltip: La tasa de inflación predeterminada [para ${countryName}] basada en 20 años de datos históricos y previsión a corto plazo.
+    popover:
+      description: '<p>La tasa media anual de inflación esperada.</p><p>Los bancos centrales aspiran a una tasa de inflación del 2% al 3%. Sin embargo, las desviaciones debidas a perturbaciones (p. ej., pandemias, guerras, etc.) se inclinan hacia cifras más altas.</p><p>Consejo: activa el selector de valor actual en el menú (☰) para ver todos los valores proyectados ajustados a términos monetarios actuales, lo que facilita entender el poder adquisitivo real a lo largo de los años.</p>'
+  - i18nId: tour-step-046
+    popover:
+      description: <p>Añade, quita y edita los eventos que componen tu escenario.</p><ul><li>Un evento es cualquier cosa limitada en el tiempo y con impacto financiero, como ingresos, gastos o una caída del mercado.</li><li>Selecciona un tipo de evento y pulsa Ayuda o la tecla ? para ver los detalles.</li><li>Puedes usar el asistente de eventos para ayudarte a crear eventos y cambiar entre la vista de tabla y la vista de tarjetas.</li><li>Ordena ⇅ la tabla haciendo clic en un encabezado de columna.</li></ul>
+  - i18nId: tour-step-047
+    popover:
+      description: <p>Haz clic en este botón para abrir el asistente de eventos y ayudarte a completar un evento vacío.</p>
+  - i18nId: tour-step-048
+    popover:
+      description: '<p>Elige qué tipo de evento representa esta fila: ingresos, gasto, propiedad, caída del mercado, etc. Los demás campos se adaptarán automáticamente a tu selección.</p>'
+  - i18nId: tour-step-049
+    popover:
+      description: <p>El evento 'Sin operación' es una forma de silenciar un evento sin eliminarlo.</p><p>Si lo seleccionas, la simulación no usará el evento.</p>
+  - i18nId: tour-step-050
+    popover:
+      description: <p>Tu salario bruto.</p><p>Este ingreso puede aportar a tu pensión privada según tu porcentaje de aporte a la pensión.</p>
+  - i18nId: tour-step-051
+    popover:
+      description: <p>Un ingreso salarial bruto que no aporta a tu pensión.</p><p>Esto es útil para modelar ingresos salariales que no cumplen los requisitos para aportes a la pensión, o en países donde no hay un sistema de pensión privada.</p>
+  - i18nId: tour-step-052
+    popover:
+      description: <p>Un ingreso salarial bruto para tu pareja.</p><p>Este ingreso puede aportar a la pensión privada de tu pareja según su porcentaje de aporte a la pensión.</p>
+  - i18nId: tour-step-053
+    popover:
+      description: <p>Un ingreso salarial bruto para tu pareja que no aporta a su pensión.</p><p>Esto es útil para modelar ingresos salariales que no cumplen los requisitos para aportes a la pensión, o en países donde no hay un sistema de pensión privada.</p>
+  - i18nId: tour-step-054
+    popover:
+      description: <p>El valor bruto anual de las unidades de acciones restringidas a medida que se consolidan, proporcionadas por algunos empleadores como parte del paquete de remuneración.</p>
+  - i18nId: tour-step-055
+    popover:
+      description: <p>Los ingresos brutos por alquiler de una propiedad vinculada.</p>
+  - i18nId: tour-step-056
+    popover:
+      description: <p>Un plan de pensión ocupacional que proporciona ingresos fijos durante la jubilación.</p>
+  - i18nId: tour-step-057
+    popover:
+      description: <p>Este evento te permite añadir ingresos netos de cosas como una donación o una herencia.</p><p>Asume que cualquier impuesto ya se ha pagado, así que es una especie de evento flexible que te permite inyectar dinero en tu flujo de ingresos.</p>
+  - i18nId: tour-step-058
+    popover:
+      description: <p>Un gasto. Puedes añadir un evento de gasto para tu coste total anual de vida, y otros para gastos transitorios o puntuales como matrícula universitaria, un coche, etc.</p>
+  - i18nId: tour-step-059
+    popover:
+      description: <p>Una caída o burbuja del mercado bursátil. Con este evento puedes poner a prueba tu plan.</p>
+  - i18nId: tour-step-060
+    popover:
+      description: <p>La propiedad de un bien inmueble.</p><p>Si la compra se financia, añade también un evento de hipoteca y vincúlalo usando el selector de la columna de nombre en las filas relacionadas con la hipoteca. O usa el asistente de eventos, que crea ambos eventos juntos.</p>
+  - i18nId: tour-step-061
+    popover:
+      description: <p>Una hipoteca sobre un bien inmueble.</p><p>Usa el selector de la columna de nombre para elegir a qué propiedad pertenece esta hipoteca. O usa el asistente de eventos, que crea juntos los eventos de compra de propiedad e hipoteca. </p>
+  - i18nId: tour-step-062
+    popover:
+      description: <p>Un pago adicional de principal además de los pagos regulares de la hipoteca.</p>
+  - i18nId: tour-step-063
+    popover:
+      description: <p>Un evento puntual de liquidación de hipoteca. Liquida el saldo restante de la hipoteca.</p>
+  - i18nId: tour-step-064
+    popover:
+      description: <p>Una hipoteca inversa que paga efectivo mientras acumula una deuda contra el valor de la propiedad.</p>
+  - i18nId: tour-step-065
+    popover:
+      description: <p>Un evento de traslado. Cambia tu país de residencia a una edad específica y revisa los eventos afectados por problemas de moneda, enlace de país y rango dividido.</p>
+  - i18nId: tour-step-066
+    popover:
+      description: <p>El nombre del evento.</p><p>En los campos de texto normales, puedes introducir la etiqueta que quieras para tu propia referencia.</p>
+  - i18nId: tour-step-067
+    popover:
+      description: <p>Los eventos de tipo Sin operación ignoran todos los campos.</p>
+  - i18nId: tour-step-068
+    popover:
+      description: <p>El nombre de los ingresos por alquiler.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-069
+    popover:
+      description: <p>El nombre de tus ingresos salariales.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-070
+    popover:
+      description: <p>El nombre de tus ingresos salariales no pensionables.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-071
+    popover:
+      description: <p>El nombre de los ingresos salariales de tu pareja.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-072
+    popover:
+      description: <p>El nombre de los ingresos salariales no pensionables de tu pareja.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-073
+    popover:
+      description: <p>El nombre de los ingresos de RSU.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-074
+    popover:
+      description: <p>El nombre de los ingresos de prestación definida.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-075
+    popover:
+      description: <p>El nombre de los ingresos exentos de impuestos.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-076
+    popover:
+      description: <p>El nombre del gasto.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-077
+    popover:
+      description: <p>El nombre del evento de mercado bursátil.</p><p>Puedes introducir el nombre que quieras. Es solo para tu referencia.</p>
+  - i18nId: tour-step-078
+    popover:
+      description: <p>El nombre de la propiedad.</p><p>Puedes introducir el nombre que quieras. Los eventos relacionados con hipotecas se enlazarán a esta propiedad mediante su selector en la columna de nombre.</p>
+  - i18nId: tour-step-079
+    popover:
+      description: <p>Esta celda es un selector para la propiedad enlazada.</p><p>Elige en la lista desplegable la propiedad a la que pertenece esta hipoteca.</p>
+  - i18nId: tour-step-080
+    popover:
+      description: <p>Esta celda es un selector para la hipoteca/propiedad enlazada.</p><p>Elige a qué hipoteca debe aplicarse este pago anticipado.</p>
+  - i18nId: tour-step-081
+    popover:
+      description: <p>Esta celda es un selector para la hipoteca/propiedad enlazada.</p><p>Elige qué hipoteca debe liquidar este pago.</p>
+  - i18nId: tour-step-082
+    popover:
+      description: <p>Esta celda es un selector para la propiedad enlazada.</p><p>Elige la propiedad a la que está vinculada esta hipoteca inversa.</p>
+  - i18nId: tour-step-083
+    popover:
+      description: <p>Esta celda es un selector de país de destino.</p><p>Elige el país al que te trasladas. El simulador aplicará el modelo fiscal y económico de ese país a partir de la edad de traslado.</p>
+  - i18nId: tour-step-084
+    popover:
+      description: <p>Esta celda es un selector de país de destino.</p><p>Elige el país al que te trasladas. El simulador aplicará las reglas fiscales y económicas de ese país a partir de la edad de traslado.</p>
+  - i18nId: tour-step-085
+    popover:
+      description: '<p>El importe anual del evento, expresado en valor actual.</p><p>Para bienes inmuebles, introduce el efectivo pagado en la compra: el precio completo si compras al contado, o el pago inicial si se financia. Para una hipoteca, introduce el importe que devolverás cada año.</p>'
+  - i18nId: tour-step-086
+    popover:
+      description: <p>El coste puntual de trasladarte.</p><p>Introduce 0 si no esperas ningún coste de traslado.</p>
+  - i18nId: tour-step-087
+    popover:
+      description: <p>Los eventos de tipo Sin operación ignoran todos los campos.</p>
+  - i18nId: tour-step-088
+    popover:
+      description: <p>El valor actual de los ingresos brutos anuales de la propiedad en alquiler.</p>
+  - i18nId: tour-step-089
+    popover:
+      description: <p>El valor actual de tus ingresos salariales brutos anuales.</p>
+  - i18nId: tour-step-090
+    popover:
+      description: <p>El valor actual de tus ingresos salariales brutos anuales que no aportan a tu pensión.</p>
+  - i18nId: tour-step-091
+    popover:
+      description: <p>El valor actual de los ingresos salariales brutos anuales de tu pareja.</p>
+  - i18nId: tour-step-092
+    popover:
+      description: <p>El valor actual de los ingresos salariales brutos anuales de tu pareja que no aportan a su pensión.</p>
+  - i18nId: tour-step-093
+    popover:
+      description: <p>El valor actual del valor bruto anual de las unidades de acciones restringidas a medida que se consolidan.</p>
+  - i18nId: tour-step-094
+    popover:
+      description: <p>El valor actual de los ingresos brutos anuales del régimen de pensión de prestación definida.</p>
+  - i18nId: tour-step-095
+    popover:
+      description: <p>El valor actual de los ingresos anuales exentos de impuestos.</p>
+  - i18nId: tour-step-096
+    popover:
+      description: <p>El valor actual del gasto anual.</p>
+  - i18nId: tour-step-097
+    popover:
+      description: <p>Los eventos de mercado bursátil no usan este campo.</p>
+  - i18nId: tour-step-098
+    popover:
+      description: <p>El valor actual del pago inicial de la propiedad.</p><p>Si la propiedad se compra sin hipoteca, introduce aquí el precio de compra completo.</p>
+  - i18nId: tour-step-099
+    popover:
+      description: <p>El valor actual del importe anual que pagarás por la hipoteca.</p><p>Puedes obtener este número con una calculadora hipotecaria en línea, multiplicando el pago mensual por 12. O puedes usar el asistente de eventos, que calculará este valor por ti.</p>
+  - i18nId: tour-step-100
+    popover:
+      description: <p>El importe anual adicional pagado además de la hipoteca.</p>
+  - i18nId: tour-step-101
+    popover:
+      description: <p>El importe puntual de liquidación de la hipoteca (se actualiza automáticamente cuando cambian los términos de la hipoteca enlazada). Puedes usar el asistente de eventos para calcular este valor.</p>
+  - i18nId: tour-step-102
+    popover:
+      description: <p>El pago anual en efectivo de la hipoteca inversa. Puedes usar el asistente de eventos para calcular este valor.</p>
+  - i18nId: tour-step-103
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empieza el evento.</p>
+  - i18nId: tour-step-104
+    popover:
+      description: <p>El campo {{age_or_year}} en el que te trasladas al nuevo país.</p>
+  - i18nId: tour-step-105
+    popover:
+      description: <p>Los eventos de tipo Sin operación ignoran todos los campos.</p>
+  - i18nId: tour-step-106
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos.</p>
+  - i18nId: tour-step-107
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos salariales.</p>
+  - i18nId: tour-step-108
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos salariales.</p>
+  - i18nId: tour-step-109
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos salariales.</p>
+  - i18nId: tour-step-110
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos salariales.</p>
+  - i18nId: tour-step-111
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos de RSU.</p>
+  - i18nId: tour-step-112
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos de prestación definida.</p>
+  - i18nId: tour-step-113
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los ingresos exentos de impuestos.</p>
+  - i18nId: tour-step-114
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empieza el gasto.</p>
+  - i18nId: tour-step-115
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empieza el evento de mercado bursátil.</p>
+  - i18nId: tour-step-116
+    popover:
+      description: <p>El campo {{age_or_year}} en el que se compra la propiedad.</p>
+  - i18nId: tour-step-117
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empieza la hipoteca. Debe coincidir con el campo "desde {{age_or_year}}" del evento de bienes inmuebles correspondiente.</p>
+  - i18nId: tour-step-118
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los pagos anticipados.</p>
+  - i18nId: tour-step-119
+    popover:
+      description: <p>El campo {{age_or_year}} en el que la hipoteca se liquida con una suma global.</p>
+  - i18nId: tour-step-120
+    popover:
+      description: <p>El campo {{age_or_year}} en el que empiezan los pagos de la hipoteca inversa.</p>
+  - i18nId: tour-step-121
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, continúa el evento.</p>
+  - i18nId: tour-step-122
+    popover:
+      description: <p>Los eventos de traslado no usan este campo.</p>
+  - i18nId: tour-step-123
+    popover:
+      description: <p>Los eventos de tipo Sin operación ignoran todos los campos.</p>
+  - i18nId: tour-step-124
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, se reciben los ingresos por alquiler.</p>
+  - i18nId: tour-step-125
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, se reciben los ingresos salariales.</p>
+  - i18nId: tour-step-126
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, se reciben los ingresos salariales.</p>
+  - i18nId: tour-step-127
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, se reciben los ingresos salariales.</p>
+  - i18nId: tour-step-128
+    popover:
+      description: <p>El campo {{age_or_year}} hasta el cual, inclusive, se reciben los ingresos salariales.</p>
+  - i18nId: tour-step-129
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se reciben los ingresos de RSU.</p>
+  - i18nId: tour-step-130
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se reciben los ingresos de prestación definida. Puedes dejarlo en blanco si no piensas transferirlos a otro acuerdo.</p>
+  - i18nId: tour-step-131
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se reciben los ingresos exentos de impuestos.</p>
+  - i18nId: tour-step-132
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se incurre en el gasto.</p>
+  - i18nId: tour-step-133
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, continúa el evento de bolsa.</p>
+  - i18nId: tour-step-134
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se mantiene la propiedad.</p><p>El valor total de la propiedad se calculará incluyendo los pagos de la hipoteca más la apreciación esperada, y se venderá después del valor que introduzcas aquí para {{age_or_year}}. Los ingresos se invertirán según la asignación que hayas elegido o se usarán para comprar otra propiedad el año siguiente.</p>
+  - i18nId: tour-step-135
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se paga la hipoteca. No puede ser posterior al momento en que se vende la propiedad correspondiente.</p>
+  - i18nId: tour-step-136
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, se realizan pagos anticipados.</p>
+  - i18nId: tour-step-137
+    popover:
+      description: <p>Los eventos de liquidación de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-138
+    popover:
+      description: <p>Indica hasta qué {{age_or_year}}, inclusive, continúan los desembolsos de la hipoteca inversa.</p>
+  - i18nId: tour-step-139
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada del evento.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p><p>Para los eventos de bolsa, introduce la tasa de variación de la bolsa durante todo el periodo que especificaste. Esto sustituirá todas las tasas de crecimiento que introdujiste en el panel de Economía para ese periodo.</p>
+  - i18nId: tour-step-140
+    popover:
+      description: <p>Los eventos de traslado no usan este campo.</p>
+  - i18nId: tour-step-141
+    popover:
+      description: <p>Los eventos 'Sin operación' ignoran todos los campos.</p>
+  - i18nId: tour-step-142
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos por alquiler.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-143
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos salariales.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-144
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos salariales.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-145
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos salariales.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-146
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos salariales.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-147
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos de RSU.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-148
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos de prestación definida.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-149
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada de los ingresos exentos de impuestos.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-150
+    popover:
+      description: <p>La tasa media anual de crecimiento esperada del gasto.</p><p>Si lo dejas en blanco, usará la tasa de inflación.</p>
+  - i18nId: tour-step-151
+    popover:
+      description: <p>El porcentaje total que el mercado caerá o subirá en el periodo especificado.</p><p>Por ejemplo, para simular una caída puntocom del S&P500 cuando tienes 30 años, introducirías 30 como edad inicial, 35 como edad final y -40% como tasa (el mercado perdió alrededor de un 40% en dos años). Esto sustituirá el crecimiento del mercado que especificaste en los parámetros de economía por una caída de alrededor del 29% anual durante esos dos años. Para un mercado alcista, usarías un porcentaje de crecimiento positivo.</p><p>Ten en cuenta que los valores altos de volatilidad ya implican burbujas y caídas, pero es interesante ver qué sucede si la caída llega en el peor momento, por ejemplo [justo cuando te retiras](https://en.wikipedia.org/wiki/Retirement_spend-down){sequence risk,retirement,withdrawal,market,returns}.</p>
+  - i18nId: tour-step-152
+    popover:
+      description: <p>La tasa anual esperada de apreciación de la propiedad.</p><p>Para propiedades compradas en el pasado, puedes calcular la apreciación usando el precio de compra original y el valor de mercado actual.</p>
+  - i18nId: tour-step-153
+    popover:
+      description: <p>La tasa del préstamo hipotecario.</p><p>Puedes obtener este número de una calculadora hipotecaria en línea.</p>
+  - i18nId: tour-step-154
+    popover:
+      description: <p>Los eventos de pago anticipado de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-155
+    popover:
+      description: <p>Los eventos de liquidación de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-156
+    popover:
+      description: <p>La tasa de interés de la hipoteca inversa aplicada al saldo pendiente del préstamo inverso.</p>
+  - i18nId: tour-step-157
+    popover:
+      description: <p>Para eventos de salario, introduce el porcentaje de tus aportes a la pensión que igualará tu empleador.</p><p>Muchos empleadores igualan las aportes hasta cierto porcentaje de tu salario.</p>
+  - i18nId: tour-step-158
+    popover:
+      description: <p>Los eventos 'Sin operación' ignoran todos los campos.</p>
+  - i18nId: tour-step-159
+    popover:
+      description: <p>Los eventos de ingresos por alquiler no usan este campo.</p>
+  - i18nId: tour-step-160
+    popover:
+      description: <p>El porcentaje hasta el cual tu empleador igualará tus aportes a la pensión privada.</p><p>Muchos empleadores igualan las aportes hasta cierto porcentaje de tu salario. Si aportas menos que eso, tu empleador solo igualará hasta ese importe. Si tu empleador no ofrece esto, déjalo en blanco o introduce 0.</p>
+  - i18nId: tour-step-161
+    popover:
+      description: <p>Los eventos de ingresos salariales no pensionables no usan este campo.</p>
+  - i18nId: tour-step-162
+    popover:
+      description: <p>El porcentaje hasta el cual el empleador de tu pareja igualará sus aportes a la pensión privada.</p><p>Muchos empleadores igualan las aportes hasta un cierto porcentaje del salario de tu pareja. Si aporta menos que eso, su empleador solo igualará hasta ese importe. Si su empleador no ofrece esto, déjalo en blanco o introduce 0.</p>
+  - i18nId: tour-step-163
+    popover:
+      description: <p>Los eventos de ingresos salariales no pensionables no usan este campo.</p>
+  - i18nId: tour-step-164
+    popover:
+      description: <p>Los eventos de ingresos por RSU no usan este campo.</p>
+  - i18nId: tour-step-165
+    popover:
+      description: <p>Los eventos de ingresos de prestación definida no usan este campo.</p>
+  - i18nId: tour-step-166
+    popover:
+      description: <p>Los eventos de ingresos exentos de impuestos no usan este campo.</p>
+  - i18nId: tour-step-167
+    popover:
+      description: <p>Los eventos de gastos no usan este campo.</p>
+  - i18nId: tour-step-168
+    popover:
+      description: <p>Los eventos de mercado de valores no usan este campo.</p>
+  - i18nId: tour-step-169
+    popover:
+      description: <p>Los eventos de bienes inmuebles no usan este campo.</p>
+  - i18nId: tour-step-170
+    popover:
+      description: <p>Los eventos de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-171
+    popover:
+      description: <p>Los eventos de pago anticipado de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-172
+    popover:
+      description: <p>Los eventos de liquidación de hipoteca no usan este campo.</p>
+  - i18nId: tour-step-173
+    popover:
+      description: <p>Los eventos de hipoteca inversa no usan este campo.</p>
+  - i18nId: tour-step-174
+    popover:
+      description: <p>Haz clic en el icono ⇅ para mantener la tabla ordenada por cualquier columna. Haz clic una vez para orden ascendente ▲, dos veces para orden descendente ▼ y una tercera vez para dejar de ordenar.</p>
+  - i18nId: tour-step-175
+    popover:
+      description: <p>Cambia para ver los eventos como una tabla.</p><p>Esta vista es ideal para pantallas más grandes y cuando ya conoces bien estos eventos. Se parece más a una hoja de cálculo, donde ves todos los datos de un vistazo y puedes modificarlos directamente.</p>
+  - i18nId: tour-step-176
+    popover:
+      description: <p>Cambia para ver los eventos como paneles expandibles.</p><p>Esta vista es mejor para pantallas más pequeñas o cuando estás aprendiendo cómo funciona. Al expandirse, la información del evento se parece más a un formulario, con etiquetas claras que facilitan entender para qué sirve cada cosa.</p>
+  - i18nId: tour-step-177
+    popover:
+      description: '<p>Cambia para ver los puntos iniciales y finales de los eventos en términos de edad.</p><p>En modo de una persona, todos los eventos serán relativos a tu edad. En modo de dos personas, algunos eventos se referirán a la edad de la otra persona (por ejemplo, sus ingresos salariales). Puedes comprobar qué año representa cambiando al modo Año, o pasando el cursor sobre un campo de edad: aparecerá una ayuda emergente con el año correspondiente.</p>'
+  - i18nId: tour-step-178
+    popover:
+      description: <p>Cambia para ver los puntos iniciales y finales de los eventos en términos de año.</p><p>En este modo, para ver la edad que corresponde a un año determinado, pasa el cursor sobre un campo de año. Aparecerá una ayuda emergente con la edad correspondiente, que puede ser tu edad o la de la otra persona según el tipo de evento y si estás en modo de una persona o de dos personas.</p>
+  - i18nId: tour-step-179
+    popover:
+      description: '<p>Tus proyecciones financieras a lo largo del tiempo.</p><ul><li><strong>Flujo de caja</strong>: ingresos y gastos por categoría, con una línea para tu flujo de caja neto y otra para tus gastos totales.</li><li><strong>Activos</strong>: crecimiento del patrimonio y distribución entre distintos tipos de activos.</li></ul>'
+  - i18nId: tour-step-180
+    popover:
+      description: <p>Este gráfico muestra tu flujo de caja proyectado a lo largo del tiempo.</p><p>En escenarios con múltiples monedas, la visualización unificada convierte los importes usando el modelo FX del simulador. Pasa el cursor sobre los puntos de datos para ver los valores en la moneda original.</p>
+  - i18nId: tour-step-181
+    popover:
+      description: <p>Este gráfico muestra tus activos proyectados a lo largo del tiempo.</p><p>En escenarios con múltiples monedas, la visualización unificada convierte los importes usando el modelo FX del simulador. Pasa el cursor sobre los puntos de datos para ver los valores en la moneda original.</p>
+  - i18nId: tour-step-182
+    popover:
+      description: <p>Los números reales año a año tal como los calcula el simulador, desde tu edad actual hasta la edad final.</p><p>En pantallas más pequeñas la tabla está oculta, pero puedes tocar 'Mostrar de todos modos' para verla.</p><p>Puedes pasar el cursor, hacer clic o tocar cualquier celda con una pequeña 'i' para obtener una ayuda emergente con información más detallada.</p><p>En escenarios con múltiples monedas, la visualización unificada convierte los importes usando el modelo FX del simulador.</p>
+  - i18nId: tour-step-183
+    popover:
+      description: <p>Cambia el esquema de colores usado para resaltar las filas de la tabla de datos.</p><p>Los distintos esquemas de colores te ayudan a visualizar diferentes aspectos de tu plan financiero, como patrones de flujo de caja y posibles áreas problemáticas. Los colores se aplican a las filas de la tabla según los datos financieros de ese año. Para obtener más información sobre cada esquema de colores, haz clic en el icono y pasa el cursor sobre el nombre de cada esquema de colores.</p>
+  - i18nId: tour-step-184
+    popover:
+      description: <p>Exporta la tabla de datos de la simulación como archivo CSV.</p><p>Esto te permite guardar los datos financieros detallados año a año para analizarlos en aplicaciones de hoja de cálculo como Excel o Google Sheets.</p>
+  - i18nId: tour-step-185
+    popover:
+      title: Recorrido completado
+      description: |
+        <p><b>¡Felicidades!</b> Has completado el recorrido de FinSimLab.</p> <p>Recuerda que siempre puedes obtener ayuda si tienes dudas al rellenar un campo haciendo clic en Ayuda o pulsando la tecla ?.</p> <p><b>¡Feliz planificación!</b> 🎯</p>
+      demoEpilogue: |
+        <p>Has estado explorando un plan de ejemplo. Usa Nuevo cuando estés listo para empezar el tuyo.</p>
+      prevBtnText: Atrás
+      nextBtnText: Listo
+CoreCopy:
+  common:
+    unknown: Desconocido
+    unknownCountry: País desconocido
+  status:
+    running: En ejecución
+    runningProgress: Ejecutando...
+    success: ¡Correcto!
+    monteCarloSuccess: Correcto {percent}%
+    madeItTo: Llegaste hasta {age}
+    failedAtAge: Falló a los {age}
+    checkErrors: Revisa los errores
+    initializing: Inicializando
+    preparingToSave: Preparando para guardar
+  errors:
+    configurationLoad: No se puede cargar el archivo de configuración
+    globalTaxModelLoad: No se puede cargar el archivo de configuración del modelo fiscal global
+    missingRulesetCurrency: 'Falta la moneda del conjunto de reglas para el país: {country}'
+    currencyCountryMismatch: 'La moneda y el país no coinciden: {currency} no coincide con {country} ({expectedCurrency})'
+    currencyConversion: 'Error en la conversión de moneda: revisa los datos económicos de {sourceCurrency} a {targetCurrency}'
+    noCachedRulesetCountry: 'No se encontró ningún país de conjunto de reglas en caché para la moneda {currency} (país preferido: {preferredCountry})'
+    startCountryRequired: StartCountry es obligatorio
+    unknownRelocationCountry: 'País de traslado desconocido: {countries}'
+    missingCountryInputs: Faltan entradas por país ({details})
+    missingCountryAllocations: 'asignaciones: {countries}'
+    missingCountryPensionContributions: 'aportes a pensión: {countries}'
+    economicRegimeConfiguration: No se pudo cargar la configuración del régimen económico.
+    definedBenefitTaxModelUnsupported: 'Error del modelo fiscal: el comportamiento de prestación definida no se admite en {country}.'
+    definedBenefitTaxTreatmentUnknown: 'Error del modelo fiscal: tratamiento DBI desconocido ''{treatment}''.'
+  notifications:
+    taxModelUpdatedTitle: 'Modelo fiscal actualizado para {country}:'
+  modes:
+    age: edad
+    year: año
+  fields:
+    pensionContributionPercentage: Porcentaje de aporte a pensión
+    partnerPensionContributionPercentage: Porcentaje de aporte a pensión de la pareja
+    wrapperFee: Comisión del vehículo
+  investmentBaseTypes:
+    globalEquity:
+      label: Mercados de acciones
+      shortLabel: Acciones
+      mixLabel: RV
+      helpText: Representa inversiones de renta variable ampliamente diversificadas, como fondos indexados globales o ETF. Como referencia, la tasa media de crecimiento del S&P 500 durante los últimos 30 años ha rondado el 10 %.
+    globalBonds:
+      label: Mercados de bonos
+      shortLabel: Bonos
+      mixLabel: Bon.
+      helpText: Representa inversiones diversificadas en bonos (públicos o corporativos). Los bonos suelen ofrecer rentabilidades inferiores a las de la renta variable, pero con menor volatilidad.
+  eventTypes:
+    noOperation: 'Sin operación: haz que la simulación ignore un evento sin tener que eliminar la línea'
+    salarySingle: Ingresos salariales
+    salaryP1: Ingresos salariales (tú)
+    salaryNoPensionSingle: Ingresos salariales (sin pensión)
+    salaryNoPensionP1: Tu salario (sin pensión)
+    salaryP2: Ingresos salariales (otra persona, pensionables)
+    salaryNoPensionP2: Ingresos salariales (otra persona, sin pensión)
+    rsuIncome: Ingresos por RSU
+    rentalIncome: Ingresos por alquiler
+    definedBenefitIncome: Ingresos de pensión de prestación definida
+    taxFreeIncome: Ingresos exentos de impuestos
+    expense: Gasto
+    realEstate: Bienes inmuebles
+    mortgage: Hipoteca
+    mortgageOverpay: Pago anticipado de hipoteca
+    mortgagePayoff: Liquidación de hipoteca
+    reverseMortgage: Hipoteca inversa
+    stockMarket: Mercado bursátil
+    relocation: Traslado
+  validation:
+    requiredField: Campo obligatorio
+    occupationalPensionMinimumAge: Solo los planes de pensión ocupacional permiten la jubilación antes de los {age} años.
+    privatePensionMinimumAge: Las pensiones privadas normalmente no permiten la jubilación antes de los {age} años.
+    p1RetirementAgeRequired: La edad de retiro de la persona 1 es obligatoria si se indica la edad actual de la persona 1.
+    p1CurrentAgeRequired: La edad actual de la persona 1 es obligatoria si se indica la edad de retiro de la persona 1.
+    p2CurrentAgeRequired: La edad actual de la persona 2 es obligatoria si se indica cualquier dato de la persona 2.
+    p2RetirementAgeRequired: La edad de retiro de la persona 2 es obligatoria si se indica cualquier dato de la persona 2.
+    allocationsMaximum: Las asignaciones de {labels} no pueden superar el 100%
+    volatilityRequired: Al menos una tasa de volatilidad debe ser superior al 0% en modo de crecimiento variable
+    volatilityRequiredForAssets: Al menos una volatilidad de Pensión, {labels} debe ser > 0% en modo de crecimiento variable
+    eventMissingColon: 'Formato de evento no válido: falta dos puntos.'
+    invalidEventType: 'Tipo de evento no válido. Los tipos válidos son: {validTypes}'
+    relocationDestinationRequired: El país de destino del traslado es obligatorio.
+    propertyNameDuplicate: La propiedad llamada '{property}' ya está en uso. Cada propiedad debe tener un nombre único.
+    propertyPurchaseMissing: No se encontró ningún evento de compra de propiedad para '{property}'.
+    propertyPurchaseMultiple: Hay varios eventos de compra de propiedad llamados '{property}'. Conserva exactamente uno.
+    mortgageStartAge: La hipoteca y la compra de la propiedad deben empezar a la misma edad.
+    mortgageEndAge: La edad final de la hipoteca no puede ser posterior a la edad de venta de la propiedad.
+    mortgageDuplicate: Solo se permite un evento de hipoteca para '{property}'.
+    mortgageOverpayRequiresMortgage: Un pago anticipado de hipoteca requiere exactamente un evento de hipoteca para '{property}'.
+    mortgageOverpayStart: El pago anticipado de hipoteca no puede empezar antes de que empiece la hipoteca.
+    mortgageOverpayEnd: El pago anticipado de hipoteca no puede extenderse más allá del final de la hipoteca.
+    mortgagePayoffRequiresMortgage: Una liquidación de hipoteca requiere exactamente un evento de hipoteca para '{property}'.
+    mortgagePayoffOneOff: La liquidación de hipoteca debe ser un evento único (la edad desde/hasta debe coincidir).
+    mortgagePayoffAge: La edad de liquidación de la hipoteca debe coincidir con la edad final de la hipoteca.
+    mortgagePayoffDuplicate: Solo se permite un evento de liquidación de hipoteca para '{property}'.
+    reverseMortgageRequiresProperty: Una hipoteca inversa requiere exactamente un evento de compra de propiedad para '{property}'.
+    reverseMortgageStart: La hipoteca inversa no puede empezar antes de comprar la propiedad.
+    reverseMortgageEnd: La hipoteca inversa no puede extenderse más allá de la venta de la propiedad.
+    reverseMortgageOverlap: La hipoteca inversa empieza antes de que la hipoteca normal esté totalmente pagada.
+    reverseMortgageDuplicate: Solo se permite un evento de hipoteca inversa para '{property}'.
+    rentalPropertyMissing: No se pudo encontrar un evento de propiedad para los ingresos por alquiler '{property}'.
+    rentalPropertyMultiple: Se encontraron varios eventos de propiedad con el nombre '{property}'.
+    rentalIncomeStart: Los ingresos por alquiler no pueden empezar antes de la compra de la propiedad.
+    rentalIncomeEnd: Los ingresos por alquiler no pueden extenderse más allá de la venta de la propiedad.
+    rentalIncomeDuplicate: Una propiedad solo puede tener un evento de ingresos por alquiler. La propiedad '{property}' ya tiene uno.
+    eventEndBeforeStart: El {mode} final no puede ser anterior al {mode} inicial
+    nonNegativeNumber: Introduce un número válido no negativo
+    eventTimeFarFuture: '{mode} parece estar muy lejos en el futuro ({years} años desde ahora)'
+    eventTimeFarPast: '{mode} parece estar muy lejos en el pasado ({years} años atrás)'
+    targetAfterCurrentAge: La edad objetivo debe ser mayor que la edad actual
+    p1PensionContributionOverMaximum: Puedes aportar más del 100%, pero no obtendrás desgravación fiscal por el exceso
+    p2PensionContributionOverMaximum: La otra persona puede aportar más del 100%, pero no obtendrá desgravación fiscal por el exceso
+    number: Introduce un número válido
+    percentageMinimum: '{field} no puede ser inferior a {value}{unit}'
+    percentageMaximum: '{field} no puede ser superior a {value}{unit}'
+    eventRequired: Se requiere al menos un evento (por ejemplo, ingresos salariales o gastos)
+    definedBenefitLinkedCountryUnsupported: El evento de ingresos de prestación definida "{event}" está vinculado a {linkedCountry}, que no admite DBI.
+    definedBenefitMissingOrigin: El evento de ingresos de prestación definida "{event}" no se admite en {residenceCountry} y no tiene ningún vínculo inmediato con el país de origen del traslado.
+    definedBenefitStaleOrigin: El evento de ingresos de prestación definida "{event}" está vinculado a {linkedCountry}, pero solo el país de origen inmediato ({originCountry}) puede mantener DBI en {residenceCountry}.
+    definedBenefitResidenceUnsupported: El evento de ingresos de prestación definida "{event}" no se admite en {residenceCountry}, que no admite DBI.
+  table:
+    pensionContributionShort: Aport. pens.
+    pensionContributionTooltip: Importe aportado a pensiones privadas (sin incluir la aporte equivalente del empleador)
+    foreignTaxLabel: '{label} ({country})'
+    foreignTaxTooltip: '{tooltip} pagado a {country}'
+    taxPaidToCountry: Impuesto pagado a {country}
+  attribution:
+    people:
+      you: Tú
+      partner: Tu pareja
+    descriptors:
+      salary: salario
+      rsuIncome: ingresos por RSU
+      rentalIncome: ingresos por alquiler
+      privatePensionIncome: ingresos de pensión privada
+      statePensionIncome: ingresos de pensión estatal
+      cashWithdrawal: retiro de efectivo
+      definedBenefitIncome: ingresos de prestación definida
+      pensionContribution: aporte a pensión
+      sharedHouseholdIncome: ingresos compartidos del hogar
+      sourceForPerson: '{source} (P{person})'
+    income:
+      salary: Salario
+      rental: Alquiler
+      sharedHousehold: Ingresos compartidos del hogar
+      cashWithdrawal: Retiro de efectivo
+    pension:
+      private: Pensión privada
+      privateForPerson: Pensión privada P{person}
+      state: Pensión estatal
+      yourPrivate: Tu pensión privada
+      partnerPrivate: Su pensión privada
+      yourState: Tu pensión estatal
+      partnerState: Su pensión estatal
+      yourRelief: Tu desgravación por pensión
+      partnerRelief: Su desgravación por pensión
+      lumpSum: Suma global de pensión P{person}
+      lumpSumExcess: Exceso de suma global de pensión P{person}
+      drawdown: Disposición de pensión P{person}
+      withdrawal: Retiro de pensión P{person}
+    investment:
+      income: Ingresos de {label}
+      disposalGain: Ganancia por venta de {label}
+      sale: Venta de {label}
+      simulation: Sim. de {label}
+      deemedIncome: Ingresos presuntos de {label}
+      accrual: Devengo de {label}
+      interest: Intereses de {label}
+      dividend: Dividendos de {label}
+      deemedDisposal: Venta presunta
+    realEstate:
+      sale: Venta ({property})
+      mortgageSettlement: Liquidación de hipoteca ({property})
+      reverseMortgageSettlement: Liquidación de hipoteca inversa ({property})
+      reverseMortgageWriteOff: Condonación de hipoteca inversa ({property})
+      propertySale: Venta de propiedad ({property})
+      propertySaleTax: Impuesto por venta de propiedad ({property})
+      cashPurchase: Compra en efectivo ({property})
+      downpayment: Pago inicial ({property})
+      purchase: Compra ({property})
+      relocation: Traslado ({event})
+      mortgage: Hipoteca ({property})
+      mortgagePayoff: Liquidación de hipoteca ({property})
+      mortgageOverpay: Pago anticipado de hipoteca ({property})
+      reverseMortgage: Hipoteca inversa ({property})
+    tax:
+      generic: Impuesto
+      incomeTax: Impuesto sobre la renta
+      incomeTaxForSource: Impuesto sobre la renta de {source}
+      program: Impuesto de {program}
+      programForSource: Impuesto de {program} {source}
+      label: impuesto de {label}
+      describedLabel: impuesto de {label} {descriptor}
+      interestWithholding: Retención fiscal sobre intereses
+      dividendWithholding: Retención fiscal sobre dividendos
+      capitalGainsWithholding: Retención fiscal sobre ganancias de capital
+      externalTax: Impuesto externo
+      withholding: Retención fiscal
+      annualWrapperTax: Impuesto anual del vehículo de inversión
+      foreignTaxCredit: Crédito fiscal extranjero
+      taxCredit: Crédito fiscal
+      returnClawback: Recuperación de rentabilidad
+      capitalGainsTax: Impuesto sobre ganancias de capital
+      cgtRelief: Desgravación de CGT
+      emigrationExitTax: Exit Tax por emigración
+    capital:
+      bought: Comprado
+      sold: Vendido
+      principal: Principal
+      profitLoss: Gan./pérd.
+      gains: Ganancias de {label}
+      cash: Efectivo
+      pensions: Pensiones
+      realEstate: Bienes inmuebles
+      realEstateCountry: Bienes inmuebles {country}
+      investment: Inversión {investment}
+    netIncome:
+      grossIncome: Ingresos brutos
+      cashWithdrawals: Retiros de efectivo
+      deductions: Deducciones
+EventWizards:
+  - eventType: SI
+    name: Ingresos
+    steps:
+      - stepId: incomeType
+        title: Tipo de ingresos
+        content:
+          text: ¿Qué tipo de ingresos son?
+          choices:
+            - value: salary
+              title: Salario
+              description: Ingresos laborales regulares
+            - value: rsu
+              title: RSU
+              description: Unidades de acciones restringidas
+            - value: rental
+              title: Alquiler
+              description: Ingresos por alquiler de una propiedad
+            - value: defined_benefit
+              title: Prestación definida
+              description: Pensión o plan de prestación definida
+            - value: tax_free
+              title: Ingresos libres de impuestos
+              description: Ingresos no sujetos a impuestos
+      - stepId: person
+        title: ¿Para quién?
+        content:
+          text: ¿Quién recibirá estos ingresos salariales?
+          choices:
+            - value: person1
+              title: Tú
+              description: Tus ingresos salariales
+            - value: person2
+              title: Tu pareja
+              description: Los ingresos salariales de tu pareja
+      - stepId: name
+        title: Nombra tus ingresos
+        content:
+          text: 'Da a estos ingresos un nombre descriptivo:'
+      - stepId: rental_property
+        title: Propiedad vinculada
+        content:
+          text: 'Selecciona la propiedad para estos ingresos por alquiler:'
+      - stepId: amount
+        title: Importe anual
+        content:
+          text: 'Introduce el importe anual de estos ingresos:'
+          help: Introduce el importe bruto anual antes de impuestos y deducciones.
+      - stepId: period
+        title: Periodo de ingresos
+        content:
+          text: ¿Cuándo recibirás estos ingresos?
+          help: Introduce el rango de edad durante el que recibirás estos ingresos.
+      - stepId: growth
+        title: Tasa de crecimiento
+        content:
+          text: ¿Qué tasa de crecimiento anual esperas?
+          help: Déjalo en blanco para usar la tasa de inflación.
+      - stepId: pensionContribution
+        title: Aporte a la pensión
+        content:
+          text: ¿Este salario incluye aportes a una pensión?
+          choices:
+            - value: 'yes'
+              title: Sí
+              description: Este salario incluye aportes a la pensión
+            - value: 'no'
+              title: 'No'
+              description: Este salario no incluye aportes a la pensión
+      - stepId: match
+        title: Aporte equivalente del empleador a la pensión
+        content:
+          text: ¿Tu empleador iguala las aportes a la pensión? Si es así, ¿hasta qué porcentaje?
+          help: Déjalo en blanco si tu empleador no iguala las aportes a la pensión.
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: salario bruto de {amount} al año {periodPhrase}{growthPart}{matchPart}.'
+            - i18nId: template-02
+              template: '{name}: salario bruto de {amount} al año {periodPhrase}{growthPart}.'
+            - i18nId: template-03
+              template: '{name}: ingresos de tipo {incomeType} de {amount} al año {periodPhrase}{growthPart}.'
+  - eventType: E
+    name: Gasto
+    description: Añade un gasto regular o puntual
+    difficulty: sencillo
+    steps:
+      - stepId: frequency
+        title: Frecuencia del gasto
+        content:
+          text: ¿Con qué frecuencia se produce este gasto?
+          choices:
+            - value: oneoff
+              title: Puntual
+              description: Un gasto único que se produce una vez
+            - value: weekly
+              title: Semanal
+              description: Se produce cada semana
+            - value: monthly
+              title: Mensual
+              description: Se produce cada mes
+            - value: yearly
+              title: Anual
+              description: Se produce una vez al año
+      - stepId: name
+        title: Nombra tu gasto
+        content:
+          text: 'Da a este gasto un nombre descriptivo:'
+      - stepId: cost
+        title: Coste
+        content:
+          text: ¿Cuál es el coste {frequency} de este gasto?
+      - stepId: period
+        title: Periodo del gasto
+        content:
+          text: ¿Durante qué periodo tendrás este gasto?
+      - stepId: timing
+        title: ¿Cuándo se producirá este gasto?
+        content:
+          text: ¿A qué edad tendrás este gasto único?
+      - stepId: growth
+        title: Crecimiento del coste
+        content:
+          text: ¿Cuánto esperas que crezca este gasto anualmente?
+          help: Déjalo en blanco para usar la tasa de inflación.
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: gasto puntual de {amount} a los {fromAge} años{growthPart}.'
+            - i18nId: template-02
+              template: '{name}: gasto de {amount} {frequencyText} (≈ {annualAmount} al año) {periodPhrase}{growthPart}.'
+  - eventType: R
+    name: Compra de una propiedad
+    steps:
+      - stepId: financing
+        title: ¿Cómo financiarás esta propiedad?
+        content:
+          text: 'Elige tu método de financiación:'
+          choices:
+            - value: cash
+              title: Compra al contado
+              description: Compra la propiedad al contado sin una hipoteca
+            - value: mortgage
+              title: Con hipoteca
+              description: Compra con un pago inicial y financiación hipotecaria
+      - stepId: name
+        title: Nombre de la propiedad
+        content:
+          text: 'Dale un nombre a esta propiedad:'
+          why: Este nombre vincula la propiedad, la hipoteca, el alquiler y los detalles de venta en la simulación.
+      - stepId: cash_purchase_price
+        title: Precio de compra de la propiedad
+        content:
+          text: ¿Cuál es el precio total de compra de la propiedad?
+          why: Esto se convierte en el valor de la propiedad y el coste de compra en tu plan.
+      - stepId: mortgage_property_price
+        title: Valor de la propiedad
+        content:
+          text: ¿Cuál es el precio total de compra de la propiedad?
+          why: Esto establece el valor de la propiedad usado para calcular el importe de la hipoteca.
+      - stepId: down_payment
+        title: Pago inicial
+        content:
+          text: ¿Cuánto pagarás como pago inicial?
+          why: El precio de compra restante se convierte en el capital de la hipoteca.
+      - stepId: timing
+        title: Momento de compra y venta
+        content:
+          text: ¿Cuándo comprarás y venderás esta propiedad?
+          help: Si no planeas venderla, deja el segundo campo en blanco.
+          why: La edad inicial ubica la compra en la simulación; la edad final controla una venta posterior.
+      - stepId: appreciation
+        title: Revalorización de la propiedad
+        content:
+          text: ¿Qué tasa anual de revalorización esperas?
+          why: Déjalo en blanco para que el valor de la propiedad crezca con la inflación.
+      - stepId: mortgage_setup
+        title: Detalles de la hipoteca
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: Compra de una propiedad al contado por {amount} {periodPhrase}{growthPart}.'
+            - i18nId: template-02
+              template: '{name}: Compra por {propertyValue} con un pago inicial de {amount} ({downPaymentPct}) {periodPhrase}{growthPart}. Plazo del préstamo de {mortgageTerm} años a {mortgageRate} (≈ {mortgageMonthlyPayment} al mes, {mortgageAnnualPayment} al año).'
+  - eventType: M
+    name: Hipoteca
+    steps:
+      - stepId: name
+        title: Propiedad vinculada
+        content:
+          text: 'Selecciona la propiedad para esta hipoteca:'
+      - stepId: property_value
+        title: Valor de la propiedad
+        content:
+          text: ¿Cuál es el valor total de la propiedad?
+      - stepId: down_payment
+        title: Pago inicial
+        content:
+          text: ¿Cuánto pagarás como pago inicial?
+      - stepId: start_age
+        title: Momento de inicio de la hipoteca
+        content:
+          text: ¿A qué edad/año empieza esta hipoteca?
+      - stepId: mortgage_setup
+        title: Detalles de la hipoteca
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: Hipoteca sobre una propiedad valorada en {propertyValue} con un pago inicial de {amount} ({downPaymentPct}), que comienza a la edad/año {fromAge}. Plazo del préstamo de {mortgageTerm} años a {mortgageRate} (≈ {mortgageMonthlyPayment} al mes, {mortgageAnnualPayment} al año).'
+  - eventType: MO
+    name: Pago anticipado de hipoteca
+    steps:
+      - stepId: name
+        title: Hipoteca vinculada
+        content:
+          text: 'Selecciona la hipoteca a la que se aplica:'
+      - stepId: amount
+        title: Importe anual de pago anticipado
+        content:
+          text: ¿Cuánto pagarás de más cada año?
+      - stepId: period
+        title: Periodo de pago anticipado
+        content:
+          text: ¿Cuándo empieza y termina este pago anticipado?
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: pago anticipado de {amount} al año {periodPhrase}.'
+  - eventType: MP
+    name: Liquidación de hipoteca
+    steps:
+      - stepId: name
+        title: Hipoteca vinculada
+        content:
+          text: 'Selecciona la hipoteca que quieres liquidar:'
+      - stepId: timing
+        title: Momento de liquidación
+        content:
+          text: ¿A qué edad/año liquidarás la hipoteca?
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: liquidación puntual de la hipoteca a la edad/año {fromAge}.'
+  - eventType: MR
+    name: Hipoteca inversa
+    steps:
+      - stepId: name
+        title: Propiedad vinculada
+        content:
+          text: 'Selecciona la propiedad para esta hipoteca inversa:'
+      - stepId: amount
+        title: Desembolso anual
+        content:
+          text: ¿Cuánto efectivo recibirás de esta hipoteca inversa cada año?
+      - stepId: period
+        title: Periodo de hipoteca inversa
+        content:
+          text: ¿Cuándo está vigente esta hipoteca inversa?
+      - stepId: rate
+        title: Tasa de interés
+        content:
+          text: ¿Qué tasa de interés se aplica al saldo de la hipoteca inversa?
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: desembolso de hipoteca inversa de {amount} al año {periodPhrase} con interés del {rate}.'
+  - eventType: SM
+    name: Mercado
+    steps:
+      - stepId: name
+        title: Pon nombre a este evento
+        content:
+          text: 'Da a este escenario de mercado un nombre descriptivo:'
+      - stepId: period
+        title: Periodo del escenario
+        content:
+          text: ¿Durante qué edades/años se aplica este escenario de mercado?
+      - stepId: growth
+        title: Crecimiento total del mercado
+        content:
+          text: ¿Cuál es la ganancia o pérdida del mercado durante ese periodo?
+          help: Usa porcentajes negativos para las caídas.
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: '{name}: Un cambio de mercado {direction} de {rate} {periodPhrase}.'
+  - eventType: MV
+    name: Traslado
+    steps:
+      - stepId: destination
+        title: País de destino
+        content:
+          text: ¿A qué país te trasladas?
+          placeholder: Selecciona país
+      - stepId: cost
+        title: Coste del traslado
+        content:
+          text: ¿Cuál es el coste único del traslado en {relocationCostCurrencyLabel}?
+          help: Incluye gastos de mudanza, tasas de visa, costes de viaje, etc. Escribe 0 si no hay coste de traslado.
+      - stepId: timing
+        title: Momento del traslado
+        content:
+          text: ¿A qué edad te trasladarás?
+          help: Esta es la edad a la que planeas trasladarte al nuevo país.
+      - stepId: summary
+        title: Revisar y crear
+        content:
+          templates:
+            - i18nId: template-01
+              template: Traslado a {destCountryName} a los {fromAge} años sin coste de traslado.
+            - i18nId: template-02
+              template: Traslado a {destCountryName} a los {fromAge} años con un coste único de traslado de {amount}.
+WizardConfig:
+  copy:
+    fieldNotes:
+      required: Obligatorio.
+      optional: Opcional.
+  modal:
+    maxHeight: 80vh
+  animation:
+    easing: ease-in-out
+FieldLabels:
+  defaults:
+    eventType: Tipo de evento
+    name: Nombre del evento
+    amount: Importe
+    fromAge: Desde ${timeUnit}
+    toAge: Hasta ${timeUnit}
+    rate: Tasa de crecimiento
+    match: Aporte equivalente del empleador
+    placeholders:
+      rate: inflación
+  eventTypes:
+    SI:
+      amount: Salario anual
+      rate: Crecimiento del salario
+      placeholders:
+        rate: inflación
+    SInp:
+      amount: Salario anual
+      rate: Crecimiento del salario
+      placeholders:
+        rate: inflación
+    SI2:
+      amount: Salario anual
+      rate: Crecimiento del salario
+      placeholders:
+        rate: inflación
+    SI2np:
+      amount: Salario anual
+      rate: Crecimiento del salario
+      placeholders:
+        rate: inflación
+    UI:
+      amount: Valor anual de RSU
+      rate: Crecimiento de RSU
+      placeholders:
+        rate: inflación
+    RI:
+      name: Propiedad en alquiler
+      amount: Ingresos anuales por alquiler
+      rate: Crecimiento del alquiler
+      placeholders:
+        rate: inflación
+    DBI:
+      amount: Pensión anual
+      fromAge: Inicio de la pensión ${timeUnit}
+      toAge: Fin ${timeUnit}
+      rate: Crecimiento de la pensión
+      placeholders:
+        rate: inflación
+    FI:
+      amount: Ingresos anuales
+      rate: Crecimiento de los ingresos
+      placeholders:
+        rate: inflación
+    E:
+      amount: Coste anual
+      rate: Crecimiento del coste
+      placeholders:
+        rate: inflación
+    E1:
+      amount: Coste total
+      fromAge: A los ${timeUnit}
+      rate: Crecimiento del coste
+      placeholders:
+        rate: inflación
+    R:
+      amount: Precio de compra
+      fromAge: Compra ${timeUnit}
+      toAge: Venta ${timeUnit}
+      rate: Tasa de apreciación
+      placeholders:
+        rate: inflación
+    M:
+      name: Propiedad
+      amount: Pago anual
+      fromAge: Inicio de la hipoteca ${timeUnit}
+      toAge: Fin de la hipoteca ${timeUnit}
+      rate: Tasa de interés
+    MO:
+      name: Hipoteca
+      amount: Pago anticipado anual
+      fromAge: Inicio del pago anticipado ${timeUnit}
+      toAge: Fin del pago anticipado ${timeUnit}
+    MP:
+      name: Hipoteca
+      amount: Importe de liquidación
+      fromAge: A los ${timeUnit}
+      toAge: Liquidación ${timeUnit}
+    MR:
+      name: Propiedad
+      amount: Desembolso anual
+      fromAge: Inicio de la hipoteca inversa ${timeUnit}
+      toAge: Fin de la hipoteca inversa ${timeUnit}
+      rate: Tasa de interés
+    MV:
+      name: País de destino
+      amount: Coste del traslado
+    SM:
+      fromAge: Inicio ${timeUnit}
+      toAge: Fin ${timeUnit}
+      rate: Cambio del mercado
+GuidedCopy:
+  chrome:
+    next: Siguiente
+    runSimulation: Ejecutar mi simulación
+    exit: Salir de la configuración guiada
+    exitConfirm: ¿Salir de la configuración guiada? Todo lo que has introducido se mantiene.
+    exitConfirmTitle: Salir de la configuración guiada
+  fieldNotes:
+    required: Esto es necesario para crear el plan.
+    optionalZero: Opcional. Puedes completarlo más tarde en el panel.
+    reassurance: Una estimación aproximada está bien. Puedes afinarla más tarde.
+  interviewOpeners:
+    free: Los números aproximados o incluso inventados están bien. Este entorno de pruebas usa reglas fiscales ficticias.
+    entitled: Las cifras aproximadas están bien. Puedes afinarlo todo más tarde.
+  events:
+    singleSalaryName: Salario
+    salaryName: Tu salario
+    partnerSalaryName: Salario de tu pareja
+    expensesName: Gastos cotidianos
+    rentName: Alquiler
+    homeName: Vivienda
+GuidedSections:
+  startingPosition:
+    title: Posición inicial
+    questions:
+      planFor: ¿Para quién es este plan?
+      country: ¿En qué país vives?
+      ages: ¿Qué edad tienen ambos?
+      startingAge: ¿Qué edad tienes?
+      p2StartingAge: ¿Qué edad tiene tu pareja?
+      initialSavings: ¿Aproximadamente cuánto tienes en ahorros ahora mismo? Una cifra aproximada está bien.
+      pensionPots: ¿Qué hay ya en tus fondos de pensión?
+      initialPension: ¿Ya tienes un fondo de pensión? ¿Aproximadamente cuánto hay en él? Déjalo en blanco si no estás seguro.
+      initialPensionP2: ¿Tu pareja ya tiene un fondo de pensión? ¿Aproximadamente cuánto hay en él? Déjalo en blanco si no estás seguro.
+      currentBalances: ¿Qué tienes ya invertido fuera de las pensiones?
+    why:
+      planFor: En muchos países las parejas tributan de forma diferente.
+      country: Cada país tiene sus propias reglas fiscales y las modelamos para crear proyecciones.
+      ages: Las edades fijan la cronología y determinan cada evento, tramo fiscal y regla de pensión.
+      initialSavings: Tu efectivo inicial es el saldo de apertura de la simulación.
+      pensionPots: Los fondos de pensión crecen libres de impuestos y se desbloquean en la jubilación. Si ya tienes un fondo, eso suma.
+      currentBalances: Los saldos iniciales de inversión permiten que la primera proyección empiece desde tu cartera real.
+    choices:
+      justMe: Solo yo
+      couple: Yo y mi pareja
+  personalCircumstances:
+    title: Circunstancias personales
+    questions:
+      marriageYear: ¿En qué año te casaste o esperas casarte? Déjalo en blanco si no aplica.
+      hasChildren: ¿Tienes hijos o planeas tenerlos?
+      childrenBirthYears: ¿Cuándo nacieron o nacerán tus hijos?
+      oldestChildBorn: ¿En qué año nació o nacería tu hijo mayor?
+      youngestChildBorn: ¿Y el menor? Omítelo si solo tienes un hijo.
+    why:
+      marriageYear: El matrimonio puede cambiar los créditos fiscales y los tramos a partir de ese año.
+      hasChildren: Los hijos pueden afectar a los créditos fiscales y, en algunos países, a las prestaciones.
+      childrenBirthYears: Los créditos fiscales y las prestaciones por tener hijos solo duran mientras siguen siendo menores.
+    choices:
+      'true': Sí
+      'false': 'No'
+  targets:
+    title: Objetivos
+    questions:
+      retirementAges: 'Hablemos de cuándo te gustaría retirarte:'
+      retirementAge: ¿A qué edad te gustaría dejar de trabajar?
+      p2RetirementAge: ¿Y tu pareja?
+      targetAge: ¿Hasta cuándo debe durar el plan? Simularemos hasta esta edad.
+      emergencyStash: ¿Cuánto te gustaría reservar para emergencias? Omítelo si no estás seguro.
+    why:
+      retirementAges: Cuándo terminan los salarios y puede empezar la disposición de la pensión. Antes significa menos años de ingresos y una disposición más larga.
+      targetAge: Conviene asumir longevidad para ver si llegas a una edad avanzada sin quedarte sin dinero.
+      emergencyStash: El simulador mantiene este importe en efectivo antes de invertir los excedentes.
+  moneyHabits:
+    title: Hábitos de dinero
+    questions:
+      pensionContribution: ¿Entra dinero en una pensión desde tu salario? Introduce un porcentaje del salario o elige Máx. para el máximo con desgravación fiscal. Déjalo en blanco si no estás seguro.
+      pensionContributionP2: ¿Entra dinero en la pensión de tu pareja desde su salario? Introduce un porcentaje del salario o elige Máx.
+      pensionContributionLabel: Tu %
+      pensionContributionP2Label: '% de tu pareja'
+      pensionContributionMaxNote: 'Consejo: el botón Máx. aporta el máximo que permite tu país libre de impuestos.'
+      surplusDestination: Cuando queda dinero después de gastar, ¿qué suele pasar con él?
+      investedShare: ¿Aproximadamente qué parte de tu dinero sobrante se invierte? Una estimación está bien.
+      allocationSplit: ¿Cómo se reparte el dinero sobrante entre los tipos de inversión?
+    why:
+      pensionContribution: Esto afecta a los impuestos ahora y a los saldos de pensión más tarde.
+      surplusDestination: Esto decide si el efectivo sobrante se mantiene líquido o tiene la oportunidad de crecer.
+      investedShare: Lo repartiremos entre todos los tipos de inversión (una simplificación para avanzar, no una recomendación). Puedes hacer ajustes en el panel.
+      allocationSplit: El reparto importa porque cada tipo de inversión puede tener distinto crecimiento y tratamiento fiscal.
+    allocationStatus:
+      cashSurplus: '{value}% se mantiene en efectivo'
+      exceeded: Reduce las asignaciones en {value}% para mantenerte dentro del 100%
+    choices:
+      bank: Se queda en mi cuenta bancaria
+      invested: Parte se invierte
+  events:
+    title: Tus eventos
+    intro: 'Los eventos son la historia de tu vida financiera: ingresos, gastos, vivienda. Añadamos lo básico.'
+    questions:
+      salary: ¿Ganas un salario?
+      salaryDetails: ¿Cuánto ganas y hasta cuándo?
+      salaryAmount: ¿Aproximadamente cuánto al año, antes de impuestos?
+      salaryUntilAge: ¿Hasta qué edad?
+      salaryMatch: ¿Tu empleador también aporta a tu pensión? ¿Qué porcentaje del salario iguala? Omítelo si no hay aporte o no estás seguro.
+      partnerSalary: ¿Tu pareja gana un salario?
+      partnerSalaryDetails: ¿Cuánto gana tu pareja y hasta cuándo?
+      partnerSalaryAmount: ¿Aproximadamente cuánto gana tu pareja al año, antes de impuestos?
+      partnerSalaryUntilAge: ¿Hasta qué edad ganará un salario tu pareja?
+      partnerSalaryMatch: ¿El empleador de tu pareja también aporta a su pensión? ¿Qué porcentaje del salario iguala? Omítelo si no hay aporte o no estás seguro.
+      expensesRent: ¿Aproximadamente cuánto gasta tu hogar al año, sin contar el alquiler? Una cifra aproximada está bien.
+      expensesMortgage: ¿Aproximadamente cuánto gasta tu hogar al año, sin contar los pagos de hipoteca? Una cifra aproximada está bien.
+      expensesOwn: ¿Aproximadamente cuánto gasta tu hogar al año? Una cifra aproximada está bien.
+      housing: ¿Alquilas o tienes vivienda propia?
+      rent: ¿Cuál es tu alquiler mensual?
+      ownOutright: Si planeas vender o comprar otra propiedad, añádela desde la tabla de eventos en cualquier momento.
+      quickMortgage: ¿Cuál es tu pago actual de hipoteca y cuántos años quedan?
+    why:
+      housing: La vivienda suele ser el mayor coste, y una vivienda es un activo que el simulador rastrea.
+      rent: La vivienda suele ser el mayor coste, y el alquiler es un gasto que el simulador rastrea.
+      quickMortgage: Un pago aproximado y los años restantes bastan para modelar la hipoteca pendiente.
+      salaryDetails: Tus ingresos nos ayudan a estimar los impuestos y la capacidad de ahorro.
+      salaryMatch: Las aportes del empleador son dinero gratis que se capitaliza durante décadas.
+      partnerSalary: Los ingresos de tu hogar nos ayudan a estimar los impuestos y la capacidad de ahorro.
+      partnerSalaryDetails: Los ingresos de tu hogar nos ayudan a estimar los impuestos y la capacidad de ahorro.
+      partnerSalaryMatch: Las aportes del empleador son dinero gratis que se capitaliza durante décadas.
+      expenses: El gasto anual determina lo que queda para ahorrar o invertir.
+    placeholders:
+      salaryAmount: Importe bruto
+      partnerSalaryAmount: Importe bruto
+      expensesRent: Excluir alquiler
+      expensesMortgage: Excluir hipoteca
+    notes:
+      quickMortgage: 'Asumiremos una hipoteca típica: plazo de 25 años, 20% de entrada. Puedes afinarla en cualquier momento en la tabla de eventos.'
+    homeName: Vivienda
+    mortgageFields:
+      monthlyPayment: Pago mensual
+      yearsLeft: Años restantes
+      rate: Tasa de interés
+    choices:
+      'true': Sí
+      'false': 'No'
+      rent: Alquilo
+      ownOutright: La tengo en propiedad sin hipoteca
+      mortgage: La tengo en propiedad con hipoteca
+  drawdownPriorities:
+    title: Prioridades de disposición
+    body:
+      - i18nId: paragraph-01
+        text: Cuando tus ingresos no cubren tus gastos, necesitamos saber en qué orden retirar de tus ahorros e inversiones.
+      - i18nId: paragraph-02
+        text: Este orden le indica al simulador de dónde tomar dinero cuando hay un déficit. El primero se usa antes.
+    animationCaption: Puedes reordenar la lista en el siguiente panel.
+    button: Revisar orden
+  economy:
+    title: Economía
+    body:
+      - i18nId: paragraph-01
+        text: Ahora asumiremos condiciones económicas neutrales (rendimientos y volatilidad).
+      - i18nId: paragraph-02
+        text: Son suposiciones predeterminadas, no previsiones ni recomendaciones. Edítalas cuando quieras.
+    button: Revisar suposiciones
+    questions:
+      inflation: ¿Qué tasa de inflación debe usar este plan?
+      growthAssumptions: Confirma o edita los supuestos iniciales de crecimiento de acciones y rendimiento de bonos.
+    why:
+      inflation: La inflación afecta a cuánto vale el dinero futuro en términos actuales.
+      growthAssumptions: Las suposiciones de crecimiento impulsan las proyecciones de inversión a largo plazo, pero no son recomendaciones.
+InsightsCopy:
+  icon:
+    ariaLabel: Qué ocurrió en esta simulación
+  panel:
+    title: Hallazgos de la simulación
+    footer: FinSim describe lo que muestra la simulación. Nunca da asesoramiento financiero.
+    close: Cerrar
+    showMe: Muéstrame esos años
+    autoOpenHint: 'Consejo: después de cualquier simulación, haz clic en la ⓘ del cuadro de resultados de arriba para volver a ver estas observaciones.'
+  insights:
+    failure_downpayment: El plan se queda sin dinero a la edad {failAge}. Ese año, el efectivo disponible no pudo cubrir el pago inicial de {eventName}.
+    failure_spike: El plan se queda sin dinero a la edad {failAge}. El gasto aumenta bruscamente ese año; el mayor coste es {sourceName}.
+    failure_chronic: El plan se queda sin dinero a la edad {failAge}. Desde la edad {fromAge}, los ingresos ya no cubren los gastos, y los ahorros y las inversiones se van usando hasta agotarse.
+    failure_chronic_no_buffer: El plan se queda sin dinero a la edad {failAge}. Desde la edad {fromAge}, los ingresos ya no cubren los gastos.
+    downpayment_shortfall: A la edad {age}, el efectivo disponible no cubre por completo el pago inicial de {eventName}.
+    cashflow_gap_det: Entre las edades {fromAge} y {toAge}, los ingresos no cubren los gastos; la diferencia sale de ahorros e inversiones. El mayor coste en esos años es {topExpense}.
+    cashflow_gap_det_no_buffer: Entre las edades {fromAge} y {toAge}, los ingresos no cubren los gastos. El mayor coste en esos años es {topExpense}.
+    cashflow_gap_mc: En aproximadamente el {pct}% de las trayectorias simuladas, los ingresos no alcanzan para cubrir los gastos entre las edades {fromAge} y {toAge}.
+    cashflow_gap_mc_most: En casi todas las trayectorias simuladas, los ingresos no alcanzan para cubrir los gastos entre las edades {fromAge} y {toAge}.
+    cashflow_gap_mc_all: En todas las trayectorias simuladas, los ingresos no alcanzan para cubrir los gastos entre las edades {fromAge} y {toAge}.
+    retirement_income_drop: Los ingresos netos bajan aproximadamente un {pct}% al retirarte (edad {age}).
+    pension_depleted: El fondo de pensión se agota por completo a la edad {age}.
+    volatility_dependence: Con crecimiento estable este plan funciona, pero con subidas y bajadas del mercado aproximadamente el {failPct}% de las trayectorias simuladas se quedan sin dinero.
+    volatility_dependence_most_fail: Con crecimiento estable este plan funciona, pero con subidas y bajadas del mercado casi todas las trayectorias simuladas se quedan sin dinero.
+    volatility_dependence_all_fail: Con crecimiento estable este plan funciona, pero con subidas y bajadas del mercado todas las trayectorias simuladas se quedan sin dinero.
+    mc_failure_downpayment: En aproximadamente el {pct}% de las trayectorias que fallan, el dinero se agota a la edad {age}, cuando el efectivo disponible no puede cubrir el pago inicial de {eventName}.
+    mc_failure_downpayment_most: En casi todas las trayectorias que fallan, el dinero se agota a la edad {age}, cuando el efectivo disponible no puede cubrir el pago inicial de {eventName}.
+    mc_failure_downpayment_all: Cuando las trayectorias simuladas fallan, el dinero se agota a la edad {age}, cuando el efectivo disponible no puede cubrir el pago inicial de {eventName}.
+    mc_failure_spike: Las trayectorias que fallan suelen quedarse sin dinero alrededor de la edad {peakAge}, cuando el gasto aumenta bruscamente; el mayor coste es {sourceName}.
+    mc_failure_peak: Entre las trayectorias que fallan, el dinero suele agotarse alrededor de la edad {peakAge}. Ese es el punto problemático más probable.
+    mc_failure_spread: 'Los fallos no están ligados a un solo año: las trayectorias que fallan se quedan sin dinero en cualquier momento entre las edades {fromAge} y {toAge}, con los primeros casos alrededor de la edad {onsetAge}.'
+    outcome_all_fail: Todas las trayectorias simuladas se quedan sin dinero; el primer fallo ocurre a la edad {worstAge}.
+    outcome_most_fail: Casi todas las trayectorias simuladas se quedan sin dinero; el primer fallo ocurre a la edad {worstAge}.
+    outcome_range: Aproximadamente el {failPct}% de las trayectorias simuladas se quedan sin dinero; el primer fallo ocurre a la edad {worstAge}.
+    outcome_most_survive: Casi todas las trayectorias simuladas llegan a la edad {targetAge} sin quedarse sin dinero; el primer fallo ocurre a la edad {worstAge}.
+    outcome_range_all_ok: Ninguna trayectoria simulada se queda sin dinero antes de la edad {targetAge}.
+    all_clear: Los ingresos cubren los gastos en todos los años simulados.

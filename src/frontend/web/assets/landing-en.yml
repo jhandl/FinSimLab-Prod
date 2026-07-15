@@ -1,9 +1,40 @@
+LanguageSelector:
+  label: Language
+  auto: Auto
+  loadError: The selected language could not be loaded. Your current language is unchanged.
+LanguageNames:
+  en: English
+  es: Spanish
+CountryNames:
+  xx: Sandbox
+  at: Austria
+  be: Belgium
+  bg: Bulgaria
+  cy: Cyprus
+  cz: Czechia
+  de: Germany
+  dk: Denmark
+  ee: Estonia
+  fi: Finland
+  fr: France
+  hr: Croatia
+  ie: Ireland
+  it: Italy
+  lu: Luxembourg
+  nl: The Netherlands
+  ch: Switzerland
+  es: Spain
+  pt: Portugal
+  pl: Poland
+  se: Sweden
+  us: United States
+  ar: Argentina
 page:
   language: en
   title: FinSimLab | Finance Simulation Lab
   brand:
     name: FinSimLab
-    separator: " - "
+    separator: ' - '
     tagline: Finance Simulation Lab
   navigation:
     features: Features
@@ -17,34 +48,62 @@ page:
     action: Start Planning
     imageAlt: Plan your life and retirement with FinSim
     prompts:
-      - inflation increases
-      - I retire earlier
-      - I retire later
-      - we move to <country>
-      - the market crashes
-      - I put more in the pension
-      - we increase bond allocation
-      - we buy a smaller house
-      - we delay the house purchase
-      - I buy a rental property
-      - I take a career break
-      - I get promoted
-      - I lose my job
-      - one of us stops working
-      - I pay off my mortgage
-      - I overpay my mortgage
-      - we take a larger mortgage
-      - my partner retires earlier
-      - I live to 100
-      - I max out pension contributions
-      - the market is flat for 5 years
-      - we hold more cash
-      - we reduce spending
-      - we have a child
-      - we have another child
-      - mortgage rates rise
-      - we rent permanently
-      - we downsize in retirement
+    - i18nId: prompt-01
+      text: inflation increases
+    - i18nId: prompt-02
+      text: I retire earlier
+    - i18nId: prompt-03
+      text: I retire later
+    - i18nId: prompt-04
+      text: we move to <country>
+    - i18nId: prompt-05
+      text: the market crashes
+    - i18nId: prompt-06
+      text: I put more in the pension
+    - i18nId: prompt-07
+      text: we increase bond allocation
+    - i18nId: prompt-08
+      text: we buy a smaller house
+    - i18nId: prompt-09
+      text: we delay the house purchase
+    - i18nId: prompt-10
+      text: I buy a rental property
+    - i18nId: prompt-11
+      text: I take a career break
+    - i18nId: prompt-12
+      text: I get promoted
+    - i18nId: prompt-13
+      text: I lose my job
+    - i18nId: prompt-14
+      text: one of us stops working
+    - i18nId: prompt-15
+      text: I pay off my mortgage
+    - i18nId: prompt-16
+      text: I overpay my mortgage
+    - i18nId: prompt-17
+      text: we take a larger mortgage
+    - i18nId: prompt-18
+      text: my partner retires earlier
+    - i18nId: prompt-19
+      text: I live to 100
+    - i18nId: prompt-20
+      text: I max out pension contributions
+    - i18nId: prompt-21
+      text: the market is flat for 5 years
+    - i18nId: prompt-22
+      text: we hold more cash
+    - i18nId: prompt-23
+      text: we reduce spending
+    - i18nId: prompt-24
+      text: we have a child
+    - i18nId: prompt-25
+      text: we have another child
+    - i18nId: prompt-26
+      text: mortgage rates rise
+    - i18nId: prompt-27
+      text: we rent permanently
+    - i18nId: prompt-28
+      text: we downsize in retirement
   features:
     title: Key Features
     scenario:
@@ -68,19 +127,19 @@ page:
   howItWorks:
     title: How It Works
     input:
-      number: "1"
+      number: '1'
       title: Input Your Financial Data
       description: Enter your current financial situation and goals, and expected economic conditions. Get detailed help for each field. It all stays in your browser. A guided setup helps you get started.
     events:
-      number: "2"
+      number: '2'
       title: Add Life Events
       description: Create events for income, expenses, and major life changes like buying a house or changing jobs. A wizard is there to help you create events.
     simulate:
-      number: "3"
+      number: '3'
       title: Run Simulation
       description: See how your financial future could unfold through detailed graphs and year-by-year breakdowns. Get a high-level overview or dive into the numbers.
     compare:
-      number: "4"
+      number: '4'
       title: Change one thing and compare
       description: Tweak assumptions, save versions, see where your plan is more likely to fail, learn which decisions actually move the needle.
   about:
@@ -89,7 +148,7 @@ page:
     motivation: When I started my investment journey I hired a financial advisor who gave me sound advice and a view of my financial future with nice charts and data. But the engineer in me wanted to play with the numbers and see how they impacted the outcome.
     historyBeforeLink: I first built a google sheet and
     historyLink: shared it on reddit
-    historyAfterLink: ", but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website."
+    historyAfterLink: ', but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website.'
     access: I believe that everyone should have access to tools that help them improve their financial understanding for more productive conversations with professional advisors.
     hope: I hope this tool helps you as much as it helped me.
   blog:
@@ -115,7 +174,7 @@ page:
     title: Ready to explore your financial future?
     action: Launch Simulator
   disclaimer:
-    label: "Educational Purpose Only:"
+    label: 'Educational Purpose Only:'
     text: This is not a budgeting tool nor financial, investment, tax, or legal advice. Don't make serious life decisions based on this. It's not a substitute for a good financial advisor.
   footer: © 2026 FinSimLab
 staticPages:
@@ -123,5 +182,5 @@ staticPages:
   brand: FinSimLab
   countries: Countries
   blog: Blog
-  titleSeparator: " | "
+  titleSeparator: ' | '
   footer: Static pages generated from authored FinSim Markdown.

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- Generated page template: copy comes from help.yml. Run npm run render:pages after template or copy changes. --><html lang="en"><head>
+<!DOCTYPE html><!-- Generated page template: copy comes from text-app-en.yml. Run npm run render:pages after template or copy changes. --><html lang="en" dir="ltr"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -8,8 +8,8 @@
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260714-mobile-charts5">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260714-copy1">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260711-blog-merge1">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260715-fit-labels-all-layouts">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260715-plan-tags">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260712-guided-pair-align1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/guided-setup.css?v=20260713-priority-cursor1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/insights.css?v=20260706-6">
@@ -20,8 +20,12 @@
   
 
   
-    
-  <script src="/lab/bundle.1784062456327.js" defer=""></script>
+  <script>
+    window.FinSimTextManifestUrl = "/src/frontend/web/assets/text-languages.json?v=20260715-1";
+  </script>
+  <script src="/lab/bundle.1784147669989.js" defer=""></script>
+  
+  
   
   
   
@@ -31,8 +35,8 @@
 
 <body>
   <section id="application-error" hidden="">
-    <h1>Application Error</h1>
-    <p>Could not initialize application configuration. Please try again later.</p>
+    <h1 data-i18n="Simulator.errors.applicationTitle">Application Error</h1>
+    <p data-i18n="Simulator.errors.applicationMessage">Could not initialize application configuration. Please try again later.</p>
   </section>
   <div id="loading-overlay">
     <div class="spinner"></div>
@@ -43,29 +47,37 @@
   <!-- Loading overlay above will be hidden by JS once initialization completes -->
   <header class="header-hidden">
     <div class="header-left">
-      <a href="/" class="app-icon-link" style="display: none;"><img src="/src/frontend/web/ifs/IFS.svg?v=20260404-1" alt="" class="app-icon"></a>
+      <a href="/" class="app-icon-link"><img src="/src/frontend/web/ifs/IFS.svg?v=20260404-1" alt="" class="app-icon"></a>
       <h1 class="app-name"><a href="/"></a></h1>
     </div>
     <div class="header-center-right">
       <div class="header-center">
         <div class="button-group-primary">
-          <button id="runSimulation" class="primary-button"><span>Run Simulation</span></button>
+          <button id="runSimulation" class="primary-button"><i class="fas fa-play run-simulation-icon" aria-hidden="true"></i><span data-i18n="Simulator.actions.runSimulation">Run Simulation</span></button>
           <div id="progress" class="status-indicator">Ready</div>
-          <button id="saveSimulation" class="secondary-button">Save</button>
+          <button id="saveSimulation" class="secondary-button" data-i18n="Simulator.actions.save">Save</button>
           <input type="file" id="loadSimulationDialog" accept=".csv,text/csv" style="display: none;">
-          <button id="loadSimulation" class="secondary-button">Load</button>
-          <button id="newSimulation" class="secondary-button">New</button>
+          <button id="loadSimulation" class="secondary-button" data-i18n="Simulator.actions.load">Load</button>
+          <button id="newSimulation" class="secondary-button" data-i18n="Simulator.actions.new">New</button>
         </div>
         <div class="button-group-secondary">
-          <button id="startWizard" class="secondary-button">Help</button>
+          <button id="startWizard" class="secondary-button" data-i18n="Simulator.actions.help">Help</button>
         </div>
       </div>
       <div class="header-right">
+        <div class="language-selector app-language-selector">
+          <span id="languageSelectorLabel" class="visually-hidden" data-i18n="LanguageSelector.label">Language</span>
+          <button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled="">
+            <svg class="language-selector-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6.1-3.9 9s1 6 3.9 9"></path></svg>
+            <span id="activeLanguageCode" class="active-language-code">EN</span>
+          </button>
+          <div id="languageDropdown" class="visualization-dropdown language-dropdown"></div>
+        </div>
       </div>
     </div>
 
     <!-- Mobile Burger Menu -->
-    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu" data-i18n-attr="aria-label:Simulator.accessibility.toggleMobileMenu">
       <span></span>
       <span></span>
       <span></span>
@@ -76,7 +88,7 @@
       <div class="mobile-menu-content">
         <button id="runSimulationMobile" class="mobile-menu-button primary-button">
           <i class="fas fa-play"></i>
-          <span>Run Simulation</span>
+          <span data-i18n="Simulator.actions.runSimulation">Run Simulation</span>
         </button>
         <div id="progressMobile" class="mobile-menu-status">Ready</div>
 
@@ -84,22 +96,22 @@
 
         <button id="saveSimulationMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-save"></i>
-          <span>Save Scenario</span>
+          <span data-i18n="Simulator.actions.saveScenario">Save Scenario</span>
         </button>
         <button id="loadSimulationMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-folder-open"></i>
-          <span>Load Scenario</span>
+          <span data-i18n="Simulator.actions.loadScenario">Load Scenario</span>
         </button>
         <button id="newSimulationMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-file"></i>
-          <span>New Scenario</span>
+          <span data-i18n="Simulator.actions.newScenario">New Scenario</span>
         </button>
 
         <div id="mobileSaveLoadDivider" class="mobile-menu-divider"></div>
 
         <button id="startWizardMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-question-circle"></i>
-          <span>Help</span>
+          <span data-i18n="Simulator.actions.help">Help</span>
         </button>
 
         <div id="mobileCountriesDivider" class="mobile-menu-divider"></div>
@@ -108,39 +120,39 @@
 
         <button id="latestUpdatesMobile" class="mobile-menu-button secondary-button">
           <i class="fas fa-bell"></i>
-          <span>Change log</span>
+          <span data-i18n="Simulator.actions.changeLog">Change log</span>
         </button>
 
         <div id="mobileToggleDivider" class="mobile-menu-divider"></div>
 
         <button id="experimentalToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="off">
           <i class="fas fa-toggle-off"></i>
-          <span>Tooltips: <strong>off</strong></span>
+          <span><span data-i18n="Simulator.shell.tooltipsLabel">Tooltips:</span> <strong data-i18n="Simulator.options.off">off</strong></span>
         </button>
 
         <button id="eventsWizardToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="on">
-          <span>Event Wizard</span>
+          <span data-i18n="Simulator.shell.eventWizard">Event Wizard</span>
           <div class="toggle-switch active">
             <div class="toggle-slider"></div>
           </div>
         </button>
 
         <button id="welcomeModalToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="on">
-          <span>Intro Window</span>
+          <span data-i18n="Simulator.shell.introWindow">Intro Window</span>
           <div class="toggle-switch active">
             <div class="toggle-slider"></div>
           </div>
         </button>
 
         <button id="presentValueToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="off">
-          <span>Present Value</span>
+          <span data-i18n="Simulator.shell.presentValue">Present Value</span>
           <div class="toggle-switch">
             <div class="toggle-slider"></div>
           </div>
         </button>
 
         <button id="customFeesToggleMobile" class="mobile-menu-button secondary-button toggle-button" data-toggle-state="off">
-          <span>Custom fees</span>
+          <span data-i18n="Simulator.shell.customFees">Custom fees</span>
           <div class="toggle-switch">
             <div class="toggle-slider"></div>
           </div>
@@ -156,19 +168,19 @@
         <div id="mobileCoffeeDivider" class="mobile-menu-divider"></div>
 
         <a id="coffeeButton" href="https://www.buymeacoffee.com/jhandl" target="_blank" class="coffee-button" hidden="">
-          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 36px; width: auto;">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" data-i18n-attr="alt:Simulator.accessibility.coffeeButton" style="height: 36px; width: auto;">
         </a>
       </div>
     </nav>
   </header>
 
-  <button id="loadDemoScenarioHeader" type="button" hidden="" aria-hidden="true">Demo</button>
+  <button id="loadDemoScenarioHeader" type="button" hidden="" aria-hidden="true" data-i18n="Simulator.actions.demo">Demo</button>
 
   <main>
     <div class="parameters-section">
       <div class="card" id="startingPosition">
         <div class="card-header-flex">
-          <h2>Starting Position</h2>
+          <h2 data-i18n="Simulator.sections.startingPosition">Starting Position</h2>
           <div class="simulation-mode-toggle">
             <span id="simModeSingle" class="mode-toggle-option mode-toggle-active"><i class="fas fa-user"></i></span>
             <span id="simModeCouple" class="mode-toggle-option"><i class="fas fa-user-friends"></i></span>
@@ -176,25 +188,25 @@
         </div>
         <div class="input-group">
           <div class="input-wrapper">
-            <label for="StartingAge">Your Current Age</label>
+            <label for="StartingAge" data-i18n="Simulator.parameters.labels.startingAge.your">Your Current Age</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="StartingAge" autocomplete="off">
           </div>
           <div class="input-wrapper">
-            <label for="P2StartingAge">Their Current Age</label>
+            <label for="P2StartingAge" data-i18n="Simulator.parameters.theirCurrentAge">Their Current Age</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="P2StartingAge" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="InitialSavings">Current Savings (Joint)</label>
+            <label for="InitialSavings" data-i18n="Simulator.parameters.labels.initialSavings.your">Current Savings (Joint)</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="InitialSavings" class="currency" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="InitialPension">Your Pension Fund</label>
+            <label for="InitialPension" data-i18n="Simulator.parameters.labels.initialPension.your">Your Pension Fund</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="InitialPension" class="currency" autocomplete="off">
           </div>
           <div class="input-wrapper">
-            <label for="InitialPensionP2">Their Pension Fund</label>
+            <label for="InitialPensionP2" data-i18n="Simulator.parameters.theirPensionFund">Their Pension Fund</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="InitialPensionP2" class="currency" autocomplete="off">
           </div>
 
@@ -202,20 +214,20 @@
       </div>
 
       <div class="card" id="personalCircumstances">
-        <h2>Personal Circumstances</h2>
+        <h2 data-i18n="Simulator.sections.personalCircumstances">Personal Circumstances</h2>
         <div class="input-group">
           <div class="input-wrapper">
-            <label for="MarriageYear">Marriage Year</label>
+            <label for="MarriageYear" data-i18n="Simulator.parameters.marriageYear">Marriage Year</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="MarriageYear" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="OldestChildBorn">Oldest Child Birth Year</label>
+            <label for="OldestChildBorn" data-i18n="Simulator.parameters.oldestChildBirthYear">Oldest Child Birth Year</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="OldestChildBorn" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="YoungestChildBorn">Youngest Child Birth Year</label>
+            <label for="YoungestChildBorn" data-i18n="Simulator.parameters.youngestChildBirthYear">Youngest Child Birth Year</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="YoungestChildBorn" autocomplete="off">
           </div>
 
@@ -223,24 +235,24 @@
       </div>
 
       <div class="card" id="Targets">
-        <h2>Targets</h2>
+        <h2 data-i18n="Simulator.sections.targets">Targets</h2>
         <div class="input-group">
           <div class="input-wrapper">
-            <label for="RetirementAge">Your Retirement Age</label>
+            <label for="RetirementAge" data-i18n="Simulator.parameters.labels.retirementAge.your">Your Retirement Age</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="RetirementAge" autocomplete="off">
           </div>
           <div class="input-wrapper">
-            <label for="P2RetirementAge">Their Retirement Age</label>
+            <label for="P2RetirementAge" data-i18n="Simulator.parameters.theirRetirementAge">Their Retirement Age</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="P2RetirementAge" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="TargetAge">Final Age</label>
+            <label for="TargetAge" data-i18n="Simulator.parameters.finalAge">Final Age</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="TargetAge" autocomplete="off">
           </div>
 
           <div class="input-wrapper">
-            <label for="EmergencyStash">Emergency Fund</label>
+            <label for="EmergencyStash" data-i18n="Simulator.parameters.emergencyFund">Emergency Fund</label>
             <input type="text" inputmode="numeric" pattern="[0-9]*" id="EmergencyStash" class="currency" autocomplete="off">
           </div>
         </div>
@@ -248,7 +260,7 @@
 
       <div class="card" id="Allocations">
         <div class="card-header-flex">
-          <h2>Allocations</h2>
+          <h2 data-i18n="Simulator.sections.allocations">Allocations</h2>
           <div class="allocations-country-header"></div>
         </div>
         <div class="input-group">
@@ -256,7 +268,7 @@
       </div>
 
       <div class="card" id="drawdownPriorities">
-        <h2>Drawdown Priorities</h2>
+        <h2 data-i18n="Simulator.sections.drawdownPriorities">Drawdown Priorities</h2>
         <div class="priorities-container">
           <!-- Priority items rendered dynamically by DragAndDrop.js -->
         </div>
@@ -264,7 +276,7 @@
 
       <div class="card" id="growthRates">
         <div class="card-header-flex">
-          <h2>Economy</h2>
+          <h2 data-i18n="Simulator.sections.economy">Economy</h2>
           <div class="simulation-mode-toggle" id="economyModeToggle">
             <span id="economyModeDeterministic" class="mode-toggle-option mode-toggle-active">
               <svg width="20" height="16" viewBox="0 0 20 16" fill="currentColor">
@@ -290,8 +302,8 @@
           <thead>
             <tr>
               <th></th>
-              <th>Growth Rate</th>
-              <th>Volatility</th>
+              <th data-i18n="Simulator.economy.growthRate">Growth Rate</th>
+              <th data-i18n="Simulator.economy.volatility">Volatility</th>
             </tr>
           </thead>
           <tbody>
@@ -302,15 +314,15 @@
 
     <div class="events-section card">
       <div class="card-header-flex">
-        <h2 id="EventsTitle">Events</h2>
+        <h2 id="EventsTitle" data-i18n="Simulator.sections.events">Events</h2>
         <div class="events-header-controls">
           <div class="view-toggle">
-            <span id="viewModeTable" class="mode-toggle-option mode-toggle-active" title="Table view" aria-label="Table view"><i class="fas fa-table"></i></span>
-            <span id="viewModeAccordion" class="mode-toggle-option" title="Accordion view" aria-label="Accordion view"><i class="fa-regular fa-rectangle-list"></i></span>
+            <span id="viewModeTable" class="mode-toggle-option mode-toggle-active" title="Table view" aria-label="Table view" data-i18n-attr="title:Simulator.events.tableView;aria-label:Simulator.events.tableView"><i class="fas fa-table"></i></span>
+            <span id="viewModeAccordion" class="mode-toggle-option" title="Accordion view" aria-label="Accordion view" data-i18n-attr="title:Simulator.events.accordionView;aria-label:Simulator.events.accordionView"><i class="fa-regular fa-rectangle-list"></i></span>
           </div>
           <div class="age-year-toggle">
-            <span id="ageYearModeAge" class="mode-toggle-option mode-toggle-active">Age</span>
-            <span id="ageYearModeYear" class="mode-toggle-option">Year</span>
+            <span id="ageYearModeAge" class="mode-toggle-option mode-toggle-active" data-i18n="Simulator.events.age">Age</span>
+            <span id="ageYearModeYear" class="mode-toggle-option" data-i18n="Simulator.events.year">Year</span>
           </div>
         </div>
       </div>
@@ -318,13 +330,13 @@
         <table id="Events">
           <thead>
             <tr>
-              <th class="sortable" data-col="event-type">Event Type <span class="sort-caret">⇅</span></th>
-              <th class="sortable" data-col="event-name">Name <span class="sort-caret">⇅</span></th>
-              <th class="sortable" data-col="event-amount">Amount <span class="sort-caret">⇅</span></th>
-              <th id="fromAgeHeader" class="sortable" data-col="from-age"><span class="header-text">From Age</span><span class="sort-caret">⇅</span></th>
-              <th id="toAgeHeader" class="sortable" data-col="to-age"><span class="header-text">To Age</span><span class="sort-caret">⇅</span></th>
-              <th class="sortable" data-col="event-rate">Rate <span class="sort-caret">⇅</span></th>
-              <th class="sortable" data-col="event-match">Match <span class="sort-caret">⇅</span></th>
+              <th class="sortable" data-col="event-type"><span data-i18n="Simulator.events.headers.type">Event Type</span> <span class="sort-caret">⇅</span></th>
+              <th class="sortable" data-col="event-name"><span data-i18n="Simulator.events.headers.name">Name</span> <span class="sort-caret">⇅</span></th>
+              <th class="sortable" data-col="event-amount"><span data-i18n="Simulator.events.headers.amount">Amount</span> <span class="sort-caret">⇅</span></th>
+              <th id="fromAgeHeader" class="sortable" data-col="from-age"><span class="header-text" data-i18n="Simulator.events.headers.fromAge">From Age</span><span class="sort-caret">⇅</span></th>
+              <th id="toAgeHeader" class="sortable" data-col="to-age"><span class="header-text" data-i18n="Simulator.events.headers.toAge">To Age</span><span class="sort-caret">⇅</span></th>
+              <th class="sortable" data-col="event-rate"><span data-i18n="Simulator.events.headers.rate">Rate</span> <span class="sort-caret">⇅</span></th>
+              <th class="sortable" data-col="event-match"><span data-i18n="Simulator.events.headers.match">Match</span> <span class="sort-caret">⇅</span></th>
               <th></th>
             </tr>
           </thead>
@@ -355,7 +367,7 @@
 
     <div class="data-section card">
       <div class="card-header-flex">
-        <h2>Simulation Data</h2>
+        <h2 data-i18n="Simulator.sections.simulationData">Simulation Data</h2>
         <div id="data-table-controls"></div>
       </div>
 
@@ -366,10 +378,10 @@
               <th colspan="2">
                 <div class="table-controls">
                   <div class="visualization-control">
-                    <button id="visualizationToggle" class="visualization-icon-btn" title="Visualisation Settings">
+                    <button id="visualizationToggle" class="visualization-icon-btn" title="Visualisation Settings" data-i18n-attr="title:Simulator.visualizations.settings">
                       <i class="fas fa-palette"></i>
                     </button>
-                    <span id="selectedPresetDisplay" class="selected-preset-display">Default</span>
+                    <span id="selectedPresetDisplay" class="selected-preset-display" data-i18n="Simulator.visualizations.default">Default</span>
                   </div>
                   <div class="export-control">
                     <button id="exportDataCSV" class="visualization-icon-btn" data-description="Export data table as CSV">
@@ -379,26 +391,26 @@
                 </div>
                 <!-- Direct Dropdown Menu -->
                 <div class="visualization-dropdown" id="presetOptions" style="display: none;">
-                  <div class="dropdown-header">Color Scheme</div>
+                  <div class="dropdown-header" data-i18n="Simulator.visualizations.colorScheme">Color Scheme</div>
                   <!-- Options will be populated dynamically -->
                 </div>
               </th>
-              <th colspan="8" data-group="grossIncome">Gross Income</th>
-              <th colspan="1" data-group="deductions">Deductions</th>
-              <th colspan="2">Net Cashflow</th>
-              <th colspan="3" data-group="assets">Assets</th>
+              <th colspan="8" data-group="grossIncome" data-i18n="Simulator.tables.groups.grossIncome">Gross Income</th>
+              <th colspan="1" data-group="deductions" data-i18n="Simulator.tables.groups.deductions">Deductions</th>
+              <th colspan="2" data-i18n="Simulator.tables.groups.netCashflow">Net Cashflow</th>
+              <th colspan="3" data-group="assets" data-i18n="Simulator.tables.groups.assets">Assets</th>
               <th colspan="2"></th>
             </tr>
             <tr>
-              <th data-key="Age" title="Your age in this simulation year">Age</th>
-              <th data-key="Year" title="Calendar year of the simulation">Year</th>
-              <th data-key="GrossIncome" title="Gross income columns (dynamic)">Gross Income</th>
-              <th data-key="PensionContribution" title="Amount contributed to private pensions (excluding employer match)">P.Contrib</th>
-              <th data-key="NetIncome" title="Cash inflows after taxes (excludes pension contributions)">Inflows</th>
-              <th data-key="Expenses" title="Total annual expenses">Outflows</th>
-              <th data-key="RealEstateCapital" title="Total value of your owned real estate">R.Estate</th>
-              <th data-key="WithdrawalRate" title="Percentage of liquid assets withdrawn to cover expenses">Withdraw%</th>
-              <th data-key="Worth" title="Your total net worth (sum of all assets)">Net Worth</th>
+              <th data-key="Age" title="Your age in this simulation year" data-i18n="Simulator.tables.columns.age" data-i18n-attr="title:Simulator.tables.columns.ageTooltip">Age</th>
+              <th data-key="Year" title="Calendar year of the simulation" data-i18n="Simulator.tables.columns.year" data-i18n-attr="title:Simulator.tables.columns.yearTooltip">Year</th>
+              <th data-key="GrossIncome" title="Gross income columns (dynamic)" data-i18n="Simulator.tables.columns.grossIncome" data-i18n-attr="title:Simulator.tables.columns.grossIncomeTooltip">Gross Income</th>
+              <th data-key="PensionContribution" title="Amount contributed to private pensions (excluding employer match)" data-i18n="Simulator.tables.columns.pensionContribution" data-i18n-attr="title:Simulator.tables.columns.pensionContributionTooltip">P.Contrib</th>
+              <th data-key="NetIncome" title="Cash inflows after taxes (excludes pension contributions)" data-i18n="Simulator.tables.columns.inflows" data-i18n-attr="title:Simulator.tables.columns.inflowsTooltip">Inflows</th>
+              <th data-key="Expenses" title="Total annual expenses" data-i18n="Simulator.tables.columns.outflows" data-i18n-attr="title:Simulator.tables.columns.outflowsTooltip">Outflows</th>
+              <th data-key="RealEstateCapital" title="Total value of your owned real estate" data-i18n="Simulator.tables.columns.realEstate" data-i18n-attr="title:Simulator.tables.columns.realEstateTooltip">R.Estate</th>
+              <th data-key="WithdrawalRate" title="Percentage of liquid assets withdrawn to cover expenses" data-i18n="Simulator.tables.columns.withdrawalRate" data-i18n-attr="title:Simulator.tables.columns.withdrawalRateTooltip">Withdraw%</th>
+              <th data-key="Worth" title="Your total net worth (sum of all assets)" data-i18n="Simulator.tables.columns.netWorth" data-i18n-attr="title:Simulator.tables.columns.netWorthTooltip">Net Worth</th>
             </tr>
           </thead>
           <tbody>
@@ -409,8 +421,8 @@
     </div>
 
     <div id="mobile-data-message" class="data-section card" style="text-align: center;">
-      <p>📊 The detailed data table is available on wider screens. <a href="#" id="show-data-link">Show anyway</a>.</p>
-      <div class="mobile-table-loading" aria-label="Rendering table" role="status" aria-live="polite">
+      <p><span data-i18n="Simulator.tables.mobileMessage">📊 The detailed data table is available on wider screens.</span> <a href="#" id="show-data-link" data-i18n="Simulator.actions.showAnyway">Show anyway</a>.</p>
+      <div class="mobile-table-loading" aria-label="Rendering table" data-i18n-attr="aria-label:Simulator.tables.rendering" role="status" aria-live="polite">
         <span class="mobile-table-loading-spinner" aria-hidden="true"></span>
       </div>
     </div>
@@ -420,15 +432,15 @@
   <div id="errorModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Error</h3>
+        <h3 data-i18n="Simulator.errors.errorTitle">Error</h3>
         <span class="modal-close">×</span>
       </div>
       <div class="modal-body">
         <p id="errorMessage"></p>
       </div>
       <div class="modal-footer">
-        <button id="errorModalCancel" class="secondary-button">Cancel</button>
-        <button id="errorModalClose" class="primary-button">OK</button>
+        <button id="errorModalCancel" class="secondary-button" data-i18n="Simulator.actions.cancel">Cancel</button>
+        <button id="errorModalClose" class="primary-button" data-i18n="Simulator.actions.ok">OK</button>
       </div>
     </div>
   </div>
