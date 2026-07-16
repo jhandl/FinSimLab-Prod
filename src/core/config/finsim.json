@@ -1,7 +1,8 @@
 {
   "relocationEnabled": true,
   "tutorialsEnabled": true,
-  "blogEnabled": true,
+  "blogEnabled": false,
+  "coffeeButtonEnabled": false,
   "showPriceJustification": false,
   "showPensionTooltip": true,
   "autoShiftOnRelocationAgeChange": true,

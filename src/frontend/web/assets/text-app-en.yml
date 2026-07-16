@@ -1172,6 +1172,12 @@ CountryAccessCheckout:
           continueWithStripe: Continue with Stripe
           openCountryPlans: Open Country Plans
           openingStripe: Opening Stripe...
+    accessExpired:
+      title: Your Country Plan has expired
+      message: 'Your Country Plan "{planName}" ended on {date}. Renew it to restore access to your selected countries and scenarios.'
+      actions:
+        close: Close
+        openCountryPlans: Open Country Plans
     recovery:
       title: Recover license
       errorTitle: License Recovery Failed

@@ -591,23 +591,30 @@ let adaptiveLayoutScheduled = false;
 let adaptiveLayoutGeneration = 0;
 let headerMeasurementInProgress = false;
 
-const HEADER_COMFORT_MARGIN_PX = 24;
+const HEADER_COMFORT_MARGIN_PX = 0;
 const HEADER_FIT_TOLERANCE_PX = 0.5;
 const HEADER_CANDIDATES = [
-  { mode: 'full', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'full', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'country-menu', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'country-menu', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'compact-actions', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'compact', density: 'normal' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'icon', language: 'compact', density: 'normal' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'normal' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact' },
-  { mode: 'minimal', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact' }
+  { mode: 'full', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'full', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'country-menu', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'country-menu', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'country-menu', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'tight', status: 'full' },
+  { mode: 'compact-actions', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'compact-actions', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'tight', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'tight', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'compact', density: 'normal', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'compact', density: 'tight', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'icon', language: 'compact', density: 'normal', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'icon', language: 'compact', density: 'tight', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'normal', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'tight', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact', status: 'full' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact', status: 'fluid' },
+  { mode: 'minimal', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact', status: 'fluid' }
 ];
 
-function applyHeaderResponsiveAttributes(mode, brand, run, help, language, density) {
+function applyHeaderResponsiveAttributes(mode, brand, run, help, language, density, status) {
   if (document.body.getAttribute('data-header-mode') !== mode) {
     document.body.setAttribute('data-header-mode', mode);
   }
@@ -626,6 +633,23 @@ function applyHeaderResponsiveAttributes(mode, brand, run, help, language, densi
   if (document.body.getAttribute('data-header-density') !== density) {
     document.body.setAttribute('data-header-density', density);
   }
+  if (document.body.getAttribute('data-header-status') !== status) {
+    document.body.setAttribute('data-header-status', status);
+  }
+}
+
+function applyHeaderCompression(spacing, controls) {
+  const root = document.documentElement;
+  root.style.setProperty('--header-responsive-gap', `${0.5 - 0.125 * spacing}rem`);
+  root.style.setProperty('--header-responsive-center-gap', `${1 - 0.5 * spacing}rem`);
+  root.style.setProperty('--header-responsive-padding-x', `${1.2 - 0.45 * spacing}rem`);
+  root.style.setProperty('--header-responsive-control-padding', `${0.75 - 0.5 * controls}rem`);
+  root.style.setProperty('--header-responsive-left-min', `${2.5 - 0.875 * controls}rem`);
+  root.style.setProperty('--header-responsive-icon-size', `${2 - 0.375 * controls}rem`);
+  root.style.setProperty('--header-responsive-run-width', `${3.5 - 1.5 * controls}rem`);
+  root.style.setProperty('--header-responsive-help-width', `${2.25 - 0.25 * controls}rem`);
+  root.style.setProperty('--header-responsive-control-size', `${2.25 - 0.25 * controls}rem`);
+  root.style.setProperty('--header-responsive-menu-size', `${2.5 - 0.5 * controls}rem`);
 }
 
 function isHeaderElementVisible(element) {
@@ -682,7 +706,13 @@ function buildHeaderVisibleState(mode, hasCountryAction) {
 function measureHeaderCenterRightWidth(headerCenterRight) {
   if (!headerCenterRight || !isHeaderElementVisible(headerCenterRight)) return 0;
   const headerCenter = headerCenterRight.querySelector('.header-center');
-  return measureFlexContentWidth(headerCenter);
+  const groups = getVisibleHeaderChildren(headerCenter);
+  if (!groups.length) return 0;
+  let width = 0;
+  for (let i = 0; i < groups.length; i++) {
+    width += measureFlexContentWidth(groups[i]);
+  }
+  return width + getFlexColumnGap(headerCenter) * Math.max(0, groups.length - 1);
 }
 
 function syncHeaderRightVisibility(headerRight) {
@@ -698,7 +728,7 @@ function measureHeaderCandidate(candidate, elements, hasCountryAction) {
   const paddingRight = getCssLength(headerStyle.paddingRight, 0);
   const headerLeftWidth = measureOuterWidth(elements.headerLeft);
   const centerRightWidth = measureHeaderCenterRightWidth(elements.headerCenterRight);
-  const headerRightWidth = measureOuterWidth(elements.headerRight);
+  const headerRightWidth = measureFlexContentWidth(elements.headerRight);
   const toggleWidth = measureOuterWidth(elements.mobileMenuToggle);
   const directRegions = [headerLeftWidth, centerRightWidth, headerRightWidth, toggleWidth].filter((width) => width > 0).length;
   const directHeaderGaps = getFlexColumnGap(elements.header) * Math.max(0, directRegions - 1);
@@ -717,12 +747,68 @@ function measureHeaderCandidate(candidate, elements, hasCountryAction) {
     help: candidate.help,
     language: candidate.language,
     density: candidate.density,
+    status: candidate.status,
     requiredWidth: requiredWidth,
     availableWidth: Math.max(0, headerWidth - paddingLeft - paddingRight - HEADER_COMFORT_MARGIN_PX),
     headerWidth: headerWidth,
     comfortMargin: HEADER_COMFORT_MARGIN_PX,
     visible: buildHeaderVisibleState(candidate.mode, hasCountryAction)
   };
+}
+
+function headerCandidateFits(measured) {
+  return measured.requiredWidth <= measured.headerWidth + HEADER_FIT_TOLERANCE_PX;
+}
+
+function measureCompressedHeaderCandidate(candidate, elements, hasCountryAction, spacing, controls) {
+  applyHeaderCompression(spacing, controls);
+  const measured = measureHeaderCandidate(candidate, elements, hasCountryAction);
+  measured.spacingCompression = spacing;
+  measured.controlCompression = controls;
+  return measured;
+}
+
+function fitHeaderCandidate(candidate, elements, hasCountryAction) {
+  if (candidate.density === 'normal') {
+    return measureCompressedHeaderCandidate(candidate, elements, hasCountryAction, 0, 0);
+  }
+
+  const compressControls = candidate.density === 'compact' && candidate.status === 'full';
+  const fixedControls = candidate.density === 'compact' && candidate.status === 'fluid';
+  const fixedSpacing = candidate.density === 'compact';
+  let low = 0;
+  let high = 1;
+  let measured = measureCompressedHeaderCandidate(
+    candidate,
+    elements,
+    hasCountryAction,
+    fixedSpacing ? 1 : 0,
+    fixedControls ? 1 : 0
+  );
+  if (headerCandidateFits(measured) || fixedControls) return measured;
+
+  measured = measureCompressedHeaderCandidate(candidate, elements, hasCountryAction, 1, compressControls ? 1 : 0);
+  if (!headerCandidateFits(measured)) return measured;
+
+  for (let i = 0; i < 8; i++) {
+    const compression = (low + high) / 2;
+    measured = measureCompressedHeaderCandidate(
+      candidate,
+      elements,
+      hasCountryAction,
+      fixedSpacing ? 1 : compression,
+      compressControls ? compression : 0
+    );
+    if (headerCandidateFits(measured)) high = compression;
+    else low = compression;
+  }
+  return measureCompressedHeaderCandidate(
+    candidate,
+    elements,
+    hasCountryAction,
+    fixedSpacing ? 1 : high,
+    compressControls ? high : 0
+  );
 }
 
 function selectHeaderResponsiveCandidate() {
@@ -750,16 +836,17 @@ function selectHeaderResponsiveCandidate() {
   try {
     for (let i = 0; i < candidates.length; i++) {
       const candidate = candidates[i];
-      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run, candidate.help, candidate.language, candidate.density);
-      const measured = measureHeaderCandidate(candidate, elements, hasCountryAction);
+      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run, candidate.help, candidate.language, candidate.density, candidate.status);
+      const measured = fitHeaderCandidate(candidate, elements, hasCountryAction);
       fallback = measured;
-      if (measured.requiredWidth <= measured.headerWidth + HEADER_FIT_TOLERANCE_PX) {
+      if (headerCandidateFits(measured)) {
         selected = measured;
         break;
       }
     }
     selected = selected || fallback;
-    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run, selected.help, selected.language, selected.density);
+    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run, selected.help, selected.language, selected.density, selected.status);
+    applyHeaderCompression(selected.spacingCompression, selected.controlCompression);
   } finally {
     headerMeasurementInProgress = false;
   }
@@ -906,10 +993,6 @@ function generateHeaderResponsiveCSS() {
       border: 0;
     }
 
-    body[data-header-run="icon"] #progress {
-      width: auto;
-    }
-
     body[data-header-help="icon"] #startWizard {
       position: relative;
       display: inline-flex;
@@ -936,28 +1019,71 @@ function generateHeaderResponsiveCSS() {
       border: 0;
     }
 
+    body[data-header-density="tight"] header,
     body[data-header-density="compact"] header {
-      padding: 0.25rem !important;
+      gap: var(--header-responsive-gap) !important;
+    }
+
+    body[data-header-density="tight"] .header-center-right,
+    body[data-header-density="compact"] .header-center-right,
+    body[data-header-density="tight"] .header-right,
+    body[data-header-density="compact"] .header-right,
+    body[data-header-density="tight"] .button-group-primary,
+    body[data-header-density="compact"] .button-group-primary,
+    body[data-header-density="tight"] .button-group-secondary,
+    body[data-header-density="compact"] .button-group-secondary {
+      gap: var(--header-responsive-gap) !important;
+    }
+
+    body[data-header-density="tight"] .header-center,
+    body[data-header-density="compact"] .header-center {
+      gap: var(--header-responsive-center-gap) !important;
+    }
+
+    body[data-header-mode="save-load-menu"] .header-center,
+    body[data-header-mode="minimal"] .header-center {
+      gap: 0.5rem !important;
+    }
+
+    body[data-header-mode="save-load-menu"][data-header-density="tight"] .header-center,
+    body[data-header-mode="save-load-menu"][data-header-density="compact"] .header-center,
+    body[data-header-mode="minimal"][data-header-density="compact"] .header-center {
+      gap: var(--header-responsive-gap) !important;
+    }
+
+    body[data-header-density="tight"] header {
+      padding-left: var(--header-responsive-padding-x) !important;
+      padding-right: var(--header-responsive-padding-x) !important;
+    }
+
+    body[data-header-density="compact"] header {
+      padding: var(--header-responsive-control-padding) !important;
     }
 
     body[data-header-density="compact"] .header-left {
-      min-width: 26px !important;
+      min-width: var(--header-responsive-left-min) !important;
     }
 
     body[data-header-density="compact"] .header-left .app-icon {
-      width: 26px;
-      height: 26px;
+      width: var(--header-responsive-icon-size);
+      height: var(--header-responsive-icon-size);
     }
 
-    body[data-header-density="compact"] #runSimulation,
+    body[data-header-density="compact"] #runSimulation {
+      width: var(--header-responsive-run-width);
+      height: var(--header-responsive-control-size);
+    }
+
     body[data-header-density="compact"] #startWizard {
-      width: 2rem;
-      height: 2rem;
+      width: var(--header-responsive-help-width);
+      height: var(--header-responsive-control-size);
     }
 
-    body[data-header-density="compact"] #progress {
-      min-width: 0 !important;
-      max-width: 4.5rem;
+    body[data-header-status="fluid"] #progress {
+      flex: 0 1 135px !important;
+      width: 135px;
+      min-width: 4.5rem !important;
+      max-width: 135px;
       padding-left: 0.35rem;
       padding-right: 0.35rem;
       overflow: hidden;
@@ -965,15 +1091,15 @@ function generateHeaderResponsiveCSS() {
     }
 
     body[data-header-density="compact"] .mobile-menu-toggle {
-      width: 32px;
-      min-width: 32px !important;
-      height: 32px;
+      width: var(--header-responsive-menu-size);
+      min-width: var(--header-responsive-menu-size) !important;
+      height: var(--header-responsive-menu-size);
       padding: 6px;
     }
 
     body[data-header-density="compact"] .app-language-selector .language-selector-trigger {
-      min-width: 2rem;
-      height: 2rem;
+      min-width: var(--header-responsive-control-size);
+      height: var(--header-responsive-control-size);
       padding: 0 0.25rem;
     }
 

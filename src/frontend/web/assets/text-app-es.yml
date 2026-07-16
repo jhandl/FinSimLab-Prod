@@ -1118,6 +1118,12 @@ CountryAccessCheckout:
           continueWithStripe: Continuar con Stripe
           openCountryPlans: Abrir planes pagos
           openingStripe: Abriendo Stripe...
+    accessExpired:
+      title: Tu plan pago ha caducado
+      message: 'Tu plan pago "{planName}" terminó el {date}. Renuévalo para recuperar el acceso a los países y escenarios seleccionados.'
+      actions:
+        close: Cerrar
+        openCountryPlans: Abrir planes pagos
     recovery:
       title: Recuperar licencia
       errorTitle: Error al recuperar la licencia
