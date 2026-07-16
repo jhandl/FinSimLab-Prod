@@ -3490,7 +3490,7 @@ WizardSteps:
   - mini
   card: cashflowGraph
   popover:
-    description: <p>This graph shows your projected cashflow over time.</p><p>In multi-currency scenarios, unified display converts amounts using the simulator's FX model. Hover over data points to see the original currency values.</p>
+    description: <p><strong>Cashflow</strong> is the money moving into and out of your household each year. If more comes in than goes out, you can save or invest the difference; if less comes in, the shortfall must come from your assets.</p><p>This graph breaks down your income and compares total inflows with total outflows over time.</p><p>In multi-currency scenarios, unified display converts amounts using the simulator's FX model. Hover over data points to see the original currency values.</p>
     side: top
     align: center
   i18nId: tour-step-180
@@ -3499,7 +3499,7 @@ WizardSteps:
   - mini
   card: assetsGraph
   popover:
-    description: <p>This graph shows your projected assets over time.</p><p>In multi-currency scenarios, unified display converts amounts using the simulator's FX model. Hover over data points to see original currency values.</p>
+    description: <p><strong>Assets</strong> are things you own that hold financial value, such as cash, investments, pensions, and property. Unlike cashflow, which measures money moving during a year, assets show what you have accumulated at each point in time.</p><p>This graph shows how the value and mix of your assets are projected to change over time.</p><p>In multi-currency scenarios, unified display converts amounts using the simulator's FX model. Hover over data points to see original currency values.</p>
     side: top
     align: center
   i18nId: tour-step-181
