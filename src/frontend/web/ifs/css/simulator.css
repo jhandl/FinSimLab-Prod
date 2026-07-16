@@ -1,4 +1,4 @@
-/* cache-version: 20260715-fit-parameter-labels-all-layouts */
+/* cache-version: 20260716-tooltip-spacing1 */
 @import '../../common.css';
 @import 'wizard.css';
 
@@ -187,12 +187,21 @@ header.header-hidden {
 
 .button-group-secondary .country-access-header-button {
   flex: 0 0 auto;
-  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   white-space: nowrap;
 }
 
+.button-group-secondary .header-help-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.header-help-button .help-button-icon {
+  display: none;
+}
+
 .header-right {
-  margin-left: auto;
+  flex: 0 0 auto;
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -4213,6 +4222,10 @@ footer {
 
 .visualization-tooltip.visible {
   opacity: 1;
+}
+
+.visualization-tooltip.markdown-tooltip {
+  white-space: normal;
 }
 
 .visualization-tooltip .attribution-tooltip-title {

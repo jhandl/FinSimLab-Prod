@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/layout.css?v=20260714-mobile-charts5">
-  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260715-fit-labels-all-layouts">
+  <link rel="stylesheet" href="/src/frontend/web/ifs/css/simulator.css?v=20260716-help-header8">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/country-access.css?v=20260715-plan-tags">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/event-wizard.css?v=20260712-guided-pair-align1">
   <link rel="stylesheet" href="/src/frontend/web/ifs/css/guided-setup.css?v=20260713-priority-cursor1">
@@ -23,7 +23,7 @@
   <script>
     window.FinSimTextManifestUrl = "/src/frontend/web/assets/text-languages.json?v=20260715-1";
   </script>
-  <script src="/lab/bundle.1784201649277.js" defer=""></script>
+  <script src="/lab/bundle.1784235991726.js" defer=""></script>
   
   
   
@@ -53,7 +53,11 @@
     <div class="header-center-right">
       <div class="header-center">
         <div class="button-group-primary">
-          <button id="runSimulation" class="primary-button"><i class="fas fa-play run-simulation-icon" aria-hidden="true"></i><span data-i18n="Simulator.actions.runSimulation">Run Simulation</span></button>
+          <button id="runSimulation" class="primary-button">
+            <i class="fas fa-play run-simulation-icon" aria-hidden="true"></i>
+            <span class="run-simulation-label-full" data-i18n="Simulator.actions.runSimulation">Run Simulation</span>
+            <span class="run-simulation-label-short" data-i18n="Simulator.shell.runSimulationShort">Run</span>
+          </button>
           <div id="progress" class="status-indicator">Ready</div>
           <button id="saveSimulation" class="secondary-button" data-i18n="Simulator.actions.save">Save</button>
           <input type="file" id="loadSimulationDialog" accept=".csv,text/csv" style="display: none;">
@@ -61,18 +65,21 @@
           <button id="newSimulation" class="secondary-button" data-i18n="Simulator.actions.new">New</button>
         </div>
         <div class="button-group-secondary">
-          <button id="startWizard" class="secondary-button" data-i18n="Simulator.actions.help">Help</button>
+          <button id="startWizard" class="secondary-button header-help-button">
+            <i class="fas fa-question help-button-icon" aria-hidden="true"></i>
+            <span class="help-button-label" data-i18n="Simulator.actions.help">Help</span>
+          </button>
         </div>
       </div>
-      <div class="header-right">
-        <div class="language-selector app-language-selector">
-          <span id="languageSelectorLabel" class="visually-hidden" data-i18n="LanguageSelector.label">Language</span>
-          <button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled="">
-            <svg class="language-selector-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6.1-3.9 9s1 6 3.9 9"></path></svg>
-            <span id="activeLanguageCode" class="active-language-code">EN</span>
-          </button>
-          <div id="languageDropdown" class="visualization-dropdown language-dropdown"></div>
-        </div>
+    </div>
+    <div class="header-right">
+      <div class="language-selector app-language-selector">
+        <span id="languageSelectorLabel" class="visually-hidden" data-i18n="LanguageSelector.label">Language</span>
+        <button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled="">
+          <svg class="language-selector-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6.1-3.9 9s1 6 3.9 9"></path></svg>
+          <span id="activeLanguageCode" class="active-language-code">EN</span>
+        </button>
+        <div id="languageDropdown" class="visualization-dropdown language-dropdown"></div>
       </div>
     </div>
 
@@ -90,7 +97,6 @@
           <i class="fas fa-play"></i>
           <span data-i18n="Simulator.actions.runSimulation">Run Simulation</span>
         </button>
-        <div id="progressMobile" class="mobile-menu-status">Ready</div>
 
         <div id="mobileRunDivider" class="mobile-menu-divider"></div>
 
@@ -108,11 +114,6 @@
         </button>
 
         <div id="mobileSaveLoadDivider" class="mobile-menu-divider"></div>
-
-        <button id="startWizardMobile" class="mobile-menu-button secondary-button">
-          <i class="fas fa-question-circle"></i>
-          <span data-i18n="Simulator.actions.help">Help</span>
-        </button>
 
         <div id="mobileCountriesDivider" class="mobile-menu-divider"></div>
 

@@ -167,9 +167,6 @@ class MobileBurgerMenu {
     // Sync mobile menu buttons with desktop actions
     this.syncMenuButtons();
 
-    // Update mobile status indicator
-    this.syncStatusIndicator();
-
     // Initialize toggle state from localStorage
     this.initializeToggleState();
   }
@@ -203,11 +200,9 @@ class MobileBurgerMenu {
       ? headerState.visible
       : buildHeaderVisibleState(mode, hasCountryAction);
     const runButton = document.getElementById('runSimulationMobile');
-    const statusDiv = document.getElementById('progressMobile');
     const saveButton = document.getElementById('saveSimulationMobile');
     const loadButton = document.getElementById('loadSimulationMobile');
     const newButton = document.getElementById('newSimulationMobile');
-    const helpButton = document.getElementById('startWizardMobile');
     const countriesButton = document.getElementById('countryAccessButtonMobile');
     const recoverLicenseButton = document.getElementById('recoverLicenseButtonMobile');
     const feedbackButton = document.getElementById('feedbackButtonMobile');
@@ -240,27 +235,21 @@ class MobileBurgerMenu {
     // Track which sections have visible content
     let hasRunSection = false;
     let hasSaveLoadSection = false;
-    let hasHelpSection = false;
     let hasCountriesSection = false;
     let hasToggleSection = SHOW_TOGGLE_BUTTON || SHOW_EVENTS_WIZARD_TOGGLE || SHOW_PRESENT_VALUE_TOGGLE || SHOW_CUSTOM_FEES_TOGGLE || SHOW_LOCAL_TAX_TERMS_TOGGLE;
 
     const showRunInMenu = visible.run === false;
-    const showStatusInMenu = visible.status === false;
     const showSaveLoadInMenu = visible.saveLoadNew === false;
-    const showHelpInMenu = visible.demoHelp === false;
     const showCountriesInMenu = !!countriesButton && hasCountryAction && visible.countries === false;
 
     if (runButton) runButton.style.display = showRunInMenu ? 'flex' : 'none';
-    if (statusDiv) statusDiv.style.display = showStatusInMenu ? 'block' : 'none';
     if (saveButton) saveButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
     if (loadButton) loadButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
     if (newButton) newButton.style.display = showSaveLoadInMenu ? 'flex' : 'none';
-    if (helpButton) helpButton.style.display = showHelpInMenu ? 'flex' : 'none';
     if (countriesButton) countriesButton.style.display = showCountriesInMenu ? 'flex' : 'none';
 
-    hasRunSection = showRunInMenu || showStatusInMenu;
+    hasRunSection = showRunInMenu;
     hasSaveLoadSection = showSaveLoadInMenu;
-    hasHelpSection = showHelpInMenu;
     hasCountriesSection = showCountriesInMenu;
 
     if (latestUpdatesButton) latestUpdatesButton.style.display = 'flex';
@@ -275,14 +264,14 @@ class MobileBurgerMenu {
       firstDivider.style.display = (hasRunSection && hasSaveLoadSection) ? 'block' : 'none';
     }
 
-    // Second divider: between Save/Load and Help/Toggle
+    // Second divider: between Save/Load and the remaining menu actions
     if (secondDivider) {
-      secondDivider.style.display = (hasSaveLoadSection && (hasHelpSection || hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
+      secondDivider.style.display = (hasSaveLoadSection && (hasCountriesSection || hasToggleSection)) ? 'block' : 'none';
     }
 
-    // Countries divider: between Help and Country Plans
+    // Country Plans no longer follows a mobile Help action.
     if (countriesDivider) {
-      countriesDivider.style.display = (hasHelpSection && hasCountriesSection) ? 'block' : 'none';
+      countriesDivider.style.display = 'none';
     }
 
     // Feedback divider: between Recover License/Country Plans and Feedback/Change log
@@ -361,16 +350,6 @@ class MobileBurgerMenu {
       });
     }
 
-    // Help/Wizard
-    const helpMobile = document.getElementById('startWizardMobile');
-    const helpDesktop = document.getElementById('startWizard');
-    if (helpMobile && helpDesktop) {
-      helpMobile.addEventListener('click', () => {
-        this.closeMenu();
-        helpDesktop.click();
-      });
-    }
-
     // Change log
     const latestUpdatesMobile = document.getElementById('latestUpdatesMobile');
     if (latestUpdatesMobile) {
@@ -412,36 +391,6 @@ class MobileBurgerMenu {
       });
     }
 
-  }
-
-  syncStatusIndicator() {
-    const progressDesktop = document.getElementById('progress');
-    const progressMobile = document.getElementById('progressMobile');
-
-    if (progressDesktop && progressMobile) {
-      // Initial sync
-      progressMobile.textContent = progressDesktop.textContent;
-      progressMobile.className = progressDesktop.className.replace('status-indicator', 'mobile-menu-status');
-
-      // Watch for changes using MutationObserver
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === 'childList' || mutation.type === 'characterData') {
-            progressMobile.textContent = progressDesktop.textContent;
-          }
-          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-            progressMobile.className = progressDesktop.className.replace('status-indicator', 'mobile-menu-status');
-          }
-        });
-      });
-
-      observer.observe(progressDesktop, {
-        childList: true,
-        characterData: true,
-        attributes: true,
-        subtree: true
-      });
-    }
   }
 
   handleToggle(toggleButton) {
@@ -639,22 +588,26 @@ class MobileBurgerMenu {
 
 let cssLengthProbe = null;
 let adaptiveLayoutScheduled = false;
+let adaptiveLayoutGeneration = 0;
 let headerMeasurementInProgress = false;
 
 const HEADER_COMFORT_MARGIN_PX = 24;
 const HEADER_FIT_TOLERANCE_PX = 0.5;
 const HEADER_CANDIDATES = [
-  { mode: 'full', brand: 'full', run: 'full', language: 'full' },
-  { mode: 'full', brand: 'icon', run: 'full', language: 'full' },
-  { mode: 'country-menu', brand: 'full', run: 'full', language: 'full' },
-  { mode: 'country-menu', brand: 'icon', run: 'full', language: 'full' },
-  { mode: 'secondary-menu', brand: 'icon', run: 'icon', language: 'full' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'icon', language: 'full' },
-  { mode: 'save-load-menu', brand: 'icon', run: 'icon', language: 'compact' },
-  { mode: 'status-menu', brand: 'icon', run: 'icon', language: 'compact' }
+  { mode: 'full', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'full', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'country-menu', brand: 'full', run: 'full', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'country-menu', brand: 'icon', run: 'full', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'compact-actions', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'full', density: 'normal' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'full', language: 'compact', density: 'normal' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'short', help: 'icon', language: 'compact', density: 'normal' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'normal' },
+  { mode: 'save-load-menu', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact' },
+  { mode: 'minimal', brand: 'icon', run: 'icon', help: 'icon', language: 'compact', density: 'compact' }
 ];
 
-function applyHeaderResponsiveAttributes(mode, brand, run, language) {
+function applyHeaderResponsiveAttributes(mode, brand, run, help, language, density) {
   if (document.body.getAttribute('data-header-mode') !== mode) {
     document.body.setAttribute('data-header-mode', mode);
   }
@@ -664,8 +617,14 @@ function applyHeaderResponsiveAttributes(mode, brand, run, language) {
   if (document.body.getAttribute('data-header-run') !== run) {
     document.body.setAttribute('data-header-run', run);
   }
+  if (document.body.getAttribute('data-header-help') !== help) {
+    document.body.setAttribute('data-header-help', help);
+  }
   if (document.body.getAttribute('data-header-language') !== language) {
     document.body.setAttribute('data-header-language', language);
+  }
+  if (document.body.getAttribute('data-header-density') !== density) {
+    document.body.setAttribute('data-header-density', density);
   }
 }
 
@@ -710,13 +669,12 @@ function measureFlexContentWidth(container) {
 }
 
 function buildHeaderVisibleState(mode, hasCountryAction) {
-  const showSaveLoad = mode === 'full' || mode === 'country-menu' || mode === 'secondary-menu';
-  const showDemoHelp = mode === 'full' || mode === 'country-menu';
+  const showSaveLoad = mode === 'full' || mode === 'country-menu' || mode === 'compact-actions';
   return {
     run: true,
-    status: mode !== 'status-menu',
+    status: true,
     saveLoadNew: showSaveLoad,
-    demoHelp: showDemoHelp,
+    help: true,
     countries: hasCountryAction && mode === 'full'
   };
 }
@@ -724,19 +682,10 @@ function buildHeaderVisibleState(mode, hasCountryAction) {
 function measureHeaderCenterRightWidth(headerCenterRight) {
   if (!headerCenterRight || !isHeaderElementVisible(headerCenterRight)) return 0;
   const headerCenter = headerCenterRight.querySelector('.header-center');
-  const headerRight = headerCenterRight.querySelector('.header-right');
-  const centerWidth = measureFlexContentWidth(headerCenter);
-  const rightWidth = measureFlexContentWidth(headerRight);
-  let total = centerWidth + rightWidth;
-  if (centerWidth > 0 && rightWidth > 0) {
-    total += getFlexColumnGap(headerCenterRight);
-  }
-  return total;
+  return measureFlexContentWidth(headerCenter);
 }
 
-function syncHeaderRightVisibility(headerCenterRight) {
-  if (!headerCenterRight) return;
-  const headerRight = headerCenterRight.querySelector('.header-right');
+function syncHeaderRightVisibility(headerRight) {
   if (!headerRight) return;
   const hasContent = Array.from(headerRight.children).some((child) => isHeaderElementVisible(child));
   headerRight.setAttribute('data-has-content', hasContent ? 'true' : 'false');
@@ -749,13 +698,15 @@ function measureHeaderCandidate(candidate, elements, hasCountryAction) {
   const paddingRight = getCssLength(headerStyle.paddingRight, 0);
   const headerLeftWidth = measureOuterWidth(elements.headerLeft);
   const centerRightWidth = measureHeaderCenterRightWidth(elements.headerCenterRight);
+  const headerRightWidth = measureOuterWidth(elements.headerRight);
   const toggleWidth = measureOuterWidth(elements.mobileMenuToggle);
-  const directRegions = [headerLeftWidth, centerRightWidth, toggleWidth].filter((width) => width > 0).length;
+  const directRegions = [headerLeftWidth, centerRightWidth, headerRightWidth, toggleWidth].filter((width) => width > 0).length;
   const directHeaderGaps = getFlexColumnGap(elements.header) * Math.max(0, directRegions - 1);
   const requiredWidth = paddingLeft +
     paddingRight +
     headerLeftWidth +
     centerRightWidth +
+    headerRightWidth +
     toggleWidth +
     directHeaderGaps +
     HEADER_COMFORT_MARGIN_PX;
@@ -763,7 +714,9 @@ function measureHeaderCandidate(candidate, elements, hasCountryAction) {
     mode: candidate.mode,
     brand: candidate.brand,
     run: candidate.run,
+    help: candidate.help,
     language: candidate.language,
+    density: candidate.density,
     requiredWidth: requiredWidth,
     availableWidth: Math.max(0, headerWidth - paddingLeft - paddingRight - HEADER_COMFORT_MARGIN_PX),
     headerWidth: headerWidth,
@@ -776,8 +729,9 @@ function selectHeaderResponsiveCandidate() {
   const header = document.querySelector('header');
   const headerLeft = header.querySelector('.header-left');
   const headerCenterRight = header.querySelector('.header-center-right');
+  const headerRight = header.querySelector('.header-right');
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  syncHeaderRightVisibility(headerCenterRight);
+  syncHeaderRightVisibility(headerRight);
   const hasCountryAction = !!document.getElementById('countryAccessButton');
   const candidates = hasCountryAction
     ? HEADER_CANDIDATES
@@ -786,6 +740,7 @@ function selectHeaderResponsiveCandidate() {
     header: header,
     headerLeft: headerLeft,
     headerCenterRight: headerCenterRight,
+    headerRight: headerRight,
     mobileMenuToggle: mobileMenuToggle
   };
   let selected = null;
@@ -795,7 +750,7 @@ function selectHeaderResponsiveCandidate() {
   try {
     for (let i = 0; i < candidates.length; i++) {
       const candidate = candidates[i];
-      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run, candidate.language);
+      applyHeaderResponsiveAttributes(candidate.mode, candidate.brand, candidate.run, candidate.help, candidate.language, candidate.density);
       const measured = measureHeaderCandidate(candidate, elements, hasCountryAction);
       fallback = measured;
       if (measured.requiredWidth <= measured.headerWidth + HEADER_FIT_TOLERANCE_PX) {
@@ -804,7 +759,7 @@ function selectHeaderResponsiveCandidate() {
       }
     }
     selected = selected || fallback;
-    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run, selected.language);
+    applyHeaderResponsiveAttributes(selected.mode, selected.brand, selected.run, selected.help, selected.language, selected.density);
   } finally {
     headerMeasurementInProgress = false;
   }
@@ -902,6 +857,22 @@ function generateHeaderResponsiveCSS() {
       display: none;
     }
 
+    #runSimulation .run-simulation-label-short {
+      display: none;
+    }
+
+    body[data-header-run="short"] #runSimulation .run-simulation-label-full {
+      display: none;
+    }
+
+    body[data-header-run="short"] #runSimulation .run-simulation-label-short {
+      display: inline;
+    }
+
+    #startWizard .help-button-icon {
+      display: none;
+    }
+
     #progress {
       flex: 0 0 auto !important;
       min-width: max-content !important;
@@ -937,6 +908,73 @@ function generateHeaderResponsiveCSS() {
 
     body[data-header-run="icon"] #progress {
       width: auto;
+    }
+
+    body[data-header-help="icon"] #startWizard {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      padding: 0 !important;
+    }
+
+    body[data-header-help="icon"] #startWizard .help-button-icon {
+      display: inline-block;
+    }
+
+    body[data-header-help="icon"] #startWizard .help-button-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body[data-header-density="compact"] header {
+      padding: 0.25rem !important;
+    }
+
+    body[data-header-density="compact"] .header-left {
+      min-width: 26px !important;
+    }
+
+    body[data-header-density="compact"] .header-left .app-icon {
+      width: 26px;
+      height: 26px;
+    }
+
+    body[data-header-density="compact"] #runSimulation,
+    body[data-header-density="compact"] #startWizard {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    body[data-header-density="compact"] #progress {
+      min-width: 0 !important;
+      max-width: 4.5rem;
+      padding-left: 0.35rem;
+      padding-right: 0.35rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    body[data-header-density="compact"] .mobile-menu-toggle {
+      width: 32px;
+      min-width: 32px !important;
+      height: 32px;
+      padding: 6px;
+    }
+
+    body[data-header-density="compact"] .app-language-selector .language-selector-trigger {
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.25rem;
     }
 
     body[data-header-language="compact"] .app-language-selector .language-selector-trigger {
@@ -984,23 +1022,19 @@ function generateHeaderResponsiveCSS() {
       display: block !important;
     }
 
-    body[data-header-mode="country-menu"] #countryAccessButton {
-      display: none !important;
-    }
-
-    body[data-header-mode="secondary-menu"] .button-group-secondary,
-    body[data-header-mode="save-load-menu"] .button-group-secondary,
-    body[data-header-mode="status-menu"] .button-group-secondary {
+    body[data-header-mode="country-menu"] #countryAccessButton,
+    body[data-header-mode="compact-actions"] #countryAccessButton,
+    body[data-header-mode="save-load-menu"] #countryAccessButton,
+    body[data-header-mode="minimal"] #countryAccessButton {
       display: none !important;
     }
 
     body[data-header-mode="save-load-menu"] #saveSimulation,
     body[data-header-mode="save-load-menu"] #loadSimulation,
     body[data-header-mode="save-load-menu"] #newSimulation,
-    body[data-header-mode="status-menu"] #saveSimulation,
-    body[data-header-mode="status-menu"] #loadSimulation,
-    body[data-header-mode="status-menu"] #newSimulation,
-    body[data-header-mode="status-menu"] #progress {
+    body[data-header-mode="minimal"] #saveSimulation,
+    body[data-header-mode="minimal"] #loadSimulation,
+    body[data-header-mode="minimal"] #newSimulation {
       display: none !important;
     }
   `;
@@ -1134,7 +1168,14 @@ function updateMainAdaptiveLayout() {
 function updateLabAdaptiveLayout() {
   const layoutState = updateMainAdaptiveLayout();
   const headerState = updateHeaderResponsiveState();
+  adaptiveLayoutGeneration += 1;
   window.__labAdaptiveLayoutState = {
+    generation: adaptiveLayoutGeneration,
+    geometry: {
+      viewportWidth: document.documentElement.clientWidth || window.innerWidth || 0,
+      viewportHeight: document.documentElement.clientHeight || window.innerHeight || 0,
+      parameterCardWidth: layoutState ? layoutState.parameterCardWidth : null
+    },
     layout: layoutState,
     header: headerState
   };
