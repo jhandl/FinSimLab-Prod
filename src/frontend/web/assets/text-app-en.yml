@@ -1871,7 +1871,7 @@ WizardSteps:
   card: growthRates
   defaultTooltip: The default inflation rate [for ${countryName}] based on 20 years of historical data and short-term forecast.
   popover:
-    description: '<p>The expected average annual inflation rate.</p><p>Central banks aim for an inflation rate of 2% to 3%. However, deviations due to shocks (e.g., pandemics, wars, etc) are skewed towards higher numbers.</p><p>Tip: Enable the Present Value toggle in the (☰) menu to see all projected values adjusted back to today''s currency terms, making it easier to understand real purchasing power across years.</p>'
+    description: '<p>The expected average annual inflation rate.</p><p>Central banks in stable economies aim for an annual inflation rate of 2% to 3%. However, deviations due to shocks (e.g., pandemics, wars, etc) are skewed towards higher numbers.</p><p>Tip: Enable the Present Value toggle in the (☰) menu to see all projected values adjusted back to today''s currency terms, making it easier to understand real purchasing power across years.</p>'
     side: right
     align: start
   i18nId: tour-step-045

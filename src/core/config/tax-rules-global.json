@@ -48,9 +48,9 @@
       "name": "Bulgaria",
       "language": "bg",
       "taxLabels": [ "Данък доход", "Осигуровки", "Капиталови", "Дивиденти" ],
-      "investmentLabels": [ "Рег. пазар", "Обл. активи" ],
+      "investmentLabels": [ "Рег. пазар" ],
       "translations": {
-        "en": { "Данък доход": "Income Tax", "Осигуровки": "Social security contributions", "Капиталови": "Capital Gains", "Дивиденти": "Dividends", "Рег. пазар": "Reg. market", "Обл. активи": "Taxable assets" }
+        "en": { "Данък доход": "Income Tax", "Осигуровки": "Social security contributions", "Капиталови": "Capital Gains", "Дивиденти": "Dividends", "Рег. пазар": "Reg. market" }
       },
       "currencyCode": "EUR",
       "economicData": {

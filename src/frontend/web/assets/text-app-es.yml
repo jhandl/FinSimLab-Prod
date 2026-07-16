@@ -137,7 +137,7 @@ Simulator:
       asset2: 'Activo 2:'
       agePlaceholder: Edad
   economy:
-    growthRate: Tasa de crecimiento
+    growthRate: Rendimiento
     volatility: Volatilidad
     bondGrowthHint: Rendimiento anual esperado de bonos
     equityGrowthHint: Crecimiento anual esperado de acciones
@@ -230,7 +230,7 @@ Simulator:
     applicationTitle: Error de aplicación
     applicationMessage: No se pudo inicializar la configuración de la aplicación. Inténtalo de nuevo más tarde.
     errorTitle: Error
-    countryAccess: El acceso por país no está disponible temporalmente. Inténtalo de nuevo.
+    countryAccess: El acceso al plan no está disponible temporalmente. Inténtalo de nuevo más tarde.
   titles:
     countries: Países
   validation:
@@ -578,10 +578,10 @@ Simulator:
       load: 'Error al cargar el archivo: asegúrate de que sea un archivo de guardado de simulación válido.'
       demo: No se pudo cargar el escenario demo '{name}'. Revisa la consola del navegador para ver los detalles.
     access:
-      expired: Tu paquete anterior de acceso por país ha caducado. Renueva el acceso para cargar este escenario.
-      expiredTitle: Acceso por país caducado
-      requiredTitle: Se requiere un plan por país
-      lockedCountries: 'Este escenario requiere países que no están desbloqueados: {countries}.'
+      expired: Tu paquete anterior de acceso al plan ha caducado. Renueva el acceso para cargar este escenario.
+      expiredTitle: Acceso al plan caducado
+      requiredTitle: Se requiere un plan pago
+      lockedCountries: 'Este escenario requiere países que no están incluídos en un plan activo: {countries}.'
     relocation:
       unresolvedEvent: Este evento está marcado como no resuelto. Resuelve las advertencias de impacto del traslado antes de ejecutar la simulación.
       missingStartCountry: Este escenario usa traslado, pero no define StartCountry.
@@ -733,7 +733,7 @@ Simulator:
         tooltip: Restaura un único evento desde la edad {fromAge} hasta la edad {toAge} usando {amount}.
 WelcomeTabs:
   - id: start
-    title: Empieza aquí
+    title: Inicio
     content:
       intro: Mira cómo podría evolucionar tu dinero a lo largo de toda la vida.
       contextPrefix: ', usando '
@@ -829,7 +829,7 @@ WelcomeTabs:
             - Cómo los eventos de traslado definen la cronología de residencia fiscal
             - Cuándo importan los vínculos con países, la moneda y los impuestos transfronterizos
   - id: faq
-    title: Preguntas frecuentes
+    title: F.A.Q.
     content:
       items:
         - i18nId: faq-01
@@ -863,25 +863,25 @@ WelcomeTabs:
           question: ¿Qué almacenas en tus servidores?
           answer:
             - i18nId: paragraph-01
-              text: Si solo usas el nivel gratuito, solo recibo tu dirección IP pública.
+              text: Si solo usas el plan gratuito, solo recibo tu dirección IP pública.
             - i18nId: paragraph-02
-              text: Si compras un plan por país, tu licencia y el correo electrónico que diste a Stripe se almacenan en mis servidores. Almaceno tu correo electrónico para poder identificar tu licencia y enviártela si necesitas recuperarla.
+              text: Si compras un plan, tu licencia y el correo electrónico que diste a Stripe se almacenan en mis servidores. Almaceno tu correo electrónico para poder identificar tu licencia y enviártela si necesitas recuperarla.
             - i18nId: paragraph-03
               text: Si me envías comentarios, almaceno esos comentarios en mis servidores. También almacenaré tu correo electrónico si decides compartirlo conmigo para que pueda responderte.
             - i18nId: paragraph-04
               text: Prometo que no enviaré spam a tu correo electrónico. Te recomiendo usar un servicio gratuito de direcciones de correo electrónico desechables (como 33mail.com) para que puedas bloquearme si alguna vez incumplo mi promesa.
         - i18nId: faq-05
-          question: ¿El nivel gratuito se basa en un país real?
+          question: ¿El plan gratuito se basa en un país real?
           answer:
             - i18nId: paragraph-01
-              text: No. El nivel gratuito usa reglas fiscales ficticias sencillas para que puedas aprender a usar el simulador o enseñar educación financiera sin comprar un plan por país.
+              text: No. El plan gratuito usa reglas fiscales ficticias sencillas para que puedas aprender a usar el simulador o enseñar educación financiera sin comprar un plan.
             - i18nId: paragraph-02
-              text: Solo los niveles de pago desbloquean un modelo de reglas fiscales y vehículos de inversión específicos de cada país. El traslado necesita al menos dos países reales desbloqueados.
+              text: Solo los planes pagos desbloquean un modelo de reglas fiscales y vehículos de inversión específicos de cada país. El traslado necesita al menos dos países reales desbloqueados.
         - i18nId: faq-06
-          question: ¿Cuánto dura un plan por país y qué ocurre cuando vence?
+          question: ¿Cuánto dura un plan pago y qué ocurre cuando vence?
           answer:
             - i18nId: paragraph-01
-              text: Un plan por país proporciona un año de acceso y no se renueva automáticamente. Puedes renovarlo con descuento (consulta <a href="#country-plans" data-country-plans-action>Planes</a> para ver los detalles); renovar mientras el acceso está activo lo extiende desde la fecha de vencimiento actual.
+              text: Un plan pago proporciona un año de acceso y no se renueva automáticamente. Puedes renovarlo con descuento (consulta <a href="#country-plans" data-country-plans-action>Planes</a> para ver los detalles); renovar mientras el acceso está activo lo extiende desde la fecha de vencimiento actual.
             - i18nId: paragraph-02
               text: Cuando el acceso vence, aún puedes usar el entorno de pruebas gratuito. No podrás cargar escenarios que requieran modelos bloqueados de países reales hasta que renueves el acceso necesario.
         - i18nId: faq-07
@@ -927,7 +927,7 @@ WelcomeTabs:
             - i18nId: paragraph-01
               text: Usa el tipo de evento "Bienes inmuebles". Puedes introducirlo directamente o usar el asistente de eventos para guiarte.
             - i18nId: paragraph-02
-              text: Si lo introduces directamente, introduce un nombre para la propiedad, el precio (o el pago inicial si usas una hipoteca), la fecha de compra (que puede estar en el pasado), la fecha de venta prevista (déjala en blanco si no la vas a vender) y la tasa de apreciación esperada. Después puedes crear un evento "Hipoteca" para ella, con la misma fecha inicial, y luego introducir el pago anual de la hipoteca, la fecha final y la tasa de interés.
+              text: Si lo introduces directamente, ingresa un nombre para la propiedad, el precio (o el pago inicial si usas una hipoteca), la fecha de compra (que puede estar en el pasado), la fecha de venta prevista (déjala en blanco si no la vas a vender) y la tasa de apreciación esperada. Después puedes crear un evento "Hipoteca" para ella, con la misma fecha inicial, y luego introducir el pago anual de la hipoteca, la fecha final y la tasa de interés.
             - i18nId: paragraph-03
               text: Puedes añadir varias propiedades a tu plan.
         - i18nId: faq-13
@@ -936,7 +936,7 @@ WelcomeTabs:
             - i18nId: paragraph-01
               text: Salvo que especifiques una inflación de 0, los números crecerán año tras año a la tasa de inflación.
             - i18nId: paragraph-02
-              text: Pero los valores que introduces en los distintos campos tienen que estar en términos de valor actual. Por ejemplo, si esperas comprar una propiedad dentro de 10 años, debes introducir el valor actual de la propiedad, no el valor que esperas que tenga dentro de 10 años.
+              text: Pero los valores que ingresas en los distintos campos tienen que estar en términos de valor actual. Por ejemplo, si esperas comprar una propiedad dentro de 10 años, debes introducir el valor actual de la propiedad, no el valor que esperas que tenga dentro de 10 años.
             - i18nId: paragraph-03
               text: Si prefieres ver todos los valores en términos actuales sin el crecimiento por inflación (manteniendo aun así una inflación realista), activa el selector de valor actual en el menú (☰). Esto ajustará automáticamente todos los importes mostrados por inflación, para que sean más fáciles de entender y comparar.
         - i18nId: faq-14
@@ -1063,18 +1063,18 @@ WelcomeTabs:
       items:
         - i18nId: item-01
           title: Aviso de privacidad
-          description: La información que introduces nunca sale de tu dispositivo. Todo se procesa en tu navegador.
+          description: La información que ingresas nunca sale de tu dispositivo. Todo se procesa en tu navegador.
         - i18nId: item-02
           title: Uso de IA
           description: Este producto se desarrolló parcialmente con IA, por un ingeniero de software experimentado que se obsesiona con cada pequeño detalle. Pero ten en cuenta que no soy contable ni asesor financiero, ni puedo garantizar la precisión de cada número usado al modelar países reales. Los modelos fiscales incluyen aproximaciones y simplificaciones, y pueden ocurrir errores. Envíame comentarios si encuentras un problema y haré todo lo posible por corregirlo.
         - i18nId: item-03
           title: Descargo de responsabilidad
-          description: Esto no es asesoramiento financiero, de inversión, fiscal ni legal. Es una herramienta para ayudarte a entender cómo distintas decisiones y escenarios pueden afectar a tu futuro financiero a largo plazo. No tomes decisiones financieras importantes sin hablar con un asesor financiero.
+          description: Esto no es asesoramiento financiero, de inversión, fiscal ni legal. Es una herramienta para ayudarte a entender cómo distintas decisiones y escenarios pueden afectar tu futuro financiero a largo plazo. No tomes decisiones financieras importantes sin hablar con un asesor financiero.
 CountryAccessCheckout:
   modal:
-    title: Planes de modelos fiscales por país
+    title: Planes de Modelos Fiscales de Países Reales
     active: Activo
-    disclaimer: '**AVISO:** Solo para uso educativo. Las reglas fiscales están simplificadas. No es asesoramiento financiero, fiscal, de inversión ni legal.'
+    disclaimer: '**AVISO:** Solo para uso educativo. Los modelos fiscales están simplificados. No es asesoramiento financiero, fiscal, de inversión ni legal.'
     normalPricingBanner: Los planes otorgan un año de acceso, sin renovación automática. Renueva en cualquier momento con {renewalDiscountPercent}% de descuento.
     normalPricingWhyLabel: ¿Por qué?
     normalPricingWhyTitle: 'Otras opciones:'
@@ -1109,14 +1109,14 @@ CountryAccessCheckout:
       disabledCheckoutTitle: Selecciona un plan de pago y los países requeridos para continuar.
     promo:
       expired:
-        title: Tu promoción de planes por país ha terminado
-        messageAllCountries: 'Tu acceso promocional a planes por país terminó el {date}. Continúa con Stripe para conservar el mismo plan: "{planName}".'
-        messageWithCountries: 'Tu acceso promocional a planes por país terminó el {date}. Continúa con Stripe para conservar el mismo plan "{planName}" y países: {countries}.'
+        title: Tu promoción de planes pagos ha terminado
+        messageAllCountries: 'Tu acceso promocional a planes pagos terminó el {date}. Continúa con Stripe para conservar el mismo plan: "{planName}".'
+        messageWithCountries: 'Tu acceso promocional a planes pagos terminó el {date}. Continúa con Stripe para conservar el mismo plan "{planName}" y países: {countries}.'
         errorTitle: Pago no disponible
         actions:
           close: Cerrar
           continueWithStripe: Continuar con Stripe
-          openCountryPlans: Abrir planes por país
+          openCountryPlans: Abrir planes pagos
           openingStripe: Abriendo Stripe...
     recovery:
       title: Recuperar licencia
@@ -1148,7 +1148,7 @@ CountryAccessCheckout:
       validationError: Introduce una dirección de correo electrónico válida.
       sentToast: Revisa tu correo electrónico para obtener un enlace seguro con el que terminar de activar tu código promocional.
       invalidCode: Este código promocional no es válido o ha caducado.
-      activeSubscriptionExists: Este navegador ya tiene un plan por país activo. Abre planes por país para gestionarlo, o usa otro navegador o dispositivo para esta promoción.
+      activeSubscriptionExists: Este navegador ya tiene un plan activo. Abre Planes para gestionarlo, o usa otro navegador o dispositivo para esta promoción.
       rateLimited: Se envió un enlace seguro recientemente. Espera unos minutos antes de solicitar otro.
       actions:
         cancel: Cancelar
@@ -1475,7 +1475,7 @@ WizardSteps:
   - i18nId: tour-step-045
     defaultTooltip: La tasa de inflación predeterminada [para ${countryName}] basada en 20 años de datos históricos y previsión a corto plazo.
     popover:
-      description: '<p>La tasa media anual de inflación esperada.</p><p>Los bancos centrales aspiran a una tasa de inflación del 2% al 3%. Sin embargo, las desviaciones debidas a perturbaciones (p. ej., pandemias, guerras, etc.) se inclinan hacia cifras más altas.</p><p>Consejo: activa el selector de valor actual en el menú (☰) para ver todos los valores proyectados ajustados a términos monetarios actuales, lo que facilita entender el poder adquisitivo real a lo largo de los años.</p>'
+      description: '<p>La tasa media anual de inflación esperada.</p><p>Los bancos centrales en economías estables aspiran a una tasa de inflación del 2% al 3% anual. Sin embargo, las desviaciones debidas a perturbaciones (p. ej., pandemias, guerras, etc.) se inclinan hacia cifras más altas.</p><p>Consejo: activa el selector de valor actual en el menú (☰) para ver todos los valores proyectados ajustados a términos monetarios actuales, lo que facilita entender el poder adquisitivo real a lo largo de los años.</p>'
   - i18nId: tour-step-046
     popover:
       description: <p>Añade, quita y edita los eventos que componen tu escenario.</p><ul><li>Un evento es cualquier cosa limitada en el tiempo y con impacto financiero, como ingresos, gastos o una caída del mercado.</li><li>Selecciona un tipo de evento y pulsa Ayuda o la tecla ? para ver los detalles.</li><li>Puedes usar el asistente de eventos para ayudarte a crear eventos y cambiar entre la vista de tabla y la vista de tarjetas.</li><li>Ordena ⇅ la tabla haciendo clic en un encabezado de columna.</li></ul>
@@ -1517,7 +1517,7 @@ WizardSteps:
       description: <p>Un gasto. Puedes añadir un evento de gasto para tu coste total anual de vida, y otros para gastos transitorios o puntuales como matrícula universitaria, un coche, etc.</p>
   - i18nId: tour-step-059
     popover:
-      description: <p>Una caída o burbuja del mercado bursátil. Con este evento puedes poner a prueba tu plan.</p>
+      description: <p>Una caída o burbuja del mercado bursátil. Con este evento puedes ver cómo se comporta tu plan en situaciones adversas.</p>
   - i18nId: tour-step-060
     popover:
       description: <p>La propiedad de un bien inmueble.</p><p>Si la compra se financia, añade también un evento de hipoteca y vincúlalo usando el selector de la columna de nombre en las filas relacionadas con la hipoteca. O usa el asistente de eventos, que crea ambos eventos juntos.</p>
@@ -1942,12 +1942,12 @@ CoreCopy:
     wrapperFee: Comisión del vehículo
   investmentBaseTypes:
     globalEquity:
-      label: Mercados de acciones
+      label: Mercado de Acciones
       shortLabel: Acciones
       mixLabel: RV
       helpText: Representa inversiones de renta variable ampliamente diversificadas, como fondos indexados globales o ETF. Como referencia, la tasa media de crecimiento del S&P 500 durante los últimos 30 años ha rondado el 10 %.
     globalBonds:
-      label: Mercados de bonos
+      label: Mercado de Bonos
       shortLabel: Bonos
       mixLabel: Bon.
       helpText: Representa inversiones diversificadas en bonos (públicos o corporativos). Los bonos suelen ofrecer rentabilidades inferiores a las de la renta variable, pero con menor volatilidad.
@@ -2618,7 +2618,7 @@ GuidedSections:
     why:
       marriageYear: El matrimonio puede cambiar los créditos fiscales y los tramos a partir de ese año.
       hasChildren: Los hijos pueden afectar a los créditos fiscales y, en algunos países, a las prestaciones.
-      childrenBirthYears: Los créditos fiscales y las prestaciones por tener hijos solo duran mientras siguen siendo menores.
+      childrenBirthYears: Los créditos fiscales y las prestaciones por tener hijos sólo duran mientras siguen siendo menores.
     choices:
       'true': Sí
       'false': 'No'
