@@ -7,6 +7,9 @@
       "language": "en",
       "taxLabels": [ "Income Tax", "Social Insurance", "Capital Gains Tax" ],
       "investmentLabels": [ "Index Funds", "Shares" ],
+      "translations": {
+        "es": { "Income Tax": "Impuesto sobre la renta", "Social Insurance": "Seguro social", "Capital Gains Tax": "Impuesto sobre ganancias de capital", "Index Funds": "Fondos indexados", "Shares": "Acciones" }
+      },
       "currencyCode": "XXX",
       "economicData": {
         "inflation": 2,
@@ -20,7 +23,8 @@
       "taxLabels": [ "Einkommensteuer", "Sozialversicherung", "Kapitalertragsteuer" ],
       "investmentLabels": [ "Depot/ETFs", "Krypto", "Fondspolizze" ],
       "translations": {
-        "en": { "Einkommensteuer": "Income tax", "Sozialversicherung": "Social insurance", "Kapitalertragsteuer": "Capital gains tax (KESt)", "Depot/ETFs": "Brokerage/ETF", "Krypto": "Crypto", "Fondspolizze": "Fund policy" }
+        "en": { "Einkommensteuer": "Income tax", "Sozialversicherung": "Social insurance", "Kapitalertragsteuer": "Capital gains tax (KESt)", "Depot/ETFs": "Brokerage/ETF", "Krypto": "Crypto", "Fondspolizze": "Fund policy" },
+        "es": { "Einkommensteuer": "Impuesto sobre la renta", "Sozialversicherung": "Seguridad social", "Kapitalertragsteuer": "Impuesto sobre rendimientos del capital (KESt)", "Depot/ETFs": "Depósito/ETFs", "Krypto": "Cripto", "Fondspolizze": "Póliza fondos" }
       },
       "currencyCode": "EUR",
       "economicData": {
@@ -35,7 +39,8 @@
       "taxLabels": [ "Personenbelasting", "RSZ", "Meerwaarden", "Dividenden", "Roerende inkomsten" ],
       "investmentLabels": [ "Securities" ],
       "translations": {
-        "en": { "Personenbelasting": "Personal income tax", "RSZ": "Employee social security contributions", "Meerwaarden": "Capital gains", "Dividenden": "Dividends", "Roerende inkomsten": "Income from movable property", "Securities": "Securities" }
+        "en": { "Personenbelasting": "Personal income tax", "RSZ": "Employee social security contributions", "Meerwaarden": "Capital gains", "Dividenden": "Dividends", "Roerende inkomsten": "Income from movable property", "Securities": "Securities" },
+        "es": { "Personenbelasting": "Impuesto sobre la renta de personas físicas", "RSZ": "Cotizaciones sociales de empleados", "Meerwaarden": "Ganancias de capital", "Dividenden": "Dividendos", "Roerende inkomsten": "Rendimientos del capital mobiliario", "Securities": "Valores" }
       },
       "currencyCode": "EUR",
       "economicData": {
@@ -50,107 +55,12 @@
       "taxLabels": [ "Данък доход", "Осигуровки", "Капиталови", "Дивиденти" ],
       "investmentLabels": [ "Рег. пазар" ],
       "translations": {
-        "en": { "Данък доход": "Income Tax", "Осигуровки": "Social security contributions", "Капиталови": "Capital Gains", "Дивиденти": "Dividends", "Рег. пазар": "Reg. market" }
+        "en": { "Данък доход": "Income tax", "Осигуровки": "Social security and health insurance contributions", "Капиталови": "Capital gains", "Дивиденти": "Dividends", "Рег. пазар": "Reg. market" },
+        "es": { "Данък доход": "impuesto sobre la renta", "Осигуровки": "cotizaciones sociales y sanitarias", "Капиталови": "ganancias de capital", "Дивиденти": "dividendos", "Рег. пазар": "merc. reg." }
       },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 3.4814,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "cy": {
-      "name": "Cyprus",
-      "language": "el",
-      "taxLabels": [ "Εισόδημα", "Κοινωνικές εισφορές", "Άμυνα", "Κεφαλαιουχικά" ],
-      "investmentLabels": [ "Τίτλοι", "Καινοτόμες" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 1.7714,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "cz": {
-      "name": "Czechia",
-      "language": "cs",
-      "taxLabels": [ "Příjmy", "Sociální a zdravotní pojištění", "Prodej" ],
-      "investmentLabels": [ "DIP", "Cenné papíry", "Krypto", "Stavebko" ],
-      "currencyCode": "CZK",
-      "economicData": {
-        "inflation": 3.3992,
-        "exchangeRate": { "perEur": 24.29 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "de": {
-      "name": "Germany",
-      "language": "de",
-      "taxLabels": [ "ESt", "Sozialversicherung", "Abgeltungsteuer" ],
-      "investmentLabels": [ "Depot" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.4185,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "dk": {
-      "name": "Denmark",
-      "language": "da",
-      "taxLabels": [ "Statsskat", "am-bidrag", "Kommuneskat", "Kirkeskat", "Aktieindkomst", "Ejendomsværdiskat" ],
-      "investmentLabels": [ "Depot", "ASK", "Lagerdepot", "Obligationer" ],
-      "currencyCode": "DKK",
-      "economicData": {
-        "inflation": 1.9115,
-        "exchangeRate": { "perEur": 7.46 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "ee": {
-      "name": "Estonia",
-      "language": "et",
-      "taxLabels": [ "Tulumaks", "Sotsiaalmaksed", "II/III sammas", "Kapitalikasum" ],
-      "investmentLabels": [ "Tavakonto", "Investeerimiskonto" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 4.2676,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "fi": {
-      "name": "Finland",
-      "language": "fi",
-      "taxLabels": [ "valtionvero", "Sosiaalivakuutusmaksut", "kunnallisvero", "Muut verot", "pääomatulo" ],
-      "investmentLabels": [ "suorat sijoitukset", "osakesäästötili", "PS / eläkevakuutus", "sijoitusvakuutus / kapitalisaatio" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.0815,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "fr": {
-      "name": "France",
-      "language": "fr",
-      "taxLabels": [ "IR", "Cotisations sociales", "CEHR", "PFU", "IFI" ],
-      "investmentLabels": [ "Livrets", "PEA", "Assurance-vie", "PEE/Pereco", "Hors enveloppe" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 1.9289,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "hr": {
-      "name": "Croatia",
-      "language": "hr",
-      "taxLabels": [ "Porez na dohodak", "Doprinosi", "Kapitalni dobici", "Kamate", "Dividende" ],
-      "investmentLabels": [ "III. stup", "Fondovi", "Štednja" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 3.0563,
         "exchangeRate": { "perEur": 1 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
@@ -160,45 +70,12 @@
       "language": "en",
       "taxLabels": [ "Income Tax", "PRSI", "USC", "CGT" ],
       "investmentLabels": [ "Funds / ETFs", "Shares" ],
+      "translations": {
+        "es": { "Income Tax": "Impuesto sobre la renta", "Funds / ETFs": "Fondos/ETF", "Shares": "Acciones" }
+      },
       "currencyCode": "EUR",
       "economicData": {
         "inflation": 1.8201,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "it": {
-      "name": "Italy",
-      "language": "it",
-      "taxLabels": [ "IRPEF", "addizionale regionale", "IVS", "plusvalenze" ],
-      "investmentLabels": [ "conto titoli", "PIR" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.148,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "lu": {
-      "name": "Luxembourg",
-      "language": "fr",
-      "taxLabels": [ "barème", "Cotisations sociales", "plus-values", "intérêts" ],
-      "investmentLabels": [ "compte-titres", "compte à intérêts", "Épargne-logement" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.3264,
-        "exchangeRate": { "perEur": 1 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "nl": {
-      "name": "Netherlands",
-      "language": "nl",
-      "taxLabels": [ "Box 1", "Zvw", "Box 2", "Box 3" ],
-      "investmentLabels": [ "Box 3", "Groen", "AB" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.5912,
         "exchangeRate": { "perEur": 1 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
@@ -209,24 +86,13 @@
       "taxLabels": [ "Bundessteuer", "Sozialabgaben", "Kapitalgewinn" ],
       "investmentLabels": [ "Wertschriften", "Lebensversicherung" ],
       "translations": {
-        "en": { "Bundessteuer": "Direct federal tax", "Sozialabgaben": "Social contributions", "Kapitalgewinn": "Capital gains", "Wertschriften": "Securities", "Lebensversicherung": "Life insurance" }
+        "en": { "Bundessteuer": "Direct federal tax", "Sozialabgaben": "Social contributions", "Kapitalgewinn": "Capital gains", "Wertschriften": "Securities", "Lebensversicherung": "Life insurance" },
+        "es": { "Bundessteuer": "Impuesto federal directo", "Sozialabgaben": "Cotizaciones sociales", "Kapitalgewinn": "Ganancias de capital", "Wertschriften": "Valores", "Lebensversicherung": "Seguro de vida" }
       },
       "currencyCode": "CHF",
       "economicData": {
         "inflation": 0.5438,
         "exchangeRate": { "perEur": 0.922 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "es": {
-      "name": "Spain",
-      "language": "es",
-      "taxLabels": [ "IRPF", "Cotizaciones sociales", "Dividendos", "Intereses", "Ahorro", "Patrimonio" ],
-      "investmentLabels": [ "Fondos", "PIAS", "Valores" ],
-      "currencyCode": "EUR",
-      "economicData": {
-        "inflation": 2.273,
-        "exchangeRate": { "perEur": 1 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
     },
@@ -236,7 +102,8 @@
       "taxLabels": [ "IRS", "Segurança Social", "Taxa solidariedade", "Mais-valias" ],
       "investmentLabels": [ "Ações/ETF", "Seguros", "Cripto" ],
       "translations": {
-        "en": { "Segurança Social": "Social Security", "Taxa solidariedade": "Solidarity surcharge", "Mais-valias": "Capital gains", "Ações/ETF": "Shares/ETF", "Seguros": "Insurance", "Cripto": "Crypto" }
+        "en": { "Segurança Social": "Social Security", "Taxa solidariedade": "Solidarity surcharge", "Mais-valias": "Capital gains", "Ações/ETF": "Shares/ETF", "Seguros": "Insurance", "Cripto": "Crypto" },
+        "es": { "Segurança Social": "Seguridad Social", "Taxa solidariedade": "Recargo de solidaridad", "Mais-valias": "Ganancias patrimoniales", "Ações/ETF": "Acciones/ETF", "Seguros": "Seguros", "Cripto": "Cripto" }
       },
       "currencyCode": "EUR",
       "economicData": {
@@ -244,42 +111,6 @@
         "exchangeRate": { "perEur": 1 }
       },
       "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "pl": {
-      "name": "Poland",
-      "language": "pl",
-      "taxLabels": [ "PIT", "Składki społeczne", "danina solidarnościowa", "PIT-38", "kapitały pieniężne" ],
-      "investmentLabels": [ "PIT-38", "kapitały pieniężne", "IKE", "OIPE", "IKZE", "PPE", "PPK" ],
-      "currencyCode": "PLN",
-      "economicData": {
-        "inflation": 3.7124,
-        "exchangeRate": { "perEur": 4.24 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "se": {
-      "name": "Sweden",
-      "language": "sv",
-      "taxLabels": [ "kommunal/statlig", "allmän pensionsavgift", "Avgifter", "kapital" ],
-      "investmentLabels": [ "ISK", "KF", "Depå", "Fondkonto" ],
-      "currencyCode": "SEK",
-      "economicData": {
-        "inflation": 2.2359,
-        "exchangeRate": { "perEur": 10.91 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0, "interest": 0, "capitalGains": 0 }
-    },
-    "us": {
-      "name": "United States",
-      "language": "en",
-      "taxLabels": [ "Federal Income Tax", "Payroll Taxes", "Capital Gains" ],
-      "investmentLabels": [ "Equity Brokerage", "Bond Brokerage" ],
-      "currencyCode": "USD",
-      "economicData": {
-        "inflation": 2.6749,
-        "exchangeRate": { "perEur": 1.17 }
-      },
-      "investmentWithholdingTaxes": { "dividend": 0.3, "interest": 0.1, "capitalGains": 0 }
     },
     "ar": {
       "name": "Argentina",
@@ -301,8 +132,8 @@
   "feeDefaults": { "investmentWrapper": 0.0025, "directShares": 0, "pension": 0.01 },
 
   "investmentBaseTypes": [
-    { "baseKey": "globalEquity", "assetClass": "equity", "label": "Equity Markets", "shortLabel": "Equity", "mixLabel": "Eq", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "helpText": "Represents broadly diversified equity investments like global index funds or ETFs. For reference, the average growth rate of the S&P500 over the last 30 years has been around 10%." },
-    { "baseKey": "globalBonds", "assetClass": "bond", "label": "Bond Markets", "shortLabel": "Bonds", "mixLabel": "Bd", "baseCurrency": "USD", "assetCountry": "us", "residenceScope": "global", "returnType": "interest", "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility." }
+    { "baseKey": "globalEquity", "assetClass": "equity", "label": "Equity Markets", "shortLabel": "Equity", "mixLabel": "Eq", "baseCurrency": "CHF", "assetCountry": "ch", "residenceScope": "global", "helpText": "Represents broadly diversified equity investments like global index funds or ETFs." },
+    { "baseKey": "globalBonds", "assetClass": "bond", "label": "Bond Markets", "shortLabel": "Bonds", "mixLabel": "Bd", "baseCurrency": "CHF", "assetCountry": "ch", "residenceScope": "global", "returnType": "interest", "helpText": "Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility." }
   ],
 
   "treaties": [],

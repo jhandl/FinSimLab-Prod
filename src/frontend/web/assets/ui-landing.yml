@@ -1,0 +1,29 @@
+LanguageSelector: {}
+LanguageNames: {}
+CountryNames: {}
+page:
+  language: en
+  brand: {}
+  navigation: {}
+  hero:
+    prompts: []
+  features:
+    scenario: {}
+    countries: {}
+    privacy: {}
+    stress: {}
+    likelihood: {}
+    data: {}
+  howItWorks:
+    input: {}
+    events: {}
+    simulate: {}
+    compare: {}
+  about: {}
+  blog:
+    workflow: {}
+    planning: {}
+    product: {}
+    countries: {}
+  callToAction: {}
+  disclaimer: {}

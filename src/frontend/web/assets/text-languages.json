@@ -1,6 +1,15 @@
 {
   "schemaVersion": 1,
-  "assetVersion": "20260716-1",
+  "assetVersion": "20260719-2",
+  "surfaces": {
+    "landing": {
+      "structure": "/src/frontend/web/assets/ui-landing.yml",
+      "nonlocalized": "/src/frontend/web/assets/landing-static-en.yml"
+    },
+    "app": {
+      "structure": "/src/frontend/web/assets/ui-app.yml"
+    }
+  },
   "languages": [
     {
       "code": "en",

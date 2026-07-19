@@ -1,0 +1,2680 @@
+LanguageSelector: {}
+LanguageNames: {}
+CountryNames: {}
+AppShell: {}
+Simulator:
+  common: {}
+  accessibility: {}
+  status: {}
+  actions: {}
+  options: {}
+  shell: {}
+  sections: {}
+  parameters:
+    labels:
+      startingAge: {}
+      initialPension: {}
+      retirementAge: {}
+      initialSavings: {}
+    ageTooltips: {}
+  allocations:
+    columns: {}
+    mix: {}
+  economy: {}
+  pensions:
+    periods: {}
+    capOptions: {}
+  tables:
+    groups: {}
+    columns: {}
+  graphs: {}
+  visualizations: {}
+  tooltips: {}
+  navigation: {}
+  checkout:
+    toastTitle: ''
+  welcome:
+    renderErrors: {}
+  errors: {}
+  titles: {}
+  validation: {}
+  wizard:
+    actions: {}
+    validation:
+      comparators: {}
+  notifications:
+    changeLog: {}
+  currencyControls: {}
+  visualizationPresets:
+    default: {}
+    cashflow: {}
+    failure: {}
+    survival: {}
+  charts:
+    datasets: {}
+  dynamicTable:
+    columns:
+      incomeSalaries: {}
+      incomeRentals: {}
+      incomeRsus: {}
+      incomePrivatePension: {}
+      incomeStatePension: {}
+      incomeDefinedBenefit: {}
+      incomeTaxFree: {}
+      incomeCash: {}
+      pensionFund: {}
+      cash: {}
+      realEstate: {}
+  feedback:
+    actions: {}
+    errors: {}
+    verification:
+      success: {}
+      failure: {}
+  events:
+    headers: {}
+    economicComparison: {}
+    splitTooltip: {}
+    actions: {}
+    view: {}
+    yearMode: {}
+    eventTypes:
+      salary:
+        - code: SI
+        - code: SInp
+        - code: SI2
+          singleLabel: null
+        - code: SI2np
+          singleLabel: null
+      labels: {}
+    picker: {}
+    validation: {}
+    period:
+      units: {}
+      pluralUnits: {}
+  eventsWizard:
+    fields: {}
+    validation: {}
+    mortgage: {}
+    summary:
+      frequencies: {}
+      inflationGrowth: {}
+      annualGrowth: {}
+      period:
+        units: {}
+      labels:
+        prefixes: {}
+  dataTable: {}
+  files:
+    confirmLoad: {}
+    iosSave: {}
+    actions: {}
+    errors: {}
+    access: {}
+    relocation: {}
+  relocation:
+    nouns: {}
+  relocationAssistant:
+    conversion: {}
+    actions:
+      keepProperty: {}
+      rentOut: {}
+      sellProperty: {}
+      keepDebt: {}
+      payOff: {}
+      splitEvent: {}
+      cutShort: {}
+      keepEvent: {}
+      convertSalary: {}
+      removeEvent: {}
+      linkOrigin: {}
+      keepRenting: {}
+      removeRental: {}
+      keepReviewed: {}
+      changePropertyCountry: {}
+      changePropertyCountryNoData: {}
+      linkIncome: {}
+      applySuggested: {}
+      keepCurrentValue: {}
+      keepCurrency: {}
+      joinPrevious: {}
+      changeCurrency: {}
+      updateSplitFormula: {}
+      updateSplitPpp: {}
+      leaveSplitValue: {}
+      adaptSplitAge: {}
+      leaveSplitAge: {}
+      adaptSaleAge: {}
+      leaveSaleAge: {}
+      keepSaleTiming: {}
+      restoreMortgage: {}
+      joinHalves: {}
+WelcomeTabs:
+  - id: start
+    contentType: start
+    content:
+      quick:
+        icon: fa-bolt
+      full:
+        icon: fa-route
+      tours:
+        items:
+          - icon: fa-map-signs
+            id: quick-tour
+          - icon: fa-book
+            id: full-tour
+  - id: tutorials
+    excludeFromHeightCalculation: true
+    contentType: tutorials
+    content:
+      storageKey: finsim.helpTutorialProgress
+      progressLabels: {}
+      items:
+        - id: tour
+          videoUrl: https://tutorials.finsimlab.com/tutorials/tour.mp4
+          localVideoUrl: /tutorials/tour.mp4
+        - id: starting-position
+          videoUrl: https://tutorials.finsimlab.com/tutorials/starting-position.mp4
+          localVideoUrl: /tutorials/starting-position.mp4
+        - id: adding-events
+          videoUrl: https://tutorials.finsimlab.com/tutorials/adding-events.mp4
+          localVideoUrl: /tutorials/adding-events.mp4
+        - id: property-mortgages
+          videoUrl: https://tutorials.finsimlab.com/tutorials/property-mortgages.mp4
+          localVideoUrl: /tutorials/property-mortgages.mp4
+        - id: investments-pensions
+          videoUrl: https://tutorials.finsimlab.com/tutorials/investments-pensions.mp4
+          localVideoUrl: /tutorials/investments-pensions.mp4
+        - id: charts-tables
+          videoUrl: https://tutorials.finsimlab.com/tutorials/charts-tables.mp4
+          localVideoUrl: /tutorials/charts-tables.mp4
+        - id: monte-carlo
+          videoUrl: https://tutorials.finsimlab.com/tutorials/monte-carlo.mp4
+          localVideoUrl: /tutorials/monte-carlo.mp4
+        - id: relocation
+          videoUrl: https://tutorials.finsimlab.com/tutorials/relocation.mp4
+          localVideoUrl: /tutorials/relocation.mp4
+  - id: faq
+    excludeFromHeightCalculation: true
+    contentType: accordion
+    content:
+      items: []
+  - id: notes
+    contentType: list
+    content:
+      items: []
+CountryAccessCheckout:
+  modal:
+    pricing: {}
+    recoveryNudgeEnabled: true
+    actions: {}
+    promo:
+      expired:
+        actions: {}
+    accessExpired:
+      actions: {}
+    recovery:
+      actions: {}
+    currentAccess: {}
+    gift:
+      actions: {}
+    toasts:
+      title: ''
+    errorTitles: {}
+    errorMessages: {}
+    success:
+      videoUrl: https://tutorials.finsimlab.com/tutorials/tour.mp4
+      localVideoUrl: /tutorials/tour.mp4
+      activation:
+        minimumDisplaySeconds: 10
+      recovery: {}
+      gift:
+        activation: {}
+  countryList:
+    bulk: {}
+    aria: {}
+  tiers:
+    free: {}
+    country_1: {}
+    country_2: {}
+    country_all: {}
+LegacyScenarioMigrationModal:
+  actions: {}
+CustomFeesDisableWarningModal:
+  actions: {}
+PensionContributionTooltip:
+  maxStandard: ''
+  maxTaxAdvantaged: ''
+  tableHeaders:
+    maximum: []
+    entered: []
+    available: []
+TourControls: {}
+WizardSteps:
+  - element: header
+    tours:
+      - quick
+      - full
+    popover:
+      contentType: bullets
+      content:
+        items: []
+      showButtons:
+        - next
+        - close
+      side: bottom
+      align: center
+  - element: '#progress'
+    tours:
+      - full
+    popover:
+      contentType: bullets
+      content:
+        items: []
+      side: bottom
+      align: center
+  - element: .parameters-section
+    tours:
+      - full
+      - quick
+    popover:
+      contentType: bullets
+      content:
+        items: []
+      side: right
+      align: start
+  - element: '#startingPosition'
+    tours:
+      - full
+      - mini
+    popover:
+      contentType: text
+      content: {}
+      side: right
+      align: start
+    card: startingPosition
+  - element: '#simModeSingle'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: center
+  - element: '#simModeCouple'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: center
+  - element: '#StartCountryToggle'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#StartingAge'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#P2StartingAge'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#InitialSavings'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#InitialPension'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#InitialPensionP2'
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: InitialCapital
+    tours:
+      - full
+      - mini
+    card: startingPosition
+    popover:
+      side: right
+      align: start
+  - element: '#personalCircumstances'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#MarriageYear'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#OldestChildBorn'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#YoungestChildBorn'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#TaxInput_currentCountry'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#StatePension_currentCountry'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#P2StatePension_currentCountry'
+    tours:
+      - full
+      - mini
+    card: personalCircumstances
+    popover:
+      side: right
+      align: start
+  - element: '#Targets'
+    tours:
+      - full
+      - mini
+    card: Targets
+    popover:
+      side: right
+      align: start
+  - element: '#RetirementAge'
+    tours:
+      - full
+      - mini
+    card: Targets
+    popover:
+      side: right
+      align: start
+  - element: '#P2RetirementAge'
+    tours:
+      - full
+      - mini
+    card: Targets
+    popover:
+      side: right
+      align: start
+  - element: '#TargetAge'
+    tours:
+      - full
+      - mini
+    card: Targets
+    popover:
+      side: right
+      align: start
+  - element: '#EmergencyStash'
+    tours:
+      - full
+      - mini
+    card: Targets
+    popover:
+      side: right
+      align: start
+  - element: '#Allocations'
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: InvestmentAllocation
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: InvestmentAllocationHolds
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: InvestmentWrapperFee
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionContributionHoldsP1
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionContributionHoldsP2
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionWrapperFeeP1
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionWrapperFeeP2
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionContribution
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionContributionP2
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: PensionCapped
+    tours:
+      - full
+      - mini
+    card: Allocations
+    popover:
+      side: right
+      align: start
+  - element: '#drawdownPriorities'
+    tours:
+      - full
+      - mini
+    card: drawdownPriorities
+    popover:
+      side: right
+      align: start
+  - element: '#growthRates'
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - element: '#economyModeDeterministic'
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: center
+  - element: '#economyModeMonteCarlo'
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: center
+  - dynamicInvestmentField: GlobalAssetGrowth
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: GlobalAssetVolatility
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: LocalAssetGrowth
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - dynamicInvestmentField: LocalAssetVolatility
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - element: '#Inflation_currentCountry'
+    tours:
+      - full
+      - mini
+    card: growthRates
+    popover:
+      side: right
+      align: start
+  - element: .events-section
+    tours:
+      - quick
+      - full
+      - mini
+    card: events
+    popover:
+      side: top
+      align: center
+  - element: '#EventWizard'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventType'
+    accordion-element: '#AccordionEventTypeToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    accordion-element: .accordion-edit-name
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAlias'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventCountryToggle'
+    accordion-element: '#AccordionEventCountryToggle'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    accordion-element: .accordion-edit-amount
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventAmount'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    accordion-element: .accordion-edit-fromage
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventFromAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    accordion-element: .accordion-edit-toage
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventToAge'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    accordion-element: .accordion-edit-rate
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MV
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventRate'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    accordion-element: .accordion-edit-match
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - NOP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - RI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SInp
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SI2np
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - UI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - DBI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - FI
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - E
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - SM
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - R
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - M
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MO
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MP
+    popover:
+      side: bottom
+      align: center
+  - element: '#EventMatch'
+    tours:
+      - full
+      - mini
+    card: events
+    eventTypes:
+      - MR
+    popover:
+      side: bottom
+      align: center
+  - element: '#fromAgeHeader'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: top
+      align: center
+  - element: '#viewModeTable'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#viewModeAccordion'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#ageYearModeAge'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: '#ageYearModeYear'
+    tours:
+      - full
+      - mini
+    card: events
+    popover:
+      side: bottom
+      align: center
+  - element: .graphs-section
+    tours:
+      - quick
+      - full
+    card: graphs
+    popover:
+      side: left
+      align: center
+  - element: '#cashflowGraph'
+    tours:
+      - mini
+    card: cashflowGraph
+    popover:
+      side: top
+      align: center
+  - element: '#assetsGraph'
+    tours:
+      - mini
+    card: assetsGraph
+    popover:
+      side: top
+      align: center
+  - element: .data-section
+    tours:
+      - quick
+      - full
+      - mini
+    card: data
+    popover:
+      side: top
+      align: left
+  - element: '#visualizationToggle'
+    tours:
+      - full
+      - mini
+    card: data
+    popover:
+      side: bottom
+      align: center
+  - element: '#exportDataCSV'
+    tours:
+      - full
+      - mini
+    card: data
+    popover:
+      side: bottom
+      align: center
+  - popover:
+      popoverClass: tour-complete-popover
+      showButtons:
+        - prev
+        - next
+      nextBtnClass:
+        - done
+CoreCopy:
+  common: {}
+  status: {}
+  errors: {}
+  notifications: {}
+  modes: {}
+  fields: {}
+  investmentBaseTypes:
+    globalEquity: {}
+    globalBonds: {}
+  eventTypes: {}
+  validation: {}
+  table: {}
+  attribution:
+    people: {}
+    descriptors: {}
+    income: {}
+    pension: {}
+    investment: {}
+    realEstate: {}
+    tax: {}
+    capital: {}
+    netIncome: {}
+EventWizards:
+  - eventType: SI
+    category: income
+    steps:
+      - stepId: incomeType
+        contentType: choice
+        content:
+          choices:
+            - value: salary
+            - value: rsu
+            - value: rental
+              condition: hasPropertyEvent
+            - value: defined_benefit
+              condition: dbiAvailable
+            - value: tax_free
+        showButtons:
+          - back
+          - next
+      - stepId: person
+        contentType: choice
+        content:
+          choices:
+            - value: person1
+            - value: person2
+        showButtons:
+          - back
+          - next
+        condition: incomeType === 'salary' && simulationMode === 'couple'
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: top
+        content:
+          validation: required
+        showButtons:
+          - back
+          - next
+        condition: incomeType !== 'rental'
+      - stepId: rental_property
+        contentType: input
+        field: name
+        labelPosition: left
+        content:
+          inputType: propertyLink
+          validation: required
+        showButtons:
+          - back
+          - next
+        condition: incomeType === 'rental'
+      - stepId: amount
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: period
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: growth
+        contentType: input
+        field: rate
+        labelPosition: left
+        content:
+          inputType: percentage
+          validation: optional
+          defaultValue: inflation
+        showButtons:
+          - back
+          - next
+        condition: fromAge !== toAge
+      - stepId: pensionContribution
+        contentType: choice
+        content:
+          choices:
+            - value: 'yes'
+            - value: 'no'
+        showButtons:
+          - back
+          - next
+        condition: incomeType === 'salary' && salaryHasPrivatePension === true
+      - stepId: match
+        contentType: input
+        field: match
+        content:
+          inputType: percentage
+          validation: optional
+        showButtons:
+          - back
+          - next
+        condition: incomeType === 'salary' && salaryHasPrivatePension === true && pensionContribution === 'yes'
+      - stepId: summary
+        contentType: summary
+        content:
+          templates:
+            - condition: incomeType === 'salary' && pensionContribution === 'yes' && match
+            - condition: incomeType === 'salary' && pensionContribution === 'yes'
+            - {}
+        showButtons:
+          - back
+          - create
+  - eventType: E
+    category: expense
+    steps:
+      - stepId: frequency
+        contentType: choice
+        content:
+          choices:
+            - value: oneoff
+            - value: weekly
+            - value: monthly
+            - value: yearly
+        showButtons:
+          - back
+          - next
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: top
+        content:
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: cost
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: period
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+        condition: frequency !== 'oneoff'
+      - stepId: timing
+        contentType: input
+        field: fromAge
+        content:
+          inputType: age
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+        condition: frequency === 'oneoff'
+      - stepId: growth
+        contentType: input
+        field: rate
+        content:
+          inputType: percentage
+          validation: optional
+          defaultValue: inflation
+        showButtons:
+          - back
+          - next
+        condition: frequency !== 'oneoff' && fromAge !== toAge
+      - stepId: summary
+        contentType: summary
+        content:
+          templates:
+            - condition: frequency === 'oneoff'
+            - {}
+        showButtons:
+          - back
+          - create
+  - eventType: R
+    category: property
+    steps:
+      - stepId: financing
+        contentType: choice
+        content:
+          choices:
+            - value: cash
+            - value: mortgage
+        showButtons:
+          - back
+          - next
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: top
+        content:
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: cash_purchase_price
+        contentType: input
+        field: amount
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+        condition: financing === 'cash'
+      - stepId: mortgage_property_price
+        contentType: input
+        field: propertyValue
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+        condition: financing === 'mortgage'
+      - stepId: down_payment
+        contentType: input
+        field: amount
+        content:
+          inputType: currency
+          validation: required|positive|lt:propertyValue
+        showButtons:
+          - back
+          - next
+        condition: financing === 'mortgage'
+      - stepId: timing
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: fromAgeRequired|positive
+        showButtons:
+          - back
+          - next
+      - stepId: appreciation
+        contentType: input
+        field: rate
+        labelPosition: left
+        content:
+          inputType: percentage
+          validation: optional
+          showRequirementNote: false
+        showButtons:
+          - back
+          - next
+        condition: fromAge !== toAge
+      - stepId: mortgage_setup
+        contentType: mortgage
+        labelPosition: left
+        content:
+          text: ''
+        showButtons:
+          - back
+          - next
+        condition: financing === 'mortgage'
+      - stepId: summary
+        contentType: summary
+        content:
+          templates:
+            - condition: financing === 'cash'
+            - {}
+        showButtons:
+          - back
+          - create
+  - eventType: M
+    category: property
+    steps:
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: left
+        content:
+          inputType: propertyLink
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: property_value
+        contentType: input
+        field: propertyValue
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: down_payment
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive|lt:propertyValue
+        showButtons:
+          - back
+          - next
+      - stepId: start_age
+        contentType: input
+        field: fromAge
+        labelPosition: left
+        content:
+          inputType: age
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: mortgage_setup
+        contentType: mortgage
+        labelPosition: left
+        content:
+          text: ''
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates: []
+        showButtons:
+          - back
+          - create
+  - eventType: MO
+    category: property
+    steps:
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: left
+        content:
+          inputType: propertyLink
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: amount
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: period
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates: []
+        showButtons:
+          - back
+          - create
+  - eventType: MP
+    category: property
+    steps:
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: left
+        content:
+          inputType: propertyLink
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: timing
+        contentType: input
+        field: fromAge
+        labelPosition: left
+        content:
+          inputType: age
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates: []
+        showButtons:
+          - back
+          - create
+  - eventType: MR
+    category: property
+    steps:
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: left
+        content:
+          inputType: propertyLink
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: amount
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: period
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: rate
+        contentType: input
+        field: rate
+        labelPosition: left
+        content:
+          inputType: percentage
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates: []
+        showButtons:
+          - back
+          - create
+  - eventType: SM
+    category: investment
+    steps:
+      - stepId: name
+        contentType: input
+        field: name
+        labelPosition: top
+        content:
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: period
+        contentType: period
+        fields:
+          - fromAge
+          - toAge
+        labelPosition: left
+        content:
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: growth
+        contentType: input
+        field: rate
+        labelPosition: left
+        content:
+          inputType: percentage
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates: []
+        showButtons:
+          - back
+          - create
+  - eventType: MV
+    category: relocation
+    steps:
+      - stepId: destination
+        contentType: input
+        field: destCountryCode
+        labelPosition: left
+        content:
+          inputType: country
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: cost
+        contentType: input
+        field: amount
+        labelPosition: left
+        content:
+          inputType: currency
+          validation: required
+        showButtons:
+          - back
+          - next
+      - stepId: timing
+        contentType: input
+        field: fromAge
+        labelPosition: left
+        content:
+          inputType: age
+          validation: required|positive
+        showButtons:
+          - back
+          - next
+      - stepId: summary
+        contentType: summary
+        content:
+          templates:
+            - condition: amount == '0' || amount == 0 || amount == '0.0' || amount == '0.00'
+            - {}
+        showButtons:
+          - back
+          - create
+WizardConfig:
+  copy:
+    fieldNotes: {}
+  modal:
+    width: 600px
+    overlay: true
+  animation:
+    duration: 300
+  validation:
+    showErrors: true
+    validateOnBlur: true
+  categories:
+    income:
+      color: '#28a745'
+    expense:
+      color: '#dc3545'
+    property:
+      color: '#6f42c1'
+    investment:
+      color: '#007bff'
+    relocation:
+      color: '#ff6b6b'
+FieldLabels:
+  defaults:
+    placeholders:
+      match: ''
+  eventTypes:
+    SI:
+      placeholders:
+        match: ''
+    SInp:
+      placeholders: {}
+    SI2:
+      placeholders:
+        match: ''
+    SI2np:
+      placeholders: {}
+    UI:
+      placeholders: {}
+    RI:
+      placeholders: {}
+    DBI:
+      placeholders: {}
+    FI:
+      placeholders: {}
+    E:
+      placeholders: {}
+    E1:
+      placeholders: {}
+    R:
+      placeholders: {}
+    M:
+      placeholders:
+        rate: ''
+    MO: {}
+    MP: {}
+    MR:
+      placeholders:
+        rate: ''
+    MV: {}
+    SM:
+      placeholders:
+        rate: ''
+    NOP: null
+GuidedCopy:
+  chrome: {}
+  fieldNotes: {}
+  mortgageTermDefault: 25
+  mortgageDownPaymentShareDefault: 20
+  mortgageRateDefault: 3.5
+  interviewOpeners: {}
+  events: {}
+GuidedSections:
+  startingPosition:
+    questions: {}
+    why: {}
+    choices: {}
+  personalCircumstances:
+    questions: {}
+    why: {}
+    choices: {}
+  targets:
+    questions: {}
+    why: {}
+  moneyHabits:
+    questions: {}
+    why: {}
+    allocationStatus: {}
+    choices: {}
+  events:
+    questions: {}
+    why: {}
+    placeholders: {}
+    notes: {}
+    mortgageFields: {}
+    choices: {}
+  drawdownPriorities:
+    body: []
+  economy:
+    body: []
+    questions: {}
+    why: {}
+    defaults:
+      equityGrowth: 8
+      equityVolatility: 16
+      bondYield: 5
+      bondVolatility: 7
+InsightsCopy:
+  icon: {}
+  panel: {}
+  insights: {}

@@ -18,9 +18,18 @@
   "economicData": {
     "typicalRentalYield": 5,
     "inflation": 2,
-    "purchasingPowerParity": { "value": 1, "year": 2026 },
-    "exchangeRate": { "perEur": 1, "asOf": "2026-01-01" },
-    "housingPricePerSquareMeter": { "currency": "XXX", "average": 2000 }
+    "purchasingPowerParity": {
+      "value": 1,
+      "year": 2026
+    },
+    "exchangeRate": {
+      "perEur": 1,
+      "asOf": "2026-01-01"
+    },
+    "housingPricePerSquareMeter": {
+      "currency": "XXX",
+      "average": 2000
+    }
   },
   "incomeTax": {
     "name": "Income Tax",
@@ -38,9 +47,18 @@
     "ageExemptionLimit": 20000,
     "dependentChildMaxAge": 18,
     "bracketsByStatus": {
-      "single": { "0": 0.25, "50000": 0.5},
-      "singleWithDependents": { "0": 0.25, "55000": 0.5 },
-      "married": { "0": 0.25, "80000": 0.5 }
+      "single": {
+        "0": 0.25,
+        "50000": 0.5
+      },
+      "singleWithDependents": {
+        "0": 0.25,
+        "55000": 0.5
+      },
+      "married": {
+        "0": 0.25,
+        "80000": 0.5
+      }
     }
   },
   "socialContributions": [
@@ -92,7 +110,6 @@
     "withholding": false
   },
   "additionalTaxes": [],
-
   "pensionRules": {
     "minRetirementAgePrivate": 60,
     "minRetirementAgeOccupational": 60,
@@ -154,7 +171,7 @@
       "residenceScope": "global",
       "taxation": {
         "capitalGains": {
-          "rate": 0.20
+          "rate": 0.2
         }
       },
       "helpText": "This is a wrapper for index funds (they hold many investments to spread the risk), with gains taxed at 20%."
@@ -174,5 +191,24 @@
       },
       "helpText": "These are individual company shares, with gains taxed at 25% with a 1000 annual exemption and loss offset."
     }
-  ]
+  ],
+  "translations": {
+    "es": {
+      "Income Tax": "Impuesto sobre la renta",
+      "The tax paid on taxable income.": "El impuesto pagado sobre los ingresos imponibles.",
+      "Social Insurance": "Seguro social",
+      "The social insurance contribution paid on taxable income.": "La cotización al seguro social pagada sobre los ingresos imponibles.",
+      "Capital Gains Tax": "Impuesto sobre ganancias de capital",
+      "The tax paid on capital gains from investments.": "El impuesto pagado sobre las ganancias de capital de inversiones.",
+      "Index Funds": "Fondos indexados",
+      "Shares": "Acciones",
+      "This is a wrapper for index funds (they hold many investments to spread the risk), with gains taxed at 20%.": "Este es un vehículo para fondos indexados (mantienen muchas inversiones para repartir el riesgo), con ganancias gravadas al 20%.",
+      "These are individual company shares, with gains taxed at 25% with a 1000 annual exemption and loss offset.": "Estas son acciones de empresas individuales, con ganancias gravadas al 25%, una exención anual de 1000 y compensación de pérdidas.",
+      "Private Pension": "Pensión privada",
+      "How much of your age-dependent maximum you want to pay out of your gross salary into a private pension scheme.": "Qué parte de tu máximo dependiente de la edad quieres aportar desde tu salario bruto a un plan de pensión privada.",
+      "How much of your partner's age-dependent maximum they want to pay out of their gross salary into their private pension scheme.": "Qué parte del máximo dependiente de la edad de tu pareja quiere aportar desde su salario bruto a su plan de pensión privada.",
+      "Enter your expected monthly state pension amount.": "Introduce el importe mensual esperado de tu pensión estatal.",
+      "Enter your partner's expected monthly state pension amount.": "Introduce el importe mensual esperado de la pensión estatal de tu pareja."
+    }
+  }
 }

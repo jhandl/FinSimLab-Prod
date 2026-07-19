@@ -1,9 +1,0 @@
-{
-  "packId": "tax-ee",
-  "country": "ee",
-  "deployId": "f87dd51860826acd18a3141747af9c7a956a3d64",
-  "algorithm": "AES-256-GCM",
-  "payload": "payload.enc",
-  "nonce": "VgpIT1-Zx6i77uFZ",
-  "payloadSha256": "156fe9a516b8b1126a1da9032d197e76244cc4af6f1fc9007c22871a721aa915"
-}

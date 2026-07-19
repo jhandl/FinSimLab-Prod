@@ -10,24 +10,9 @@ CountryNames:
   at: Austria
   be: Bélgica
   bg: Bulgaria
-  cy: Chipre
-  cz: Chequia
-  de: Alemania
-  dk: Dinamarca
-  ee: Estonia
-  fi: Finlandia
-  fr: Francia
-  hr: Croacia
   ie: Irlanda
-  it: Italia
-  lu: Luxemburgo
-  nl: Países Bajos
   ch: Suiza
-  es: España
   pt: Portugal
-  pl: Polonia
-  se: Suecia
-  us: Estados Unidos
   ar: Argentina
 page:
   title: FinSimLab | Laboratorio de simulación financiera
@@ -47,62 +32,34 @@ page:
     action: Empezar a planificar
     imageAlt: Planifica tu vida y tu jubilación con FinSim
     prompts:
-      - i18nId: prompt-01
-        text: aumenta la inflación
-      - i18nId: prompt-02
-        text: me jubilo antes
-      - i18nId: prompt-03
-        text: me jubilo más tarde
-      - i18nId: prompt-04
-        text: nos mudamos a <country>
-      - i18nId: prompt-05
-        text: el mercado se desploma
-      - i18nId: prompt-06
-        text: aporto más al fondo de pensión
-      - i18nId: prompt-07
-        text: aumentamos la asignación a bonos
-      - i18nId: prompt-08
-        text: compramos una vivienda más pequeña
-      - i18nId: prompt-09
-        text: retrasamos la compra de la vivienda
-      - i18nId: prompt-10
-        text: compro una propiedad para alquilar
-      - i18nId: prompt-11
-        text: hago una pausa profesional
-      - i18nId: prompt-12
-        text: consigo un ascenso
-      - i18nId: prompt-13
-        text: pierdo mi empleo
-      - i18nId: prompt-14
-        text: uno de nosotros deja de trabajar
-      - i18nId: prompt-15
-        text: liquido mi hipoteca
-      - i18nId: prompt-16
-        text: hago pagos anticipados de mi hipoteca
-      - i18nId: prompt-17
-        text: contratamos una hipoteca mayor
-      - i18nId: prompt-18
-        text: mi pareja se retira antes
-      - i18nId: prompt-19
-        text: vivo hasta los 100 años
-      - i18nId: prompt-20
-        text: maximizo las aportaciones al fondo de pensión
-      - i18nId: prompt-21
-        text: el mercado queda plano durante 5 años
-      - i18nId: prompt-22
-        text: guardamos más efectivo
-      - i18nId: prompt-23
-        text: reducimos el gasto
-      - i18nId: prompt-24
-        text: tenemos un hijo
-      - i18nId: prompt-25
-        text: tenemos otro hijo
-      - i18nId: prompt-26
-        text: suben los intereses hipotecarios
-      - i18nId: prompt-27
-        text: alquilamos de forma permanente
-      - i18nId: prompt-28
-        text: nos mudamos a una vivienda más pequeña durante la jubilación
+      - aumenta la inflación
+      - me jubilo antes
+      - me jubilo más tarde
+      - nos mudamos a <country>
+      - el mercado se desploma
+      - aporto más al fondo de pensión
+      - aumentamos la asignación a bonos
+      - compramos una vivienda más pequeña
+      - retrasamos la compra de la vivienda
+      - compro una propiedad para alquilar
+      - hago una pausa profesional
+      - consigo un ascenso
+      - pierdo mi empleo
+      - uno de nosotros deja de trabajar
+      - liquido mi hipoteca
+      - hago pagos anticipados de mi hipoteca
+      - contratamos una hipoteca mayor
+      - mi pareja se retira antes
+      - vivo hasta los 100 años
+      - maximizo las aportaciones al fondo de pensión
+      - el mercado queda plano durante 5 años
+      - guardamos más efectivo
+      - reducimos el gasto
+      - tenemos un hijo
+      - tenemos otro hijo
+      - suben los intereses hipotecarios
+      - alquilamos de forma permanente
+      - nos mudamos a una vivienda más pequeña durante la jubilación
   features:
     title: Prestaciones
     scenario:

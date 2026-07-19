@@ -1,9 +1,0 @@
-{
-  "packId": "tax-cy",
-  "country": "cy",
-  "deployId": "f87dd51860826acd18a3141747af9c7a956a3d64",
-  "algorithm": "AES-256-GCM",
-  "payload": "payload.enc",
-  "nonce": "IzlnD0OalJd7Znfp",
-  "payloadSha256": "a3751907c1f8cf4f6afd6e95710da9408dfd60ffa5160de6e882d98b2f1da7bd"
-}

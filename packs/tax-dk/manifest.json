@@ -1,9 +1,0 @@
-{
-  "packId": "tax-dk",
-  "country": "dk",
-  "deployId": "f87dd51860826acd18a3141747af9c7a956a3d64",
-  "algorithm": "AES-256-GCM",
-  "payload": "payload.enc",
-  "nonce": "VOzVBS47oAMFaKRp",
-  "payloadSha256": "08039df6741688a77a5c8eaf35d6eb11065ea9545119a0a1687c524d4a57055e"
-}
