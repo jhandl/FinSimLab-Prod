@@ -732,7 +732,7 @@ WelcomeTabs:
         subtitle: Create a detailed plan with guidance every step of the way.
         badge: about 15 min
       tours:
-        label: Not ready to enter your numbers? Look around first.
+        label: Look around first.
         items:
           - id: quick-tour
             title: Quick tour
@@ -1191,10 +1191,10 @@ WizardSteps:
             description: reopen a saved scenario
           - title: New
             description: start a fresh scenario
-          - title: Help
-            description: get help, or assistance for a field
           - title: Country Plans
             description: get tax models of real countries
+          - title: Help
+            description: get help, or assistance for a field
   - popover:
       content:
         description: The outcome of the simulation will be shown here.

@@ -3,6 +3,7 @@
   "tutorialsEnabled": true,
   "blogEnabled": false,
   "coffeeButtonEnabled": false,
+  "showFullTourButton": true,
   "showPriceJustification": false,
   "showPensionTooltip": true,
   "autoShiftOnRelocationAgeChange": true,

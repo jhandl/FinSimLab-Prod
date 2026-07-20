@@ -732,7 +732,7 @@ WelcomeTabs:
         subtitle: Crea un plan detallado con orientación en cada paso.
         badge: unos 15 min
       tours:
-        label: ¿No estás listo para introducir tus datos? Explora primero.
+        label: Explora primero.
         items:
           - id: quick-tour
             title: Recorrido rápido

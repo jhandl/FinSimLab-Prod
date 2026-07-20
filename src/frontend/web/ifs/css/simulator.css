@@ -1,4 +1,4 @@
-/* cache-version: 20260716-tooltip-spacing1 */
+/* cache-version: 20260720-tour-button-type5 */
 @import '../../common.css';
 @import 'wizard.css';
 
@@ -902,7 +902,7 @@ header.header-hidden {
 .welcome-start {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   padding: 18px 10px 14px;
 }
 
@@ -911,6 +911,13 @@ header.header-hidden {
   line-height: 1.5;
   color: #4f6074;
   text-align: center;
+  font-weight: 400;
+}
+
+.welcome-start-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .welcome-start-cards {
@@ -974,6 +981,7 @@ header.header-hidden {
 .welcome-start-card-title,
 .welcome-orientation-title {
   color: #293241;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -981,19 +989,18 @@ header.header-hidden {
 .welcome-start-card-title {
   display: block;
   width: 100%;
-  font-size: 1.1rem;
   text-align: center;
 }
 
 .welcome-start-card-subtitle,
 .welcome-orientation-subtitle {
   color: #4f6074;
+  font-size: 0.96rem;
   line-height: 1.45;
 }
 
 .welcome-start-card-subtitle {
   width: 100%;
-  font-size: 0.96rem;
   text-align: center;
 }
 
@@ -1008,19 +1015,19 @@ header.header-hidden {
   color: #466ab0;
 }
 
-.welcome-start-tours-label {
-  margin: 0;
-  text-align: center;
-  color: #3d536a;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
 .welcome-orientation-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+.welcome-orientation-actions-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.welcome-orientation-actions-single .welcome-orientation-action {
+  width: 50%;
+  justify-self: center;
 }
 
 .welcome-orientation-action {
@@ -1060,15 +1067,6 @@ header.header-hidden {
   flex-direction: column;
   align-items: center;
   gap: 3px;
-}
-
-.welcome-orientation-title {
-  font-size: 0.95rem;
-}
-
-.welcome-orientation-subtitle {
-  font-size: 0.76rem;
-  line-height: 1.35;
 }
 
 /* Scrollable tab content for FAQ */
@@ -1736,13 +1734,17 @@ body.modal-open {
   }
 
   .welcome-start {
-    gap: 10px;
+    gap: 14px;
     padding: 5px 5px 8px;
   }
 
   .welcome-start-intro {
     font-size: 0.92rem;
     line-height: 1.35;
+  }
+
+  .welcome-start-action-group {
+    gap: 6px;
   }
 
   .welcome-start-cards {
@@ -1755,11 +1757,13 @@ body.modal-open {
     gap: 8px;
   }
 
-  .welcome-start-card-title {
+  .welcome-start-card-title,
+  .welcome-orientation-title {
     font-size: 1rem;
   }
 
-  .welcome-start-card-subtitle {
+  .welcome-start-card-subtitle,
+  .welcome-orientation-subtitle {
     font-size: 0.87rem;
     line-height: 1.35;
   }
@@ -1788,15 +1792,6 @@ body.modal-open {
     width: 26px;
     height: 26px;
     font-size: 0.82rem;
-  }
-
-  .welcome-orientation-title {
-    font-size: 0.84rem;
-  }
-
-  .welcome-orientation-subtitle {
-    font-size: 0.68rem;
-    line-height: 1.25;
   }
 
   .welcome-tab-content[data-tab="tutorials"] {
