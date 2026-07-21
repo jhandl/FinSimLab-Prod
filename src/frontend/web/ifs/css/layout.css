@@ -1,5 +1,6 @@
 :root {
     --lab-main-gap: 1.8rem;
+    --lab-main-inline-padding: 0.9rem;
     --parameter-grid-gap: 1.35rem;
     --graphs-section-min-width: 520px;
     --lab-max-width: 2350px;
@@ -12,7 +13,7 @@ main {
   width: 100%;
   max-width: var(--adaptive-main-max-width, var(--lab-max-width));
   margin: 1.8rem auto var(--data-section-viewport-gap, 1.8rem) auto;
-  padding: 0 0.9rem;
+  padding: 0 var(--lab-main-inline-padding);
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -285,6 +286,13 @@ main[data-layout-mode="params-events"] .graph-container {
 /* Remove card class constraints from data section */
 .data-section.card {
   max-width: none;
+}
+
+/* Size the card to the table, until the table needs its own horizontal scroll. */
+.data-section.card:not(#mobile-data-message) {
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--lab-main-inline-padding));
+  justify-self: center;
 }
 
 /* New styles for mobile data table toggle */
