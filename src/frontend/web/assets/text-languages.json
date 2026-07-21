@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "assetVersion": "20260720-3",
+  "assetVersion": "20260721-1",
   "surfaces": {
     "landing": {
       "structure": "/src/frontend/web/assets/ui-landing.yml",

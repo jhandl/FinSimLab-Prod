@@ -230,7 +230,7 @@ class MobileBurgerMenu {
     // Always show the Present Value toggle
     const SHOW_PRESENT_VALUE_TOGGLE = true;
     const SHOW_CUSTOM_FEES_TOGGLE = true;
-    const SHOW_LOCAL_TAX_TERMS_TOGGLE = true;
+    const SHOW_LOCAL_TAX_TERMS_TOGGLE = !localTaxTermsToggleButton.hidden;
 
     // Track which sections have visible content
     let hasRunSection = false;

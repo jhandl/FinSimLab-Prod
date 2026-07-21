@@ -199,10 +199,6 @@ WelcomeTabs:
     contentType: accordion
     content:
       items: []
-  - id: notes
-    contentType: list
-    content:
-      items: []
 CountryAccessCheckout:
   modal:
     pricing: {}

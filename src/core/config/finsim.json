@@ -3,6 +3,7 @@
   "tutorialsEnabled": true,
   "blogEnabled": false,
   "coffeeButtonEnabled": false,
+  "localTermsToggleEnabled": false,
   "showFullTourButton": true,
   "showPriceJustification": false,
   "showPensionTooltip": true,

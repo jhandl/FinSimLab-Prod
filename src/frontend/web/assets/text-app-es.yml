@@ -6,7 +6,7 @@ LanguageNames:
   en: Inglés
   es: Español
 CountryNames:
-  xx: Entorno de pruebas
+  xx: País ficticio
   at: Austria
   be: Bélgica
   bg: Bulgaria
@@ -114,10 +114,10 @@ Simulator:
     wrapperFeeLabel: Comisión del producto {label}
     mix:
       optionLabel: Mezcla...
-      optionDescription: Configura una mezcla fija o con trayectoria de asignación.
+      optionDescription: Configura una mezcla fija o variable.
       title: Estrategia de mezcla
       fixed: Fija
-      glidePath: Trayectoria de asignación
+      glidePath: Variable
       asset1: 'Activo 1:'
       asset2: 'Activo 2:'
       agePlaceholder: Edad
@@ -823,19 +823,19 @@ WelcomeTabs:
             - Cuando estés listo, puedes usar la <a href="#full-setup" data-tier="full">configuración completa</a> para una creación guiada paso a paso de un escenario completo. O usa directamente la interfaz para introducir todos tus números.
         - question: ¿Esto es asesoramiento financiero, de inversión, fiscal o legal?
           answer:
-            - No. FinSim es un entorno de pruebas educativo para explorar escenarios y entender cómo distintas suposiciones pueden afectar a un plan a largo plazo.
+            - No. este es un entorno de pruebas educativo para explorar escenarios y entender cómo distintas decisiones pueden afectar a un plan a largo plazo.
             - No tomes decisiones financieras, de inversión, fiscales o legales importantes basándote solo en una simulación. Consulta las decisiones importantes con un profesional debidamente cualificado.
         - question: ¿Mis datos financieros están seguros?
           answer:
-            - Sí, tus escenarios permanecen en tu dispositivo. No se envían a ningún servidor ni se almacenan en línea.
+            - Sí. La información que introduces nunca sale de tu dispositivo. Se procesa en tu navegador y no se envía a ningún servidor ni se almacena en línea.
             - Puedes cerrar esta pestaña del navegador; tus datos seguirán apareciendo cuando la abras de nuevo, salvo que borres el almacenamiento del navegador.
             - Para mayor seguridad, lo mejor es guardar tu escenario en un archivo en disco. Usa el botón [Guardar] para hacerlo.
         - question: ¿Qué almacenas en tus servidores?
           answer:
             - Si solo usas el plan gratuito, solo recibo tu dirección IP pública.
-            - Si compras un plan, tu licencia y el correo electrónico que diste a Stripe se almacenan en mis servidores. Almaceno tu correo electrónico para poder identificar tu licencia y enviártela si necesitas recuperarla.
-            - Si me envías comentarios, almaceno esos comentarios en mis servidores. También almacenaré tu correo electrónico si decides compartirlo conmigo para que pueda responderte.
-            - Prometo que no enviaré spam a tu correo electrónico. Te recomiendo usar un servicio gratuito de direcciones de correo electrónico desechables (como 33mail.com) para que puedas bloquearme si alguna vez incumplo mi promesa.
+            - Si compras un plan, tu licencia y el email que le diste a Stripe se almacenan en mis servidores. Guardo tu email para poder identificar tu licencia y enviártela si necesitas recuperarla.
+            - Si me envías comentarios, almaceno esos comentarios en mis servidores, como así también tu email si decides compartirlo conmigo para que pueda responderte.
+            - Prometo que no te enviaré spam. Te recomiendo usar un servicio gratuito de direcciones de email desechables (yo uso 33mail.com) para que puedas bloquearme si alguna vez rompo mi promesa.
         - question: ¿El plan gratuito se basa en un país real?
           answer:
             - No. El plan gratuito usa reglas fiscales ficticias sencillas para que puedas aprender a usar el simulador o enseñar educación financiera sin comprar un plan.
@@ -851,8 +851,13 @@ WelcomeTabs:
             - El plan mundial desbloquea todos los países admitidos, así que su selección de países solo controla qué países aparecen en el simulador y se puede cambiar en cualquier momento.
         - question: ¿Qué precisión tienen las proyecciones con modelos fiscales de países reales?
           answer:
-            - Los modelos fiscales de países reales son una representación lo más cuidadosa posible del sistema fiscal real de cada país modelado, pero habrá algunas simplificaciones y aproximaciones.
+            - Los modelos fiscales de países reales son una representación del sistema fiscal real de cada país modelado, pero siempre habrá algunas simplificaciones y aproximaciones. Envíame comentarios si encuentras un problema y haré todo lo posible por corregirlo.
             - Las proyecciones son estimaciones basadas en tus datos y en tus suposiciones sobre las condiciones económicas futuras. No son una predicción del futuro.
+        - question: ¿Esta aplicaicón usa IA?
+          answer:
+            - La aplicación no usa IA en su funcionamiento. 
+            - Usé IA para ayudarme en el desarrollo, aplicando mi experiencia como ingeniero en sistemas y las técnicas que ayudan a minimizar los errores.
+            - Los modelos de países fueron producidos con IA. Puedes leer lo que escribí en mi blog al respecto. Fué el principal desafío y a lo que más tiempo dediqué. Aún así no es perfecto.
         - question: ¿Cómo uso la tabla de eventos?
           answer:
             - Las cosas que tienen una fecha inicial y una fecha final, como tus ingresos, tus gastos o una hipoteca, van en la tabla de eventos.
@@ -941,16 +946,6 @@ WelcomeTabs:
           answer:
             - Sí, pero tienes que copiar los archivos de escenario al otro dispositivo.
             - Tus escenarios guardados están solo en los dispositivos donde los guardaste. Si los pierdes, desaparecen. No tengo una copia.
-  - id: notes
-    title: Notas
-    content:
-      items:
-        - title: Aviso de privacidad
-          description: La información que ingresas nunca sale de tu dispositivo. Todo se procesa en tu navegador.
-        - title: Uso de IA
-          description: Este producto se desarrolló parcialmente con IA, por un ingeniero de software experimentado que se obsesiona con cada pequeño detalle. Pero ten en cuenta que no soy contable ni asesor financiero, ni puedo garantizar la precisión de cada número usado al modelar países reales. Los modelos fiscales incluyen aproximaciones y simplificaciones, y pueden ocurrir errores. Envíame comentarios si encuentras un problema y haré todo lo posible por corregirlo.
-        - title: Descargo de responsabilidad
-          description: Esto no es asesoramiento financiero, de inversión, fiscal ni legal. Es una herramienta para ayudarte a entender cómo distintas decisiones y escenarios pueden afectar tu futuro financiero a largo plazo. No tomes decisiones financieras importantes sin hablar con un asesor financiero.
 CountryAccessCheckout:
   modal:
     title: Planes de Modelos Fiscales de Países Reales
@@ -1263,13 +1258,13 @@ WizardSteps:
   - popover:
       description: <p>El porcentaje de tu cartera que planeas asignar a ${investmentType.label}.</p><p>${investmentType.helpText}</p><p>Todo el efectivo restante después de financiar tu reserva de emergencia se invertirá según estas proporciones. Si suman menos del 100%, ahorrarás el resto en efectivo.</p>
   - popover:
-      description: <p>Selecciona en qué instrumento global invierte <b>${investmentType.label}</b>.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+      description: <p>Selecciona en qué instrumento global invierte <b>${investmentType.label}</b>.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o variable).</p>
   - popover:
       description: '<p>La comisión anual que cobra tu banco o bróker por mantener tus inversiones. Valor predeterminado: ${investmentType.defaultFeeText}.</p>'
   - popover:
-      description: <p>Selecciona en qué instrumento global se invierten tus aportes a pensión privada.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+      description: <p>Selecciona en qué instrumento global se invierten tus aportes a pensión privada.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o variable).</p>
   - popover:
-      description: <p>Selecciona en qué instrumento global se invierten las aportes a pensión privada de tu pareja.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o trayectoria de asignación).</p>
+      description: <p>Selecciona en qué instrumento global se invierten las aportes a pensión privada de tu pareja.</p><p>Usa <b>Mezcla...</b> para dividir entre dos instrumentos a lo largo del tiempo (mezcla fija o variable).</p>
   - popover:
       description: '<p>La comisión anual que cobra tu proveedor de pensión por mantener tu pensión. Valor predeterminado: ${investmentType.defaultFeeText}.</p>'
   - popover:
@@ -1626,13 +1621,13 @@ CoreCopy:
   investmentBaseTypes:
     globalEquity:
       label: Mercado de Acciones
-      shortLabel: Acciones
-      mixLabel: RV
+      shortLabel: M. de Acciones
+      mixLabel: Acc
       helpText: Representa inversiones de renta variable ampliamente diversificadas, como fondos indexados globales o ETF. Como referencia, la tasa media de crecimiento del S&P 500 durante los últimos 30 años ha rondado el 10 %.
     globalBonds:
       label: Mercado de Bonos
-      shortLabel: Bonos
-      mixLabel: Bon.
+      shortLabel: M. de Bonos
+      mixLabel: Bon
       helpText: Representa inversiones diversificadas en bonos (públicos o corporativos). Los bonos suelen ofrecer rentabilidades inferiores a las de la renta variable, pero con menor volatilidad.
   eventTypes:
     noOperation: 'Sin operación: haz que la simulación ignore un evento sin tener que eliminar la línea'
@@ -2346,10 +2341,12 @@ GuidedSections:
       housing: ¿Alquilas o tienes vivienda propia?
       rent: ¿Cuál es tu alquiler mensual?
       ownOutright: Si planeas vender o comprar otra propiedad, añádela desde la tabla de eventos en cualquier momento.
+      ownOutrightValue: ¿Cuánto vale aproximadamente tu vivienda hoy? Una estimación basta.
       quickMortgage: ¿Cuál es tu pago actual de hipoteca y cuántos años quedan?
     why:
       housing: La vivienda suele ser el mayor coste, y una vivienda es un activo que el simulador rastrea.
       rent: La vivienda suele ser el mayor coste, y el alquiler es un gasto que el simulador rastrea.
+      ownOutrightValue: La añadiremos a tu plan como una propiedad que ya posees.
       quickMortgage: Un pago aproximado y los años restantes bastan para modelar la hipoteca pendiente.
       salaryDetails: Tus ingresos nos ayudan a estimar los impuestos y la capacidad de ahorro.
       salaryMatch: Las aportes del empleador son dinero gratis que se capitaliza durante décadas.

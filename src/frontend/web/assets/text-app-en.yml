@@ -823,11 +823,11 @@ WelcomeTabs:
             - Once you're ready, you can use the <a href="#full-setup" data-tier="full">Full setup</a> for a guided step-by-step full scenario creation. Or use the UI directly to enter all your numbers.
         - question: Is this financial, investment, tax, or legal advice?
           answer:
-            - No. FinSim is an educational sandbox for exploring scenarios and understanding how different assumptions can affect a long-term plan.
+            - No. this is an educational sandbox for exploring scenarios and understanding how different assumptions can affect a long-term plan.
             - Don't make serious financial, investment, tax, or legal decisions based on a simulation alone. Check important decisions with an appropriately qualified professional.
         - question: Is my financial data secure?
           answer:
-            - Yes, your scenarios stay on your device. They're not sent to any server or stored online.
+            - Yes. The information you enter never leaves your device. It's all processed in your browser, not sent to any server or stored online.
             - You can close this browser tab, your data will still show up when you open it again unless you clear your browser storage.
             - To be safe, it's best to save your scenario to a file on disk. Use the [Save] button for that.
         - question: What do you store in your servers?
@@ -835,7 +835,7 @@ WelcomeTabs:
             - If you only use the free tier, I only get your public IP address.
             - If you purchase a Country Plan, your license and the email you gave Stripe are stored in my servers. I store your email so I can identify your license and send it to you in case you need to recover it.
             - If you send me feedback, I store that feedback in my servers. I will also store your email if you decide to share it with me so that I can respond to you.
-            - I promise I won't spam your email. I encourage you to use a free disposable email address service (like 33mail.com) so you can block me if I ever break my promise.
+            - I promise I won't spam your email. I encourage you to use a free disposable email address service (I use 33mail.com) so you can block me if I ever break my promise.
         - question: Is the free tier based on a real country?
           answer:
             - No. The free tier uses simple fictitious tax rules so you can learn the simulator or teach financial literacy without purchasing a Country Plan.
@@ -851,8 +851,13 @@ WelcomeTabs:
             - The World plan unlocks every supported country, so its country selection only controls which countries appear in the simulator and can be changed at any time.
         - question: How accurate are the projections with real-country tax models?
           answer:
-            - Tax models for real countries are a best effort representation of the actual tax system in each modeled country, but there will be some simplifications and approximations.
+            - Tax models for real countries are a best effort representation of the actual tax system in each modeled country, but they include simplifications and approximations, and mistakes can happen. Send me feedback if you find an issue and I will do my best to correct it.
             - The projections are estimates based on your inputs and your assumptions about future economic conditions. They are not a prediction of the future.
+        - question: Does this app use AI?
+          answer:
+            - The app itself does not use AI to function.
+            - I used AI to help me develop it, applying my experience as a software engineer and best practices to help reduce errors.
+            - The country models were produced with AI. You can read about the process in my blog. It was the main challenge and what took the most time. Still it isn't perfect.
         - question: How do I use the Events table?
           answer:
             - Things that have a start date and an end date, like your income, your expenses or a mortgage, go into the events table.
@@ -941,16 +946,6 @@ WelcomeTabs:
           answer:
             - Yes, but you have to copy the scenario files to the other device.
             - Your saved scenarios are only in the devices you saved them to. If you lose them, they're gone. I don't have a copy.
-  - id: notes
-    title: Notes
-    content:
-      items:
-        - title: Privacy notice
-          description: The information you enter never leaves your device. It's all processed in your browser.
-        - title: Use of AI
-          description: This product was partially developed with AI, by a seasoned software engineer who obsesses about every little detail. But keep in mind that I'm not an accountant or financial advisor, nor am I able to vouch for the precision of every number used in modelling real countries. Tax models include approximations and simplifications, and mistakes happen. Send me feedback if you find an issue and I will do my best to correct it.
-        - title: Disclaimer
-          description: This is not financial, investment, tax, or legal advice. It's a tool to help you understand how different decisions and scenarios can affect your long term financial future. Don't make serious financial decisions without talking to a financial advisor.
 CountryAccessCheckout:
   modal:
     title: Country Tax Model Plans
@@ -1626,12 +1621,12 @@ CoreCopy:
   investmentBaseTypes:
     globalEquity:
       label: Equity Markets
-      shortLabel: Equity
+      shortLabel: Eq. Markets
       mixLabel: Eq
       helpText: Represents broadly diversified equity investments like global index funds or ETFs. For reference, the average growth rate of the S&P500 over the last 30 years has been around 10%.
     globalBonds:
       label: Bond Markets
-      shortLabel: Bonds
+      shortLabel: Bond Markets
       mixLabel: Bd
       helpText: Represents diversified bond investments (government or corporate). Bonds typically offer lower returns than equities but with lower volatility.
   eventTypes:
@@ -2346,10 +2341,12 @@ GuidedSections:
       housing: Do you rent or own your home?
       rent: What's your monthly rent?
       ownOutright: If you plan to sell, or to buy another property, add it from the Events table any time.
+      ownOutrightValue: What's your home worth today? A ballpark is fine.
       quickMortgage: What is your current mortgage payment, and how many years are left?
     why:
       housing: Housing is usually the biggest cost, and a home is an asset the simulator tracks.
       rent: Housing is usually the biggest cost, and rent is an expense the simulator tracks.
+      ownOutrightValue: We'll add it as a property you owned before this plan starts.
       quickMortgage: A rough payment and years left are enough to model the remaining mortgage.
       salaryDetails: Your income helps us estimate taxes and savings capacity.
       salaryMatch: Employer contributions are free money that compounds for decades.
