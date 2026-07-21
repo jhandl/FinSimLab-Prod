@@ -1,9 +1,11 @@
 {
+  "applicationName": "FinSimLab",
   "relocationEnabled": true,
   "tutorialsEnabled": true,
   "blogEnabled": false,
-  "coffeeButtonEnabled": false,
-  "localTermsToggleEnabled": false,
+  "crawlAllowlist": ["/", "/blog/", "/countries/"],
+  "showCoffeeButton": false,
+  "showLocalTermsToggle": false,
   "showFullTourButton": true,
   "showPriceJustification": false,
   "showPensionTooltip": true,
@@ -28,6 +30,5 @@
   "defaultCountry": "xx",
   "monteCarloTargetSeconds": 5,
   "monteCarloMinRuns": 500,
-  "economicRegimesEnabled": true,
-  "applicationName": "FinSimLab"
+  "economicRegimesEnabled": true
 }

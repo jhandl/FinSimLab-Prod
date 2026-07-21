@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+Allow: /$
+Allow: /blog/
+Allow: /countries/
+Sitemap: https://finsimlab.com/sitemap.xml
