@@ -652,7 +652,6 @@ nav ul li a:hover {
   object-fit: cover;
   object-position: center center;
   opacity: 0;
-  filter: blur(0.3px);
   transition: opacity 0.7s ease;
 }
 
