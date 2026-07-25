@@ -1,7 +1,7 @@
 {
   "applicationName": "FinSimLab",
   "relocationEnabled": true,
-  "tutorialsEnabled": true,
+  "tutorialsEnabled": false,
   "blogEnabled": true,
   "crawlAllowlist": ["/", "/blog/"],
   "showCoffeeButton": false,
