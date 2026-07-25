@@ -107,25 +107,6 @@ page:
     historyAfterLink: ', pero cada vez que hacía un cambio obligaba a los usuarios a crear una copia nueva y volver a introducir sus datos. Así que la convertí en este sitio web.'
     access: Creo que todo el mundo debería tener acceso a herramientas que le ayuden a mejorar su comprensión financiera para mantener conversaciones más productivas con asesores profesionales.
     hope: Espero que esta herramienta te ayude tanto como me ayudó a mí.
-  blog:
-    title: Blog
-    workflow:
-      label: Flujo de trabajo
-      title: Cómo FinSimLab crea modelos fiscales por país
-      description: El proceso basado en fuentes detrás de los modelos por país, las revisiones, las comprobaciones de implementación y las limitaciones documentadas.
-    planning:
-      label: Planificación
-      title: Qué puede responder un simulador de finanzas personales
-      description: Cómo usar escenarios para comparar decisiones, poner a prueba supuestos y mantener las decisiones de planificación bien fundamentadas.
-    product:
-      label: Producto
-      title: Por qué FinSimLab mantiene tus datos en local
-      description: Una mirada a las compensaciones de privacidad detrás de los archivos de escenarios solo en navegador y los cálculos transparentes.
-    countries:
-      label: Notas de país
-      title: Notas de país
-      description: Actualizaciones breves cuando se incorpora un modelo de país o cuando una aproximación del modelo fiscal merece una explicación adicional.
-    viewAll: Ver todos los artículos
   callToAction:
     title: ¿Listo para explorar tu futuro financiero?
     action: Abrir simulador

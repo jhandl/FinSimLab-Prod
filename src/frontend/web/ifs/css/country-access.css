@@ -1098,18 +1098,6 @@
   color: var(--text-color);
 }
 
-#countryAccessOverlay .country-access-country-detail-link {
-  align-self: flex-start;
-  color: var(--color-button);
-  font-weight: 650;
-  text-decoration: none;
-}
-
-#countryAccessOverlay .country-access-country-detail-link:hover,
-#countryAccessOverlay .country-access-country-detail-link:focus-visible {
-  text-decoration: underline;
-}
-
 #countryAccessOverlay .country-access-country-meta {
   align-items: center;
   display: none;

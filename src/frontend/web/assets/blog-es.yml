@@ -1,0 +1,99 @@
+LanguageSelector:
+  label: Idioma
+  loadError: No se pudo cargar el idioma seleccionado. El idioma actual no cambió.
+LanguageNames:
+  en: Inglés
+  es: Español
+site:
+  brand: FinSimLab
+  tagline: Laboratorio de Simulación Financiera
+  titleSeparator: ' | '
+  navigation:
+    features: Prestaciones
+    howItWorks: Cómo usar
+    about: Autor
+    blog: Blog
+blog:
+  index:
+    title: FinSim Blog
+  posts:
+    - id: origin-story
+      title: De Google Sheets a FinSimLab
+      body: |
+
+
+        Cuando empecé a pensar en invertir, no quería entregarle mis finanzas a una compañía de seguros cuyo asesor me iba a querer vender sus productos con comisiones altísimas; quería aprender a manejar mis propias finanzas. Pero saber cómo hacer eso no es trivial, y menos en Irlanda, que es donde vivo.
+
+        Así que contraté a un asesor financiero por una tarifa fija, quien me dio muy buenos consejos y una proyección de mi futuro financiero acompañada de gráficos y datos muy interesantes. Cuando vi el informe, enseguida quise hacer todo tipo de cambios, experimentar con cientos de escenarios distintos y ver cómo impactaban el resultado, para poder contestar preguntas como *¿qué pasa si demoramos la compra de la casa un año?*, *¿qué pasa si gastamos 5% menos?*, *¿qué pasa si invierto un poco más?*, *¿qué pasa si sube la inflación?*, *¿qué pasa si...?*, 	*¿qué pasa si...?*, *¿qué pasa si...?*.
+
+        ### La planilla
+
+        Lo primero que probé fué la planilla de cálculo Google Sheets. Pero las fórmulas se me quedaron cortas, y dado que tengo experiencia desarrollando software, usé el lenguaje de scripting de Google Sheets (javascript), y escribí el motor de un simulador financiero. La planilla me daba la interfaz de usuario.
+
+        Corrí muchos experimentos con la planilla. Aprender lo que era posible hizo que las reuniones con mi asesor financiero sean más productivas. Iba con un una idea más clara de la situación y con hipótesis e ideas que quería revisar con él.
+
+        Me di cuenta de que era una herramienta muy útil, así que la [compartí](https://www.reddit.com/r/irishpersonalfinance/comments/hl59bt/im_sharing_my_ireland_retirement_simulator/) en un subreddit de finanzas personales de Irlanda y tuvo muy buena respuesta. Pero cada vez que yo hacía un cambio los usuarios se veían forzados a hacer una nueva copia y re-ingresar todos sus datos, así que empecé a pensar en convertirla en una página web. Pero tenía un trabajo estresante y una familia, y nunca parecía el momento adecuado.
+
+
+        ### FinSim.ie
+
+        Pero sucedió que perdí mi trabajo, y para ese entonces ya habían aparecidos las herramientas de programación con IA. Así que pasé de trabajar para otros a trabajar para mi, a mi propio ritmo, y disfrutando de experimentar con estas nuevas herramientas. Usé IA para ayudarme a crear una página web reproduciendo la planilla, le inserté el código y el modelo fiscal que la hacían funcionar, y la publiqué en [finsim.ie](https://finsim.ie), de uso gratis y para sólo para Irlanda. También tuve buena respuesta y feedback valioso.
+
+        Después empecé a considerar la posibilidad de modelar otros países, lo que abriría la puerta a experimentar con escenarios que incluyeran la relocación a otro país y contestar preguntas como "¿qué pasaría si me jubilo antes y me mudo a un país con impuestos y costo de vida más bajos?" Me pareció una idea muy interesante y con un alcance global. Así fue que compré el dominio finsimlab.com y puse manos a la obra.
+
+        ### FinSimLab.com
+
+        Me llevó bastante más tiempo desarrollarlo de lo esperado, y mientras tanto las herramientas evolucionaron a un ritmo increíble. Pude probar muchos modelos de IA y diferentes técnicas para usarlos, aprendí lo que funciona y lo que no, que muchas de las técnicas que usaba como desarrollador profesional también funcionan acá, y a eso se suman muchas otras técnicas nuevas que también son necesarias.
+
+        Pero no usé IA sólo porque soy perezoso, que lo soy, o porque me atraen los chiches nuevos, que si, lo hacen. También la usé porque me permitió expandir en dos dimensiones: agregando modelos fiscales de diferentes países, y traduciendo el sitio a idiomas que no domino.
+
+        ### Cómo sigue la historia
+
+        Ahora que lo llevé a un punto en el que creo que está listo para publicar, mi foco pasa al marqueting, que definitivamente no es mi fuerte. No voy a usar IA para mis comunicaciones con ustedes, como este blog o al responder al feedback, salvo para traducir a un idioma que no hablo. El contacto humano genuino es mucho más importante para mi que los números.
+
+        Te invito a probarlo. Espero tener la oportunidad de conversar con vos, conocer tu opinión y ayudarte a sacar partido de este proyecto, que nació de mi pasión por el desarrollo de software y la educación financiera.
+
+
+
+
+    - id: tax-models-authoring
+      title: Cómo uso la IA para generar modelos fiscales
+      body: |
+
+        Te preguntarás cómo armé los modelos fiscales de todos estos países. Tengo un conocimiento razonable del sistema impositivo de Irelanda y de Argentina, habiendo vivido en ambos países. Pero si otros países son tan diferentes entre sí como esos dos, no hay forma de que yo pueda modelar a mano más que un par de países. Simplemente no escala.
+
+        Siendo este un proyecto personal, mi única opción era IA. Todo sabemos que las LLM alucinan cada palabra que generan, y que a veces lo que dicen resulta corresponder con la realidad. Pedirle a una IA "genera el modelo fiscal del país X para el simulador" no funcionaría. Pero de la misma forma que hay técnicas para desarrollar software complejo con IA, también hay maneras de lograr objetivos complejos como este. Veamos entonces el proceso de agregar un nuevo país al simulador:
+
+        1. **Paquete de investigación independiente**
+
+           El primer paso es hacer que una IA investigue el sistema fiscal de un país y que escriba un informe con citas oficiales siguiendo un modelo que tiene una sección para cada aspecto del sistema impositivo, incluyendo frases exactas extraídas de los documentos citados. Esto lo hace sin tener acceso al código fuente ni conocimiento del simualdor, para evitar cualquier sesgo. Las frases citadas son fundamentales porque si se corresponden con el texto de las fuentes, demuestra que la IA tuvo que leer el documento. Es bien sabido que las LLMs inventan fuentes, incluso con URLs que parecen creíbles.
+
+        2. **Verificación mecánica de las citas**
+
+           El siguiente paso es la verificación mecánica de la presencia efectiva del texto citado en el material de referencia. Un script recorre la lista de citas, descarga los documentos referenciados, y verifica que la cita esté presente. Un script no puede alucinar. Si este chequeo pasa, entonces el agente que hizo la investigación realmente leyó las fuentes que citó.
+
+        3. **Revisión semántica**
+
+           Una cita válida no garantiza que la regla fiscal que supuestamente procedede del documento citado esté realmente en ese documento. Por eso, otro agente de IA recorre todas las reglas fiscales y sus fuente citadas, una por una, y trata de encontrar casos en que la regla no se corresponde con lo que dice el documento. Las LLMs quieren complacer al usuario. En este caso, el usuario estará encantado si la IA encuentra un error. Este tipo de revisión crítica (casi diría que hostil), si bien no es perfecta, funciona bastante bien.
+
+        4. **Pedido de revisión**
+
+           Si cualquiera de los dos pasos anteriores encontró problemas (citas inválidas o reglas fiscales no justificadas), se crea un pedido de revisión para corregir el error. Este pedido vuelve al paso 1, que produce un anexo de investigación, que pasa por los pasos 2 y 3 nuevamente. Y si todavía hay errores, se hace otra ronda. El proceso continúa hasta que no queden errores. En la mayoría de los casos con una o dos pasadas alcanza.
+
+        5. **Especificación del modelo**
+
+           Ahora tenemos un conjunto de reglas fiscales para cada aspecto del simulador que ha sido verificado. Es tiempo de introducir el conocimiento del simulador: qué puede modelar y qué no. Un agente de IA toma el informe de investigación y decide qué se puede representar directamente, qué se tiene que aproximar, y qué cosas no se pueden representar en el motor del simulador. Esta última parte se convierte en un reporte de limitaciones, que incluye una lista de recomendaciones para expandir las capacidades del motor del simulador.
+
+        6. **Implementación de las reglas**
+
+           Otro agente de IA toma la especificación del modelo y codifica las normas fiscales del país en un archivo de configuración. Parte del trabajo de investigación era recopilar ejemplos resueltos y calculadoras fiscales. Estos se transforman en pruebas automatizadas y se usan para validar la implementación.
+
+        7. **Datos económicos**
+
+           Un script obtiene datos económicos como la inflación, el tipo de cambio, el costo de vida y la rentabilidad de los alquileres, de fuentes como el Banco Mundial y Numbeo, y agrega esta información al archivo de configuración del país.
+
+        8. **Auditoría**
+
+           La última etapa audita toda la cadena desde los paquetes de investigación hasta las reglas implementadas, buscando omisiones, reglas modeladas sin justificación, aproximaciones no documentadas, problemas de etiquetado, pruebas ausentes y otras carencias, y cualquier hallazgo produce un pedido de revisión que repite todos los pasos necesarios.
+  
+        ¿Confío ciegamente en el resultado de este proceso? Por supuesto que no. Necesito que personas reales revisen el resultado. Como no puedo contratar un experto de cada país, doy acceso gratis a quienes se comprometan a darme feedback. Si lo hacen, tienen un código de acceso (promo code).

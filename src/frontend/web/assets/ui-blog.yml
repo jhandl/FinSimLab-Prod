@@ -1,0 +1,13 @@
+LanguageSelector: {}
+LanguageNames: {}
+site:
+  navigation: {}
+blog:
+  index: {}
+  posts:
+    - id: origin-story
+      slug: origin-story
+      date: '2026-05-15'
+    - id: tax-models-authoring
+      slug: tax-models-authoring
+      date: '2026-06-24'

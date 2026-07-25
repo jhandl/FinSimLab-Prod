@@ -1,13 +1,15 @@
 {
   "schemaVersion": 1,
-  "assetVersion": "20260721-1",
+  "assetVersion": "20260724-10",
   "surfaces": {
     "landing": {
-      "structure": "/src/frontend/web/assets/ui-landing.yml",
-      "nonlocalized": "/src/frontend/web/assets/landing-static-en.yml"
+      "structure": "/src/frontend/web/assets/ui-landing.yml"
     },
     "app": {
       "structure": "/src/frontend/web/assets/ui-app.yml"
+    },
+    "blog": {
+      "structure": "/src/frontend/web/assets/ui-blog.yml"
     }
   },
   "languages": [
@@ -16,7 +18,8 @@
       "dir": "ltr",
       "bundles": {
         "landing": "/src/frontend/web/assets/landing-en.yml",
-        "app": "/src/frontend/web/assets/text-app-en.yml"
+        "app": "/src/frontend/web/assets/text-app-en.yml",
+        "blog": "/src/frontend/web/assets/blog-en.yml"
       }
     },
     {
@@ -24,7 +27,8 @@
       "dir": "ltr",
       "bundles": {
         "landing": "/src/frontend/web/assets/landing-es.yml",
-        "app": "/src/frontend/web/assets/text-app-es.yml"
+        "app": "/src/frontend/web/assets/text-app-es.yml",
+        "blog": "/src/frontend/web/assets/blog-es.yml"
       }
     }
   ]

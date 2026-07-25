@@ -2,7 +2,6 @@ User-agent: *
 Disallow: /
 Allow: /$
 Allow: /blog/
-Allow: /countries/
 Allow: /en/
 Allow: /es/
 Sitemap: https://finsimlab.com/sitemap.xml

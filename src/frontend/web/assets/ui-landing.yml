@@ -20,10 +20,5 @@ page:
     simulate: {}
     compare: {}
   about: {}
-  blog:
-    workflow: {}
-    planning: {}
-    product: {}
-    countries: {}
   callToAction: {}
   disclaimer: {}

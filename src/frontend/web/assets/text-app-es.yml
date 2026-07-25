@@ -1081,7 +1081,6 @@ CountryAccessCheckout:
     pendingRenewal: Renovación pendiente
     hideNotes: Ocultar notas del modelo de {country}
     showNotes: Mostrar notas del modelo de {country}
-    readArticle: Leer artículo completo
     bulk:
       all: Todos los países listados están seleccionados; haz clic para deseleccionarlos todos
       none: Ningún país listado está seleccionado; haz clic para selección individual

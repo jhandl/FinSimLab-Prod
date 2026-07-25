@@ -16,14 +16,14 @@
       window.location.replace(labUrl.toString());
     })();
   </script>
-  <title>FinSimLab | Laboratorio de simulación financiera</title><meta name="description" content="Laboratorio de simulación financiera">
-  <link rel="canonical" href="https://finsimlab.com/es/">
-  <link rel="alternate" hreflang="en" href="https://finsimlab.com/en/">
-  <link rel="alternate" hreflang="es" href="https://finsimlab.com/es/">
-  <link rel="alternate" hreflang="x-default" href="https://finsimlab.com/">
+  <title>FinSim Blog | FinSimLab</title><meta name="description" content="Laboratorio de Simulación Financiera">
+  <link rel="canonical" href="https://finsimlab.com/es/blog/">
+  <link rel="alternate" hreflang="en" href="https://finsimlab.com/en/blog/">
+  <link rel="alternate" hreflang="es" href="https://finsimlab.com/es/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://finsimlab.com/blog/">
   <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="preload" href="/src/frontend/web/landing/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin="">
-  <script src="/es/bundle.1784996677090.js" defer=""></script>
+  <script src="/es/blog/bundle.1784996679141.js" defer=""></script>
   <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260724-public-shell7">
   <link rel="stylesheet" href="/src/frontend/web/blog/styles.css?v=20260724-public-shell12">
   <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
@@ -46,7 +46,7 @@
     <symbol id="landing-icon-heart" viewBox="0 0 24 24"><path d="M12 20S4 16 4 9a4 4 0 018-2 4 4 0 018 2c0 7-8 11-8 11z"></path></symbol>
     <symbol id="landing-icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></symbol>
   </svg>
-  <div data-site-shell="" data-site-view="home" data-site-blog-enabled="false">
+  <div data-site-shell="" data-site-view="blog" data-site-blog-enabled="false">
     <header data-site-header="">
       <div class="container">
         <div class="header-top-row">
@@ -73,7 +73,51 @@
         </nav>
       </div>
     </header>
-    <div data-site-panels=""><main data-site-panel="home" data-site-view-root="">  <section id="top" class="hero">
+    <div data-site-panels=""><main data-site-panel="blog" data-site-view-root=""><div data-blog-content=""><div class="page-intro"><h1 data-site-view-heading="">FinSim Blog</h1></div><section class="grid"><article class="card"><a class="card-link" href="/blog/origin-story/"><div class="card-header"><h2>De Google Sheets a FinSimLab</h2><time class="card-date" datetime="2026-05-15">may 2026</time></div><div class="card-preview"><p>Cuando empecé a pensar en invertir, no quería entregarle mis finanzas a una compañía de seguros cuyo asesor me iba a querer vender sus productos con comisiones altísimas; quería aprender a manejar mis propias finanzas. Pero saber cómo hacer eso no es trivial, y menos en Irlanda, que es donde vivo.</p>
+<p>Así que contraté a un asesor financiero por una tarifa fija, quien me dio muy buenos consejos y una proyección de mi futuro financiero acompañada de gráficos y datos muy interesantes. Cuando vi el informe, enseguida quise hacer todo tipo de cambios, experimentar con cientos de escenarios distintos y ver cómo impactaban el resultado, para poder contestar preguntas como <em>¿qué pasa si demoramos la compra de la casa un año?</em>, <em>¿qué pasa si gastamos 5% menos?</em>, <em>¿qué pasa si invierto un poco más?</em>, <em>¿qué pasa si sube la inflación?</em>, <em>¿qué pasa si...?</em>, 	<em>¿qué pasa si...?</em>, <em>¿qué pasa si...?</em>.</p>
+<h3>La planilla</h3>
+<p>Lo primero que probé fué la planilla de cálculo Google Sheets. Pero las fórmulas se me quedaron cortas, y dado que tengo experiencia desarrollando software, usé el lenguaje de scripting de Google Sheets (javascript), y escribí el motor de un simulador financiero. La planilla me daba la interfaz de usuario.</p>
+<p>Corrí muchos experimentos con la planilla. Aprender lo que era posible hizo que las reuniones con mi asesor financiero sean más productivas. Iba con un una idea más clara de la situación y con hipótesis e ideas que quería revisar con él.</p>
+<p>Me di cuenta de que era una herramienta muy útil, así que la <span class="card-preview-link">compartí</span> en un subreddit de finanzas personales de Irlanda y tuvo muy buena respuesta. Pero cada vez que yo hacía un cambio los usuarios se veían forzados a hacer una nueva copia y re-ingresar todos sus datos, así que empecé a pensar en convertirla en una página web. Pero tenía un trabajo estresante y una familia, y nunca parecía el momento adecuado.</p>
+<h3>FinSim.ie</h3>
+<p>Pero sucedió que perdí mi trabajo, y para ese entonces ya habían aparecidos las herramientas de programación con IA. Así que pasé de trabajar para otros a trabajar para mi, a mi propio ritmo, y disfrutando de experimentar con estas nuevas herramientas. Usé IA para ayudarme a crear una página web reproduciendo la planilla, le inserté el código y el modelo fiscal que la hacían funcionar, y la publiqué en <span class="card-preview-link">finsim.ie</span>, de uso gratis y para sólo para Irlanda. También tuve buena respuesta y feedback valioso.</p>
+<p>Después empecé a considerar la posibilidad de modelar otros países, lo que abriría la puerta a experimentar con escenarios que incluyeran la relocación a otro país y contestar preguntas como "¿qué pasaría si me jubilo antes y me mudo a un país con impuestos y costo de vida más bajos?" Me pareció una idea muy interesante y con un alcance global. Así fue que compré el dominio finsimlab.com y puse manos a la obra.</p>
+<h3>FinSimLab.com</h3>
+<p>Me llevó bastante más tiempo desarrollarlo de lo esperado, y mientras tanto las herramientas evolucionaron a un ritmo increíble. Pude probar muchos modelos de IA y diferentes técnicas para usarlos, aprendí lo que funciona y lo que no, que muchas de las técnicas que usaba como desarrollador profesional también funcionan acá, y a eso se suman muchas otras técnicas nuevas que también son necesarias.</p>
+<p>Pero no usé IA sólo porque soy perezoso, que lo soy, o porque me atraen los chiches nuevos, que si, lo hacen. También la usé porque me permitió expandir en dos dimensiones: agregando modelos fiscales de diferentes países, y traduciendo el sitio a idiomas que no domino.</p>
+<h3>Cómo sigue la historia</h3>
+<p>Ahora que lo llevé a un punto en el que creo que está listo para publicar, mi foco pasa al marqueting, que definitivamente no es mi fuerte. No voy a usar IA para mis comunicaciones con ustedes, como este blog o al responder al feedback, salvo para traducir a un idioma que no hablo. El contacto humano genuino es mucho más importante para mi que los números.</p>
+<p>Te invito a probarlo. Espero tener la oportunidad de conversar con vos, conocer tu opinión y ayudarte a sacar partido de este proyecto, que nació de mi pasión por el desarrollo de software y la educación financiera.</p>
+</div></a></article><article class="card"><a class="card-link" href="/blog/tax-models-authoring/"><div class="card-header"><h2>Cómo uso la IA para generar modelos fiscales</h2><time class="card-date" datetime="2026-06-24">jun 2026</time></div><div class="card-preview"><p>Te preguntarás cómo armé los modelos fiscales de todos estos países. Tengo un conocimiento razonable del sistema impositivo de Irelanda y de Argentina, habiendo vivido en ambos países. Pero si otros países son tan diferentes entre sí como esos dos, no hay forma de que yo pueda modelar a mano más que un par de países. Simplemente no escala.</p>
+<p>Siendo este un proyecto personal, mi única opción era IA. Todo sabemos que las LLM alucinan cada palabra que generan, y que a veces lo que dicen resulta corresponder con la realidad. Pedirle a una IA "genera el modelo fiscal del país X para el simulador" no funcionaría. Pero de la misma forma que hay técnicas para desarrollar software complejo con IA, también hay maneras de lograr objetivos complejos como este. Veamos entonces el proceso de agregar un nuevo país al simulador:</p>
+<ol>
+<li><p><strong>Paquete de investigación independiente</strong></p>
+<p>El primer paso es hacer que una IA investigue el sistema fiscal de un país y que escriba un informe con citas oficiales siguiendo un modelo que tiene una sección para cada aspecto del sistema impositivo, incluyendo frases exactas extraídas de los documentos citados. Esto lo hace sin tener acceso al código fuente ni conocimiento del simualdor, para evitar cualquier sesgo. Las frases citadas son fundamentales porque si se corresponden con el texto de las fuentes, demuestra que la IA tuvo que leer el documento. Es bien sabido que las LLMs inventan fuentes, incluso con URLs que parecen creíbles.</p>
+</li>
+<li><p><strong>Verificación mecánica de las citas</strong></p>
+<p>El siguiente paso es la verificación mecánica de la presencia efectiva del texto citado en el material de referencia. Un script recorre la lista de citas, descarga los documentos referenciados, y verifica que la cita esté presente. Un script no puede alucinar. Si este chequeo pasa, entonces el agente que hizo la investigación realmente leyó las fuentes que citó.</p>
+</li>
+<li><p><strong>Revisión semántica</strong></p>
+<p>Una cita válida no garantiza que la regla fiscal que supuestamente procedede del documento citado esté realmente en ese documento. Por eso, otro agente de IA recorre todas las reglas fiscales y sus fuente citadas, una por una, y trata de encontrar casos en que la regla no se corresponde con lo que dice el documento. Las LLMs quieren complacer al usuario. En este caso, el usuario estará encantado si la IA encuentra un error. Este tipo de revisión crítica (casi diría que hostil), si bien no es perfecta, funciona bastante bien.</p>
+</li>
+<li><p><strong>Pedido de revisión</strong></p>
+<p>Si cualquiera de los dos pasos anteriores encontró problemas (citas inválidas o reglas fiscales no justificadas), se crea un pedido de revisión para corregir el error. Este pedido vuelve al paso 1, que produce un anexo de investigación, que pasa por los pasos 2 y 3 nuevamente. Y si todavía hay errores, se hace otra ronda. El proceso continúa hasta que no queden errores. En la mayoría de los casos con una o dos pasadas alcanza.</p>
+</li>
+<li><p><strong>Especificación del modelo</strong></p>
+<p>Ahora tenemos un conjunto de reglas fiscales para cada aspecto del simulador que ha sido verificado. Es tiempo de introducir el conocimiento del simulador: qué puede modelar y qué no. Un agente de IA toma el informe de investigación y decide qué se puede representar directamente, qué se tiene que aproximar, y qué cosas no se pueden representar en el motor del simulador. Esta última parte se convierte en un reporte de limitaciones, que incluye una lista de recomendaciones para expandir las capacidades del motor del simulador.</p>
+</li>
+<li><p><strong>Implementación de las reglas</strong></p>
+<p>Otro agente de IA toma la especificación del modelo y codifica las normas fiscales del país en un archivo de configuración. Parte del trabajo de investigación era recopilar ejemplos resueltos y calculadoras fiscales. Estos se transforman en pruebas automatizadas y se usan para validar la implementación.</p>
+</li>
+<li><p><strong>Datos económicos</strong></p>
+<p>Un script obtiene datos económicos como la inflación, el tipo de cambio, el costo de vida y la rentabilidad de los alquileres, de fuentes como el Banco Mundial y Numbeo, y agrega esta información al archivo de configuración del país.</p>
+</li>
+<li><p><strong>Auditoría</strong></p>
+<p>La última etapa audita toda la cadena desde los paquetes de investigación hasta las reglas implementadas, buscando omisiones, reglas modeladas sin justificación, aproximaciones no documentadas, problemas de etiquetado, pruebas ausentes y otras carencias, y cualquier hallazgo produce un pedido de revisión que repite todos los pasos necesarios.</p>
+</li>
+</ol>
+<p>¿Confío ciegamente en el resultado de este proceso? Por supuesto que no. Necesito que personas reales revisen el resultado. Como no puedo contratar un experto de cada país, doy acceso gratis a quienes se comprometan a darme feedback. Si lo hacen, tienen un código de acceso (promo code).</p>
+</div></a></article></section></div></main><template data-site-home-template=""><main data-site-panel="home" data-site-view-root="">  <section id="top" class="hero">
     <div class="container">
       <div class="hero-content">
         <div class="hero-title">
@@ -212,58 +256,14 @@
       <p data-i18n="page.footer">© 2026 FinSimLab</p>
     </div>
   </footer>
-</main><template data-site-blog-template=""><main data-site-panel="blog" data-site-view-root=""><div data-blog-content=""><div class="page-intro"><h1 data-site-view-heading="">FinSim Blog</h1></div><section class="grid"><article class="card"><a class="card-link" href="/blog/origin-story/"><div class="card-header"><h2>De Google Sheets a FinSimLab</h2><time class="card-date" datetime="2026-05-15">may 2026</time></div><div class="card-preview"><p>Cuando empecé a pensar en invertir, no quería entregarle mis finanzas a una compañía de seguros cuyo asesor me iba a querer vender sus productos con comisiones altísimas; quería aprender a manejar mis propias finanzas. Pero saber cómo hacer eso no es trivial, y menos en Irlanda, que es donde vivo.</p>
-<p>Así que contraté a un asesor financiero por una tarifa fija, quien me dio muy buenos consejos y una proyección de mi futuro financiero acompañada de gráficos y datos muy interesantes. Cuando vi el informe, enseguida quise hacer todo tipo de cambios, experimentar con cientos de escenarios distintos y ver cómo impactaban el resultado, para poder contestar preguntas como <em>¿qué pasa si demoramos la compra de la casa un año?</em>, <em>¿qué pasa si gastamos 5% menos?</em>, <em>¿qué pasa si invierto un poco más?</em>, <em>¿qué pasa si sube la inflación?</em>, <em>¿qué pasa si...?</em>, 	<em>¿qué pasa si...?</em>, <em>¿qué pasa si...?</em>.</p>
-<h3>La planilla</h3>
-<p>Lo primero que probé fué la planilla de cálculo Google Sheets. Pero las fórmulas se me quedaron cortas, y dado que tengo experiencia desarrollando software, usé el lenguaje de scripting de Google Sheets (javascript), y escribí el motor de un simulador financiero. La planilla me daba la interfaz de usuario.</p>
-<p>Corrí muchos experimentos con la planilla. Aprender lo que era posible hizo que las reuniones con mi asesor financiero sean más productivas. Iba con un una idea más clara de la situación y con hipótesis e ideas que quería revisar con él.</p>
-<p>Me di cuenta de que era una herramienta muy útil, así que la <span class="card-preview-link">compartí</span> en un subreddit de finanzas personales de Irlanda y tuvo muy buena respuesta. Pero cada vez que yo hacía un cambio los usuarios se veían forzados a hacer una nueva copia y re-ingresar todos sus datos, así que empecé a pensar en convertirla en una página web. Pero tenía un trabajo estresante y una familia, y nunca parecía el momento adecuado.</p>
-<h3>FinSim.ie</h3>
-<p>Pero sucedió que perdí mi trabajo, y para ese entonces ya habían aparecidos las herramientas de programación con IA. Así que pasé de trabajar para otros a trabajar para mi, a mi propio ritmo, y disfrutando de experimentar con estas nuevas herramientas. Usé IA para ayudarme a crear una página web reproduciendo la planilla, le inserté el código y el modelo fiscal que la hacían funcionar, y la publiqué en <span class="card-preview-link">finsim.ie</span>, de uso gratis y para sólo para Irlanda. También tuve buena respuesta y feedback valioso.</p>
-<p>Después empecé a considerar la posibilidad de modelar otros países, lo que abriría la puerta a experimentar con escenarios que incluyeran la relocación a otro país y contestar preguntas como "¿qué pasaría si me jubilo antes y me mudo a un país con impuestos y costo de vida más bajos?" Me pareció una idea muy interesante y con un alcance global. Así fue que compré el dominio finsimlab.com y puse manos a la obra.</p>
-<h3>FinSimLab.com</h3>
-<p>Me llevó bastante más tiempo desarrollarlo de lo esperado, y mientras tanto las herramientas evolucionaron a un ritmo increíble. Pude probar muchos modelos de IA y diferentes técnicas para usarlos, aprendí lo que funciona y lo que no, que muchas de las técnicas que usaba como desarrollador profesional también funcionan acá, y a eso se suman muchas otras técnicas nuevas que también son necesarias.</p>
-<p>Pero no usé IA sólo porque soy perezoso, que lo soy, o porque me atraen los chiches nuevos, que si, lo hacen. También la usé porque me permitió expandir en dos dimensiones: agregando modelos fiscales de diferentes países, y traduciendo el sitio a idiomas que no domino.</p>
-<h3>Cómo sigue la historia</h3>
-<p>Ahora que lo llevé a un punto en el que creo que está listo para publicar, mi foco pasa al marqueting, que definitivamente no es mi fuerte. No voy a usar IA para mis comunicaciones con ustedes, como este blog o al responder al feedback, salvo para traducir a un idioma que no hablo. El contacto humano genuino es mucho más importante para mi que los números.</p>
-<p>Te invito a probarlo. Espero tener la oportunidad de conversar con vos, conocer tu opinión y ayudarte a sacar partido de este proyecto, que nació de mi pasión por el desarrollo de software y la educación financiera.</p>
-</div></a></article><article class="card"><a class="card-link" href="/blog/tax-models-authoring/"><div class="card-header"><h2>Cómo uso la IA para generar modelos fiscales</h2><time class="card-date" datetime="2026-06-24">jun 2026</time></div><div class="card-preview"><p>Te preguntarás cómo armé los modelos fiscales de todos estos países. Tengo un conocimiento razonable del sistema impositivo de Irelanda y de Argentina, habiendo vivido en ambos países. Pero si otros países son tan diferentes entre sí como esos dos, no hay forma de que yo pueda modelar a mano más que un par de países. Simplemente no escala.</p>
-<p>Siendo este un proyecto personal, mi única opción era IA. Todo sabemos que las LLM alucinan cada palabra que generan, y que a veces lo que dicen resulta corresponder con la realidad. Pedirle a una IA "genera el modelo fiscal del país X para el simulador" no funcionaría. Pero de la misma forma que hay técnicas para desarrollar software complejo con IA, también hay maneras de lograr objetivos complejos como este. Veamos entonces el proceso de agregar un nuevo país al simulador:</p>
-<ol>
-<li><p><strong>Paquete de investigación independiente</strong></p>
-<p>El primer paso es hacer que una IA investigue el sistema fiscal de un país y que escriba un informe con citas oficiales siguiendo un modelo que tiene una sección para cada aspecto del sistema impositivo, incluyendo frases exactas extraídas de los documentos citados. Esto lo hace sin tener acceso al código fuente ni conocimiento del simualdor, para evitar cualquier sesgo. Las frases citadas son fundamentales porque si se corresponden con el texto de las fuentes, demuestra que la IA tuvo que leer el documento. Es bien sabido que las LLMs inventan fuentes, incluso con URLs que parecen creíbles.</p>
-</li>
-<li><p><strong>Verificación mecánica de las citas</strong></p>
-<p>El siguiente paso es la verificación mecánica de la presencia efectiva del texto citado en el material de referencia. Un script recorre la lista de citas, descarga los documentos referenciados, y verifica que la cita esté presente. Un script no puede alucinar. Si este chequeo pasa, entonces el agente que hizo la investigación realmente leyó las fuentes que citó.</p>
-</li>
-<li><p><strong>Revisión semántica</strong></p>
-<p>Una cita válida no garantiza que la regla fiscal que supuestamente procedede del documento citado esté realmente en ese documento. Por eso, otro agente de IA recorre todas las reglas fiscales y sus fuente citadas, una por una, y trata de encontrar casos en que la regla no se corresponde con lo que dice el documento. Las LLMs quieren complacer al usuario. En este caso, el usuario estará encantado si la IA encuentra un error. Este tipo de revisión crítica (casi diría que hostil), si bien no es perfecta, funciona bastante bien.</p>
-</li>
-<li><p><strong>Pedido de revisión</strong></p>
-<p>Si cualquiera de los dos pasos anteriores encontró problemas (citas inválidas o reglas fiscales no justificadas), se crea un pedido de revisión para corregir el error. Este pedido vuelve al paso 1, que produce un anexo de investigación, que pasa por los pasos 2 y 3 nuevamente. Y si todavía hay errores, se hace otra ronda. El proceso continúa hasta que no queden errores. En la mayoría de los casos con una o dos pasadas alcanza.</p>
-</li>
-<li><p><strong>Especificación del modelo</strong></p>
-<p>Ahora tenemos un conjunto de reglas fiscales para cada aspecto del simulador que ha sido verificado. Es tiempo de introducir el conocimiento del simulador: qué puede modelar y qué no. Un agente de IA toma el informe de investigación y decide qué se puede representar directamente, qué se tiene que aproximar, y qué cosas no se pueden representar en el motor del simulador. Esta última parte se convierte en un reporte de limitaciones, que incluye una lista de recomendaciones para expandir las capacidades del motor del simulador.</p>
-</li>
-<li><p><strong>Implementación de las reglas</strong></p>
-<p>Otro agente de IA toma la especificación del modelo y codifica las normas fiscales del país en un archivo de configuración. Parte del trabajo de investigación era recopilar ejemplos resueltos y calculadoras fiscales. Estos se transforman en pruebas automatizadas y se usan para validar la implementación.</p>
-</li>
-<li><p><strong>Datos económicos</strong></p>
-<p>Un script obtiene datos económicos como la inflación, el tipo de cambio, el costo de vida y la rentabilidad de los alquileres, de fuentes como el Banco Mundial y Numbeo, y agrega esta información al archivo de configuración del país.</p>
-</li>
-<li><p><strong>Auditoría</strong></p>
-<p>La última etapa audita toda la cadena desde los paquetes de investigación hasta las reglas implementadas, buscando omisiones, reglas modeladas sin justificación, aproximaciones no documentadas, problemas de etiquetado, pruebas ausentes y otras carencias, y cualquier hallazgo produce un pedido de revisión que repite todos los pasos necesarios.</p>
-</li>
-</ol>
-<p>¿Confío ciegamente en el resultado de este proceso? Por supuesto que no. Necesito que personas reales revisen el resultado. Como no puedo contratar un experto de cada país, doy acceso gratis a quienes se comprometan a darme feedback. Si lo hacen, tienen un código de acceso (promo code).</p>
-</div></a></article></section></div></main></template></div>
+</main></template></div>
   </div>
 
   <script id="landing-runtime-config" type="application/json">{"blogEnabled":true,"backgrounds":["/src/frontend/web/landing/backgrounds/ar01.png","/src/frontend/web/landing/backgrounds/ar02.png","/src/frontend/web/landing/backgrounds/ar05.png","/src/frontend/web/landing/backgrounds/at01.png","/src/frontend/web/landing/backgrounds/ch01.png","/src/frontend/web/landing/backgrounds/cz01.png","/src/frontend/web/landing/backgrounds/de01.jpg","/src/frontend/web/landing/backgrounds/es01.png","/src/frontend/web/landing/backgrounds/fr01.png","/src/frontend/web/landing/backgrounds/fr02.png","/src/frontend/web/landing/backgrounds/gb01.png","/src/frontend/web/landing/backgrounds/gr01.png","/src/frontend/web/landing/backgrounds/ie01.png","/src/frontend/web/landing/backgrounds/ie03.png","/src/frontend/web/landing/backgrounds/ie04.png","/src/frontend/web/landing/backgrounds/it01.png","/src/frontend/web/landing/backgrounds/nl01.jpg","/src/frontend/web/landing/backgrounds/pt01.png","/src/frontend/web/landing/backgrounds/xx01.png","/src/frontend/web/landing/backgrounds/xx02.png","/src/frontend/web/landing/backgrounds/xx03.png","/src/frontend/web/landing/backgrounds/xx04.png","/src/frontend/web/landing/backgrounds/xx05.png","/src/frontend/web/landing/backgrounds/xx06.png"],"backgroundSettings":{"_startImage":"xx01.png","ar01.png":{"position":{"x":52.19,"y":0},"zoom":1.05},"ar02.png":{"position":{"x":0,"y":100},"zoom":1},"ar05.png":{"position":{"x":50,"y":66.63},"zoom":1},"at01.png":{"position":{"x":50,"y":34.35},"zoom":1},"ch01.png":{"position":{"x":0,"y":43.39},"zoom":1.2},"cz01.png":{"position":{"x":50,"y":100},"zoom":1},"de01.jpg":{"position":{"x":50,"y":9.46},"zoom":1},"es01.png":{"position":{"x":0,"y":51.89},"zoom":1.1},"fr01.png":{"position":{"x":50,"y":100},"zoom":1},"fr02.png":{"position":{"x":50,"y":0},"zoom":1},"gb01.png":{"position":{"x":50,"y":100},"zoom":1},"gr01.png":{"position":{"x":50,"y":100},"zoom":1},"ie01.png":{"position":{"x":77.54,"y":85.41},"zoom":1.85},"ie03.png":{"position":{"x":100,"y":73.77},"zoom":1.2},"ie04.png":{"position":{"x":50.64,"y":50},"zoom":1},"it01.png":{"position":{"x":50,"y":100},"zoom":1},"nl01.jpg":{"position":{"x":50,"y":0},"zoom":1},"pt01.png":{"position":{"x":50,"y":36.48},"zoom":1},"xx01.png":{"position":{"x":23.25,"y":100},"zoom":1.2},"xx02.png":{"position":{"x":0,"y":100},"zoom":1.2},"xx03.png":{"position":{"x":50,"y":100},"zoom":1},"xx04.png":{"position":{"x":50,"y":100},"zoom":1},"xx05.png":{"position":{"x":0,"y":100},"zoom":1.4},"xx06.png":{"position":{"x":100,"y":100},"zoom":1.15}}}</script>
   <script>
     window.FinSimTextManifestUrl = "/src/frontend/web/assets/text-languages.json?v=20260724-10";
     window.FinSimLandingRouteLanguage = "es";
-    window.FinSimPublicShellConfig = {"initialView":"home","blogEnabled":true,"durationMs":600,"urls":{"home":"/","blog":"/blog/"},"views":{"home":{"title":"FinSimLab | Laboratorio de simulación financiera","description":"Laboratorio de simulación financiera"},"blog":{"title":"FinSim Blog | FinSimLab","description":"Laboratorio de Simulación Financiera"}}};
+    window.FinSimPublicShellConfig = {"initialView":"blog","blogEnabled":true,"durationMs":600,"urls":{"home":"/","blog":"/blog/"},"views":{"home":{"title":"FinSimLab | Laboratorio de simulación financiera","description":"Laboratorio de simulación financiera"},"blog":{"title":"FinSim Blog | FinSimLab","description":"Laboratorio de Simulación Financiera"}}};
   </script>
   
   

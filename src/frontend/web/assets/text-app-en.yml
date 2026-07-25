@@ -1081,7 +1081,6 @@ CountryAccessCheckout:
     pendingRenewal: Pending renewal
     hideNotes: Hide {country} model notes
     showNotes: Show {country} model notes
-    readArticle: Read full article
     bulk:
       all: All listed countries selected; click to deselect all
       none: No listed countries selected; click for individual selection

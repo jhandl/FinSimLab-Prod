@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>How FinSimLab Authors Country Tax Models | FinSimLab</title>
+  <meta name="description" content="Finance Simulation Lab">
+  <link rel="canonical" href="https://finsimlab.com/blog/tax-models-authoring/">
+  <link rel="alternate" hreflang="en" href="https://finsimlab.com/en/blog/tax-models-authoring/">
+  <link rel="alternate" hreflang="es" href="https://finsimlab.com/es/blog/tax-models-authoring/">
+  <link rel="alternate" hreflang="x-default" href="https://finsimlab.com/blog/tax-models-authoring/">
+  <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260724-10">
+  <script src="/assets/blog.639da1496bf7cdd5.js" defer=""></script>
+  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260724-10-public-shell7">
+  <link rel="stylesheet" href="/src/frontend/web/blog/styles.css?v=20260724-10-public-shell9">
+  <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
+</head>
+<body class="blog-document">
+  <svg class="landing-icon-sprite" aria-hidden="true">
+    <symbol id="landing-icon-language" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6-3.9 9s1 6 3.9 9"></path></symbol>
+  </svg>
+  <div data-blog-shell=""><header><div class="container"><div class="header-top-row"><div class="logo"><a class="landing-app-icon-link" href="/" aria-label="FinSimLab"><img class="landing-app-icon" src="/src/frontend/web/ifs/IFS.svg" alt="" width="32" height="32"></a><h1 id="landing-logo-title"><a class="logo-title-part-1" href="/">FinSimLab</a><span class="logo-title-dash"> | </span><a class="logo-title-part-2" href="/lab/">Finance Simulation Lab</a></h1></div><div class="language-selector landing-language-selector"><span id="languageSelectorLabel" class="visually-hidden">Language</span><button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled=""><svg class="landing-icon language-selector-icon" aria-hidden="true"><use href="#landing-icon-language"></use></svg><span id="activeLanguageCode" class="active-language-code">EN</span></button><div id="languageDropdown" class="language-dropdown"></div></div></div><nav><ul data-site-nav="landing" aria-label="Blog"><li><a href="/#features">Features</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/#about-me">About</a></li><li><a href="/blog/">Blog</a></li></ul></nav></div></header></div>
+  <main data-blog-content=""><article class="article"><div class="prose"><header class="article-header"><h1>How FinSimLab Authors Country Tax Models</h1><time class="article-date" datetime="2026-06-24">Jun 2026</time></header><p>You may wonder how I added all these countries' tax models. I have a reasonable understanding of the Irish and the Agentinian tax systems, having lived in both. But if other countries are as different from each other as these two, there’s no way for me to hand-model more than a couple of countries. It simply doesn’t scale.    </p>
+<p>As a solo developer, AI was my only option. I know, LLMs “hallucinate” every word they say, and sometimes that happens to match reality. Asking an AI to “model the tax rules for country X for the simulator” would not work. But the same way there's techniques to get an AI to write complex software, there's also ways to achieve complex goals like this one. So let me explain how I add a new country to the simulator:</p>
+<ol>
+<li><p><strong>Independent research packet</strong></p>
+<p>The first step is to get an AI agent to research the country’s tax system and write an official-source citation packet following a template that has a section for each aspect of the tax system that we care about, with exact source quotes. This is done without any access or knowledge of the simulator, to avoid any bias. The source quotes are critical because if they match the text found in the source, it proves that the AI actually had to read the document. It’s well known that LLMs can make up sources, with likely sounding URLs and everything.</p>
+</li>
+<li><p><strong>Mechanical quote verification</strong></p>
+<p>The next step is a mechanical verification of the actual presence of the quoted text in the linked source material. A simple script goes through the list of citations, fetches the cited document, and verifies that the quote is present. Scripts can’t hallucinate. If this gate is passed, the research agent did actually read a real document.  </p>
+</li>
+<li><p><strong>Semantic review</strong></p>
+<p>A valid quote doesn’t guarantee that a tax rule claimed to come from the quoted document is actually in the document. So now another AI agent goes through the tax rules and the cited documents, one by one, and tries to find cases where the tax rule doesn't match what the document describes. LLMs like to please the user. This user is pleased if it finds an issue, a mistake. This kind of adversarial review, while not perfect, works quite well.  </p>
+</li>
+<li><p><strong>Targeted addendum</strong></p>
+<p>If any of the last two steps produced findings (invalid quotes or unsupported claims), a new research brief is created to correct the mistake. That goes back to step 1, which produces a research addendum, which then goes through steps 2 and 3 again. And if there’s still issues, another round is made. This keeps going until there’s no more issues. In most cases this takes one or two passes.  </p>
+</li>
+<li><p><strong>Modeling spec</strong></p>
+<p>Now we have a set of tax rules for each aspect of the simulator that has been vetted. Now it’s time to bring in the knowledge about the simulator: what it can model and what it can’t. An AI agent takes the research packet and decides what can be represented directly, what should be approximated, and what is not currently representable by the tax engine. That last part becomes a “gap report” and includes a list of recommendations to expand the tax engine.  </p>
+</li>
+<li><p><strong>Ruleset implementation</strong></p>
+<p>Another AI agent takes the modeling spec and encodes the country’s tax rules as a configuration file. Part of the research packet was to find worked examples and calculators. Those are then turned into tests and used to validate the implementation.</p>
+</li>
+<li><p><strong>Economic data</strong></p>
+<p>A script then fetches economic figures like inflation, exchange rates, cost of living and rental yield, from sources like the World Bank and Numbeo, and adds that to the country configuration file.  </p>
+</li>
+<li><p><strong>Audit</strong></p>
+<p>The final gate audits the chain from research packet to implemented tax model, looking for dropped rules, unsupported modelled claims, undocumented approximations, label problems, missing tests and remaining issues, and any findings produce a new review request that repeats all the necessary steps.</p>
+</li>
+</ol>
+<p>Do I blindly trust the output of this process? Of course not. I need real people checking the result. Since I can’t hire experts, I let people try it for free if they promise to give me feedback. If they do, they get a promo code.</p>
+</div></article></main>
+  <script>window.FinSimTextManifestUrl="/src/frontend/web/assets/text-languages.json?v=20260724-10";window.FinSimBlogPage={"kind":"post","postId":"tax-models-authoring"};</script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+</body></html>

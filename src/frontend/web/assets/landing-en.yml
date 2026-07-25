@@ -107,25 +107,6 @@ page:
     historyAfterLink: ', but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website.'
     access: I believe that everyone should have access to tools that help them improve their financial understanding for more productive conversations with professional advisors.
     hope: I hope this tool helps you as much as it helped me.
-  blog:
-    title: Blog
-    workflow:
-      label: Workflow
-      title: How FinSimLab authors country tax models
-      description: The source-first process behind country models, review gates, implementation checks, and documented limitations.
-    planning:
-      label: Planning
-      title: What a personal finance simulator can answer
-      description: How to use scenarios to compare choices, stress test assumptions, and keep planning decisions grounded.
-    product:
-      label: Product
-      title: Why FinSimLab keeps your data local
-      description: A look at the privacy tradeoffs behind browser-only scenario files and transparent calculations.
-    countries:
-      label: Country notes
-      title: Country notes
-      description: Short updates when a country model lands or when a tax-model approximation deserves extra explanation.
-    viewAll: View all articles
   callToAction:
     title: Ready to explore your financial future?
     action: Launch Simulator

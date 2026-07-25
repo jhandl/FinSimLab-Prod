@@ -1,7 +1,0 @@
-staticPages:
-  language: en
-  brand: FinSimLab
-  countries: Countries
-  blog: Blog
-  titleSeparator: ' | '
-  footer: Static pages generated from authored FinSim Markdown.

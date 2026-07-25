@@ -2,12 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://finsimlab.com/</loc></url>
   <url><loc>https://finsimlab.com/blog/</loc></url>
+  <url><loc>https://finsimlab.com/en/blog/</loc></url>
+  <url><loc>https://finsimlab.com/es/blog/</loc></url>
   <url><loc>https://finsimlab.com/blog/origin-story/</loc></url>
-  <url><loc>https://finsimlab.com/blog/tax-rules-authoring/</loc></url>
-  <url><loc>https://finsimlab.com/blog/transparent-country-models/</loc></url>
-  <url><loc>https://finsimlab.com/countries/</loc></url>
-  <url><loc>https://finsimlab.com/countries/ie/</loc></url>
-  <url><loc>https://finsimlab.com/countries/xx/</loc></url>
+  <url><loc>https://finsimlab.com/en/blog/origin-story/</loc></url>
+  <url><loc>https://finsimlab.com/es/blog/origin-story/</loc></url>
+  <url><loc>https://finsimlab.com/blog/tax-models-authoring/</loc></url>
+  <url><loc>https://finsimlab.com/en/blog/tax-models-authoring/</loc></url>
+  <url><loc>https://finsimlab.com/es/blog/tax-models-authoring/</loc></url>
   <url><loc>https://finsimlab.com/en/</loc></url>
   <url><loc>https://finsimlab.com/es/</loc></url>
 </urlset>
