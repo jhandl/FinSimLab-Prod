@@ -1,7 +1,6 @@
 LanguageSelector: {}
 LanguageNames: {}
-site:
-  navigation: {}
+site: {}
 blog:
   index: {}
   posts:

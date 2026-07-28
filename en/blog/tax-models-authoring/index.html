@@ -1,28 +1,80 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html><!-- Public-shell template. Run npm run render:pages after template or copy changes. --><html lang="en" dir="ltr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>How FinSimLab Authors Country Tax Models | FinSimLab</title>
-  <meta name="description" content="Finance Simulation Lab">
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var recoveryToken = String(params.get('recovery_token') || '').trim();
+      var verificationToken = String(params.get('verification-token') || '').trim();
+      if (!recoveryToken && !verificationToken) return;
+      var labUrl = new URL('/lab/', window.location.origin);
+      if (recoveryToken) labUrl.searchParams.set('recovery_token', recoveryToken);
+      if (verificationToken) labUrl.searchParams.set('verification-token', verificationToken);
+      window.location.replace(labUrl.toString());
+    })();
+  </script>
+  <title>How FinSimLab Authors Country Tax Models | FinSimLab</title><meta name="description" content="Finance Simulation Lab">
   <link rel="canonical" href="https://finsimlab.com/en/blog/tax-models-authoring/">
   <link rel="alternate" hreflang="en" href="https://finsimlab.com/en/blog/tax-models-authoring/">
   <link rel="alternate" hreflang="es" href="https://finsimlab.com/es/blog/tax-models-authoring/">
   <link rel="alternate" hreflang="x-default" href="https://finsimlab.com/blog/tax-models-authoring/">
-  <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260724-10">
+  <link rel="icon" type="image/svg+xml" href="/src/frontend/web/ifs/IFS.svg?v=20260404-1">
   <link rel="manifest" href="/manifest.webmanifest">
-  <script src="/assets/blog.3adb2b9eeaf99dcc.js" defer=""></script>
-  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260724-10-public-shell7">
-  <link rel="stylesheet" href="/src/frontend/web/blog/styles.css?v=20260724-10-public-shell9">
+  <link rel="preload" href="/src/frontend/web/landing/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin="">
+  <script src="/en/blog/tax-models-authoring/bundle.1785273506148.js" defer=""></script>
+  <link rel="stylesheet" href="/src/frontend/web/landing/styles.css?v=20260728-nav-current1">
+  <link rel="stylesheet" href="/src/frontend/web/blog/styles.css?v=20260728-blog-title1">
   <noscript><style>#landing-logo-title { visibility: visible; }</style></noscript>
+
+  
+  
 </head>
-<body class="blog-document">
+<body>
   <svg class="landing-icon-sprite" aria-hidden="true">
-    <symbol id="landing-icon-language" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6-3.9 9s1 6 3.9 9"></path></symbol>
+    <symbol id="landing-icon-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M7 15l4-4 3 2 5-6"></path></symbol>
+    <symbol id="landing-icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"></path></symbol>
+    <symbol id="landing-icon-language" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.4 12h17.2M5.1 7.3h13.8M5.1 16.7h13.8M12 3c2.9 3 3.9 6.1 3.9 9s-1 6-3.9 9M12 3c-2.9 3-3.9 6.1-3.9 9s1 6 3.9 9"></path></symbol>
+    <symbol id="landing-icon-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3zM9 12l2 2 4-5"></path></symbol>
+    <symbol id="landing-icon-bolt" viewBox="0 0 24 24"><path d="M13 2L5 14h6l-1 8 9-13h-6V2z"></path></symbol>
+    <symbol id="landing-icon-shuffle" viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M17 4l3 3-3 3M4 17h3c2 0 3-2 4-4M16 7h4M17 14l3 3-3 3"></path></symbol>
+    <symbol id="landing-icon-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 9h18M9 4v16M15 4v16"></path></symbol>
+    <symbol id="landing-icon-code" viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6M14 3l-4 18"></path></symbol>
+    <symbol id="landing-icon-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 15c-2-2-3-4-2-7a6 6 0 0112 0c1 3 0 5-2 7l-1 1H9l-1-1z"></path></symbol>
+    <symbol id="landing-icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20c0-4 2-7 6-7s6 3 6 7M15 14c4 0 6 2 6 6"></path></symbol>
+    <symbol id="landing-icon-heart" viewBox="0 0 24 24"><path d="M12 20S4 16 4 9a4 4 0 018-2 4 4 0 018 2c0 7-8 11-8 11z"></path></symbol>
+    <symbol id="landing-icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></symbol>
   </svg>
-  <div data-blog-shell=""><header><div class="container"><div class="header-top-row"><div class="logo"><a class="landing-app-icon-link" href="/" aria-label="FinSimLab"><img class="landing-app-icon" src="/src/frontend/web/ifs/IFS.svg" alt="" width="32" height="32"></a><h1 id="landing-logo-title"><a class="logo-title-part-1" href="/">FinSimLab</a><span class="logo-title-dash"> | </span><a class="logo-title-part-2" href="/lab/">Finance Simulation Lab</a></h1></div><div class="language-selector landing-language-selector"><span id="languageSelectorLabel" class="visually-hidden">Language</span><button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled=""><svg class="landing-icon language-selector-icon" aria-hidden="true"><use href="#landing-icon-language"></use></svg><span id="activeLanguageCode" class="active-language-code">EN</span></button><div id="languageDropdown" class="language-dropdown"></div></div></div><nav><ul data-site-nav="landing" aria-label="Blog"><li><a href="/#features">Features</a></li><li><a href="/#how-it-works">How It Works</a></li><li><a href="/#about-me">About</a></li><li><a href="/blog/">Blog</a></li></ul></nav></div></header></div>
-  <main data-blog-content=""><article class="article"><div class="prose"><header class="article-header"><h1>How FinSimLab Authors Country Tax Models</h1><time class="article-date" datetime="2026-06-24">Jun 2026</time></header><p>You may wonder how I added all these countries' tax models. I have a reasonable understanding of the Irish and the Agentinian tax systems, having lived in both. But if other countries are as different from each other as these two, there’s no way for me to hand-model more than a couple of countries. It simply doesn’t scale.    </p>
+  <div data-site-shell="" data-site-view="blog" data-site-blog-enabled="false">
+    <header data-site-header="">
+      <div class="container">
+        <div class="header-top-row">
+          <div class="logo">
+            <a class="landing-app-icon-link" href="/" data-site-home-link="" aria-label="FinSimLab" data-i18n-attr="aria-label:page.brand.name"><img class="landing-app-icon" src="/src/frontend/web/ifs/IFS.svg?v=20260404-1" alt="" width="32" height="32"></a>
+            <h1 id="landing-logo-title"><a class="logo-title-part-1" href="/" data-site-home-link="" data-i18n="page.brand.name">FinSimLab</a><span class="logo-title-dash" data-i18n="page.brand.separator"> - </span><a class="logo-title-part-2" href="/lab/" data-i18n="page.brand.tagline">Finance Simulation Lab</a></h1>
+          </div>
+          <div class="language-selector landing-language-selector">
+            <span id="languageSelectorLabel" class="visually-hidden" data-i18n="LanguageSelector.label">Language</span>
+            <button id="languageMenuToggle" class="language-selector-trigger" type="button" aria-labelledby="languageSelectorLabel activeLanguageCode" disabled="">
+              <svg class="landing-icon language-selector-icon" aria-hidden="true"><use href="#landing-icon-language"></use></svg>
+              <span id="activeLanguageCode" class="active-language-code">EN</span>
+            </button>
+            <div id="languageDropdown" class="language-dropdown"></div>
+          </div>
+        </div>
+        <nav>
+          <ul data-site-nav="landing">
+            <li><a href="/#features" data-scroll-to="features" data-i18n="page.navigation.features">Features</a></li>
+            <li><a href="/#how-it-works" data-scroll-to="how-it-works" data-i18n="page.navigation.howItWorks">How It Works</a></li>
+            <li><a href="/#about-me" data-scroll-to="about-me" data-i18n="page.navigation.about">About</a></li>
+            <li data-landing-blog-nav="" hidden="" aria-hidden="true"><a href="/blog/" data-site-view-target="blog"><span data-i18n="page.navigation.blog">Blog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div data-site-panels=""><main data-site-panel="blog" data-site-view-root=""><div data-blog-content=""><article class="article"><div class="prose"><header class="article-header"><h1>How FinSimLab Authors Country Tax Models</h1><time class="article-date" datetime="2026-06-24">Jun 2026</time></header><p>You may wonder how I added all these countries' tax models. I have a reasonable understanding of the Irish and the Agentinian tax systems, having lived in both. But if other countries are as different from each other as these two, there’s no way for me to hand-model more than a couple of countries. It simply doesn’t scale.    </p>
 <p>As a solo developer, AI was my only option. I know, LLMs “hallucinate” every word they say, and sometimes that happens to match reality. Asking an AI to “model the tax rules for country X for the simulator” would not work. But the same way there's techniques to get an AI to write complex software, there's also ways to achieve complex goals like this one. So let me explain how I add a new country to the simulator:</p>
 <ol>
 <li><p><strong>Independent research packet</strong></p>
@@ -51,8 +103,155 @@
 </li>
 </ol>
 <p>Do I blindly trust the output of this process? Of course not. I need real people checking the result. Since I can’t hire experts, I let people try it for free if they promise to give me feedback. If they do, they get a promo code.</p>
-</div></article></main>
-  <script>window.FinSimTextManifestUrl="/src/frontend/web/assets/text-languages.json?v=20260724-10";window.FinSimBlogPage={"kind":"post","postId":"tax-models-authoring","routeLanguage":"en"};</script>
+</div></article></div></main><template data-site-home-template=""><main data-site-panel="home" data-site-view-root="">  <section id="top" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-title">
+          <h1 data-site-view-heading="" data-i18n="page.hero.eyebrow">What if...</h1>
+        </div>
+        <h3 class="hero-what-if-line" data-landing-what-if-line="" data-ready="false" aria-live="polite"></h3>
+        <h2 data-i18n="page.hero.title">Your Personal Finance Lab</h2>
+        <p data-i18n="page.hero.description">A private sandbox for exploring life, investing, and retirement scenarios across countries, all in your browser. Start free, then unlock real-country tax models when needed.</p>
+        <a href="/lab/" class="cta-button" data-i18n="page.hero.action">Start Planning</a>
+      </div>
+      <div class="hero-image">
+        <div class="landing-hero-composite" data-landing-hero-composite="">
+          <img class="landing-hero-composite-background is-active" alt="" aria-hidden="true">
+          <img class="landing-hero-composite-background" alt="" aria-hidden="true">
+          <img class="landing-hero-composite-foreground" src="/src/frontend/web/landing/view.png" alt="Plan your life and retirement with FinSim" data-i18n-attr="alt:page.hero.imageAlt">
+          <span class="landing-hero-composite-filename" data-landing-hero-background-filename="" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2 data-i18n="page.features.title">Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-chart"></use></svg></div>
+          <h3 data-i18n="page.features.scenario.title">Scenario Planning</h3>
+          <p data-i18n="page.features.scenario.description">Model your financial future with customisable life events and economic conditions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-globe"></use></svg></div>
+          <h3 data-i18n="page.features.countries.title">Multi-Country Tax Engine</h3>
+          <p data-i18n="page.features.countries.description">Local taxes for multiple countries are modeled. See what happens when you move to another country.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-shield"></use></svg></div>
+          <h3 data-i18n="page.features.privacy.title">Private by Design</h3>
+          <p data-i18n="page.features.privacy.description">Your scenario data stays on your device. We don't ask you to connect your bank account. We only get your email if you buy a license.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-bolt"></use></svg></div>
+          <h3 data-i18n="page.features.stress.title">Stress Testing</h3>
+          <p data-i18n="page.features.stress.description">Test your financial plan against market crashes and adverse economic conditions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-shuffle"></use></svg></div>
+          <h3 data-i18n="page.features.likelihood.title">Success Likelihood</h3>
+          <p data-i18n="page.features.likelihood.description">Understand the probability of success with volatility-based simulations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-table"></use></svg></div>
+          <h3 data-i18n="page.features.data.title">Data Deep Dive</h3>
+          <p data-i18n="page.features.data.description">See a detailed year-by-year breakdown of the numbers. Hover to see where each number comes from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2 data-i18n="page.howItWorks.title">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-number" data-i18n="page.howItWorks.input.number">1</span>
+              <h3 data-i18n="page.howItWorks.input.title">Input Your Financial Data</h3>
+            </div>
+            <p data-i18n="page.howItWorks.input.description">Enter your current financial situation and goals, and expected economic conditions. Get detailed help for each field. It all stays in your browser. A guided setup helps you get started.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-number" data-i18n="page.howItWorks.events.number">2</span>
+              <h3 data-i18n="page.howItWorks.events.title">Add Life Events</h3>
+            </div>
+            <p data-i18n="page.howItWorks.events.description">Create events for income, expenses, and major life changes like buying a house or changing jobs. A wizard is there to help you create events.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-number" data-i18n="page.howItWorks.simulate.number">3</span>
+              <h3 data-i18n="page.howItWorks.simulate.title">Run Simulation</h3>
+            </div>
+            <p data-i18n="page.howItWorks.simulate.description">See how your financial future could unfold through detailed graphs and year-by-year breakdowns. Get a high-level overview or dive into the numbers.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-number" data-i18n="page.howItWorks.compare.number">4</span>
+              <h3 data-i18n="page.howItWorks.compare.title">Change one thing and compare</h3>
+            </div>
+            <p data-i18n="page.howItWorks.compare.description">Tweak assumptions, save versions, see where your plan is more likely to fail, learn which decisions actually move the needle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-me" class="about">
+    <div class="container">
+      <h2 data-i18n="page.about.title">About</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-code"></use></svg><span data-i18n="page.about.developer">I'm a software developer with a passion for financial literacy and an itch I needed to scratch.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-bulb"></use></svg><span data-i18n="page.about.motivation">When I started my investment journey I hired a financial advisor who gave me sound advice and a view of my financial future with nice charts and data. But the engineer in me wanted to play with the numbers and see how they impacted the outcome.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-table"></use></svg><span><span data-i18n="page.about.historyBeforeLink">I first built a google sheet and</span> <a href="https://www.reddit.com/r/irishpersonalfinance/comments/hl59bt/im_sharing_my_ireland_retirement_simulator/" target="_blank" rel="noopener noreferrer" data-i18n="page.about.historyLink">shared it on reddit</a><span data-i18n="page.about.historyAfterLink">, but every time I made a change it forced users to make a new copy and re-enter their data. So I turned it into this website.</span></span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-users"></use></svg><span data-i18n="page.about.access">I believe that everyone should have access to tools that help them improve their financial understanding for more productive conversations with professional advisors.</span></p>
+          <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-heart"></use></svg><span data-i18n="page.about.hope">I hope this tool helps you as much as it helped me.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-i18n="page.callToAction.title">Ready to explore your financial future?</h2>
+      <a href="/lab/" class="cta-button" data-i18n="page.callToAction.action">Launch Simulator</a>
+    </div>
+  </section>
+
+  <section id="disclaimer" class="disclaimer disclaimer-bottom">
+    <div class="container">
+      <div class="disclaimer-simple">
+        <p><svg class="landing-icon" aria-hidden="true"><use href="#landing-icon-info"></use></svg> <strong data-i18n="page.disclaimer.label">Educational Purpose Only:</strong> <span data-i18n="page.disclaimer.text">This is not a budgeting tool nor financial, investment, tax, or legal advice. Don't make serious life decisions based on this. It's not a substitute for a good financial advisor.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="page.footer">© 2026 FinSimLab</p>
+    </div>
+  </footer>
+</main></template></div>
+  </div>
+
+  <script id="landing-runtime-config" type="application/json">{"blogEnabled":true,"backgrounds":["/src/frontend/web/landing/backgrounds/ar01.png","/src/frontend/web/landing/backgrounds/ar02.png","/src/frontend/web/landing/backgrounds/ar05.png","/src/frontend/web/landing/backgrounds/at01.png","/src/frontend/web/landing/backgrounds/ch01.png","/src/frontend/web/landing/backgrounds/cz01.png","/src/frontend/web/landing/backgrounds/de01.jpg","/src/frontend/web/landing/backgrounds/es01.png","/src/frontend/web/landing/backgrounds/fr01.png","/src/frontend/web/landing/backgrounds/fr02.png","/src/frontend/web/landing/backgrounds/gb01.png","/src/frontend/web/landing/backgrounds/gr01.png","/src/frontend/web/landing/backgrounds/ie01.png","/src/frontend/web/landing/backgrounds/ie03.png","/src/frontend/web/landing/backgrounds/ie04.png","/src/frontend/web/landing/backgrounds/it01.png","/src/frontend/web/landing/backgrounds/nl01.jpg","/src/frontend/web/landing/backgrounds/pt01.png","/src/frontend/web/landing/backgrounds/xx01.png","/src/frontend/web/landing/backgrounds/xx02.png","/src/frontend/web/landing/backgrounds/xx03.png","/src/frontend/web/landing/backgrounds/xx04.png","/src/frontend/web/landing/backgrounds/xx05.png","/src/frontend/web/landing/backgrounds/xx06.png"],"backgroundSettings":{"_startImage":"xx01.png","ar01.png":{"position":{"x":52.19,"y":0},"zoom":1.05},"ar02.png":{"position":{"x":0,"y":100},"zoom":1},"ar05.png":{"position":{"x":50,"y":66.63},"zoom":1},"at01.png":{"position":{"x":50,"y":34.35},"zoom":1},"ch01.png":{"position":{"x":0,"y":43.39},"zoom":1.2},"cz01.png":{"position":{"x":50,"y":100},"zoom":1},"de01.jpg":{"position":{"x":50,"y":9.46},"zoom":1},"es01.png":{"position":{"x":0,"y":51.89},"zoom":1.1},"fr01.png":{"position":{"x":50,"y":100},"zoom":1},"fr02.png":{"position":{"x":50,"y":0},"zoom":1},"gb01.png":{"position":{"x":50,"y":100},"zoom":1},"gr01.png":{"position":{"x":50,"y":100},"zoom":1},"ie01.png":{"position":{"x":77.54,"y":85.41},"zoom":1.85},"ie03.png":{"position":{"x":100,"y":73.77},"zoom":1.2},"ie04.png":{"position":{"x":50.64,"y":50},"zoom":1},"it01.png":{"position":{"x":50,"y":100},"zoom":1},"nl01.jpg":{"position":{"x":50,"y":0},"zoom":1},"pt01.png":{"position":{"x":50,"y":36.48},"zoom":1},"xx01.png":{"position":{"x":23.25,"y":100},"zoom":1.2},"xx02.png":{"position":{"x":0,"y":100},"zoom":1.2},"xx03.png":{"position":{"x":50,"y":100},"zoom":1},"xx04.png":{"position":{"x":50,"y":100},"zoom":1},"xx05.png":{"position":{"x":0,"y":100},"zoom":1.4},"xx06.png":{"position":{"x":100,"y":100},"zoom":1.15}}}</script>
+  <script>
+    window.FinSimTextManifestUrl = "/src/frontend/web/assets/text-languages.json?v=20260728-1";
+    window.FinSimLandingRouteLanguage = "en";
+    window.FinSimPublicShellConfig = {"initialView":"blog","blogEnabled":true,"durationMs":600,"urls":{"home":"/","blog":"/blog/"},"views":{"home":{"title":"FinSimLab | Finance Simulation Lab","description":"Finance Simulation Lab"},"blog":{"title":"How FinSimLab Authors Country Tax Models | FinSimLab","description":"Finance Simulation Lab"}}};
+  </script>
+  
   
   
   

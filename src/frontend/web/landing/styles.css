@@ -393,6 +393,12 @@ nav ul li a:hover {
   color: var(--primary-600);
 }
 
+nav ul li a[aria-current="true"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

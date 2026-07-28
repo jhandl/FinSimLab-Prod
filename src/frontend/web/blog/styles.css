@@ -37,17 +37,10 @@
   }
 }
 
-body.blog-document,
 [data-site-panel="blog"] {
   min-height: 100vh;
   background: var(--gradient-hero);
   line-height: 1.75;
-}
-
-/* A direct article's shell only contains the header. Flatten it so sticky
-   positioning is bounded by the document, rather than by that short wrapper. */
-body.blog-document [data-blog-shell] {
-  display: contents;
 }
 
 [data-blog-content] {
@@ -91,6 +84,14 @@ body.blog-document [data-blog-shell] {
   font-weight: 750;
   line-height: 1.1;
   text-wrap: balance;
+}
+
+.page-intro h1 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--neutral-900);
+  letter-spacing: -0.01em;
 }
 
 .article-header h1 {

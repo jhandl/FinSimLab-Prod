@@ -8,14 +8,9 @@ site:
   brand: FinSimLab
   tagline: Laboratorio de Simulación Financiera
   titleSeparator: ' | '
-  navigation:
-    features: Prestaciones
-    howItWorks: Cómo usar
-    about: Autor
-    blog: Blog
 blog:
   index:
-    title: FinSim Blog
+    title: Notas de laboratorio
   posts:
     - id: origin-story
       title: De Google Sheets a FinSimLab

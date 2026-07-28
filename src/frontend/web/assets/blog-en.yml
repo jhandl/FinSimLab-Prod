@@ -8,15 +8,10 @@ site:
   brand: FinSimLab
   tagline: Finance Simulation Lab
   titleSeparator: ' | '
-  navigation:
-    features: Features
-    howItWorks: How It Works
-    about: About
-    blog: Blog
 blog:
   translationNoticeTemplate: This article was translated with AI.
   index:
-    title: FinSim Blog
+    title: Lab notes
   posts:
     - id: origin-story
       title: From Google Sheets to FinSimLab
