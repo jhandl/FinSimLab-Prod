@@ -1317,9 +1317,11 @@ body {
   transform: translateX(0);
 }
 
-[data-site-view-heading]:focus-visible {
-  outline: 3px solid rgba(var(--color-button-rgb), 0.45);
-  outline-offset: 6px;
+/* View headings receive programmatic focus after SPA navigation so screen
+   readers announce the new page. They are not interactive controls, so keep
+   Safari from showing a focus ring for that accessibility handoff. */
+[data-site-view-heading]:focus {
+  outline: none;
 }
 
 @media (max-width: 768px) {
